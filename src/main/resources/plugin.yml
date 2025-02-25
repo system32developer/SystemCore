@@ -1,5 +1,0 @@
-name: SystemCore
-version: '1.0'
-main: com.system32.systemCore.SystemCore
-api-version: '1.21'
-authors: [ System32 ]
