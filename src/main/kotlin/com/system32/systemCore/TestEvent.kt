@@ -6,8 +6,10 @@ import org.bukkit.event.player.PlayerJoinEvent
 
 class TestEvent : Listener {
     init {
-        SystemCore.getInstance().server.pluginManager.registerEvents(this, SystemCore.getInstance())
+        val plugin = SystemCore.getInstance()
+        plugin.server.pluginManager.registerEvents(this, plugin)
     }
+
     @EventHandler
     fun onPlayerJoin(playerJoinEvent: PlayerJoinEvent) {
         println("Player joined")
