@@ -3,10 +3,11 @@ import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 plugins {
     kotlin("jvm") version "2.1.20-RC"
     id("com.gradleup.shadow") version "8.3.2"
+    `maven-publish`
 }
 
 group = "com.system32"
-version = "1.0"
+version = "1.0.3"
 
 repositories {
     mavenCentral()
@@ -22,6 +23,7 @@ dependencies {
     compileOnly("io.papermc.paper:paper-api:1.21.1-R0.1-SNAPSHOT")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("org.bstats:bstats-bukkit:3.0.2")
+    implementation("com.tchristofferson:ConfigUpdater:2.2-SNAPSHOT")
 }
 
 val targetJavaVersion = 21
@@ -46,4 +48,15 @@ val path = "com.system32.systemCore.shade"
 tasks.named<ShadowJar>("shadowJar") {
     minimize()
     relocate("org.bstats", "$path.bstats")
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            from(components["java"])
+            groupId = "com.github.system32developer"
+            artifactId = "SystemCore"
+            version = version
+        }
+    }
 }

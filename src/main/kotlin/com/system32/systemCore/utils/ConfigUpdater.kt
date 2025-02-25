@@ -1,0 +1,15 @@
+package com.system32.systemCore.utils
+
+import org.bukkit.configuration.file.YamlConfiguration
+import com.tchristofferson.configupdater.ConfigUpdater
+import org.bukkit.plugin.java.JavaPlugin
+import java.io.File
+
+class ConfigUpdater {
+    companion object{
+        fun update(plugin: JavaPlugin, string: String) {
+            val file = File(plugin.dataFolder, string)
+            ConfigUpdater.update(plugin, string, file)
+        }
+    }
+}
