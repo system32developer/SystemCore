@@ -1,5 +1,6 @@
 package com.system32.systemCore
 
+import org.bukkit.Bukkit
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.player.PlayerJoinEvent
@@ -7,7 +8,7 @@ import org.bukkit.event.player.PlayerJoinEvent
 class TestEvent : Listener {
     init {
         val plugin = SystemCore.getInstance()
-        plugin.server.pluginManager.registerEvents(this, plugin)
+        Bukkit.getPluginManager().registerEvents(this, plugin)
     }
 
     @EventHandler

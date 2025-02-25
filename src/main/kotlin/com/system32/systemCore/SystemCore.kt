@@ -6,7 +6,7 @@ import org.bukkit.plugin.java.JavaPlugin
 class SystemCore {
     companion object {
         private val plugin: Plugin by lazy {
-            JavaPlugin.getProvidingPlugin(SystemCore::class.java)
+            JavaPlugin.getProvidingPlugin(TestEvent::class.java)
         }
 
         fun getInstance(): Plugin {
