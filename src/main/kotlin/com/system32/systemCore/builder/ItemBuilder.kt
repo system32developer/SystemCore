@@ -11,7 +11,7 @@ import java.util.*
 
 
 class ItemBuilder(private val itemStack: ItemStack) {
-    private val itemMeta = itemStack.itemMeta
+    private val meta = itemStack.itemMeta
 
     companion object {
         fun from(itemStack: ItemStack): ItemBuilder {
@@ -23,31 +23,18 @@ class ItemBuilder(private val itemStack: ItemStack) {
         }
     }
 
-
     fun displayName(displayName: String): ItemBuilder {
-        itemMeta.displayName(color(displayName))
+        meta.displayName(color(displayName))
         return this
     }
 
     fun lore(vararg lore: String): ItemBuilder {
-        itemMeta.lore(color(lore.toList()))
-        return this
-    }
-
-    fun head(texture: String): ItemBuilder {
-        if(itemStack.type != Material.PLAYER_HEAD) return this
-
-        itemStack.editMeta<SkullMeta>(SkullMeta::class.java) { skullMeta: SkullMeta ->
-            val uuid = UUID.randomUUID()
-            val playerProfile: PlayerProfile = Bukkit.createProfile(uuid, uuid.toString().substring(0, 16))
-            playerProfile.setProperty(ProfileProperty("textures", texture))
-            skullMeta.playerProfile = playerProfile
-        }
+        meta.lore(color(lore.toList()))
         return this
     }
 
     fun build(): ItemStack {
-        itemStack.itemMeta = itemMeta
+        itemStack.itemMeta = meta
         return itemStack
     }
 }
