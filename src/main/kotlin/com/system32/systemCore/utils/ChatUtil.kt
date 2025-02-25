@@ -9,7 +9,7 @@ import java.util.function.Consumer
 
 class ChatUtil {
     companion object{
-        fun asComponent(message: String): Component {
+        fun color(message: String): Component {
             val legacy: TextComponent = LegacyComponentSerializer.legacyAmpersand().deserialize(message);
             val finalmessage: String = MiniMessage.miniMessage().serialize(legacy).replace("\\", "");
             return if (finalmessage.isEmpty()) Component.empty() else MiniMessage.miniMessage().deserialize(
@@ -17,9 +17,9 @@ class ChatUtil {
             )
         }
 
-        fun asComponents(messages: List<String>): List<Component> {
+        fun color(messages: List<String>): List<Component> {
             val components: MutableList<Component> = ArrayList()
-            messages.forEach(Consumer { message: String -> components.add(asComponent(message)) })
+            messages.forEach(Consumer { message: String -> components.add(color(message)) })
             return components
         }
 
