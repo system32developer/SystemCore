@@ -13,23 +13,25 @@ class SpigotUtil (private val plugin: JavaPlugin, private val resourceId: Int) {
     /**
      * Checks if there is a new version of the plugin available on SpigotMC.
      *
-     * @param onLatest Action to execute if the plugin is up to date.
-     * @param onOutdated Action to execute if a new version is available, receives the latest version as a parameter.
+     * @param onLatest (Optional) Action to execute if the plugin is up to date. Default is an empty function.
+     * @param onOutdated Action to execute if a new version is available. It provides:
+     *  - `latestVersion`: The latest version available on SpigotMC.
+     *  - `downloadLink`: The direct link to the plugin's resource page on SpigotMC.
      *
      * ### Example usage:
      * ```
      * val spigotUtil = SpigotUtil(plugin, 12345) // SpigotMC resource ID
      * spigotUtil.version(
-     *     onLatest = {
-     *         plugin.logger.info("You are using the latest version.")
-     *     },
-     *     onOutdated = { latestVersion ->
-     *         plugin.logger.info("A new version is available: $latestVersion. Please update!")
+     *    onLatest = {
+     *      plugin.logger.info("You are running the latest version.")
+     *    },
+     *     onOutdated = { latestVersion, downloadLink ->
+     *      plugin.logger.info("A new version ($latestVersion) is available! Download it here: $downloadLink")
      *     }
      * )
      * ```
      */
-    fun version(onLatest: () -> Unit, onOutdated: (String) -> Unit) {
+    fun version(onLatest: () -> Unit = {}, onOutdated: (latestVersion: String, downloadLink: String) -> Unit) {
         Bukkit.getScheduler().runTaskAsynchronously(plugin, Runnable {
             try {
                 URL("https://api.spigotmc.org/legacy/update.php?resource=$resourceId/~").openStream().use { inputStream ->
@@ -37,11 +39,12 @@ class SpigotUtil (private val plugin: JavaPlugin, private val resourceId: Int) {
                         if (scanner.hasNext()) {
                             val latestVersion = scanner.next()
                             val currentVersion = plugin.pluginMeta.version
+                            val downloadLink = "https://www.spigotmc.org/resources/$resourceId"
 
                             if (currentVersion == latestVersion) {
                                 onLatest()
                             } else {
-                                onOutdated(latestVersion)
+                                onOutdated(latestVersion, downloadLink)
                             }
                         }
                     }
