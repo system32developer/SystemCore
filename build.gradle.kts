@@ -1,4 +1,5 @@
 import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
+import java.io.ByteArrayOutputStream
 
 plugins {
     kotlin("jvm") version "2.1.20-RC"
@@ -6,8 +7,34 @@ plugins {
     `maven-publish`
 }
 
+fun getLatestGitTag(): String {
+    val output = ByteArrayOutputStream()
+    try {
+        project.exec {
+            commandLine("git", "tag", "--sort=-v:refname")
+            standardOutput = output
+        }
+    } catch (e: Exception) {
+        return "1.0.0"
+    }
+
+    val tags = output.toString().trim().split("\n")
+    return tags.firstOrNull()?.trim() ?: "1.0.0"
+}
+
+
+fun incrementVersion(version: String): String {
+    val parts = version.split(".").map { it.toInt() }.toMutableList()
+    if (parts.size < 3) parts.add(0)
+    parts[2]++
+    return parts.joinToString(".")
+}
+
+val lastTag = getLatestGitTag()
+val newVersion = incrementVersion(lastTag)
+
 group = "com.system32"
-version = "1.0.3"
+version = newVersion
 
 repositories {
     mavenCentral()
@@ -59,4 +86,17 @@ publishing {
             version = version
         }
     }
+}
+
+tasks.register("createGitTag", Exec::class) {
+    commandLine("git", "tag", "v$version")
+}
+
+tasks.register("pushGitTag", Exec::class) {
+    commandLine("git", "push", "origin", "$version")
+    dependsOn("createGitTag")
+}
+
+tasks.register("publishAndTag") {
+    dependsOn("shadowJar", "publish", "pushGitTag")
 }
