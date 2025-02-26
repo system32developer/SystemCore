@@ -2,4 +2,4 @@
 ![Weekly download statistics](https://jitpack.io/v/system32developer/SystemCore/week.svg)
 ![Monthly download statistics](https://jitpack.io/v/system32developer/SystemCore/month.svg)
 
-![JavaDocs](https://system32developer.github.io/SystemCore/index.html)
+## [Javadocs](https://system32developer.github.io/SystemCore/index.html)
