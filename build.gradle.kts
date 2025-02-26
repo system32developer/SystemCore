@@ -28,6 +28,14 @@ fun incrementVersion(version: String): String {
     val parts = version.split(".").map { it.toInt() }.toMutableList()
     if (parts.size < 3) parts.add(0)
     parts[2]++
+    if(parts[2] == 10) {
+        parts[2] = 0
+        parts[1]++
+    }
+    if(parts[1] == 10) {
+        parts[1] = 0
+        parts[0]++
+    }
     return parts.joinToString(".")
 }
 
@@ -105,11 +113,19 @@ tasks.register("publishAndTag") {
     }
 }
 
+tasks.javadoc {
+    options.encoding = "UTF-8"
+    (options as StandardJavadocDocletOptions).apply {
+        addStringOption("Xdoclint:none", "-quiet")
+        addStringOption("sourcepath", "src/main/java")
+    }
+}
+
 tasks.register("publishJavadocs") {
     dependsOn("dokkaHtml")
 
     doLast {
-        val docsDir = File(buildDir, "docs/javadoc")
+        val docsDir = File(buildDir, "dokka/html")
         if (!docsDir.exists()) {
             println("❌ No se encontraron Javadocs en $docsDir")
             return@doLast
@@ -126,8 +142,12 @@ tasks.register("publishJavadocs") {
             isIgnoreExitValue = true
         }
 
-        docsDir.copyRecursively(tempDir, overwrite = true)
+        exec {
+            workingDir = tempDir
+            commandLine("git", "rm", "-rf", ".")
+        }
 
+        docsDir.copyRecursively(tempDir, overwrite = true)
 
         exec {
             workingDir = tempDir
