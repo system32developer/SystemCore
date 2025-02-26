@@ -97,7 +97,50 @@ tasks.register("pushGitTag", Exec::class) {
     dependsOn("createGitTag")
 }
 
-tasks.register("publishAndTag") {
-    println("Publishing version $version")
-    dependsOn("pushGitTag")
+tasks.register<Exec>("publishAndTag") {
+    dependsOn("pushGitTag", "publishJavadocs")
 }
+
+tasks.register("publishJavadocs") {
+    dependsOn("javadoc")
+
+    doLast {
+        val docsDir = File(buildDir, "docs/javadoc")
+        if (!docsDir.exists()) {
+            println("❌ No se encontraron Javadocs en $docsDir")
+            return@doLast
+        }
+
+        // Crear una carpeta temporal para manejar los archivos
+        val tempDir = File(buildDir, "gh-pages")
+        tempDir.deleteRecursively()
+        tempDir.mkdirs()
+
+        // Copiar los Javadocs generados a la carpeta temporal
+        docsDir.copyRecursively(tempDir, overwrite = true)
+
+        // Comprobar si la rama `gh-pages` ya existe
+        val result = exec {
+            commandLine("git", "rev-parse", "--verify", "gh-pages")
+            isIgnoreExitValue = true // Evitar que falle si la rama no existe
+        }
+
+        // Si la rama no existe, crearla
+        if (result.exitValue != 0) {
+            exec { commandLine("git", "checkout", "--orphan", "gh-pages") }
+        } else {
+            exec { commandLine("git", "checkout", "gh-pages") }
+        }
+
+        exec { commandLine("git", "rm", "-rf", ".") } // Limpiar la rama actual
+        exec { commandLine("cp", "-r", "${tempDir.absolutePath}/.", ".") } // Copiar Javadocs al repositorio
+        exec { commandLine("git", "add", ".") }
+        exec { commandLine("git", "commit", "-m", "Actualizar Javadocs") }
+        exec { commandLine("git", "push", "--force", "origin", "gh-pages") }
+
+        println("✅ Javadocs publicados en la rama gh-pages")
+        println("✅ Versión $version publicada")
+    }
+}
+
+

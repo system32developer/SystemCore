@@ -3,7 +3,7 @@ name: Generate and Publish Javadocs
 on:
   push:
     branches:
-      - main  # Cambia esto si tu rama principal tiene otro nombre
+      - main  # O cambia esto si tu rama principal tiene otro nombre
 
 jobs:
   build:
@@ -16,7 +16,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
-          java-version: '17'  # Cambia esto si usas otra versión de Java
+          java-version: '17'  # Cambia la versión según tu proyecto
 
       - name: Generate Javadocs
         run: ./gradlew javadoc
@@ -25,4 +25,5 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
-          folder: build/docs/javadoc
+          folder: build/docs/javadoc  # Ruta donde están los Javadocs
+          clean: true  # Borra archivos viejos antes de subir los nuevos
