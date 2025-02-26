@@ -6,6 +6,7 @@ import com.system32.systemCore.builder.ItemBuilder
 import com.system32.systemCore.utils.ChatUtil.Companion.color
 import org.bukkit.Bukkit
 import org.bukkit.Material
+import org.bukkit.OfflinePlayer
 import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack
 import org.bukkit.inventory.meta.SkullMeta
@@ -36,6 +37,11 @@ class SkullBuilder {
     }
 
     fun texture(player: Player): SkullBuilder {
+        meta.setOwningPlayer(player)
+        return this
+    }
+
+    fun texture(player: OfflinePlayer): SkullBuilder {
         meta.setOwningPlayer(player)
         return this
     }
