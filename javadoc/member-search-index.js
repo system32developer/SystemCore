@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"com.system32.systemCore.shade","c":"bstats","l":"bstats()","u":"%3Cinit%3E()"}];updateSearchResults();
