@@ -89,7 +89,7 @@ publishing {
 }
 
 tasks.register("createGitTag", Exec::class) {
-    commandLine("git", "tag", "v$version")
+    commandLine("git", "tag", "$version")
 }
 
 tasks.register("pushGitTag", Exec::class) {
@@ -98,5 +98,6 @@ tasks.register("pushGitTag", Exec::class) {
 }
 
 tasks.register("publishAndTag") {
-    dependsOn("shadowJar", "publish", "pushGitTag")
+    println("Publishing version $version")
+    dependsOn("pushGitTag")
 }
