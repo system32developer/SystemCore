@@ -5,6 +5,7 @@ plugins {
     kotlin("jvm") version "2.1.20-RC"
     id("com.gradleup.shadow") version "8.3.2"
     `maven-publish`
+    id("org.jetbrains.dokka") version "2.0.0"
 }
 
 fun getLatestGitTag(): String {
@@ -97,12 +98,15 @@ tasks.register("pushGitTag", Exec::class) {
     dependsOn("createGitTag")
 }
 
-tasks.register<Exec>("publishAndTag") {
+tasks.register("publishAndTag") {
     dependsOn("pushGitTag", "publishJavadocs")
+    doLast{
+        println("Publishing version $version")
+    }
 }
 
 tasks.register("publishJavadocs") {
-    dependsOn("javadoc")
+    dependsOn("dokkaHtml")
 
     doLast {
         val docsDir = File(buildDir, "docs/javadoc")
@@ -111,35 +115,47 @@ tasks.register("publishJavadocs") {
             return@doLast
         }
 
-        // Crear una carpeta temporal para manejar los archivos
-        val tempDir = File(buildDir, "gh-pages")
+        val tempDir = File(buildDir, "gh-pages-temp")
         tempDir.deleteRecursively()
-        tempDir.mkdirs()
 
-        // Copiar los Javadocs generados a la carpeta temporal
+        exec {
+            commandLine(
+                "git", "clone", "--depth", "1", "--branch", "gh-pages",
+                "https://github.com/system32developer/SystemCore.git", tempDir.absolutePath
+            )
+            isIgnoreExitValue = true
+        }
+
         docsDir.copyRecursively(tempDir, overwrite = true)
 
-        // Comprobar si la rama `gh-pages` ya existe
-        val result = exec {
-            commandLine("git", "rev-parse", "--verify", "gh-pages")
-            isIgnoreExitValue = true // Evitar que falle si la rama no existe
+
+        exec {
+            workingDir = tempDir
+            commandLine("git", "add", ".")
         }
 
-        // Si la rama no existe, crearla
-        if (result.exitValue != 0) {
-            exec { commandLine("git", "checkout", "--orphan", "gh-pages") }
+        val status = ByteArrayOutputStream()
+        exec {
+            workingDir = tempDir
+            commandLine("git", "status", "--porcelain")
+            standardOutput = status
+        }
+
+        if (status.toString().trim().isNotEmpty()) {
+            exec {
+                workingDir = tempDir
+                commandLine("git", "commit", "-m", "Actualizar Javadocs")
+            }
+            exec {
+                workingDir = tempDir
+                commandLine("git", "push", "--force", "origin", "gh-pages")
+            }
+            println("✅ Javadocs publicados correctamente en GitHub Pages")
         } else {
-            exec { commandLine("git", "checkout", "gh-pages") }
+            println("⚠️ No hay cambios en los Javadocs, no se realizó ningún commit.")
         }
 
-        exec { commandLine("git", "rm", "-rf", ".") } // Limpiar la rama actual
-        exec { commandLine("cp", "-r", "${tempDir.absolutePath}/.", ".") } // Copiar Javadocs al repositorio
-        exec { commandLine("git", "add", ".") }
-        exec { commandLine("git", "commit", "-m", "Actualizar Javadocs") }
-        exec { commandLine("git", "push", "--force", "origin", "gh-pages") }
-
-        println("✅ Javadocs publicados en la rama gh-pages")
-        println("✅ Versión $version publicada")
+        tempDir.deleteRecursively()
     }
 }
 
