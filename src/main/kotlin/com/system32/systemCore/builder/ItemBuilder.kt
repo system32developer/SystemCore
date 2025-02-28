@@ -23,13 +23,18 @@ class ItemBuilder(private val itemStack: ItemStack) {
         }
     }
 
-    fun displayName(displayName: String): ItemBuilder {
+    fun name(displayName: String): ItemBuilder {
         meta.displayName(color(displayName))
         return this
     }
 
     fun lore(vararg lore: String): ItemBuilder {
         meta.lore(color(lore.toList()))
+        return this
+    }
+
+    fun lore(lore: List<String>): ItemBuilder {
+        meta.lore(color(lore))
         return this
     }
 

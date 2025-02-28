@@ -18,13 +18,18 @@ class SkullBuilder {
 
 
 
-    fun displayName(displayName: String): SkullBuilder {
+    fun name(displayName: String): SkullBuilder {
         meta.displayName(color(displayName))
         return this
     }
 
     fun lore(vararg lore: String): SkullBuilder {
         meta.lore(color(lore.toList()))
+        return this
+    }
+
+    fun lore(lore: List<String>): SkullBuilder {
+        meta.lore(color(lore))
         return this
     }
 

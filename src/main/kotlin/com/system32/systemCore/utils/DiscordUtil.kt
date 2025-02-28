@@ -7,6 +7,18 @@ import java.nio.charset.StandardCharsets
 import javax.net.ssl.HttpsURLConnection
 
 class DiscordUtil (private val url: String) {
+    companion object {
+        fun convertToColor(r: Int, g: Int, b: Int): Color {
+            return Color(r, g, b)
+        }
+        fun convertToColor(r: String, g: String, b: String): Color {
+            return try{
+                Color(r.toInt(), g.toInt(), b.toInt())
+            } catch (e: NumberFormatException) {
+                Color(255, 0, 0)
+            }
+        }
+    }
     private var content: String? = null
     private var username: String? = null
     private var avatarUrl: String? = null
