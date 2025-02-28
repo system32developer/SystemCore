@@ -2,7 +2,6 @@ package com.system32.systemCore.builder.item
 
 import com.destroystokyo.paper.profile.PlayerProfile
 import com.destroystokyo.paper.profile.ProfileProperty
-import com.system32.systemCore.builder.ItemBuilder
 import com.system32.systemCore.utils.ChatUtil.Companion.color
 import org.bukkit.Bukkit
 import org.bukkit.Material
@@ -11,6 +10,8 @@ import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack
 import org.bukkit.inventory.meta.SkullMeta
 import java.util.*
+import java.util.concurrent.CompletableFuture
+import java.util.function.Supplier
 
 class SkullBuilder {
     private val itemStack: ItemStack = ItemStack(Material.PLAYER_HEAD)
@@ -34,6 +35,20 @@ class SkullBuilder {
     }
 
     fun texture(texture: String): SkullBuilder {
+        val uuid = UUID.randomUUID()
+        CompletableFuture.supplyAsync<PlayerProfile>(Supplier<PlayerProfile> { Bukkit.createProfile(uuid, uuid.toString().substring(0, 16)) })
+            .whenCompleteAsync({ profile, throwable ->
+                if (throwable != null) {
+                    throwable.printStackTrace()
+                    return@whenCompleteAsync
+                }
+                profile.setProperty(ProfileProperty("textures", texture))
+                meta.playerProfile = profile
+            })
+        return this
+    }
+
+    fun newTexture(texture: String): SkullBuilder {
         val uuid = UUID.randomUUID()
         val playerProfile: PlayerProfile = Bukkit.createProfile(uuid, uuid.toString().substring(0, 16))
         playerProfile.setProperty(ProfileProperty("textures", texture))
