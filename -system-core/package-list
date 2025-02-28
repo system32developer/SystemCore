@@ -36,6 +36,9 @@ $dokka.location:com.system32.systemCore.utils/ConfigUtil///PointingToDeclaration
 $dokka.location:com.system32.systemCore.utils/ConfigUtil/ConfigUtil/#org.bukkit.plugin.java.JavaPlugin#kotlin.String#java.io.File?/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-config-util/-config-util.html
 $dokka.location:com.system32.systemCore.utils/ConfigUtil/reload/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-config-util/reload.html
 $dokka.location:com.system32.systemCore.utils/ConfigUtil/save/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-config-util/save.html
+$dokka.location:com.system32.systemCore.utils/DiscordUtil.Companion///PointingToDeclaration/-system-core/com.system32.systemCore.utils/-discord-util/-companion/index.html
+$dokka.location:com.system32.systemCore.utils/DiscordUtil.Companion/convertToColor/#kotlin.Int#kotlin.Int#kotlin.Int/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-discord-util/-companion/convert-to-color.html
+$dokka.location:com.system32.systemCore.utils/DiscordUtil.Companion/convertToColor/#kotlin.String#kotlin.String#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-discord-util/-companion/convert-to-color.html
 $dokka.location:com.system32.systemCore.utils/DiscordUtil.EmbedObject.Author///PointingToDeclaration/-system-core/com.system32.systemCore.utils/-discord-util/-embed-object/-author/index.html
 $dokka.location:com.system32.systemCore.utils/DiscordUtil.EmbedObject.Author/Author/#kotlin.String#kotlin.String?#kotlin.String?/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-discord-util/-embed-object/-author/-author.html
 $dokka.location:com.system32.systemCore.utils/DiscordUtil.EmbedObject.Author/iconUrl/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-discord-util/-embed-object/-author/icon-url.html
