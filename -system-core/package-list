@@ -4,8 +4,9 @@ $dokka.location:com.system32.systemCore.builder.item////PointingToDeclaration/-
 $dokka.location:com.system32.systemCore.builder.item/SkullBuilder///PointingToDeclaration/-system-core/com.system32.systemCore.builder.item/-skull-builder/index.html
 $dokka.location:com.system32.systemCore.builder.item/SkullBuilder/SkullBuilder/#/PointingToDeclaration/-system-core/com.system32.systemCore.builder.item/-skull-builder/-skull-builder.html
 $dokka.location:com.system32.systemCore.builder.item/SkullBuilder/build/#/PointingToDeclaration/-system-core/com.system32.systemCore.builder.item/-skull-builder/build.html
-$dokka.location:com.system32.systemCore.builder.item/SkullBuilder/displayName/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.builder.item/-skull-builder/display-name.html
 $dokka.location:com.system32.systemCore.builder.item/SkullBuilder/lore/#kotlin.Array[kotlin.String]/PointingToDeclaration/-system-core/com.system32.systemCore.builder.item/-skull-builder/lore.html
+$dokka.location:com.system32.systemCore.builder.item/SkullBuilder/lore/#kotlin.collections.List[kotlin.String]/PointingToDeclaration/-system-core/com.system32.systemCore.builder.item/-skull-builder/lore.html
+$dokka.location:com.system32.systemCore.builder.item/SkullBuilder/name/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.builder.item/-skull-builder/name.html
 $dokka.location:com.system32.systemCore.builder.item/SkullBuilder/texture/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.builder.item/-skull-builder/texture.html
 $dokka.location:com.system32.systemCore.builder.item/SkullBuilder/texture/#org.bukkit.OfflinePlayer/PointingToDeclaration/-system-core/com.system32.systemCore.builder.item/-skull-builder/texture.html
 $dokka.location:com.system32.systemCore.builder.item/SkullBuilder/texture/#org.bukkit.entity.Player/PointingToDeclaration/-system-core/com.system32.systemCore.builder.item/-skull-builder/texture.html
@@ -16,8 +17,9 @@ $dokka.location:com.system32.systemCore.builder/ItemBuilder.Companion/from/#org.
 $dokka.location:com.system32.systemCore.builder/ItemBuilder///PointingToDeclaration/-system-core/com.system32.systemCore.builder/-item-builder/index.html
 $dokka.location:com.system32.systemCore.builder/ItemBuilder/ItemBuilder/#org.bukkit.inventory.ItemStack/PointingToDeclaration/-system-core/com.system32.systemCore.builder/-item-builder/-item-builder.html
 $dokka.location:com.system32.systemCore.builder/ItemBuilder/build/#/PointingToDeclaration/-system-core/com.system32.systemCore.builder/-item-builder/build.html
-$dokka.location:com.system32.systemCore.builder/ItemBuilder/displayName/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.builder/-item-builder/display-name.html
 $dokka.location:com.system32.systemCore.builder/ItemBuilder/lore/#kotlin.Array[kotlin.String]/PointingToDeclaration/-system-core/com.system32.systemCore.builder/-item-builder/lore.html
+$dokka.location:com.system32.systemCore.builder/ItemBuilder/lore/#kotlin.collections.List[kotlin.String]/PointingToDeclaration/-system-core/com.system32.systemCore.builder/-item-builder/lore.html
+$dokka.location:com.system32.systemCore.builder/ItemBuilder/name/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.builder/-item-builder/name.html
 $dokka.location:com.system32.systemCore.shade////PointingToDeclaration/-system-core/com.system32.systemCore.shade/index.html
 $dokka.location:com.system32.systemCore.shade/bstats///PointingToDeclaration/-system-core/com.system32.systemCore.shade/bstats/index.html
 $dokka.location:com.system32.systemCore.shade/bstats/bstats/#/PointingToDeclaration/-system-core/com.system32.systemCore.shade/bstats/bstats.html
