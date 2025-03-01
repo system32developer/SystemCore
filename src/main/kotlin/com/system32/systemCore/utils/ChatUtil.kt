@@ -45,5 +45,7 @@ class ChatUtil {
         fun asText(component: Component): String {
             return MiniMessage.miniMessage().serialize(component)
         }
+
+        const val NORMAL_LINE: String = "&7&m-----------------------------"
     }
 }
