@@ -100,6 +100,8 @@ $dokka.location:com.system32.systemCore.utils/SpigotUtil/version/#kotlin.Functio
 $dokka.location:com.system32.systemCore////PointingToDeclaration/-system-core/com.system32.systemCore/index.html
 $dokka.location:com.system32.systemCore/SystemCore.Companion///PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/-companion/index.html
 $dokka.location:com.system32.systemCore/SystemCore.Companion/getInstance/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/-companion/get-instance.html
+$dokka.location:com.system32.systemCore/SystemCore.Companion/placeHolderAPIHook/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/-companion/place-holder-a-p-i-hook.html
+$dokka.location:com.system32.systemCore/SystemCore.Companion/placeHolderAPIHook/#kotlin.Boolean/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/-companion/place-holder-a-p-i-hook.html
 $dokka.location:com.system32.systemCore/SystemCore///PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/index.html
 $dokka.location:com.system32.systemCore/SystemCore/SystemCore/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/-system-core.html
 $dokka.location:com.system32.systemCore/TestEvent///PointingToDeclaration/-system-core/com.system32.systemCore/-test-event/index.html
