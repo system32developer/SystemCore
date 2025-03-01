@@ -25,6 +25,7 @@ $dokka.location:com.system32.systemCore.shade/bstats///PointingToDeclaration/-s
 $dokka.location:com.system32.systemCore.shade/bstats/bstats/#/PointingToDeclaration/-system-core/com.system32.systemCore.shade/bstats/bstats.html
 $dokka.location:com.system32.systemCore.utils////PointingToDeclaration/-system-core/com.system32.systemCore.utils/index.html
 $dokka.location:com.system32.systemCore.utils/ChatUtil.Companion///PointingToDeclaration/-system-core/com.system32.systemCore.utils/-chat-util/-companion/index.html
+$dokka.location:com.system32.systemCore.utils/ChatUtil.Companion/NORMAL_LINE/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-chat-util/-companion/-n-o-r-m-a-l_-l-i-n-e.html
 $dokka.location:com.system32.systemCore.utils/ChatUtil.Companion/asText/#net.kyori.adventure.text.Component/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-chat-util/-companion/as-text.html
 $dokka.location:com.system32.systemCore.utils/ChatUtil.Companion/color/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-chat-util/-companion/color.html
 $dokka.location:com.system32.systemCore.utils/ChatUtil.Companion/color/#kotlin.collections.List[kotlin.String]/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-chat-util/-companion/color.html
