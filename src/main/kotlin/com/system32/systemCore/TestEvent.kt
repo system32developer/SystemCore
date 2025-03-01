@@ -13,6 +13,6 @@ class TestEvent : Listener {
 
     @EventHandler
     fun onPlayerJoin(playerJoinEvent: PlayerJoinEvent) {
-        println("Player joined")
+        //println("Player joined")
     }
 }

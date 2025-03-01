@@ -36,20 +36,6 @@ class SkullBuilder {
 
     fun texture(texture: String): SkullBuilder {
         val uuid = UUID.randomUUID()
-        CompletableFuture.supplyAsync<PlayerProfile>(Supplier<PlayerProfile> { Bukkit.createProfile(uuid, uuid.toString().substring(0, 16)) })
-            .whenCompleteAsync({ profile, throwable ->
-                if (throwable != null) {
-                    throwable.printStackTrace()
-                    return@whenCompleteAsync
-                }
-                profile.setProperty(ProfileProperty("textures", texture))
-                meta.playerProfile = profile
-            })
-        return this
-    }
-
-    fun newTexture(texture: String): SkullBuilder {
-        val uuid = UUID.randomUUID()
         val playerProfile: PlayerProfile = Bukkit.createProfile(uuid, uuid.toString().substring(0, 16))
         playerProfile.setProperty(ProfileProperty("textures", texture))
         meta.playerProfile = playerProfile
