@@ -11,6 +11,8 @@ import java.util.function.Consumer
 
 class ChatUtil {
     companion object{
+        private const val CENTER_PX: Int = 154
+        const val NORMAL_LINE: String = "&7&m-----------------------------"
         /**
          * Color a string using the MiniMessage API or Bukkit's legacy color codes
          * You can use placeholders using PlaceholderAPI but you need to set it up in your plugin @onEnable first using SystemCore.placeHolderAPIHook(true)
@@ -46,6 +48,46 @@ class ChatUtil {
             return MiniMessage.miniMessage().serialize(component)
         }
 
-        const val NORMAL_LINE: String = "&7&m-----------------------------"
+        fun centerMessage(message: String?): String {
+            if (message.isNullOrEmpty()) {
+                return ""
+            }
+
+            var messagePxSize = 0
+            var previousCode = false
+            var isBold = false
+
+            for (c in message.toCharArray()) {
+                when {
+                    c == '§' -> {
+                        previousCode = true
+                        continue
+                    }
+                    previousCode -> {
+                        previousCode = false
+                        isBold = (c == 'l' || c == 'L')
+                        continue
+                    }
+                }
+
+                val dFI = FontInfo.getDefaultFontInfo(c)
+                messagePxSize += if (isBold) dFI.boldLength else dFI.length
+                messagePxSize++
+            }
+
+            val halvedMessageSize = messagePxSize / 2
+            val toCompensate = CENTER_PX - halvedMessageSize
+            val spaceLength = FontInfo.SPACE.length + 1
+            var compensated = 0
+            val sb = StringBuilder()
+
+            while (compensated < toCompensate) {
+                sb.append(" ")
+                compensated += spaceLength
+            }
+
+            return sb.toString() + message
+        }
+
     }
 }
