@@ -62,6 +62,12 @@ dependencies {
     implementation("org.bstats:bstats-bukkit:3.0.2")
     implementation("com.tchristofferson:ConfigUpdater:2.2-SNAPSHOT")
     compileOnly("me.clip:placeholderapi:2.11.6")
+
+    val adventureVersion = "4.17.0"
+    api("net.kyori:adventure-api:$adventureVersion")
+    api("net.kyori:adventure-text-serializer-legacy:$adventureVersion")
+    api("net.kyori:adventure-text-serializer-gson:$adventureVersion")
+    api("net.kyori:adventure-platform-bukkit:4.3.4")
 }
 
 val targetJavaVersion = 21
@@ -86,6 +92,10 @@ val path = "com.system32.systemCore.shade"
 tasks.named<ShadowJar>("shadowJar") {
     minimize()
     relocate("org.bstats", "$path.bstats")
+}
+
+tasks.named<org.gradle.jvm.tasks.Jar>("jar") {
+    enabled = false
 }
 
 publishing {

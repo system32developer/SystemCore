@@ -1,13 +1,9 @@
 package com.system32.systemCore.builder
 
-import com.system32.systemCore.gui.components.GuiAction
-import com.system32.systemCore.gui.guis.Gui
-import com.system32.systemCore.gui.guis.GuiItem
 import com.system32.systemCore.utils.ChatUtil.Companion.color
 import org.bukkit.Material
 import org.bukkit.event.inventory.InventoryClickEvent
 import org.bukkit.inventory.ItemStack
-import java.util.*
 
 
 class ItemBuilder(private val itemStack: ItemStack) {
@@ -43,11 +39,4 @@ class ItemBuilder(private val itemStack: ItemStack) {
         return itemStack
     }
 
-    fun asGuiItem(action: GuiAction<InventoryClickEvent>): GuiItem {
-        return GuiItem(build(), action)
-    }
-
-    fun asGuiItem(): GuiItem {
-        return GuiItem(build())
-    }
 }

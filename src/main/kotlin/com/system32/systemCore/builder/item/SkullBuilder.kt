@@ -10,8 +10,6 @@ import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack
 import org.bukkit.inventory.meta.SkullMeta
 import java.util.*
-import java.util.concurrent.CompletableFuture
-import java.util.function.Supplier
 
 class SkullBuilder {
     private val itemStack: ItemStack = ItemStack(Material.PLAYER_HEAD)
