@@ -143,7 +143,7 @@ $dokka.location:com.system32.systemCore.gui.components.util/VersionHelper///Poin
 $dokka.location:com.system32.systemCore.gui.components.util/VersionHelper/VersionHelper/#/PointingToDeclaration/-system-core/com.system32.systemCore.gui.components.util/-version-helper/-version-helper.html
 $dokka.location:com.system32.systemCore.gui.components////PointingToDeclaration/-system-core/com.system32.systemCore.gui.components/index.html
 $dokka.location:com.system32.systemCore.gui.components/GuiAction///PointingToDeclaration/-system-core/com.system32.systemCore.gui.components/-gui-action/index.html
-$dokka.location:com.system32.systemCore.gui.components/GuiAction/execute/#TypeParam(bounds=[org.bukkit.event.Event?])?/PointingToDeclaration/-system-core/com.system32.systemCore.gui.components/-gui-action/execute.html
+$dokka.location:com.system32.systemCore.gui.components/GuiAction/execute/#TypeParam(bounds=[org.bukkit.event.Event])/PointingToDeclaration/-system-core/com.system32.systemCore.gui.components/-gui-action/execute.html
 $dokka.location:com.system32.systemCore.gui.components/GuiContainer.Chest///PointingToDeclaration/-system-core/com.system32.systemCore.gui.components/-gui-container/-chest/index.html
 $dokka.location:com.system32.systemCore.gui.components/GuiContainer.Chest/Chest/#net.kyori.adventure.text.Component#com.system32.systemCore.gui.components.InventoryProvider.Chest#kotlin.Int/PointingToDeclaration/-system-core/com.system32.systemCore.gui.components/-gui-container/-chest/-chest.html
 $dokka.location:com.system32.systemCore.gui.components/GuiContainer.Chest/createInventory/#org.bukkit.inventory.InventoryHolder/PointingToDeclaration/-system-core/com.system32.systemCore.gui.components/-gui-container/-chest/create-inventory.html
