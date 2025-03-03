@@ -1,12 +1,11 @@
 package com.system32.systemCore.builder
 
-import com.destroystokyo.paper.profile.PlayerProfile
-import com.destroystokyo.paper.profile.ProfileProperty
+import com.system32.systemCore.gui.components.GuiAction
+import com.system32.systemCore.gui.guis.GuiItem
 import com.system32.systemCore.utils.ChatUtil.Companion.color
-import org.bukkit.Bukkit
 import org.bukkit.Material
+import org.bukkit.event.inventory.InventoryClickEvent
 import org.bukkit.inventory.ItemStack
-import org.bukkit.inventory.meta.SkullMeta
 import java.util.*
 
 
@@ -41,5 +40,13 @@ class ItemBuilder(private val itemStack: ItemStack) {
     fun build(): ItemStack {
         itemStack.itemMeta = meta
         return itemStack
+    }
+
+    fun asGuiItem(action: GuiAction<InventoryClickEvent>): GuiItem {
+        return GuiItem(build(), action)
+    }
+
+    fun asGuiItem(): GuiItem {
+        return GuiItem(build())
     }
 }
