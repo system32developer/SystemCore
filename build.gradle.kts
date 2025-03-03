@@ -62,6 +62,7 @@ dependencies {
     implementation("org.bstats:bstats-bukkit:3.0.2")
     implementation("com.tchristofferson:ConfigUpdater:2.2-SNAPSHOT")
     compileOnly("me.clip:placeholderapi:2.11.6")
+    api("dev.triumphteam:triumph-gui:3.1.11")
 
     val adventureVersion = "4.17.0"
     api("net.kyori:adventure-api:$adventureVersion")
