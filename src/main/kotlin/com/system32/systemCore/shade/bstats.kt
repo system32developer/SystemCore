@@ -1,4 +1,4 @@
-package com.system32.systemCore.shade;
+package com.system32.systemCore.shade
 
-public class bstats {
+class bstats {
 }
