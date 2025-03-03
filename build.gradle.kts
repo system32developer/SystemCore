@@ -4,7 +4,6 @@ import java.io.ByteArrayOutputStream
 plugins {
     kotlin("jvm") version "2.1.20-RC"
     id("com.gradleup.shadow") version "8.3.2"
-    `maven-publish`
     id("org.jetbrains.dokka") version "2.0.0"
 }
 
@@ -91,17 +90,6 @@ tasks.named<ShadowJar>("shadowJar") {
 
 tasks.named<org.gradle.jvm.tasks.Jar>("jar") {
     enabled = false
-}
-
-publishing {
-    publications {
-        create<MavenPublication>("maven") {
-            from(components["java"])
-            groupId = "com.github.system32developer"
-            artifactId = "SystemCore"
-            version = version
-        }
-    }
 }
 
 tasks.register("createGitTag", Exec::class) {
