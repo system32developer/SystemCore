@@ -1,6 +1,7 @@
 package com.system32.systemCore.builder
 
 import com.system32.systemCore.gui.components.GuiAction
+import com.system32.systemCore.gui.guis.Gui
 import com.system32.systemCore.gui.guis.GuiItem
 import com.system32.systemCore.utils.ChatUtil.Companion.color
 import org.bukkit.Material
