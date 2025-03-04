@@ -11,5 +11,9 @@ class ConfigUpdater {
             val file = File(plugin.dataFolder, string)
             ConfigUpdater.update(plugin, string, file)
         }
+        fun update(plugin: JavaPlugin, preset: String, target: String) {
+            val file = File(plugin.dataFolder, target)
+            ConfigUpdater.update(plugin, preset, file)
+        }
     }
 }
