@@ -88,6 +88,8 @@ class ChatUtil {
 
             return sb.toString() + message
         }
-
+        fun upperCaseFirst(string: String): String {
+            return string.substring(0, 1).uppercase() + string.substring(1).lowercase()
+        }
     }
 }
