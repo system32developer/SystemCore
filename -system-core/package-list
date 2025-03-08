@@ -10,6 +10,7 @@ $dokka.location:com.system32.systemCore.utils/ChatUtil.Companion/asText/#net.kyo
 $dokka.location:com.system32.systemCore.utils/ChatUtil.Companion/centerMessage/#kotlin.String?/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-chat-util/-companion/center-message.html
 $dokka.location:com.system32.systemCore.utils/ChatUtil.Companion/color/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-chat-util/-companion/color.html
 $dokka.location:com.system32.systemCore.utils/ChatUtil.Companion/color/#kotlin.collections.List[kotlin.String]/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-chat-util/-companion/color.html
+$dokka.location:com.system32.systemCore.utils/ChatUtil.Companion/upperCaseFirst/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-chat-util/-companion/upper-case-first.html
 $dokka.location:com.system32.systemCore.utils/ChatUtil///PointingToDeclaration/-system-core/com.system32.systemCore.utils/-chat-util/index.html
 $dokka.location:com.system32.systemCore.utils/ChatUtil/ChatUtil/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-chat-util/-chat-util.html
 $dokka.location:com.system32.systemCore.utils/ConfigUpdater.Companion///PointingToDeclaration/-system-core/com.system32.systemCore.utils/-config-updater/-companion/index.html
