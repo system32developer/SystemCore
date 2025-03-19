@@ -28,7 +28,7 @@ class SystemCore {
          * Provides the main plugin instance.
          */
         val plugin: Plugin by lazy {
-            JavaPlugin.getProvidingPlugin(TestEvent::class.java)
+            JavaPlugin.getProvidingPlugin(SystemCore::class.java)
         }
 
         /**
