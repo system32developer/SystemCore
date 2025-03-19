@@ -1,18 +1,37 @@
 $dokka.format:html-v1
 $dokka.linkExtension:html
+$dokka.location:com.system32.systemCore.managers.cooldown////PointingToDeclaration/-system-core/com.system32.systemCore.managers.cooldown/index.html
+$dokka.location:com.system32.systemCore.managers.cooldown/Cooldown///PointingToDeclaration/-system-core/com.system32.systemCore.managers.cooldown/-cooldown/index.html
+$dokka.location:com.system32.systemCore.managers.cooldown/Cooldown/Cooldown/#kotlin.Long/PointingToDeclaration/-system-core/com.system32.systemCore.managers.cooldown/-cooldown/-cooldown.html
+$dokka.location:com.system32.systemCore.managers.cooldown/Cooldown/expirationTime/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.cooldown/-cooldown/expiration-time.html
+$dokka.location:com.system32.systemCore.managers.cooldown/Cooldown/getTimeLeft/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.cooldown/-cooldown/get-time-left.html
+$dokka.location:com.system32.systemCore.managers.cooldown/Cooldown/time/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.cooldown/-cooldown/time.html
+$dokka.location:com.system32.systemCore.managers.cooldown/Cooldown/verbose/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.cooldown/-cooldown/verbose.html
+$dokka.location:com.system32.systemCore.managers.cooldown/CooldownManager///PointingToDeclaration/-system-core/com.system32.systemCore.managers.cooldown/-cooldown-manager/index.html
+$dokka.location:com.system32.systemCore.managers.cooldown/CooldownManager/CooldownManager/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.cooldown/-cooldown-manager/-cooldown-manager.html
+$dokka.location:com.system32.systemCore.managers.cooldown/CooldownManager/clearAllCooldowns/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.cooldown/-cooldown-manager/clear-all-cooldowns.html
+$dokka.location:com.system32.systemCore.managers.cooldown/CooldownManager/getCooldown/#kotlin.String#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.managers.cooldown/-cooldown-manager/get-cooldown.html
+$dokka.location:com.system32.systemCore.managers.cooldown/CooldownManager/isCooldownActive/#kotlin.String#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.managers.cooldown/-cooldown-manager/is-cooldown-active.html
+$dokka.location:com.system32.systemCore.managers.cooldown/CooldownManager/removeCooldown/#kotlin.String#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.managers.cooldown/-cooldown-manager/remove-cooldown.html
+$dokka.location:com.system32.systemCore.managers.cooldown/CooldownManager/startCooldown/#kotlin.String#kotlin.String#kotlin.Long/PointingToDeclaration/-system-core/com.system32.systemCore.managers.cooldown/-cooldown-manager/start-cooldown.html
+$dokka.location:com.system32.systemCore.managers.language////PointingToDeclaration/-system-core/com.system32.systemCore.managers.language/index.html
+$dokka.location:com.system32.systemCore.managers.language/Language.Companion///PointingToDeclaration/-system-core/com.system32.systemCore.managers.language/-language/-companion/index.html
+$dokka.location:com.system32.systemCore.managers.language/Language.Companion/get/#com.system32.systemCore.managers.language.Language/PointingToDeclaration/-system-core/com.system32.systemCore.managers.language/-language/-companion/get.html
+$dokka.location:com.system32.systemCore.managers.language/Language.TIME_UNIT_DAY///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-system-core/com.system32.systemCore.managers.language/-language/-t-i-m-e_-u-n-i-t_-d-a-y/index.html
+$dokka.location:com.system32.systemCore.managers.language/Language.TIME_UNIT_HOUR///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-system-core/com.system32.systemCore.managers.language/-language/-t-i-m-e_-u-n-i-t_-h-o-u-r/index.html
+$dokka.location:com.system32.systemCore.managers.language/Language.TIME_UNIT_MINUTE///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-system-core/com.system32.systemCore.managers.language/-language/-t-i-m-e_-u-n-i-t_-m-i-n-u-t-e/index.html
+$dokka.location:com.system32.systemCore.managers.language/Language.TIME_UNIT_SECOND///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-system-core/com.system32.systemCore.managers.language/-language/-t-i-m-e_-u-n-i-t_-s-e-c-o-n-d/index.html
+$dokka.location:com.system32.systemCore.managers.language/Language///PointingToDeclaration/-system-core/com.system32.systemCore.managers.language/-language/index.html
+$dokka.location:com.system32.systemCore.managers.language/Language/entries/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.language/-language/entries.html
+$dokka.location:com.system32.systemCore.managers.language/Language/invoke/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.language/-language/invoke.html
+$dokka.location:com.system32.systemCore.managers.language/Language/toString/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.language/-language/to-string.html
+$dokka.location:com.system32.systemCore.managers.language/Language/translation/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.language/-language/translation.html
+$dokka.location:com.system32.systemCore.managers.language/Language/valueOf/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.managers.language/-language/value-of.html
+$dokka.location:com.system32.systemCore.managers.language/Language/values/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.language/-language/values.html
 $dokka.location:com.system32.systemCore.shade////PointingToDeclaration/-system-core/com.system32.systemCore.shade/index.html
 $dokka.location:com.system32.systemCore.shade/bstats///PointingToDeclaration/-system-core/com.system32.systemCore.shade/bstats/index.html
 $dokka.location:com.system32.systemCore.shade/bstats/bstats/#/PointingToDeclaration/-system-core/com.system32.systemCore.shade/bstats/bstats.html
 $dokka.location:com.system32.systemCore.utils////PointingToDeclaration/-system-core/com.system32.systemCore.utils/index.html
-$dokka.location:com.system32.systemCore.utils/ChatUtil.Companion///PointingToDeclaration/-system-core/com.system32.systemCore.utils/-chat-util/-companion/index.html
-$dokka.location:com.system32.systemCore.utils/ChatUtil.Companion/NORMAL_LINE/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-chat-util/-companion/-n-o-r-m-a-l_-l-i-n-e.html
-$dokka.location:com.system32.systemCore.utils/ChatUtil.Companion/asText/#net.kyori.adventure.text.Component/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-chat-util/-companion/as-text.html
-$dokka.location:com.system32.systemCore.utils/ChatUtil.Companion/centerMessage/#kotlin.String?/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-chat-util/-companion/center-message.html
-$dokka.location:com.system32.systemCore.utils/ChatUtil.Companion/color/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-chat-util/-companion/color.html
-$dokka.location:com.system32.systemCore.utils/ChatUtil.Companion/color/#kotlin.collections.List[kotlin.String]/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-chat-util/-companion/color.html
-$dokka.location:com.system32.systemCore.utils/ChatUtil.Companion/upperCaseFirst/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-chat-util/-companion/upper-case-first.html
-$dokka.location:com.system32.systemCore.utils/ChatUtil///PointingToDeclaration/-system-core/com.system32.systemCore.utils/-chat-util/index.html
-$dokka.location:com.system32.systemCore.utils/ChatUtil/ChatUtil/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-chat-util/-chat-util.html
 $dokka.location:com.system32.systemCore.utils/ConfigUpdater.Companion///PointingToDeclaration/-system-core/com.system32.systemCore.utils/-config-updater/-companion/index.html
 $dokka.location:com.system32.systemCore.utils/ConfigUpdater.Companion/update/#org.bukkit.plugin.java.JavaPlugin#kotlin.String#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-config-updater/-companion/update.html
 $dokka.location:com.system32.systemCore.utils/ConfigUpdater.Companion/update/#org.bukkit.plugin.java.JavaPlugin#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-config-updater/-companion/update.html
@@ -183,23 +202,34 @@ $dokka.location:com.system32.systemCore.utils/FontInfo/length/#/PointingToDeclar
 $dokka.location:com.system32.systemCore.utils/FontInfo/valueOf/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-font-info/value-of.html
 $dokka.location:com.system32.systemCore.utils/FontInfo/values/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-font-info/values.html
 $dokka.location:com.system32.systemCore.utils/SpigotUtil.Companion///PointingToDeclaration/-system-core/com.system32.systemCore.utils/-spigot-util/-companion/index.html
+$dokka.location:com.system32.systemCore.utils/SpigotUtil.Companion/center/#org.bukkit.block.Block/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-spigot-util/-companion/center.html
 $dokka.location:com.system32.systemCore.utils/SpigotUtil.Companion/fromBase64ItemStack/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-spigot-util/-companion/from-base64-item-stack.html
 $dokka.location:com.system32.systemCore.utils/SpigotUtil.Companion/toBase64/#org.bukkit.inventory.ItemStack?/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-spigot-util/-companion/to-base64.html
 $dokka.location:com.system32.systemCore.utils/SpigotUtil///PointingToDeclaration/-system-core/com.system32.systemCore.utils/-spigot-util/index.html
 $dokka.location:com.system32.systemCore.utils/SpigotUtil/SpigotUtil/#org.bukkit.plugin.java.JavaPlugin#kotlin.Int/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-spigot-util/-spigot-util.html
-$dokka.location:com.system32.systemCore.utils/SpigotUtil/metrics/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-spigot-util/metrics.html
+$dokka.location:com.system32.systemCore.utils/SpigotUtil/metrics/#kotlin.Int/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-spigot-util/metrics.html
 $dokka.location:com.system32.systemCore.utils/SpigotUtil/version/#kotlin.Function0[kotlin.Unit]#kotlin.Function2[kotlin.String,kotlin.String,kotlin.Unit]/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-spigot-util/version.html
+$dokka.location:com.system32.systemCore.utils/TextUtil.Companion///PointingToDeclaration/-system-core/com.system32.systemCore.utils/-text-util/-companion/index.html
+$dokka.location:com.system32.systemCore.utils/TextUtil.Companion/NORMAL_LINE/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-text-util/-companion/-n-o-r-m-a-l_-l-i-n-e.html
+$dokka.location:com.system32.systemCore.utils/TextUtil.Companion/asText/#net.kyori.adventure.text.Component/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-text-util/-companion/as-text.html
+$dokka.location:com.system32.systemCore.utils/TextUtil.Companion/centerMessage/#kotlin.String?/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-text-util/-companion/center-message.html
+$dokka.location:com.system32.systemCore.utils/TextUtil.Companion/color/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-text-util/-companion/color.html
+$dokka.location:com.system32.systemCore.utils/TextUtil.Companion/color/#kotlin.collections.List[kotlin.String]/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-text-util/-companion/color.html
+$dokka.location:com.system32.systemCore.utils/TextUtil.Companion/isInteger/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-text-util/-companion/is-integer.html
+$dokka.location:com.system32.systemCore.utils/TextUtil.Companion/parseTime/#kotlin.Int/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-text-util/-companion/parse-time.html
+$dokka.location:com.system32.systemCore.utils/TextUtil.Companion/upperCaseFirst/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-text-util/-companion/upper-case-first.html
+$dokka.location:com.system32.systemCore.utils/TextUtil///PointingToDeclaration/-system-core/com.system32.systemCore.utils/-text-util/index.html
+$dokka.location:com.system32.systemCore.utils/TextUtil/TextUtil/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-text-util/-text-util.html
 $dokka.location:com.system32.systemCore////PointingToDeclaration/-system-core/com.system32.systemCore/index.html
 $dokka.location:com.system32.systemCore/SystemCore.Companion///PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/-companion/index.html
-$dokka.location:com.system32.systemCore/SystemCore.Companion/getInstance/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/-companion/get-instance.html
-$dokka.location:com.system32.systemCore/SystemCore.Companion/placeHolderAPIHook/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/-companion/place-holder-a-p-i-hook.html
-$dokka.location:com.system32.systemCore/SystemCore.Companion/placeHolderAPIHook/#kotlin.Boolean/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/-companion/place-holder-a-p-i-hook.html
+$dokka.location:com.system32.systemCore/SystemCore.Companion/cooldownManager/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/-companion/cooldown-manager.html
+$dokka.location:com.system32.systemCore/SystemCore.Companion/placeholderAPISupport/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/-companion/placeholder-a-p-i-support.html
+$dokka.location:com.system32.systemCore/SystemCore.Companion/plugin/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/-companion/plugin.html
 $dokka.location:com.system32.systemCore/SystemCore.Companion/register/#org.bukkit.event.Listener/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/-companion/register.html
 $dokka.location:com.system32.systemCore/SystemCore///PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/index.html
 $dokka.location:com.system32.systemCore/SystemCore/SystemCore/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/-system-core.html
-$dokka.location:com.system32.systemCore/TestEvent///PointingToDeclaration/-system-core/com.system32.systemCore/-test-event/index.html
-$dokka.location:com.system32.systemCore/TestEvent/TestEvent/#/PointingToDeclaration/-system-core/com.system32.systemCore/-test-event/-test-event.html
-$dokka.location:com.system32.systemCore/TestEvent/onPlayerJoin/#org.bukkit.event.player.PlayerJoinEvent/PointingToDeclaration/-system-core/com.system32.systemCore/-test-event/on-player-join.html
 com.system32.systemCore
+com.system32.systemCore.managers.cooldown
+com.system32.systemCore.managers.language
 com.system32.systemCore.shade
 com.system32.systemCore.utils
