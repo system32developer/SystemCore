@@ -2,6 +2,8 @@ package com.system32.systemCore.utils
 
 import org.bstats.bukkit.Metrics
 import org.bukkit.Bukkit
+import org.bukkit.Location
+import org.bukkit.block.Block
 import org.bukkit.inventory.ItemStack
 import org.bukkit.plugin.java.JavaPlugin
 import org.bukkit.util.io.BukkitObjectInputStream
@@ -17,6 +19,9 @@ import java.util.*
 class SpigotUtil (private val plugin: JavaPlugin, private val resourceId: Int) {
 
     companion object{
+        fun center(block: Block): Location {
+            return block.location.add(0.5, 0.5, 0.5)
+        }
         fun fromBase64ItemStack(base64: String): ItemStack? {
             try {
                 val inputStream = ByteArrayInputStream(Base64Coder.decodeLines(base64))
@@ -91,7 +96,8 @@ class SpigotUtil (private val plugin: JavaPlugin, private val resourceId: Int) {
         })
     }
 
-    fun metrics() : Metrics{
-        return Metrics(plugin, 12345)
+    fun metrics(id: Int) : Metrics{
+        return Metrics(plugin, id)
     }
+
 }

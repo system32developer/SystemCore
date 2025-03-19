@@ -6,10 +6,11 @@ import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.TextComponent
 import net.kyori.adventure.text.minimessage.MiniMessage
 import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer
-
+import org.bukkit.Location
+import org.bukkit.block.Block
 import java.util.function.Consumer
 
-class ChatUtil {
+class TextUtil {
     companion object{
         private const val CENTER_PX: Int = 154
         const val NORMAL_LINE: String = "&7&m-----------------------------"
@@ -42,6 +43,15 @@ class ChatUtil {
             val components: MutableList<Component> = ArrayList()
             messages.forEach(Consumer { message: String -> components.add(color(message)) })
             return components
+        }
+
+        fun isInteger(s: String): Boolean {
+            try {
+                s.toInt()
+                return true
+            } catch (e: Exception) {
+                return false
+            }
         }
 
         fun asText(component: Component): String {
@@ -88,8 +98,16 @@ class ChatUtil {
 
             return sb.toString() + message
         }
+
         fun upperCaseFirst(string: String): String {
             return string.substring(0, 1).uppercase() + string.substring(1).lowercase()
+        }
+
+        fun parseTime(seconds: Int): String {
+            val hours = seconds / 3600
+            val minutes = (seconds % 3600) / 60
+            val seconds = seconds % 60
+            return "%02d:%02d:%02d".format(hours, minutes, seconds)
         }
     }
 }
