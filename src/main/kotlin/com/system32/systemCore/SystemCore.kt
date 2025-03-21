@@ -2,6 +2,7 @@ package com.system32.systemCore
 
 import com.system32.systemCore.managers.cooldown.CooldownManager
 import com.system32.systemCore.utils.DiscordUtil
+import org.bukkit.Bukkit
 import org.bukkit.event.Event
 import org.bukkit.event.Listener
 import org.bukkit.plugin.Plugin
@@ -18,6 +19,8 @@ class SystemCore {
          * Indicates whether PlaceholderAPI support is enabled.
          */
         var placeholderAPISupport: Boolean = false
+            private set
+        get() = plugin.server.pluginManager.isPluginEnabled("PlaceholderAPI")
 
         /**
          * Manages cooldowns for various actions.
@@ -39,5 +42,6 @@ class SystemCore {
         fun register(event: Listener){
             plugin.server.pluginManager.registerEvents(event, plugin)
         }
+
     }
 }
