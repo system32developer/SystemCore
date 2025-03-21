@@ -19,9 +19,15 @@ import java.util.*
 class SpigotUtil (private val plugin: JavaPlugin, private val resourceId: Int) {
 
     companion object{
+
+        fun hearts(amount: Double): Double{
+            return amount * 2
+        }
+
         fun center(block: Block): Location {
             return block.location.add(0.5, 0.5, 0.5)
         }
+
         fun fromBase64ItemStack(base64: String): ItemStack? {
             try {
                 val inputStream = ByteArrayInputStream(Base64Coder.decodeLines(base64))
