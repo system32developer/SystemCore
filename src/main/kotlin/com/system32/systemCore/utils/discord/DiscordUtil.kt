@@ -1,10 +1,6 @@
-package com.system32.systemCore.utils
+package com.system32.systemCore.utils.discord
 
 import java.awt.Color
-import java.io.OutputStream
-import java.net.URL
-import java.nio.charset.StandardCharsets
-import javax.net.ssl.HttpsURLConnection
 
 class DiscordUtil {
     companion object {

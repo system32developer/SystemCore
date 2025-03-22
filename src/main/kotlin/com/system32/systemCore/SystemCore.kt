@@ -1,7 +1,7 @@
 package com.system32.systemCore
 
 import com.system32.systemCore.managers.cooldown.CooldownManager
-import com.system32.systemCore.utils.DiscordUtil
+import com.system32.systemCore.utils.discord.DiscordUtil
 import org.bukkit.Bukkit
 import org.bukkit.event.Event
 import org.bukkit.event.Listener
@@ -41,6 +41,7 @@ class SystemCore {
          */
         fun register(event: Listener){
             plugin.server.pluginManager.registerEvents(event, plugin)
+
         }
 
     }

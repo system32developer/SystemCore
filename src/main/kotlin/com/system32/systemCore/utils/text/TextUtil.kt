@@ -1,4 +1,4 @@
-package com.system32.systemCore.utils
+package com.system32.systemCore.utils.text
 
 import com.system32.systemCore.SystemCore
 import me.clip.placeholderapi.PlaceholderAPI
@@ -6,8 +6,6 @@ import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.TextComponent
 import net.kyori.adventure.text.minimessage.MiniMessage
 import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer
-import org.bukkit.Location
-import org.bukkit.block.Block
 import java.util.function.Consumer
 
 class TextUtil {
@@ -29,7 +27,7 @@ class TextUtil {
          */
         fun color(input: String): Component {
             var message = input
-            if(SystemCore.placeholderAPISupport){
+            if(SystemCore.Companion.placeholderAPISupport){
                 message = PlaceholderAPI.setPlaceholders(null, message)
             }
             val legacy: TextComponent = LegacyComponentSerializer.legacyAmpersand().deserialize(message);

@@ -1,4 +1,4 @@
-package com.system32.systemCore.utils
+package com.system32.systemCore.utils.text
 
 enum class FontInfo(val character: Char, val length: Int) {
     A('A', 5), a('a', 5),

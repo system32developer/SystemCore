@@ -1,6 +1,5 @@
-package com.system32.systemCore.utils
+package com.system32.systemCore.utils.config
 
-import org.bukkit.configuration.file.YamlConfiguration
 import com.tchristofferson.configupdater.ConfigUpdater
 import org.bukkit.plugin.java.JavaPlugin
 import java.io.File

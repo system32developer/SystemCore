@@ -12,10 +12,10 @@ class CooldownManager {
      *
      * @param action The action associated with the cooldown.
      * @param player The player's identifier.
-     * @param durationMillis The duration of the cooldown in milliseconds.
+     * @param durationMillis The duration of the cooldown in seconds.
      */
-    fun startCooldown(action: String, player: String, durationMillis: Long) {
-        playerCooldowns.computeIfAbsent(action) { mutableMapOf() }[player] = Cooldown(System.currentTimeMillis() + durationMillis)
+    fun startCooldown(action: String, player: String, duration: Int) {
+        playerCooldowns.computeIfAbsent(action) { mutableMapOf() }[player] = Cooldown(System.currentTimeMillis() + (duration * 1000))
     }
 
     /**
