@@ -13,7 +13,7 @@ $dokka.location:com.system32.systemCore.managers.cooldown/CooldownManager/clearA
 $dokka.location:com.system32.systemCore.managers.cooldown/CooldownManager/getCooldown/#kotlin.String#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.managers.cooldown/-cooldown-manager/get-cooldown.html
 $dokka.location:com.system32.systemCore.managers.cooldown/CooldownManager/isCooldownActive/#kotlin.String#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.managers.cooldown/-cooldown-manager/is-cooldown-active.html
 $dokka.location:com.system32.systemCore.managers.cooldown/CooldownManager/removeCooldown/#kotlin.String#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.managers.cooldown/-cooldown-manager/remove-cooldown.html
-$dokka.location:com.system32.systemCore.managers.cooldown/CooldownManager/startCooldown/#kotlin.String#kotlin.String#kotlin.Long/PointingToDeclaration/-system-core/com.system32.systemCore.managers.cooldown/-cooldown-manager/start-cooldown.html
+$dokka.location:com.system32.systemCore.managers.cooldown/CooldownManager/startCooldown/#kotlin.String#kotlin.String#kotlin.Int/PointingToDeclaration/-system-core/com.system32.systemCore.managers.cooldown/-cooldown-manager/start-cooldown.html
 $dokka.location:com.system32.systemCore.managers.language////PointingToDeclaration/-system-core/com.system32.systemCore.managers.language/index.html
 $dokka.location:com.system32.systemCore.managers.language/Language.Companion///PointingToDeclaration/-system-core/com.system32.systemCore.managers.language/-language/-companion/index.html
 $dokka.location:com.system32.systemCore.managers.language/Language.Companion/get/#com.system32.systemCore.managers.language.Language/PointingToDeclaration/-system-core/com.system32.systemCore.managers.language/-language/-companion/get.html
@@ -207,6 +207,7 @@ $dokka.location:com.system32.systemCore.utils/FontInfo/values/#/PointingToDeclar
 $dokka.location:com.system32.systemCore.utils/SpigotUtil.Companion///PointingToDeclaration/-system-core/com.system32.systemCore.utils/-spigot-util/-companion/index.html
 $dokka.location:com.system32.systemCore.utils/SpigotUtil.Companion/center/#org.bukkit.block.Block/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-spigot-util/-companion/center.html
 $dokka.location:com.system32.systemCore.utils/SpigotUtil.Companion/fromBase64ItemStack/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-spigot-util/-companion/from-base64-item-stack.html
+$dokka.location:com.system32.systemCore.utils/SpigotUtil.Companion/hearts/#kotlin.Double/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-spigot-util/-companion/hearts.html
 $dokka.location:com.system32.systemCore.utils/SpigotUtil.Companion/toBase64/#org.bukkit.inventory.ItemStack?/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-spigot-util/-companion/to-base64.html
 $dokka.location:com.system32.systemCore.utils/SpigotUtil///PointingToDeclaration/-system-core/com.system32.systemCore.utils/-spigot-util/index.html
 $dokka.location:com.system32.systemCore.utils/SpigotUtil/SpigotUtil/#org.bukkit.plugin.java.JavaPlugin#kotlin.Int/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-spigot-util/-spigot-util.html
