@@ -27,14 +27,13 @@ class TextUtil {
          */
         fun color(input: String): Component {
             var message = input
-            if(SystemCore.Companion.placeholderAPISupport){
-                message = PlaceholderAPI.setPlaceholders(null, message)
+            val mini = MiniMessage.miniMessage()
+            if(SystemCore.placeholderAPISupport) message = PlaceholderAPI.setPlaceholders(null, message)
+            if(input.contains("&")) {
+                val legacy: TextComponent = LegacyComponentSerializer.legacyAmpersand().deserialize(message);
+                message = mini.serialize(legacy).replace("\\", "");
             }
-            val legacy: TextComponent = LegacyComponentSerializer.legacyAmpersand().deserialize(message);
-            val finalmessage: String = MiniMessage.miniMessage().serialize(legacy).replace("\\", "");
-            return if (finalmessage.isEmpty()) Component.empty() else MiniMessage.miniMessage().deserialize(
-                "<!italic>$finalmessage"
-            )
+            return if (message.isEmpty()) Component.empty() else mini.deserialize("<!italic>$message")
         }
 
         /**
