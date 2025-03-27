@@ -17,26 +17,6 @@ class SpigotUtil {
 
     companion object{
 
-        fun player(uuid: UUID): Player? {
-            return Bukkit.getPlayer(uuid)
-        }
-
-        fun player(name: String) : Player?{
-            return Bukkit.getPlayer(name)
-        }
-
-        fun offlinePlayer(name: String) : Player?{
-            return Bukkit.getOfflinePlayer(name).player
-        }
-
-        fun offlinePlayer(uuid: UUID) : Player?{
-            return Bukkit.getOfflinePlayer(uuid).player
-        }
-
-        fun players() : List<Player>{
-            return Bukkit.getOnlinePlayers().toList()
-        }
-
         fun hearts(amount: Double): Double{
             return amount * 2
         }
