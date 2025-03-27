@@ -142,5 +142,17 @@ class TextUtil {
             val seconds = seconds % 60
             return "%02d:%02d:%02d".format(hours, minutes, seconds)
         }
+
+        /**
+         * Normalizes a number to a range of 0.0 to 1.0 based on a maximum value.
+         *
+         * @param value The number to normalize.
+         * @param max The maximum value for normalization.
+         * @return A double value between 0.0 and 1.0.
+         */
+
+        fun normalize(value: Number, max: Number): Double {
+            return (value.toDouble() / max.toDouble()).coerceIn(0.0, 1.0)
+        }
     }
 }
