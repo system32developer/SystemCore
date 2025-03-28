@@ -229,6 +229,12 @@ $dokka.location:com.system32.systemCore.utils/ServerUtil.Companion/offlinePlayer
 $dokka.location:com.system32.systemCore.utils/ServerUtil.Companion/player/#java.util.UUID/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-server-util/-companion/player.html
 $dokka.location:com.system32.systemCore.utils/ServerUtil.Companion/player/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-server-util/-companion/player.html
 $dokka.location:com.system32.systemCore.utils/ServerUtil.Companion/players/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-server-util/-companion/players.html
+$dokka.location:com.system32.systemCore.utils/ServerUtil.Companion/task/#java.lang.Runnable/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-server-util/-companion/task.html
+$dokka.location:com.system32.systemCore.utils/ServerUtil.Companion/taskAsync/#java.lang.Runnable/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-server-util/-companion/task-async.html
+$dokka.location:com.system32.systemCore.utils/ServerUtil.Companion/taskLater/#java.lang.Runnable#kotlin.Int/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-server-util/-companion/task-later.html
+$dokka.location:com.system32.systemCore.utils/ServerUtil.Companion/taskLaterAsync/#java.lang.Runnable#kotlin.Int/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-server-util/-companion/task-later-async.html
+$dokka.location:com.system32.systemCore.utils/ServerUtil.Companion/taskTimer/#java.lang.Runnable#kotlin.Int#kotlin.Int/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-server-util/-companion/task-timer.html
+$dokka.location:com.system32.systemCore.utils/ServerUtil.Companion/taskTimerAsync/#java.lang.Runnable#kotlin.Int#kotlin.Int/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-server-util/-companion/task-timer-async.html
 $dokka.location:com.system32.systemCore.utils/ServerUtil///PointingToDeclaration/-system-core/com.system32.systemCore.utils/-server-util/index.html
 $dokka.location:com.system32.systemCore.utils/ServerUtil/ServerUtil/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-server-util/-server-util.html
 $dokka.location:com.system32.systemCore.utils/SpigotUtil.Companion///PointingToDeclaration/-system-core/com.system32.systemCore.utils/-spigot-util/-companion/index.html
@@ -244,6 +250,7 @@ $dokka.location:com.system32.systemCore/SystemCore.Companion///PointingToDeclara
 $dokka.location:com.system32.systemCore/SystemCore.Companion/cooldownManager/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/-companion/cooldown-manager.html
 $dokka.location:com.system32.systemCore/SystemCore.Companion/placeholderAPISupport/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/-companion/placeholder-a-p-i-support.html
 $dokka.location:com.system32.systemCore/SystemCore.Companion/plugin/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/-companion/plugin.html
+$dokka.location:com.system32.systemCore/SystemCore.Companion/register/#org.bukkit.command.CommandExecutor/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/-companion/register.html
 $dokka.location:com.system32.systemCore/SystemCore.Companion/register/#org.bukkit.event.Listener/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/-companion/register.html
 $dokka.location:com.system32.systemCore/SystemCore///PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/index.html
 $dokka.location:com.system32.systemCore/SystemCore/SystemCore/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/-system-core.html
