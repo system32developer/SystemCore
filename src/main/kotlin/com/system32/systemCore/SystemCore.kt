@@ -3,6 +3,7 @@ package com.system32.systemCore
 import com.system32.systemCore.managers.cooldown.CooldownManager
 import com.system32.systemCore.utils.discord.DiscordUtil
 import org.bukkit.Bukkit
+import org.bukkit.command.CommandExecutor
 import org.bukkit.event.Event
 import org.bukkit.event.Listener
 import org.bukkit.plugin.Plugin
@@ -42,6 +43,17 @@ class SystemCore {
         fun register(event: Listener){
             plugin.server.pluginManager.registerEvents(event, plugin)
 
+        }
+
+        /**
+         * Registers a command executor to the plugin's command system.
+         *
+         * @param command The command executor to register.
+         */
+
+        fun register (command: CommandExecutor){
+            val cmd = (plugin as JavaPlugin).getCommand(command.javaClass.simpleName)!!
+            cmd.setExecutor(command)
         }
 
     }

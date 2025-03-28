@@ -1,5 +1,6 @@
 package com.system32.systemCore.utils
 
+import com.system32.systemCore.SystemCore
 import org.bukkit.Bukkit
 import org.bukkit.entity.Player
 import java.util.UUID
@@ -25,5 +26,31 @@ class ServerUtil {
         fun players() : List<Player>{
             return Bukkit.getOnlinePlayers().toList()
         }
+
+        fun task(runnable: Runnable) {
+            Bukkit.getScheduler().runTask(SystemCore.plugin, runnable)
+        }
+
+        fun taskLater(runnable: Runnable, delay: Int) {
+            Bukkit.getScheduler().runTaskLater(SystemCore.plugin, runnable, 20L * delay)
+        }
+
+        fun taskTimer(runnable: Runnable, delay: Int, period: Int) {
+            Bukkit.getScheduler().runTaskTimer(SystemCore.plugin, runnable, 20L * delay, 20L * period)
+        }
+
+        fun taskTimerAsync(runnable: Runnable, delay: Int, period: Int) {
+            Bukkit.getScheduler().runTaskTimerAsynchronously(SystemCore.plugin, runnable, 20L * delay, 20L * period)
+        }
+
+        fun taskAsync(runnable: Runnable) {
+            Bukkit.getScheduler().runTaskAsynchronously(SystemCore.plugin, runnable)
+        }
+
+        fun taskLaterAsync(runnable: Runnable, delay: Int) {
+            Bukkit.getScheduler().runTaskLaterAsynchronously(SystemCore.plugin, runnable, 20L * delay)
+        }
+
+
     }
 }
