@@ -99,6 +99,42 @@ $dokka.location:com.system32.systemCore.utils.discord/Webhook/setAvatarUrl/#kotl
 $dokka.location:com.system32.systemCore.utils.discord/Webhook/setContent/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.utils.discord/-webhook/set-content.html
 $dokka.location:com.system32.systemCore.utils.discord/Webhook/setTts/#kotlin.Boolean/PointingToDeclaration/-system-core/com.system32.systemCore.utils.discord/-webhook/set-tts.html
 $dokka.location:com.system32.systemCore.utils.discord/Webhook/setUsername/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.utils.discord/-webhook/set-username.html
+$dokka.location:com.system32.systemCore.utils.github////PointingToDeclaration/-system-core/com.system32.systemCore.utils.github/index.html
+$dokka.location:com.system32.systemCore.utils.github/GithubUpdater.Companion///PointingToDeclaration/-system-core/com.system32.systemCore.utils.github/-github-updater/-companion/index.html
+$dokka.location:com.system32.systemCore.utils.github/GithubUpdater///PointingToDeclaration/-system-core/com.system32.systemCore.utils.github/-github-updater/index.html
+$dokka.location:com.system32.systemCore.utils.github/GithubUpdater/GithubUpdater/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils.github/-github-updater/-github-updater.html
+$dokka.location:com.system32.systemCore.utils.github/GithubUpdater/checkUpdates/#kotlin.Function0[kotlin.Unit]#kotlin.Function3[kotlin.String,kotlin.String,kotlin.String,kotlin.Unit]/PointingToDeclaration/-system-core/com.system32.systemCore.utils.github/-github-updater/check-updates.html
+$dokka.location:com.system32.systemCore.utils.github/GithubUpdater/downloadPlugin/#kotlin.String#kotlin.String#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.utils.github/-github-updater/download-plugin.html
+$dokka.location:com.system32.systemCore.utils.minecraft////PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/index.html
+$dokka.location:com.system32.systemCore.utils.minecraft/ItemUtil.Companion///PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-item-util/-companion/index.html
+$dokka.location:com.system32.systemCore.utils.minecraft/ItemUtil.Companion/fromBase64/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-item-util/-companion/from-base64.html
+$dokka.location:com.system32.systemCore.utils.minecraft/ItemUtil.Companion/toBase64/#org.bukkit.inventory.ItemStack?/PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-item-util/-companion/to-base64.html
+$dokka.location:com.system32.systemCore.utils.minecraft/ItemUtil///PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-item-util/index.html
+$dokka.location:com.system32.systemCore.utils.minecraft/ItemUtil/ItemUtil/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-item-util/-item-util.html
+$dokka.location:com.system32.systemCore.utils.minecraft/ServerUtil.Companion///PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-server-util/-companion/index.html
+$dokka.location:com.system32.systemCore.utils.minecraft/ServerUtil.Companion/broadcast/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-server-util/-companion/broadcast.html
+$dokka.location:com.system32.systemCore.utils.minecraft/ServerUtil.Companion/offlinePlayer/#java.util.UUID/PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-server-util/-companion/offline-player.html
+$dokka.location:com.system32.systemCore.utils.minecraft/ServerUtil.Companion/offlinePlayer/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-server-util/-companion/offline-player.html
+$dokka.location:com.system32.systemCore.utils.minecraft/ServerUtil.Companion/player/#java.util.UUID/PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-server-util/-companion/player.html
+$dokka.location:com.system32.systemCore.utils.minecraft/ServerUtil.Companion/player/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-server-util/-companion/player.html
+$dokka.location:com.system32.systemCore.utils.minecraft/ServerUtil.Companion/players/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-server-util/-companion/players.html
+$dokka.location:com.system32.systemCore.utils.minecraft/ServerUtil.Companion/task/#java.lang.Runnable/PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-server-util/-companion/task.html
+$dokka.location:com.system32.systemCore.utils.minecraft/ServerUtil.Companion/taskAsync/#java.lang.Runnable/PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-server-util/-companion/task-async.html
+$dokka.location:com.system32.systemCore.utils.minecraft/ServerUtil.Companion/taskLater/#java.lang.Runnable#kotlin.Int/PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-server-util/-companion/task-later.html
+$dokka.location:com.system32.systemCore.utils.minecraft/ServerUtil.Companion/taskLaterAsync/#java.lang.Runnable#kotlin.Int/PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-server-util/-companion/task-later-async.html
+$dokka.location:com.system32.systemCore.utils.minecraft/ServerUtil.Companion/taskTimer/#java.lang.Runnable#kotlin.Int#kotlin.Int/PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-server-util/-companion/task-timer.html
+$dokka.location:com.system32.systemCore.utils.minecraft/ServerUtil.Companion/taskTimerAsync/#java.lang.Runnable#kotlin.Int#kotlin.Int/PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-server-util/-companion/task-timer-async.html
+$dokka.location:com.system32.systemCore.utils.minecraft/ServerUtil///PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-server-util/index.html
+$dokka.location:com.system32.systemCore.utils.minecraft/ServerUtil/ServerUtil/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-server-util/-server-util.html
+$dokka.location:com.system32.systemCore.utils.minecraft/SpigotUtil.Companion///PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-spigot-util/-companion/index.html
+$dokka.location:com.system32.systemCore.utils.minecraft/SpigotUtil.Companion/center/#org.bukkit.block.Block#org.bukkit.block.Block/PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-spigot-util/-companion/center.html
+$dokka.location:com.system32.systemCore.utils.minecraft/SpigotUtil.Companion/center/#org.bukkit.block.Block/PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-spigot-util/-companion/center.html
+$dokka.location:com.system32.systemCore.utils.minecraft/SpigotUtil.Companion/hearts/#kotlin.Double/PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-spigot-util/-companion/hearts.html
+$dokka.location:com.system32.systemCore.utils.minecraft/SpigotUtil.Companion/key/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-spigot-util/-companion/key.html
+$dokka.location:com.system32.systemCore.utils.minecraft/SpigotUtil.Companion/metrics/#kotlin.Int#org.bukkit.plugin.java.JavaPlugin/PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-spigot-util/-companion/metrics.html
+$dokka.location:com.system32.systemCore.utils.minecraft/SpigotUtil.Companion/version/#kotlin.Int#kotlin.Function0[kotlin.Unit]#kotlin.Function2[kotlin.String,kotlin.String,kotlin.Unit]/PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-spigot-util/-companion/version.html
+$dokka.location:com.system32.systemCore.utils.minecraft/SpigotUtil///PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-spigot-util/index.html
+$dokka.location:com.system32.systemCore.utils.minecraft/SpigotUtil/SpigotUtil/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-spigot-util/-spigot-util.html
 $dokka.location:com.system32.systemCore.utils.text////PointingToDeclaration/-system-core/com.system32.systemCore.utils.text/index.html
 $dokka.location:com.system32.systemCore.utils.text/FontInfo.A///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-system-core/com.system32.systemCore.utils.text/-font-info/-a/index.html
 $dokka.location:com.system32.systemCore.utils.text/FontInfo.AMPERSAND///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-system-core/com.system32.systemCore.utils.text/-font-info/-a-m-p-e-r-s-a-n-d/index.html
@@ -217,37 +253,12 @@ $dokka.location:com.system32.systemCore.utils.text/TextUtil.Companion/parseTime/
 $dokka.location:com.system32.systemCore.utils.text/TextUtil.Companion/upperCaseFirst/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.utils.text/-text-util/-companion/upper-case-first.html
 $dokka.location:com.system32.systemCore.utils.text/TextUtil///PointingToDeclaration/-system-core/com.system32.systemCore.utils.text/-text-util/index.html
 $dokka.location:com.system32.systemCore.utils.text/TextUtil/TextUtil/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils.text/-text-util/-text-util.html
-$dokka.location:com.system32.systemCore.utils////PointingToDeclaration/-system-core/com.system32.systemCore.utils/index.html
-$dokka.location:com.system32.systemCore.utils/ItemUtil.Companion///PointingToDeclaration/-system-core/com.system32.systemCore.utils/-item-util/-companion/index.html
-$dokka.location:com.system32.systemCore.utils/ItemUtil.Companion/fromBase64/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-item-util/-companion/from-base64.html
-$dokka.location:com.system32.systemCore.utils/ItemUtil.Companion/toBase64/#org.bukkit.inventory.ItemStack?/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-item-util/-companion/to-base64.html
-$dokka.location:com.system32.systemCore.utils/ItemUtil///PointingToDeclaration/-system-core/com.system32.systemCore.utils/-item-util/index.html
-$dokka.location:com.system32.systemCore.utils/ItemUtil/ItemUtil/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-item-util/-item-util.html
-$dokka.location:com.system32.systemCore.utils/ServerUtil.Companion///PointingToDeclaration/-system-core/com.system32.systemCore.utils/-server-util/-companion/index.html
-$dokka.location:com.system32.systemCore.utils/ServerUtil.Companion/offlinePlayer/#java.util.UUID/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-server-util/-companion/offline-player.html
-$dokka.location:com.system32.systemCore.utils/ServerUtil.Companion/offlinePlayer/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-server-util/-companion/offline-player.html
-$dokka.location:com.system32.systemCore.utils/ServerUtil.Companion/player/#java.util.UUID/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-server-util/-companion/player.html
-$dokka.location:com.system32.systemCore.utils/ServerUtil.Companion/player/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-server-util/-companion/player.html
-$dokka.location:com.system32.systemCore.utils/ServerUtil.Companion/players/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-server-util/-companion/players.html
-$dokka.location:com.system32.systemCore.utils/ServerUtil.Companion/task/#java.lang.Runnable/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-server-util/-companion/task.html
-$dokka.location:com.system32.systemCore.utils/ServerUtil.Companion/taskAsync/#java.lang.Runnable/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-server-util/-companion/task-async.html
-$dokka.location:com.system32.systemCore.utils/ServerUtil.Companion/taskLater/#java.lang.Runnable#kotlin.Int/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-server-util/-companion/task-later.html
-$dokka.location:com.system32.systemCore.utils/ServerUtil.Companion/taskLaterAsync/#java.lang.Runnable#kotlin.Int/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-server-util/-companion/task-later-async.html
-$dokka.location:com.system32.systemCore.utils/ServerUtil.Companion/taskTimer/#java.lang.Runnable#kotlin.Int#kotlin.Int/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-server-util/-companion/task-timer.html
-$dokka.location:com.system32.systemCore.utils/ServerUtil.Companion/taskTimerAsync/#java.lang.Runnable#kotlin.Int#kotlin.Int/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-server-util/-companion/task-timer-async.html
-$dokka.location:com.system32.systemCore.utils/ServerUtil///PointingToDeclaration/-system-core/com.system32.systemCore.utils/-server-util/index.html
-$dokka.location:com.system32.systemCore.utils/ServerUtil/ServerUtil/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-server-util/-server-util.html
-$dokka.location:com.system32.systemCore.utils/SpigotUtil.Companion///PointingToDeclaration/-system-core/com.system32.systemCore.utils/-spigot-util/-companion/index.html
-$dokka.location:com.system32.systemCore.utils/SpigotUtil.Companion/center/#org.bukkit.block.Block#org.bukkit.block.Block/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-spigot-util/-companion/center.html
-$dokka.location:com.system32.systemCore.utils/SpigotUtil.Companion/center/#org.bukkit.block.Block/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-spigot-util/-companion/center.html
-$dokka.location:com.system32.systemCore.utils/SpigotUtil.Companion/hearts/#kotlin.Double/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-spigot-util/-companion/hearts.html
-$dokka.location:com.system32.systemCore.utils/SpigotUtil.Companion/metrics/#kotlin.Int#org.bukkit.plugin.java.JavaPlugin/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-spigot-util/-companion/metrics.html
-$dokka.location:com.system32.systemCore.utils/SpigotUtil.Companion/version/#kotlin.Int#kotlin.Function0[kotlin.Unit]#kotlin.Function2[kotlin.String,kotlin.String,kotlin.Unit]/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-spigot-util/-companion/version.html
-$dokka.location:com.system32.systemCore.utils/SpigotUtil///PointingToDeclaration/-system-core/com.system32.systemCore.utils/-spigot-util/index.html
-$dokka.location:com.system32.systemCore.utils/SpigotUtil/SpigotUtil/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-spigot-util/-spigot-util.html
 $dokka.location:com.system32.systemCore////PointingToDeclaration/-system-core/com.system32.systemCore/index.html
 $dokka.location:com.system32.systemCore/SystemCore.Companion///PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/-companion/index.html
 $dokka.location:com.system32.systemCore/SystemCore.Companion/cooldownManager/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/-companion/cooldown-manager.html
+$dokka.location:com.system32.systemCore/SystemCore.Companion/githubRepo/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/-companion/github-repo.html
+$dokka.location:com.system32.systemCore/SystemCore.Companion/githubSupport/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/-companion/github-support.html
+$dokka.location:com.system32.systemCore/SystemCore.Companion/githubUser/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/-companion/github-user.html
 $dokka.location:com.system32.systemCore/SystemCore.Companion/placeholderAPISupport/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/-companion/placeholder-a-p-i-support.html
 $dokka.location:com.system32.systemCore/SystemCore.Companion/plugin/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/-companion/plugin.html
 $dokka.location:com.system32.systemCore/SystemCore.Companion/register/#org.bukkit.command.CommandExecutor/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/-companion/register.html
@@ -258,7 +269,8 @@ com.system32.systemCore
 com.system32.systemCore.managers.cooldown
 com.system32.systemCore.managers.language
 com.system32.systemCore.shade
-com.system32.systemCore.utils
 com.system32.systemCore.utils.config
 com.system32.systemCore.utils.discord
+com.system32.systemCore.utils.github
+com.system32.systemCore.utils.minecraft
 com.system32.systemCore.utils.text
