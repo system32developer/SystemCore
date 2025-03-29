@@ -12,6 +12,7 @@ import java.nio.file.Files
 import java.nio.file.Path
 import java.nio.file.StandardCopyOption
 import kotlin.io.path.Path
+import com.system32.systemCore.utils.OtherUtil.Companion.logger
 
 
 class GithubUpdater {
@@ -21,8 +22,12 @@ class GithubUpdater {
     }
     private val plugins: MutableMap<String, String> = mutableMapOf()
 
-    fun checkUpdates(onLatest: () -> Unit = {}, onOutdated: (pluginName: String, latestVersion: String, tagName: String) -> Unit) {
-        Bukkit.getScheduler().runTaskAsynchronously(SystemCore.plugin, Runnable {
+    fun checkUpdates(
+        onLatest: () -> Unit = {},
+        needUpdate: (HashMap<String, String>) -> Unit,
+        dontNeedUpdate: (HashMap<String, String>) -> Unit
+    ) {
+        taskAsync {
             try {
                 val connection: URLConnection = URL(GITHUB_API_URL).openConnection().apply {
                     connectTimeout = 15000
@@ -43,25 +48,36 @@ class GithubUpdater {
                     }
                 }
 
-                var updatesAvailable = false
+                val updatesNeeded = hashMapOf<String, String>()
+                val upToDate = hashMapOf<String, String>()
+                var allPluginsLoaded = true
+
                 for ((pluginName, latestVersion) in plugins) {
                     if (hasPlugin(pluginName)) {
                         val currentVersion = getPluginVersion(pluginName)
                         if (isOutdated(currentVersion, latestVersion)) {
-                            onOutdated(pluginName, latestVersion, tagName)
-                            updatesAvailable = true
+                            updatesNeeded[pluginName] = latestVersion
+                            allPluginsLoaded = false
+                        } else {
+                            upToDate[pluginName] = latestVersion
                         }
                     } else {
-                        onOutdated(pluginName, latestVersion, tagName)
-                        updatesAvailable = true
+                        updatesNeeded[pluginName] = latestVersion
+                        allPluginsLoaded = false
                     }
                 }
 
-                if (!updatesAvailable) onLatest()
+                if (allPluginsLoaded && updatesNeeded.isEmpty()) {
+                    onLatest()
+                } else {
+                    needUpdate(updatesNeeded)
+                }
+
+                dontNeedUpdate(upToDate)
             } catch (e: IOException) {
-                SystemCore.plugin.logger.warning("Could not check for updates: ${e.message}")
+                logger.warning("Could not check for updates: ${e.message}")
             }
-        })
+        }
     }
 
     private fun hasPlugin(pluginName: String): Boolean {
@@ -77,15 +93,15 @@ class GithubUpdater {
     }
 
     fun downloadPlugin(pluginName: String, version: String, tagName: String) {
-        taskAsync(Runnable {
+        taskAsync{
             try {
                 val download = URL("$DOWNLOAD_URL$tagName/$pluginName-$version.jar")
                 val path = Path("plugins/$pluginName.jar")
                 Files.copy(download.openStream(), path, StandardCopyOption.REPLACE_EXISTING)
-                SystemCore.plugin.logger.info("Successfully downloaded $pluginName v$version")
+                logger.info("Successfully downloaded $pluginName v$version")
             } catch (e: IOException) {
-                SystemCore.plugin.logger.warning("Failed to download $pluginName: ${e.message}")
+                logger.warning("Failed to download $pluginName: ${e.message}")
             }
-        })
+        }
     }
 }
