@@ -47,7 +47,7 @@ class SystemCore {
          *
          * @param event The event listener to register.
          */
-        fun register(event: Listener){
+        fun event(event: Listener){
             plugin.server.pluginManager.registerEvents(event, plugin)
 
         }
@@ -58,9 +58,8 @@ class SystemCore {
          * @param command The command executor to register.
          */
 
-        fun register (command: CommandExecutor){
-            val cmd = (plugin as JavaPlugin).getCommand(command.javaClass.simpleName)!!
-            cmd.setExecutor(command)
+        fun command(commandName: String,command: CommandExecutor){
+            (plugin as JavaPlugin).getCommand(commandName)?.setExecutor(command)
         }
 
     }
