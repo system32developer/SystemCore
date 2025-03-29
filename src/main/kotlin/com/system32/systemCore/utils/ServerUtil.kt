@@ -1,6 +1,7 @@
 package com.system32.systemCore.utils
 
 import com.system32.systemCore.SystemCore
+import com.system32.systemCore.utils.text.TextUtil.Companion.color
 import org.bukkit.Bukkit
 import org.bukkit.entity.Player
 import org.bukkit.scheduler.BukkitTask
@@ -26,6 +27,10 @@ class ServerUtil {
 
         fun players() : List<Player>{
             return Bukkit.getOnlinePlayers().toList()
+        }
+
+        fun broadcast(message: String) {
+            Bukkit.broadcast(color(message))
         }
 
         fun task(runnable: Runnable) : BukkitTask {

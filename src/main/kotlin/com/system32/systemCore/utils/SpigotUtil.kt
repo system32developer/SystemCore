@@ -4,6 +4,7 @@ import com.system32.systemCore.SystemCore
 import org.bstats.bukkit.Metrics
 import org.bukkit.Bukkit
 import org.bukkit.Location
+import org.bukkit.NamespacedKey
 import org.bukkit.block.Block
 import org.bukkit.entity.Player
 import org.bukkit.plugin.Plugin
@@ -16,6 +17,10 @@ import java.util.*
 class SpigotUtil {
 
     companion object{
+
+        fun key(key: String): NamespacedKey {
+            return NamespacedKey(SystemCore.plugin, key)
+        }
 
         fun hearts(amount: Double): Double{
             return amount * 2
