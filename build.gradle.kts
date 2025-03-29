@@ -89,6 +89,12 @@ tasks.named<ShadowJar>("shadowJar") {
     relocate("org.bstats", "$path.bstats")
 }
 
+tasks.register<Jar>("sourcesJar") {
+    archiveClassifier.set("sources")
+    from(sourceSets.main.get().allSource)
+}
+
+
 publishing {
     publications {
         create<MavenPublication>("maven") {
@@ -96,6 +102,8 @@ publishing {
             groupId = "com.github.system32developer"
             artifactId = "SystemCore"
             version = version
+
+            artifact(tasks.getByName("sourcesJar")) // 📌 Agregar el JAR de fuentes
         }
     }
 }
