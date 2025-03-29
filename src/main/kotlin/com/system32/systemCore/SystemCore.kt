@@ -23,6 +23,13 @@ class SystemCore {
             private set
         get() = plugin.server.pluginManager.isPluginEnabled("PlaceholderAPI")
 
+        var githubUser = "System32"
+        var githubRepo = "SystemCore"
+
+        var githubSupport: Boolean = false
+            private set
+        get() = !(githubUser == "System32" && githubRepo== "SystemCore")
+
         /**
          * Manages cooldowns for various actions.
          */

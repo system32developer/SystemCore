@@ -1,4 +1,4 @@
-package com.system32.systemCore.utils
+package com.system32.systemCore.utils.minecraft
 
 import com.system32.systemCore.SystemCore
 import org.bstats.bukkit.Metrics
@@ -6,20 +6,18 @@ import org.bukkit.Bukkit
 import org.bukkit.Location
 import org.bukkit.NamespacedKey
 import org.bukkit.block.Block
-import org.bukkit.entity.Player
 import org.bukkit.plugin.Plugin
 import org.bukkit.plugin.java.JavaPlugin
 import java.io.IOException
 import java.net.URL
-import java.util.*
-
+import java.util.Scanner
 
 class SpigotUtil {
 
     companion object{
 
         fun key(key: String): NamespacedKey {
-            return NamespacedKey(SystemCore.plugin, key)
+            return NamespacedKey(SystemCore.Companion.plugin, key)
         }
 
         fun hearts(amount: Double): Double{
@@ -55,7 +53,7 @@ class SpigotUtil {
          * ```
          */
         fun version(resourceId: Int, onLatest: () -> Unit = {}, onOutdated: (latestVersion: String, downloadLink: String) -> Unit) {
-            val plugin: Plugin = SystemCore.plugin
+            val plugin: Plugin = SystemCore.Companion.plugin
             Bukkit.getScheduler().runTaskAsynchronously(plugin, Runnable {
                 try {
                     URL("https://api.spigotmc.org/legacy/update.php?resource=$resourceId/~").openStream().use { inputStream ->
@@ -79,7 +77,7 @@ class SpigotUtil {
             })
         }
 
-        fun metrics(id: Int, plugin: JavaPlugin) : Metrics{
+        fun metrics(id: Int, plugin: JavaPlugin) : Metrics {
             return Metrics(plugin, id)
         }
     }

@@ -1,4 +1,4 @@
-package com.system32.systemCore.utils
+package com.system32.systemCore.utils.minecraft
 
 import org.bukkit.inventory.ItemStack
 import org.bukkit.util.io.BukkitObjectInputStream
