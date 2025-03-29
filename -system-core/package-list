@@ -103,7 +103,7 @@ $dokka.location:com.system32.systemCore.utils.github////PointingToDeclaration/-
 $dokka.location:com.system32.systemCore.utils.github/GithubUpdater.Companion///PointingToDeclaration/-system-core/com.system32.systemCore.utils.github/-github-updater/-companion/index.html
 $dokka.location:com.system32.systemCore.utils.github/GithubUpdater///PointingToDeclaration/-system-core/com.system32.systemCore.utils.github/-github-updater/index.html
 $dokka.location:com.system32.systemCore.utils.github/GithubUpdater/GithubUpdater/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils.github/-github-updater/-github-updater.html
-$dokka.location:com.system32.systemCore.utils.github/GithubUpdater/checkUpdates/#kotlin.Function0[kotlin.Unit]#kotlin.Function3[kotlin.String,kotlin.String,kotlin.String,kotlin.Unit]/PointingToDeclaration/-system-core/com.system32.systemCore.utils.github/-github-updater/check-updates.html
+$dokka.location:com.system32.systemCore.utils.github/GithubUpdater/checkUpdates/#kotlin.Function0[kotlin.Unit]#kotlin.Function1[java.util.HashMap[kotlin.String,kotlin.String],kotlin.Unit]#kotlin.Function1[java.util.HashMap[kotlin.String,kotlin.String],kotlin.Unit]/PointingToDeclaration/-system-core/com.system32.systemCore.utils.github/-github-updater/check-updates.html
 $dokka.location:com.system32.systemCore.utils.github/GithubUpdater/downloadPlugin/#kotlin.String#kotlin.String#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.utils.github/-github-updater/download-plugin.html
 $dokka.location:com.system32.systemCore.utils.minecraft////PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/index.html
 $dokka.location:com.system32.systemCore.utils.minecraft/ItemUtil.Companion///PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-item-util/-companion/index.html
@@ -253,22 +253,28 @@ $dokka.location:com.system32.systemCore.utils.text/TextUtil.Companion/parseTime/
 $dokka.location:com.system32.systemCore.utils.text/TextUtil.Companion/upperCaseFirst/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.utils.text/-text-util/-companion/upper-case-first.html
 $dokka.location:com.system32.systemCore.utils.text/TextUtil///PointingToDeclaration/-system-core/com.system32.systemCore.utils.text/-text-util/index.html
 $dokka.location:com.system32.systemCore.utils.text/TextUtil/TextUtil/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils.text/-text-util/-text-util.html
+$dokka.location:com.system32.systemCore.utils////PointingToDeclaration/-system-core/com.system32.systemCore.utils/index.html
+$dokka.location:com.system32.systemCore.utils/OtherUtil.Companion///PointingToDeclaration/-system-core/com.system32.systemCore.utils/-other-util/-companion/index.html
+$dokka.location:com.system32.systemCore.utils/OtherUtil.Companion/logger/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-other-util/-companion/logger.html
+$dokka.location:com.system32.systemCore.utils/OtherUtil///PointingToDeclaration/-system-core/com.system32.systemCore.utils/-other-util/index.html
+$dokka.location:com.system32.systemCore.utils/OtherUtil/OtherUtil/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-other-util/-other-util.html
 $dokka.location:com.system32.systemCore////PointingToDeclaration/-system-core/com.system32.systemCore/index.html
 $dokka.location:com.system32.systemCore/SystemCore.Companion///PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/-companion/index.html
+$dokka.location:com.system32.systemCore/SystemCore.Companion/command/#kotlin.String#org.bukkit.command.CommandExecutor/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/-companion/command.html
 $dokka.location:com.system32.systemCore/SystemCore.Companion/cooldownManager/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/-companion/cooldown-manager.html
+$dokka.location:com.system32.systemCore/SystemCore.Companion/event/#org.bukkit.event.Listener/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/-companion/event.html
 $dokka.location:com.system32.systemCore/SystemCore.Companion/githubRepo/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/-companion/github-repo.html
 $dokka.location:com.system32.systemCore/SystemCore.Companion/githubSupport/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/-companion/github-support.html
 $dokka.location:com.system32.systemCore/SystemCore.Companion/githubUser/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/-companion/github-user.html
 $dokka.location:com.system32.systemCore/SystemCore.Companion/placeholderAPISupport/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/-companion/placeholder-a-p-i-support.html
 $dokka.location:com.system32.systemCore/SystemCore.Companion/plugin/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/-companion/plugin.html
-$dokka.location:com.system32.systemCore/SystemCore.Companion/register/#org.bukkit.command.CommandExecutor/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/-companion/register.html
-$dokka.location:com.system32.systemCore/SystemCore.Companion/register/#org.bukkit.event.Listener/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/-companion/register.html
 $dokka.location:com.system32.systemCore/SystemCore///PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/index.html
 $dokka.location:com.system32.systemCore/SystemCore/SystemCore/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/-system-core.html
 com.system32.systemCore
 com.system32.systemCore.managers.cooldown
 com.system32.systemCore.managers.language
 com.system32.systemCore.shade
+com.system32.systemCore.utils
 com.system32.systemCore.utils.config
 com.system32.systemCore.utils.discord
 com.system32.systemCore.utils.github
