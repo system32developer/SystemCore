@@ -154,5 +154,41 @@ class TextUtil {
         fun normalize(value: Number, max: Number): Double {
             return (value.toDouble() / max.toDouble()).coerceIn(0.0, 1.0)
         }
+
+        /**
+         * Creates a progress bar string representation.
+         *
+         * @param value The current value.
+         * @param max The maximum value.
+         * @param length The length of the progress bar.
+         * @param symbol The symbol used for the filled part of the bar.
+         * @param filledColor The color for the filled part of the bar.
+         * @param emptyColor The color for the empty part of the bar.
+         * @return A string representation of the progress bar.
+         */
+
+        fun progressBar(value: Double, max: Double, length: Int = 10, symbol: String = "|", filledColor: String = "#e6ff59", emptyColor: String = "#AAAAAA"): String {
+            val normalizedValue = normalize(value, max)
+            val filledLength = (length * normalizedValue).toInt()
+            val emptyLength = length - filledLength
+            return "<color:$filledColor>" + symbol.repeat(filledLength) + "<color:$emptyColor>" + symbol.repeat(emptyLength)
+        }
+
+        /**
+         * Creates a progress bar string representation with integer values.
+         *
+         * @param value The current value.
+         * @param max The maximum value.
+         * @param length The length of the progress bar.
+         * @param symbol The symbol used for the filled part of the bar.
+         * @param filledColor The color for the filled part of the bar.
+         * @param emptyColor The color for the empty part of the bar.
+         * @return A string representation of the progress bar.
+         */
+
+        fun progressBar(value: Int, max: Int, length: Int = 10, symbol: String = "|", filledColor: String = "#e6ff59", emptyColor: String = "#AAAAAA"): String {
+            return progressBar(value.toDouble(), max.toDouble(), length, symbol, filledColor, emptyColor)
+        }
+
     }
 }
