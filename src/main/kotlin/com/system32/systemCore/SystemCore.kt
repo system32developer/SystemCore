@@ -1,5 +1,6 @@
 package com.system32.systemCore
 
+import com.system32.systemCore.managers.chatawaiter.ChatAwaiterManager
 import com.system32.systemCore.managers.cooldown.CooldownManager
 import com.system32.systemCore.utils.discord.DiscordUtil
 import org.bukkit.Bukkit
@@ -34,6 +35,8 @@ class SystemCore {
          * Manages cooldowns for various actions.
          */
         val cooldownManager = CooldownManager()
+
+        val chatAwaiterManager = ChatAwaiterManager()
 
         /**
          * Provides the main plugin instance.
