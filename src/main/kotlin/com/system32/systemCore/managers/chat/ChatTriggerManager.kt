@@ -9,9 +9,6 @@ import org.bukkit.entity.Player
 
 class ChatTriggerManager : Listener {
 
-    init{
-        SystemCore.event(this)
-    }
 
     private val triggers = mutableMapOf<String, (ChatInput) -> Unit>()
 

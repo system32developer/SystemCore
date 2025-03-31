@@ -58,7 +58,8 @@ class SystemCore {
          */
         fun event(event: Listener){
             plugin.server.pluginManager.registerEvents(event, plugin)
-
+            event(chatTriggerManager)
+            event(chatAwaiterManager)
         }
 
         /**

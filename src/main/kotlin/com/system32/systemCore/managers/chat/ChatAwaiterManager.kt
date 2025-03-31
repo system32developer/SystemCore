@@ -10,10 +10,6 @@ import java.util.function.Consumer
 
 class ChatAwaiterManager : Listener {
 
-    init{
-        SystemCore.event(this)
-    }
-
     private val awaiters: MutableMap<String, Consumer<ChatInput>> = HashMap<String, Consumer<ChatInput>>()
 
     /**
