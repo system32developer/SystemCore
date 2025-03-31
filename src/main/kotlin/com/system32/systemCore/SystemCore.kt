@@ -51,11 +51,6 @@ class SystemCore {
             JavaPlugin.getProvidingPlugin(SystemCore::class.java)
         }
 
-        init{
-            event(chatAwaiterManager)
-            event(chatTriggerManager)
-        }
-
         /**
          * Registers an event listener to the plugin's event system.
          *
