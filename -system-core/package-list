@@ -1,5 +1,24 @@
 $dokka.format:html-v1
 $dokka.linkExtension:html
+$dokka.location:com.system32.systemCore.managers.chat////PointingToDeclaration/-system-core/com.system32.systemCore.managers.chat/index.html
+$dokka.location:com.system32.systemCore.managers.chat/ChatAwaiterManager///PointingToDeclaration/-system-core/com.system32.systemCore.managers.chat/-chat-awaiter-manager/index.html
+$dokka.location:com.system32.systemCore.managers.chat/ChatAwaiterManager/ChatAwaiterManager/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.chat/-chat-awaiter-manager/-chat-awaiter-manager.html
+$dokka.location:com.system32.systemCore.managers.chat/ChatAwaiterManager/addAwaiter/#kotlin.String#java.util.function.Consumer[com.system32.systemCore.managers.chat.ChatInput]/PointingToDeclaration/-system-core/com.system32.systemCore.managers.chat/-chat-awaiter-manager/add-awaiter.html
+$dokka.location:com.system32.systemCore.managers.chat/ChatAwaiterManager/clearAllAwaiters/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.chat/-chat-awaiter-manager/clear-all-awaiters.html
+$dokka.location:com.system32.systemCore.managers.chat/ChatAwaiterManager/getAwaiter/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.managers.chat/-chat-awaiter-manager/get-awaiter.html
+$dokka.location:com.system32.systemCore.managers.chat/ChatAwaiterManager/hasAwaiter/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.managers.chat/-chat-awaiter-manager/has-awaiter.html
+$dokka.location:com.system32.systemCore.managers.chat/ChatAwaiterManager/onPlayerChat/#io.papermc.paper.event.player.AsyncChatEvent/PointingToDeclaration/-system-core/com.system32.systemCore.managers.chat/-chat-awaiter-manager/on-player-chat.html
+$dokka.location:com.system32.systemCore.managers.chat/ChatAwaiterManager/removeAwaiter/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.managers.chat/-chat-awaiter-manager/remove-awaiter.html
+$dokka.location:com.system32.systemCore.managers.chat/ChatInput///PointingToDeclaration/-system-core/com.system32.systemCore.managers.chat/-chat-input/index.html
+$dokka.location:com.system32.systemCore.managers.chat/ChatInput/ChatInput/#org.bukkit.entity.Player#kotlin.Array[kotlin.String]/PointingToDeclaration/-system-core/com.system32.systemCore.managers.chat/-chat-input/-chat-input.html
+$dokka.location:com.system32.systemCore.managers.chat/ChatInput/ChatInput/#org.bukkit.entity.Player#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.managers.chat/-chat-input/-chat-input.html
+$dokka.location:com.system32.systemCore.managers.chat/ChatInput/args/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.chat/-chat-input/args.html
+$dokka.location:com.system32.systemCore.managers.chat/ChatInput/player/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.chat/-chat-input/player.html
+$dokka.location:com.system32.systemCore.managers.chat/ChatInput/response/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.chat/-chat-input/response.html
+$dokka.location:com.system32.systemCore.managers.chat/ChatTriggerManager///PointingToDeclaration/-system-core/com.system32.systemCore.managers.chat/-chat-trigger-manager/index.html
+$dokka.location:com.system32.systemCore.managers.chat/ChatTriggerManager/ChatTriggerManager/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.chat/-chat-trigger-manager/-chat-trigger-manager.html
+$dokka.location:com.system32.systemCore.managers.chat/ChatTriggerManager/addTrigger/#kotlin.String#kotlin.Function1[com.system32.systemCore.managers.chat.ChatInput,kotlin.Unit]/PointingToDeclaration/-system-core/com.system32.systemCore.managers.chat/-chat-trigger-manager/add-trigger.html
+$dokka.location:com.system32.systemCore.managers.chat/ChatTriggerManager/onChat/#io.papermc.paper.event.player.AsyncChatEvent/PointingToDeclaration/-system-core/com.system32.systemCore.managers.chat/-chat-trigger-manager/on-chat.html
 $dokka.location:com.system32.systemCore.managers.cooldown////PointingToDeclaration/-system-core/com.system32.systemCore.managers.cooldown/index.html
 $dokka.location:com.system32.systemCore.managers.cooldown/Cooldown///PointingToDeclaration/-system-core/com.system32.systemCore.managers.cooldown/-cooldown/index.html
 $dokka.location:com.system32.systemCore.managers.cooldown/Cooldown/Cooldown/#kotlin.Long/PointingToDeclaration/-system-core/com.system32.systemCore.managers.cooldown/-cooldown/-cooldown.html
@@ -262,6 +281,8 @@ $dokka.location:com.system32.systemCore.utils/OtherUtil///PointingToDeclaration/
 $dokka.location:com.system32.systemCore.utils/OtherUtil/OtherUtil/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-other-util/-other-util.html
 $dokka.location:com.system32.systemCore////PointingToDeclaration/-system-core/com.system32.systemCore/index.html
 $dokka.location:com.system32.systemCore/SystemCore.Companion///PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/-companion/index.html
+$dokka.location:com.system32.systemCore/SystemCore.Companion/chatAwaiterManager/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/-companion/chat-awaiter-manager.html
+$dokka.location:com.system32.systemCore/SystemCore.Companion/chatTriggerManager/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/-companion/chat-trigger-manager.html
 $dokka.location:com.system32.systemCore/SystemCore.Companion/command/#kotlin.String#org.bukkit.command.CommandExecutor/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/-companion/command.html
 $dokka.location:com.system32.systemCore/SystemCore.Companion/cooldownManager/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/-companion/cooldown-manager.html
 $dokka.location:com.system32.systemCore/SystemCore.Companion/event/#org.bukkit.event.Listener/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/-companion/event.html
@@ -273,6 +294,7 @@ $dokka.location:com.system32.systemCore/SystemCore.Companion/plugin/#/PointingTo
 $dokka.location:com.system32.systemCore/SystemCore///PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/index.html
 $dokka.location:com.system32.systemCore/SystemCore/SystemCore/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/-system-core.html
 com.system32.systemCore
+com.system32.systemCore.managers.chat
 com.system32.systemCore.managers.cooldown
 com.system32.systemCore.managers.language
 com.system32.systemCore.shade
