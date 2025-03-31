@@ -103,7 +103,7 @@ publishing {
             artifactId = "SystemCore"
             version = version
 
-            artifact(tasks.getByName("sourcesJar")) // 📌 Agregar el JAR de fuentes
+            artifact(tasks.getByName("sourcesJar"))
         }
     }
 }
@@ -181,11 +181,7 @@ tasks.register("publishJavadocs") {
                 workingDir = tempDir
                 commandLine("git", "push", "--force", "origin", "gh-pages")
             }
-            println("✅ Javadocs publicados correctamente en GitHub Pages")
-        } else {
-            println("⚠️ No hay cambios en los Javadocs, no se realizó ningún commit.")
         }
-
         tempDir.deleteRecursively()
     }
 }

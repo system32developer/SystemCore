@@ -189,6 +189,5 @@ class TextUtil {
         fun progressBar(value: Int, max: Int, length: Int = 10, symbol: String = "|", filledColor: String = "#e6ff59", emptyColor: String = "#AAAAAA"): String {
             return progressBar(value.toDouble(), max.toDouble(), length, symbol, filledColor, emptyColor)
         }
-
     }
 }
