@@ -280,19 +280,17 @@ $dokka.location:com.system32.systemCore.utils/OtherUtil.Companion/logger/#/Point
 $dokka.location:com.system32.systemCore.utils/OtherUtil///PointingToDeclaration/-system-core/com.system32.systemCore.utils/-other-util/index.html
 $dokka.location:com.system32.systemCore.utils/OtherUtil/OtherUtil/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-other-util/-other-util.html
 $dokka.location:com.system32.systemCore////PointingToDeclaration/-system-core/com.system32.systemCore/index.html
-$dokka.location:com.system32.systemCore/SystemCore.Companion///PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/-companion/index.html
-$dokka.location:com.system32.systemCore/SystemCore.Companion/chatAwaiterManager/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/-companion/chat-awaiter-manager.html
-$dokka.location:com.system32.systemCore/SystemCore.Companion/chatTriggerManager/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/-companion/chat-trigger-manager.html
-$dokka.location:com.system32.systemCore/SystemCore.Companion/command/#kotlin.String#org.bukkit.command.CommandExecutor/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/-companion/command.html
-$dokka.location:com.system32.systemCore/SystemCore.Companion/cooldownManager/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/-companion/cooldown-manager.html
-$dokka.location:com.system32.systemCore/SystemCore.Companion/event/#org.bukkit.event.Listener/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/-companion/event.html
-$dokka.location:com.system32.systemCore/SystemCore.Companion/githubRepo/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/-companion/github-repo.html
-$dokka.location:com.system32.systemCore/SystemCore.Companion/githubSupport/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/-companion/github-support.html
-$dokka.location:com.system32.systemCore/SystemCore.Companion/githubUser/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/-companion/github-user.html
-$dokka.location:com.system32.systemCore/SystemCore.Companion/placeholderAPISupport/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/-companion/placeholder-a-p-i-support.html
-$dokka.location:com.system32.systemCore/SystemCore.Companion/plugin/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/-companion/plugin.html
 $dokka.location:com.system32.systemCore/SystemCore///PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/index.html
-$dokka.location:com.system32.systemCore/SystemCore/SystemCore/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/-system-core.html
+$dokka.location:com.system32.systemCore/SystemCore/chatAwaiterManager/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/chat-awaiter-manager.html
+$dokka.location:com.system32.systemCore/SystemCore/chatTriggerManager/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/chat-trigger-manager.html
+$dokka.location:com.system32.systemCore/SystemCore/command/#kotlin.String#org.bukkit.command.CommandExecutor/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/command.html
+$dokka.location:com.system32.systemCore/SystemCore/cooldownManager/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/cooldown-manager.html
+$dokka.location:com.system32.systemCore/SystemCore/event/#org.bukkit.event.Listener/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/event.html
+$dokka.location:com.system32.systemCore/SystemCore/githubRepo/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/github-repo.html
+$dokka.location:com.system32.systemCore/SystemCore/githubSupport/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/github-support.html
+$dokka.location:com.system32.systemCore/SystemCore/githubUser/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/github-user.html
+$dokka.location:com.system32.systemCore/SystemCore/placeholderAPISupport/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/placeholder-a-p-i-support.html
+$dokka.location:com.system32.systemCore/SystemCore/plugin/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/plugin.html
 com.system32.systemCore
 com.system32.systemCore.managers.chat
 com.system32.systemCore.managers.cooldown
