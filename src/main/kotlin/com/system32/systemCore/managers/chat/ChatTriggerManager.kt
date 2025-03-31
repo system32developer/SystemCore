@@ -1,5 +1,6 @@
 package com.system32.systemCore.managers.chat
 
+import com.system32.systemCore.SystemCore
 import com.system32.systemCore.utils.text.TextUtil.Companion.asText
 import io.papermc.paper.event.player.AsyncChatEvent
 import org.bukkit.event.EventHandler
@@ -7,6 +8,7 @@ import org.bukkit.event.Listener
 import org.bukkit.entity.Player
 
 class ChatTriggerManager : Listener {
+
     private val triggers = mutableMapOf<String, (ChatInput) -> Unit>()
 
     fun addTrigger(keyword: String, action: (ChatInput) -> Unit): ChatTriggerManager {
