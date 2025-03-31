@@ -48,7 +48,10 @@ class SystemCore {
          * Provides the main plugin instance.
          */
         val plugin: Plugin by lazy {
-            JavaPlugin.getProvidingPlugin(SystemCore::class.java)
+            JavaPlugin.getProvidingPlugin(SystemCore::class.java).also {
+                event(chatTriggerManager)
+                event(chatAwaiterManager)
+            }
         }
 
         /**
@@ -58,8 +61,6 @@ class SystemCore {
          */
         fun event(event: Listener){
             plugin.server.pluginManager.registerEvents(event, plugin)
-            event(chatTriggerManager)
-            event(chatAwaiterManager)
         }
 
         /**
