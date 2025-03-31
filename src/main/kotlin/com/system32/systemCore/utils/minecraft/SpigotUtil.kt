@@ -17,7 +17,7 @@ class SpigotUtil {
     companion object{
 
         fun key(key: String): NamespacedKey {
-            return NamespacedKey(SystemCore.Companion.plugin, key)
+            return NamespacedKey(SystemCore.plugin, key)
         }
 
         fun hearts(amount: Double): Double{
@@ -53,7 +53,7 @@ class SpigotUtil {
          * ```
          */
         fun version(resourceId: Int, onLatest: () -> Unit = {}, onOutdated: (latestVersion: String, downloadLink: String) -> Unit) {
-            val plugin: Plugin = SystemCore.Companion.plugin
+            val plugin: Plugin = SystemCore.plugin
             Bukkit.getScheduler().runTaskAsynchronously(plugin, Runnable {
                 try {
                     URL("https://api.spigotmc.org/legacy/update.php?resource=$resourceId/~").openStream().use { inputStream ->
