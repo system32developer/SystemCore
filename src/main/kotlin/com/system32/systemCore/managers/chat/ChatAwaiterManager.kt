@@ -1,4 +1,4 @@
-package com.system32.systemCore.managers.chatawaiter
+package com.system32.systemCore.managers.chat
 
 import com.system32.systemCore.utils.text.TextUtil.Companion.asText
 import io.papermc.paper.event.player.AsyncChatEvent

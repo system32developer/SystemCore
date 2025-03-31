@@ -1,11 +1,9 @@
 package com.system32.systemCore
 
-import com.system32.systemCore.managers.chatawaiter.ChatAwaiterManager
+import com.system32.systemCore.managers.chat.ChatAwaiterManager
+import com.system32.systemCore.managers.chat.ChatTriggerManager
 import com.system32.systemCore.managers.cooldown.CooldownManager
-import com.system32.systemCore.utils.discord.DiscordUtil
-import org.bukkit.Bukkit
 import org.bukkit.command.CommandExecutor
-import org.bukkit.event.Event
 import org.bukkit.event.Listener
 import org.bukkit.plugin.Plugin
 import org.bukkit.plugin.java.JavaPlugin
@@ -36,13 +34,26 @@ class SystemCore {
          */
         val cooldownManager = CooldownManager()
 
+        /**
+         * Manages chat awaiters and triggers.
+         */
         val chatAwaiterManager = ChatAwaiterManager()
+
+        /**
+         * Manages chat triggers for specific keywords.
+         */
+        val chatTriggerManager = ChatTriggerManager()
 
         /**
          * Provides the main plugin instance.
          */
         val plugin: Plugin by lazy {
             JavaPlugin.getProvidingPlugin(SystemCore::class.java)
+        }
+
+        init{
+            event(chatAwaiterManager)
+            event(chatTriggerManager)
         }
 
         /**
