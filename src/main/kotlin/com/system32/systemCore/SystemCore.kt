@@ -3,6 +3,7 @@ package com.system32.systemCore
 import com.system32.systemCore.managers.chat.ChatAwaiterManager
 import com.system32.systemCore.managers.chat.ChatTriggerManager
 import com.system32.systemCore.managers.cooldown.CooldownManager
+import org.bukkit.Bukkit
 import org.bukkit.command.CommandExecutor
 import org.bukkit.event.Listener
 import org.bukkit.plugin.Plugin
@@ -16,9 +17,13 @@ object SystemCore {
     /**
      * Provides the main plugin instance.
      */
-    val plugin: Plugin by lazy {
+    private val _plugin: Lazy<JavaPlugin> = lazy {
+        // Este código solo se ejecutará cuando se acceda a `plugin` por primera vez.
         JavaPlugin.getProvidingPlugin(SystemCore::class.java)
     }
+
+    val plugin: JavaPlugin
+        get() = _plugin.value
 
     /**
      * Indicates whether PlaceholderAPI support is enabled.
@@ -42,16 +47,15 @@ object SystemCore {
     /**
      * Manages chat awaiters and triggers.
      */
-    val chatAwaiterManager = ChatAwaiterManager()
+    val chatAwaiterManager: ChatAwaiterManager by lazy {
+        ChatAwaiterManager().also { event(it) }
+    }
 
     /**
      * Manages chat triggers for specific keywords.
      */
-    val chatTriggerManager = ChatTriggerManager()
-
-    init {
-        event(chatTriggerManager)
-        event(chatAwaiterManager)
+    val chatTriggerManager: ChatTriggerManager by lazy {
+        ChatTriggerManager().also { event(it) }
     }
 
     /**
