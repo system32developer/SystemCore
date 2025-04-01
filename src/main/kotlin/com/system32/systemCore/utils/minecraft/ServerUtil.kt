@@ -45,10 +45,6 @@ class ServerUtil {
             return Bukkit.getScheduler().runTaskTimer(SystemCore.plugin, runnable, 20L * delay, 20L * period)
         }
 
-        fun taskTimerAsync(runnable: Runnable, delay: Int, period: Int) : BukkitTask {
-            return Bukkit.getScheduler().runTaskTimerAsynchronously(SystemCore.plugin, runnable, 20L * delay, 20L * period)
-        }
-
         fun taskAsync(runnable: Runnable) : BukkitTask {
             return Bukkit.getScheduler().runTaskAsynchronously(SystemCore.plugin, runnable)
         }
@@ -57,6 +53,26 @@ class ServerUtil {
             return Bukkit.getScheduler().runTaskLaterAsynchronously(SystemCore.plugin, runnable, 20L * delay)
         }
 
+        fun taskTimerAsync(runnable: Runnable, delay: Int, period: Int) : BukkitTask {
+            return Bukkit.getScheduler().runTaskTimerAsynchronously(SystemCore.plugin, runnable, 20L * delay, 20L * period)
+        }
 
+        //With Long
+
+        fun taskLater(runnable: Runnable, delay: Long) : BukkitTask {
+            return Bukkit.getScheduler().runTaskLater(SystemCore.plugin, runnable, delay)
+        }
+
+        fun taskTimer(runnable: Runnable, delay: Long, period: Long) : BukkitTask {
+            return Bukkit.getScheduler().runTaskTimer(SystemCore.plugin, runnable, delay, period)
+        }
+
+        fun taskLaterAsync(runnable: Runnable, delay: Long) : BukkitTask {
+            return Bukkit.getScheduler().runTaskLaterAsynchronously(SystemCore.plugin, runnable, delay)
+        }
+
+        fun taskTimerAsync(runnable: Runnable, delay: Long, period: Long) : BukkitTask {
+            return Bukkit.getScheduler().runTaskTimerAsynchronously(SystemCore.plugin, runnable, delay, period)
+        }
     }
 }
