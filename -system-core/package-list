@@ -162,7 +162,6 @@ $dokka.location:com.system32.systemCore.utils.github/GithubUpdater/checkUpdates/
 $dokka.location:com.system32.systemCore.utils.github/GithubUpdater/downloadPlugin/#kotlin.String#kotlin.String#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.utils.github/-github-updater/download-plugin.html
 $dokka.location:com.system32.systemCore.utils.minecraft////PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/index.html
 $dokka.location:com.system32.systemCore.utils.minecraft/ChatHeadUtil.Companion///PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-chat-head-util/-companion/index.html
-$dokka.location:com.system32.systemCore.utils.minecraft/ChatHeadUtil.Companion/fromRGB/#kotlin.Int#kotlin.Int#kotlin.Int/PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-chat-head-util/-companion/from-r-g-b.html
 $dokka.location:com.system32.systemCore.utils.minecraft/ChatHeadUtil.Companion/generateChatHead/#kotlin.String#kotlin.Int#kotlin.String#kotlin.Boolean/PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-chat-head-util/-companion/generate-chat-head.html
 $dokka.location:com.system32.systemCore.utils.minecraft/ChatHeadUtil///PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-chat-head-util/index.html
 $dokka.location:com.system32.systemCore.utils.minecraft/ChatHeadUtil/ChatHeadUtil/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-chat-head-util/-chat-head-util.html
@@ -321,6 +320,7 @@ $dokka.location:com.system32.systemCore.utils.text/TextUtil///PointingToDeclarat
 $dokka.location:com.system32.systemCore.utils.text/TextUtil/TextUtil/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils.text/-text-util/-text-util.html
 $dokka.location:com.system32.systemCore.utils////PointingToDeclaration/-system-core/com.system32.systemCore.utils/index.html
 $dokka.location:com.system32.systemCore.utils/OtherUtil.Companion///PointingToDeclaration/-system-core/com.system32.systemCore.utils/-other-util/-companion/index.html
+$dokka.location:com.system32.systemCore.utils/OtherUtil.Companion/fromRGB/#kotlin.Int#kotlin.Int#kotlin.Int/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-other-util/-companion/from-r-g-b.html
 $dokka.location:com.system32.systemCore.utils/OtherUtil.Companion/logger/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-other-util/-companion/logger.html
 $dokka.location:com.system32.systemCore.utils/OtherUtil///PointingToDeclaration/-system-core/com.system32.systemCore.utils/-other-util/index.html
 $dokka.location:com.system32.systemCore.utils/OtherUtil/OtherUtil/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-other-util/-other-util.html
