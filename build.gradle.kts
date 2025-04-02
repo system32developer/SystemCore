@@ -59,7 +59,6 @@ repositories {
 dependencies {
     compileOnly("io.papermc.paper:paper-api:1.21.1-R0.1-SNAPSHOT")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-    implementation("org.bstats:bstats-bukkit:3.0.2")
     implementation("com.tchristofferson:ConfigUpdater:2.2-SNAPSHOT")
     compileOnly("me.clip:placeholderapi:2.11.6")
     api("dev.triumphteam:triumph-gui:3.1.11")
@@ -86,7 +85,6 @@ val path = "com.system32.systemCore.shade"
 
 tasks.named<ShadowJar>("shadowJar") {
     minimize()
-    relocate("org.bstats", "$path.bstats")
 }
 
 tasks.register<Jar>("sourcesJar") {
