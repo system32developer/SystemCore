@@ -3,6 +3,7 @@ import java.io.ByteArrayOutputStream
 
 plugins {
     kotlin("jvm") version "2.1.20-RC"
+    java
     id("com.gradleup.shadow") version "8.3.2"
     `maven-publish`
     id("org.jetbrains.dokka") version "2.0.0"
@@ -67,6 +68,7 @@ dependencies {
 val targetJavaVersion = 21
 kotlin {
     jvmToolchain(targetJavaVersion)
+
 }
 
 tasks.build {
