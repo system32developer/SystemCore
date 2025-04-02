@@ -30,12 +30,14 @@ class ChatHeadUtil {
                 val url = URL(urlString)
                 val image: BufferedImage = ImageIO.read(url)
                 for (i in 0 until image.height) {
+                    val chatHeadLine = StringBuilder()
                     for (j in 0 until image.width) {
                         val color = Color(image.getRGB(j, i))
                         val chatColor = fromRGB(color.red, color.green, color.blue)
                         val line = "$chatColor$character</color>${if (addNewLine) "\n" else ""}"
-                        chatHeadBuilder.add(line)
+                        chatHeadLine.append(line)
                     }
+                    chatHeadBuilder.add(chatHeadLine.toString())
                 }
             } catch (e: Exception) {
                 e.printStackTrace()
