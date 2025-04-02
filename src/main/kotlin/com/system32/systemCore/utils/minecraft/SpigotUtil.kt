@@ -1,7 +1,7 @@
 package com.system32.systemCore.utils.minecraft
 
 import com.system32.systemCore.SystemCore
-import org.bstats.bukkit.Metrics
+import com.system32.systemCore.shade.Metrics
 import org.bukkit.Bukkit
 import org.bukkit.Location
 import org.bukkit.NamespacedKey
