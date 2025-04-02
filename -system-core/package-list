@@ -163,6 +163,7 @@ $dokka.location:com.system32.systemCore.utils.github/GithubUpdater/downloadPlugi
 $dokka.location:com.system32.systemCore.utils.minecraft////PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/index.html
 $dokka.location:com.system32.systemCore.utils.minecraft/ChatHeadUtil.Companion///PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-chat-head-util/-companion/index.html
 $dokka.location:com.system32.systemCore.utils.minecraft/ChatHeadUtil.Companion/generateChatHead/#kotlin.String#kotlin.Int#kotlin.String#kotlin.Boolean/PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-chat-head-util/-companion/generate-chat-head.html
+$dokka.location:com.system32.systemCore.utils.minecraft/ChatHeadUtil.Companion/generateChatHead/#kotlin.String#kotlin.String#kotlin.Boolean/PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-chat-head-util/-companion/generate-chat-head.html
 $dokka.location:com.system32.systemCore.utils.minecraft/ChatHeadUtil///PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-chat-head-util/index.html
 $dokka.location:com.system32.systemCore.utils.minecraft/ChatHeadUtil/ChatHeadUtil/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-chat-head-util/-chat-head-util.html
 $dokka.location:com.system32.systemCore.utils.minecraft/ItemUtil.Companion///PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-item-util/-companion/index.html
