@@ -69,7 +69,7 @@ class ChatHeadUtil {
          * ```
          */
 
-        fun generateChatHead(image: String, character: String = "⬛", addNewLine: Boolean = false){
+        fun generateChatHead(image: String, character: String = "⬛", addNewLine: Boolean = false): List<String>{
             val chatHeadBuilder = mutableListOf<String>()
             try {
                 val url = URL(image)
@@ -87,6 +87,7 @@ class ChatHeadUtil {
             } catch (e: Exception) {
                 e.printStackTrace()
             }
+            return chatHeadBuilder
         }
     }
 }
