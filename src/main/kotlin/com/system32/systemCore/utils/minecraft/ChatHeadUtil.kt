@@ -31,6 +31,7 @@ class ChatHeadUtil {
      * }
      * ```
      */
+
     fun generateChatHead(user: Player, scale: Int = 8, character: String = "⬛", addNewLine: Boolean = false, cached: Boolean= false): List<String> {
         return generateChatHead(user.name, scale, character, addNewLine, cached)
     }
@@ -53,6 +54,7 @@ class ChatHeadUtil {
      * }
      * ```
      */
+
     fun generateChatHead(user: String, scale: Int = 8, character: String = "⬛", addNewLine: Boolean = false, cached: Boolean= false): List<String> {
         return generateChatHead("https://minotar.net/helm/$user/$scale.png", character, addNewLine, cached)
     }
