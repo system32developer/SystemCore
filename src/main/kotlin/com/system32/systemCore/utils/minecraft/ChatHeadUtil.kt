@@ -20,6 +20,14 @@ class ChatHeadUtil {
          * @param character The character to use for each pixel (default is "⬛").
          * @param addNewLine Whether to add a new line after each pixel (default is false).
          * @return A list of strings representing the chat head image.
+         *
+         * ### Example usage:
+         * ```kotlin
+         * val chatHead = ChatHeadUtil.generateChatHead("Notch")
+         * for (line in chatHead) {
+         *    player.sendMessage(color(line))
+         * }
+         * ```
          */
 
         fun generateChatHead(user: String, scale: Int = 8, character: String = "⬛", addNewLine: Boolean = false): List<String> {
@@ -42,6 +50,43 @@ class ChatHeadUtil {
                 e.printStackTrace()
             }
             return chatHeadBuilder
+        }
+
+        /**
+         * Generates a chat head image from a URL.
+         *
+         * @param image The URL of the image.
+         * @param character The character to use for each pixel (default is "⬛").
+         * @param addNewLine Whether to add a new line after each pixel (default is false).
+         * @return A list of strings representing the chat head image.
+         *
+         * ### Example usage:
+         * ```kotlin
+         * val chatHead = ChatHeadUtil.generateChatHead("https://example.com/image.png")
+         * for (line in chatHead) {
+         *     player.sendMessage(color(line))
+         * }
+         * ```
+         */
+
+        fun generateChatHead(image: String, character: String = "⬛", addNewLine: Boolean = false){
+            val chatHeadBuilder = mutableListOf<String>()
+            try {
+                val url = URL(image)
+                val bufferedImage: BufferedImage = ImageIO.read(url)
+                for (i in 0 until bufferedImage.height) {
+                    val chatHeadLine = StringBuilder()
+                    for (j in 0 until bufferedImage.width) {
+                        val color = Color(bufferedImage.getRGB(j, i))
+                        val chatColor = fromRGB(color.red, color.green, color.blue)
+                        val line = "$chatColor$character</color>${if (addNewLine) "\n" else ""}"
+                        chatHeadLine.append(line)
+                    }
+                    chatHeadBuilder.add(chatHeadLine.toString())
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
         }
     }
 }
