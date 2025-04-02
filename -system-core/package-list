@@ -161,11 +161,11 @@ $dokka.location:com.system32.systemCore.utils.github/GithubUpdater/GithubUpdater
 $dokka.location:com.system32.systemCore.utils.github/GithubUpdater/checkUpdates/#kotlin.Function0[kotlin.Unit]#kotlin.Function1[java.util.HashMap[kotlin.String,kotlin.String],kotlin.Unit]#kotlin.Function1[java.util.HashMap[kotlin.String,kotlin.String],kotlin.Unit]/PointingToDeclaration/-system-core/com.system32.systemCore.utils.github/-github-updater/check-updates.html
 $dokka.location:com.system32.systemCore.utils.github/GithubUpdater/downloadPlugin/#kotlin.String#kotlin.String#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.utils.github/-github-updater/download-plugin.html
 $dokka.location:com.system32.systemCore.utils.minecraft////PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/index.html
-$dokka.location:com.system32.systemCore.utils.minecraft/ChatHeadUtil.Companion///PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-chat-head-util/-companion/index.html
-$dokka.location:com.system32.systemCore.utils.minecraft/ChatHeadUtil.Companion/generateChatHead/#kotlin.String#kotlin.Int#kotlin.String#kotlin.Boolean/PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-chat-head-util/-companion/generate-chat-head.html
-$dokka.location:com.system32.systemCore.utils.minecraft/ChatHeadUtil.Companion/generateChatHead/#kotlin.String#kotlin.String#kotlin.Boolean/PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-chat-head-util/-companion/generate-chat-head.html
 $dokka.location:com.system32.systemCore.utils.minecraft/ChatHeadUtil///PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-chat-head-util/index.html
 $dokka.location:com.system32.systemCore.utils.minecraft/ChatHeadUtil/ChatHeadUtil/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-chat-head-util/-chat-head-util.html
+$dokka.location:com.system32.systemCore.utils.minecraft/ChatHeadUtil/generateChatHead/#kotlin.String#kotlin.Int#kotlin.String#kotlin.Boolean#kotlin.Boolean/PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-chat-head-util/generate-chat-head.html
+$dokka.location:com.system32.systemCore.utils.minecraft/ChatHeadUtil/generateChatHead/#kotlin.String#kotlin.String#kotlin.Boolean#kotlin.Boolean/PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-chat-head-util/generate-chat-head.html
+$dokka.location:com.system32.systemCore.utils.minecraft/ChatHeadUtil/headsCache/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-chat-head-util/heads-cache.html
 $dokka.location:com.system32.systemCore.utils.minecraft/ItemUtil.Companion///PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-item-util/-companion/index.html
 $dokka.location:com.system32.systemCore.utils.minecraft/ItemUtil.Companion/fromBase64/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-item-util/-companion/from-base64.html
 $dokka.location:com.system32.systemCore.utils.minecraft/ItemUtil.Companion/toBase64/#org.bukkit.inventory.ItemStack?/PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-item-util/-companion/to-base64.html
@@ -328,6 +328,7 @@ $dokka.location:com.system32.systemCore.utils/OtherUtil/OtherUtil/#/PointingToDe
 $dokka.location:com.system32.systemCore////PointingToDeclaration/-system-core/com.system32.systemCore/index.html
 $dokka.location:com.system32.systemCore/SystemCore///PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/index.html
 $dokka.location:com.system32.systemCore/SystemCore/chatAwaiterManager/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/chat-awaiter-manager.html
+$dokka.location:com.system32.systemCore/SystemCore/chatHeadUtil/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/chat-head-util.html
 $dokka.location:com.system32.systemCore/SystemCore/chatTriggerManager/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/chat-trigger-manager.html
 $dokka.location:com.system32.systemCore/SystemCore/command/#kotlin.String#org.bukkit.command.CommandExecutor/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/command.html
 $dokka.location:com.system32.systemCore/SystemCore/cooldownManager/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/cooldown-manager.html
