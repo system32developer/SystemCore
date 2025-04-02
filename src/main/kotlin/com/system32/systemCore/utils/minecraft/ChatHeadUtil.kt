@@ -3,6 +3,7 @@ package com.system32.systemCore.utils.minecraft
 import com.system32.systemCore.utils.OtherUtil.Companion.fromRGB
 import com.system32.systemCore.utils.text.TextUtil.Companion.color
 import net.kyori.adventure.text.Component
+import org.bukkit.entity.Player
 import java.awt.Color
 import java.awt.image.BufferedImage
 import java.net.URL
@@ -11,6 +12,29 @@ import javax.imageio.ImageIO
 class ChatHeadUtil {
 
     val headsCache = mutableMapOf<String, List<String>>()
+
+    /**
+     * Generates a chat head image from a Minecraft player's skin.
+     *
+     * @param user The Minecraft player.
+     * @param scale The scale of the image (default is 8).
+     * @param character The character to use for each pixel (default is "⬛").
+     * @param addNewLine Whether to add a new line after each pixel (default is false).
+     * @param cached Whether to cache the generated image (default is false).
+     * @return A list of strings representing the chat head image.
+     *
+     * ### Example usage:
+     * ```kotlin
+     * val chatHead = ChatHeadUtil.generateChatHead(player)
+     * for (line in chatHead) {
+     *    player.sendMessage(color(line))
+     * }
+     * ```
+     */
+    fun generateChatHead(user: Player, scale: Int = 8, character: String = "⬛", addNewLine: Boolean = false, cached: Boolean= false): List<String> {
+        return generateChatHead(user.name, scale, character, addNewLine, cached)
+    }
+
     /**
      * Generates a chat head image from a Minecraft player's skin.
      *
@@ -29,7 +53,6 @@ class ChatHeadUtil {
      * }
      * ```
      */
-
     fun generateChatHead(user: String, scale: Int = 8, character: String = "⬛", addNewLine: Boolean = false, cached: Boolean= false): List<String> {
         return generateChatHead("https://minotar.net/helm/$user/$scale.png", character, addNewLine, cached)
     }
