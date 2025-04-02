@@ -1,5 +1,6 @@
 package com.system32.systemCore.utils.minecraft
 
+import com.system32.systemCore.utils.OtherUtil.Companion.fromRGB
 import com.system32.systemCore.utils.text.TextUtil.Companion.color
 import net.kyori.adventure.text.Component
 import java.awt.Color
@@ -9,9 +10,7 @@ import javax.imageio.ImageIO
 
 class ChatHeadUtil {
     companion object {
-        fun fromRGB(r: Int, g: Int, b: Int): String {
-            return "<color:${String.format("#%02x%02x%02x", r, g, b)}>"
-        }
+
 
         /**
          * Generates a chat head image from a Minecraft player's skin.
