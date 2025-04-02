@@ -13,6 +13,16 @@ class ChatHeadUtil {
             return "<color:${String.format("#%02x%02x%02x", r, g, b)}>"
         }
 
+        /**
+         * Generates a chat head image from a Minecraft player's skin.
+         *
+         * @param user The username of the Minecraft player.
+         * @param scale The scale of the image (default is 8).
+         * @param character The character to use for each pixel (default is "⬛").
+         * @param addNewLine Whether to add a new line after each pixel (default is false).
+         * @return A list of strings representing the chat head image.
+         */
+
         fun generateChatHead(user: String, scale: Int = 8, character: String = "⬛", addNewLine: Boolean = false): List<String> {
             val urlString = "https://minotar.net/helm/$user/$scale.png"
             val chatHeadBuilder = mutableListOf<String>()
