@@ -3,6 +3,7 @@ package com.system32.systemCore
 import com.system32.systemCore.managers.chat.ChatAwaiterManager
 import com.system32.systemCore.managers.chat.ChatTriggerManager
 import com.system32.systemCore.managers.cooldown.CooldownManager
+import com.system32.systemCore.utils.minecraft.ChatHeadUtil
 import org.bukkit.Bukkit
 import org.bukkit.command.CommandExecutor
 import org.bukkit.event.Listener
@@ -43,6 +44,12 @@ object SystemCore {
      * Manages cooldowns for various actions.
      */
     val cooldownManager = CooldownManager()
+
+    /**
+     * Utility class for managing chat heads.
+     */
+
+    val chatHeadUtil = ChatHeadUtil()
 
     /**
      * Manages chat awaiters and triggers.
