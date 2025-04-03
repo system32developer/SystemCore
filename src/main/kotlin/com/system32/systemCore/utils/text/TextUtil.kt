@@ -6,6 +6,7 @@ import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.TextComponent
 import net.kyori.adventure.text.minimessage.MiniMessage
 import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer
+import org.bukkit.entity.Player
 import java.util.function.Consumer
 
 class TextUtil {
@@ -25,10 +26,10 @@ class TextUtil {
          * player.sendMessage(message)
          * ```
          */
-        fun color(input: String): Component {
+        fun color(input: String, target: Player? = null): Component {
             var message = input
             val mini = MiniMessage.miniMessage()
-            if(SystemCore.placeholderAPISupport) message = PlaceholderAPI.setPlaceholders(null, message)
+            if(SystemCore.placeholderAPISupport) message = PlaceholderAPI.setPlaceholders(target, message)
             if(input.contains("&")) {
                 val legacy: TextComponent = LegacyComponentSerializer.legacyAmpersand().deserialize(message);
                 message = mini.serialize(legacy).replace("\\", "");
@@ -42,9 +43,9 @@ class TextUtil {
          * @param messages List of strings to color.
          * @return A list of colored Components.
          */
-        fun color(messages: List<String>): List<Component> {
+        fun color(messages: List<String>, target: Player? = null): List<Component> {
             val components: MutableList<Component> = ArrayList()
-            messages.forEach(Consumer { message: String -> components.add(color(message)) })
+            messages.forEach(Consumer { message: String -> components.add(color(message, target)) })
             return components
         }
 
