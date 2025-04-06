@@ -1,6 +1,5 @@
 package com.system32.systemCore
 
-import com.system32.systemCore.managers.anvil.AnvilInputManager
 import com.system32.systemCore.managers.chat.ChatAwaiterManager
 import com.system32.systemCore.managers.chat.ChatTriggerManager
 import com.system32.systemCore.managers.cooldown.CooldownManager
@@ -64,10 +63,6 @@ object SystemCore {
      */
     val chatTriggerManager: ChatTriggerManager by lazy {
         ChatTriggerManager().also { event(it) }
-    }
-
-    val anvilInputManager: AnvilInputManager by lazy {
-        AnvilInputManager().also { event(it) }
     }
 
     /**
