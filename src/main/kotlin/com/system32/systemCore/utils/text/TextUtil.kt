@@ -7,6 +7,7 @@ import net.kyori.adventure.text.TextComponent
 import net.kyori.adventure.text.minimessage.MiniMessage
 import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer
 import org.bukkit.entity.Player
+import java.text.DecimalFormat
 import java.util.function.Consumer
 
 class TextUtil {
@@ -62,6 +63,24 @@ class TextUtil {
             } catch (e: Exception) {
                 false
             }
+        }
+
+        /**
+         * Formats a number (Int or String) into a string with thousands separators.
+         *
+         * @param value The number to format.
+         * @return The formatted string representation of the number.
+         */
+
+        fun formatNumber(value: Any): String {
+            val number = when (value) {
+                is Int -> value.toLong()
+                is String -> value.toLongOrNull() ?: return value // Devuelve la string original si no es un número
+                else -> throw IllegalArgumentException("Tipo no soportado")
+            }
+
+            val formatter = DecimalFormat("#,###")
+            return formatter.format(number)
         }
 
         /**

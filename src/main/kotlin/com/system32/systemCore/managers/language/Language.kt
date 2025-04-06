@@ -6,7 +6,9 @@ enum class Language(private val defaultTranslation: String) {
     TIME_UNIT_SECOND("seconds"),
     TIME_UNIT_MINUTE("minutes"),
     TIME_UNIT_HOUR("hours"),
-    TIME_UNIT_DAY("days");
+    TIME_UNIT_DAY("days"),
+    ANVIL_TITLE("Type your answer")
+    ;
 
     companion object {
         private val customTranslations = ConcurrentHashMap<Language, String>()
