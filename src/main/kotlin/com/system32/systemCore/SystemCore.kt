@@ -20,7 +20,6 @@ object SystemCore {
      * Provides the main plugin instance.
      */
     private val _plugin: Lazy<JavaPlugin> = lazy {
-        // Este código solo se ejecutará cuando se acceda a `plugin` por primera vez.
         JavaPlugin.getProvidingPlugin(SystemCore::class.java)
     }
 
