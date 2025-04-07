@@ -75,7 +75,7 @@ class TextUtil {
         fun formatNumber(value: Any): String {
             val number = when (value) {
                 is Int -> value.toLong()
-                is String -> value.toLongOrNull() ?: return value // Devuelve la string original si no es un número
+                is String -> value.toLongOrNull() ?: return value
                 else -> throw IllegalArgumentException("Tipo no soportado")
             }
 
