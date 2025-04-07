@@ -76,7 +76,7 @@ class TextUtil {
             val number = when (value) {
                 is Int -> value.toLong()
                 is String -> value.toLongOrNull() ?: return value
-                else -> throw IllegalArgumentException("Tipo no soportado")
+                else -> throw IllegalArgumentException("The value must be an Int or String.")
             }
 
             val formatter = DecimalFormat("#,###")

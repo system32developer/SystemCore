@@ -22,14 +22,8 @@ class UsableItemsManager : Listener {
     @EventHandler
     fun onPlayerUse(event: PlayerInteractEvent) {
         val itemInHand = event.item ?: return
-        if(event.hand != EquipmentSlot.HAND) return
+        if (event.hand != EquipmentSlot.HAND) return
 
-        for (usableItem in usableItems) {
-            if (itemInHand == usableItem.item && usableItem.validate(event)) {
-                usableItem.onUse(event)
-                break
-            }
-        }
+        usableItems.firstOrNull { item -> item.item == itemInHand && item.validate(event) }?.onUse(event)
     }
-
 }
