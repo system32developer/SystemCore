@@ -34,6 +34,7 @@ $dokka.location:com.system32.systemCore.managers.cooldown/CooldownManager/isCool
 $dokka.location:com.system32.systemCore.managers.cooldown/CooldownManager/removeCooldown/#kotlin.String#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.managers.cooldown/-cooldown-manager/remove-cooldown.html
 $dokka.location:com.system32.systemCore.managers.cooldown/CooldownManager/startCooldown/#kotlin.String#kotlin.String#kotlin.Double/PointingToDeclaration/-system-core/com.system32.systemCore.managers.cooldown/-cooldown-manager/start-cooldown.html
 $dokka.location:com.system32.systemCore.managers.language////PointingToDeclaration/-system-core/com.system32.systemCore.managers.language/index.html
+$dokka.location:com.system32.systemCore.managers.language/Language.ANVIL_TITLE///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-system-core/com.system32.systemCore.managers.language/-language/-a-n-v-i-l_-t-i-t-l-e/index.html
 $dokka.location:com.system32.systemCore.managers.language/Language.Companion///PointingToDeclaration/-system-core/com.system32.systemCore.managers.language/-language/-companion/index.html
 $dokka.location:com.system32.systemCore.managers.language/Language.Companion/get/#com.system32.systemCore.managers.language.Language/PointingToDeclaration/-system-core/com.system32.systemCore.managers.language/-language/-companion/get.html
 $dokka.location:com.system32.systemCore.managers.language/Language.TIME_UNIT_DAY///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-system-core/com.system32.systemCore.managers.language/-language/-t-i-m-e_-u-n-i-t_-d-a-y/index.html
@@ -47,6 +48,16 @@ $dokka.location:com.system32.systemCore.managers.language/Language/toString/#/Po
 $dokka.location:com.system32.systemCore.managers.language/Language/translation/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.language/-language/translation.html
 $dokka.location:com.system32.systemCore.managers.language/Language/valueOf/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.managers.language/-language/value-of.html
 $dokka.location:com.system32.systemCore.managers.language/Language/values/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.language/-language/values.html
+$dokka.location:com.system32.systemCore.managers.usableItems////PointingToDeclaration/-system-core/com.system32.systemCore.managers.usableItems/index.html
+$dokka.location:com.system32.systemCore.managers.usableItems/UsableItemsManager.UsableItem///PointingToDeclaration/-system-core/com.system32.systemCore.managers.usableItems/-usable-items-manager/-usable-item/index.html
+$dokka.location:com.system32.systemCore.managers.usableItems/UsableItemsManager.UsableItem/UsableItem/#org.bukkit.inventory.ItemStack#kotlin.Function1[org.bukkit.event.player.PlayerInteractEvent,kotlin.Boolean]#kotlin.Function1[org.bukkit.event.player.PlayerInteractEvent,kotlin.Unit]/PointingToDeclaration/-system-core/com.system32.systemCore.managers.usableItems/-usable-items-manager/-usable-item/-usable-item.html
+$dokka.location:com.system32.systemCore.managers.usableItems/UsableItemsManager.UsableItem/item/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.usableItems/-usable-items-manager/-usable-item/item.html
+$dokka.location:com.system32.systemCore.managers.usableItems/UsableItemsManager.UsableItem/onUse/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.usableItems/-usable-items-manager/-usable-item/on-use.html
+$dokka.location:com.system32.systemCore.managers.usableItems/UsableItemsManager.UsableItem/validate/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.usableItems/-usable-items-manager/-usable-item/validate.html
+$dokka.location:com.system32.systemCore.managers.usableItems/UsableItemsManager///PointingToDeclaration/-system-core/com.system32.systemCore.managers.usableItems/-usable-items-manager/index.html
+$dokka.location:com.system32.systemCore.managers.usableItems/UsableItemsManager/UsableItemsManager/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.usableItems/-usable-items-manager/-usable-items-manager.html
+$dokka.location:com.system32.systemCore.managers.usableItems/UsableItemsManager/onPlayerUse/#org.bukkit.event.player.PlayerInteractEvent/PointingToDeclaration/-system-core/com.system32.systemCore.managers.usableItems/-usable-items-manager/on-player-use.html
+$dokka.location:com.system32.systemCore.managers.usableItems/UsableItemsManager/register/#org.bukkit.inventory.ItemStack#kotlin.Function1[org.bukkit.event.player.PlayerInteractEvent,kotlin.Boolean]#kotlin.Function1[org.bukkit.event.player.PlayerInteractEvent,kotlin.Unit]/PointingToDeclaration/-system-core/com.system32.systemCore.managers.usableItems/-usable-items-manager/register.html
 $dokka.location:com.system32.systemCore.shade////PointingToDeclaration/-system-core/com.system32.systemCore.shade/index.html
 $dokka.location:com.system32.systemCore.shade/Metrics.AdvancedBarChart///PointingToDeclaration/-system-core/com.system32.systemCore.shade/-metrics/-advanced-bar-chart/index.html
 $dokka.location:com.system32.systemCore.shade/Metrics.AdvancedBarChart/AdvancedBarChart/#java.lang.String#java.util.concurrent.Callable<java.util.Map<java.lang.String,int[]>>/PointingToDeclaration/-system-core/com.system32.systemCore.shade/-metrics/-advanced-bar-chart/-advanced-bar-chart.html
@@ -312,6 +323,7 @@ $dokka.location:com.system32.systemCore.utils.text/TextUtil.Companion/asText/#ne
 $dokka.location:com.system32.systemCore.utils.text/TextUtil.Companion/centerMessage/#kotlin.String?/PointingToDeclaration/-system-core/com.system32.systemCore.utils.text/-text-util/-companion/center-message.html
 $dokka.location:com.system32.systemCore.utils.text/TextUtil.Companion/color/#kotlin.String#org.bukkit.entity.Player?/PointingToDeclaration/-system-core/com.system32.systemCore.utils.text/-text-util/-companion/color.html
 $dokka.location:com.system32.systemCore.utils.text/TextUtil.Companion/color/#kotlin.collections.List[kotlin.String]#org.bukkit.entity.Player?/PointingToDeclaration/-system-core/com.system32.systemCore.utils.text/-text-util/-companion/color.html
+$dokka.location:com.system32.systemCore.utils.text/TextUtil.Companion/formatNumber/#kotlin.Any/PointingToDeclaration/-system-core/com.system32.systemCore.utils.text/-text-util/-companion/format-number.html
 $dokka.location:com.system32.systemCore.utils.text/TextUtil.Companion/isInteger/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.utils.text/-text-util/-companion/is-integer.html
 $dokka.location:com.system32.systemCore.utils.text/TextUtil.Companion/normalize/#kotlin.Number#kotlin.Number/PointingToDeclaration/-system-core/com.system32.systemCore.utils.text/-text-util/-companion/normalize.html
 $dokka.location:com.system32.systemCore.utils.text/TextUtil.Companion/parseTime/#kotlin.Int/PointingToDeclaration/-system-core/com.system32.systemCore.utils.text/-text-util/-companion/parse-time.html
@@ -339,10 +351,12 @@ $dokka.location:com.system32.systemCore/SystemCore/githubSupport/#/PointingToDec
 $dokka.location:com.system32.systemCore/SystemCore/githubUser/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/github-user.html
 $dokka.location:com.system32.systemCore/SystemCore/placeholderAPISupport/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/placeholder-a-p-i-support.html
 $dokka.location:com.system32.systemCore/SystemCore/plugin/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/plugin.html
+$dokka.location:com.system32.systemCore/SystemCore/usableItemsManager/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/usable-items-manager.html
 com.system32.systemCore
 com.system32.systemCore.managers.chat
 com.system32.systemCore.managers.cooldown
 com.system32.systemCore.managers.language
+com.system32.systemCore.managers.usableItems
 com.system32.systemCore.shade
 com.system32.systemCore.utils
 com.system32.systemCore.utils.config
