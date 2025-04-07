@@ -3,6 +3,7 @@ package com.system32.systemCore
 import com.system32.systemCore.managers.chat.ChatAwaiterManager
 import com.system32.systemCore.managers.chat.ChatTriggerManager
 import com.system32.systemCore.managers.cooldown.CooldownManager
+import com.system32.systemCore.managers.usableItems.UsableItemsManager
 import com.system32.systemCore.utils.minecraft.ChatHeadUtil
 import org.bukkit.Bukkit
 import org.bukkit.command.CommandExecutor
@@ -63,6 +64,14 @@ object SystemCore {
      */
     val chatTriggerManager: ChatTriggerManager by lazy {
         ChatTriggerManager().also { event(it) }
+    }
+
+    /**
+     * Manages usable items and their interactions.
+     */
+
+    val usableItemsManager: UsableItemsManager by lazy {
+        UsableItemsManager().also { event(it) }
     }
 
     /**
