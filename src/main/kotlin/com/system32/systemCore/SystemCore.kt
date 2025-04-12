@@ -51,6 +51,13 @@ object SystemCore {
 
     val chatHeadUtil = ChatHeadUtil()
 
+
+    /**
+     * Provides a debugger for logging and debugging purposes.
+     */
+
+    val debugger = Debugger()
+
     /**
      * Manages chat awaiters and triggers.
      */
