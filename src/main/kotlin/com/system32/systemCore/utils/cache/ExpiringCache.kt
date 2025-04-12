@@ -26,11 +26,9 @@ import org.bukkit.scheduler.BukkitTask
 
 class ExpiringCache<K, V>(
     private val plugin: Plugin,
-    expiryTimeMillis: Int,
-    cleanupIntervalTicks: Int = 200
+    val expireIn: Int = 10,
+    val cleanup: Int = 10
 ){
-    private val expiryTimeMillis: Long = expiryTimeMillis.toLong()
-    private val cleanupIntervalTicks: Long = cleanupIntervalTicks.toLong()
     private val cache = LinkedHashMap<K, Pair<Long, V>>()
     private var cleanupTask: BukkitTask? = null
 
@@ -46,7 +44,7 @@ class ExpiringCache<K, V>(
     @Synchronized
     fun get(key: K): V? {
         val entry = cache[key] ?: return null
-        return if (System.currentTimeMillis() - entry.first < expiryTimeMillis) {
+        return if (System.currentTimeMillis() - entry.first < expireIn * 1000) {
             cache[key] = System.currentTimeMillis() to entry.second
             entry.second
         } else {
@@ -66,7 +64,7 @@ class ExpiringCache<K, V>(
         val iterator = cache.entries.iterator()
         while (iterator.hasNext()) {
             val entry = iterator.next()
-            if (now - entry.value.first >= expiryTimeMillis) {
+            if (now - entry.value.first >= expireIn * 1000) {
                 iterator.remove()
             }
         }
@@ -75,7 +73,7 @@ class ExpiringCache<K, V>(
     private fun startCleanupTask() {
         cleanupTask = Bukkit.getScheduler().runTaskTimer(plugin, Runnable {
             cleanup()
-        }, cleanupIntervalTicks, cleanupIntervalTicks)
+        }, cleanup * 20L, expireIn * 20L)
     }
 
     fun stop() {
