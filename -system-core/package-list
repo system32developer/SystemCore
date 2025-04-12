@@ -100,6 +100,8 @@ $dokka.location:com.system32.systemCore.shade/Metrics/shutdown/#/PointingToDecla
 $dokka.location:com.system32.systemCore.utils.cache////PointingToDeclaration/-system-core/com.system32.systemCore.utils.cache/index.html
 $dokka.location:com.system32.systemCore.utils.cache/ExpiringCache///PointingToDeclaration/-system-core/com.system32.systemCore.utils.cache/-expiring-cache/index.html
 $dokka.location:com.system32.systemCore.utils.cache/ExpiringCache/ExpiringCache/#org.bukkit.plugin.Plugin#kotlin.Int#kotlin.Int/PointingToDeclaration/-system-core/com.system32.systemCore.utils.cache/-expiring-cache/-expiring-cache.html
+$dokka.location:com.system32.systemCore.utils.cache/ExpiringCache/cleanup/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils.cache/-expiring-cache/cleanup.html
+$dokka.location:com.system32.systemCore.utils.cache/ExpiringCache/expireIn/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils.cache/-expiring-cache/expire-in.html
 $dokka.location:com.system32.systemCore.utils.cache/ExpiringCache/get/#TypeParam(bounds=[kotlin.Any?])/PointingToDeclaration/-system-core/com.system32.systemCore.utils.cache/-expiring-cache/get.html
 $dokka.location:com.system32.systemCore.utils.cache/ExpiringCache/put/#TypeParam(bounds=[kotlin.Any?])#TypeParam(bounds=[kotlin.Any?])/PointingToDeclaration/-system-core/com.system32.systemCore.utils.cache/-expiring-cache/put.html
 $dokka.location:com.system32.systemCore.utils.cache/ExpiringCache/remove/#TypeParam(bounds=[kotlin.Any?])/PointingToDeclaration/-system-core/com.system32.systemCore.utils.cache/-expiring-cache/remove.html
