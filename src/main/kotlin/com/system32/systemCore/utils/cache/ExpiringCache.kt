@@ -1,5 +1,6 @@
 package com.system32.systemCore.utils.cache
 
+import com.system32.systemCore.SystemCore
 import org.bukkit.Bukkit
 import org.bukkit.plugin.Plugin
 import org.bukkit.scheduler.BukkitTask
@@ -25,7 +26,6 @@ import org.bukkit.scheduler.BukkitTask
  **/
 
 class ExpiringCache<K, V>(
-    private val plugin: Plugin,
     val expireIn: Int = 10,
     val cleanup: Int = 10
 ){
@@ -71,7 +71,7 @@ class ExpiringCache<K, V>(
     }
 
     private fun startCleanupTask() {
-        cleanupTask = Bukkit.getScheduler().runTaskTimer(plugin, Runnable {
+        cleanupTask = Bukkit.getScheduler().runTaskTimer(SystemCore.plugin, Runnable {
             cleanup()
         }, cleanup * 20L, expireIn * 20L)
     }
