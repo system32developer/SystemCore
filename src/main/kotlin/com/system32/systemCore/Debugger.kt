@@ -10,6 +10,10 @@ class Debugger() {
 
     var enabled = false
     var sessionLogging = false
+        set(value) {
+            field = value
+            setupLogger()
+        }
     private val debugFolder = File(SystemCore.plugin.dataFolder, "debug")
     private var attempt = 1
     private lateinit var logFile: File
@@ -37,6 +41,9 @@ class Debugger() {
             logFile = File(debugFolder, "$attempt - $formatted.txt")
         } else {
             logFile = File(debugFolder, "debugger.txt")
+            debugFolder.listFiles()?.forEach {
+                if (it.isFile) it.delete()
+            }
         }
 
         if (!logFile.exists()) logFile.createNewFile()
