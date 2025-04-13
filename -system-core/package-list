@@ -351,6 +351,7 @@ $dokka.location:com.system32.systemCore////PointingToDeclaration/-system-core/c
 $dokka.location:com.system32.systemCore/Debugger///PointingToDeclaration/-system-core/com.system32.systemCore/-debugger/index.html
 $dokka.location:com.system32.systemCore/Debugger/Debugger/#/PointingToDeclaration/-system-core/com.system32.systemCore/-debugger/-debugger.html
 $dokka.location:com.system32.systemCore/Debugger/close/#/PointingToDeclaration/-system-core/com.system32.systemCore/-debugger/close.html
+$dokka.location:com.system32.systemCore/Debugger/enabled/#/PointingToDeclaration/-system-core/com.system32.systemCore/-debugger/enabled.html
 $dokka.location:com.system32.systemCore/Debugger/sessionLogging/#/PointingToDeclaration/-system-core/com.system32.systemCore/-debugger/session-logging.html
 $dokka.location:com.system32.systemCore/Debugger/write/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore/-debugger/write.html
 $dokka.location:com.system32.systemCore/SystemCore///PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/index.html
