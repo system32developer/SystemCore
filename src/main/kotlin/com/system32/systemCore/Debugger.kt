@@ -8,12 +8,10 @@ import java.time.format.DateTimeFormatter
 
 class Debugger() {
 
-    var enabled = false
-    var sessionLogging = false
-        set(value) {
-            field = value
-            setupLogger()
-        }
+
+    var enabled : Boolean = false
+    var sessionLogging: Boolean = false
+
     private val debugFolder = File(SystemCore.plugin.dataFolder, "debug")
     private var attempt = 1
     private lateinit var logFile: File
@@ -24,26 +22,26 @@ class Debugger() {
     }
 
     private fun setupLogger() {
-        if(!enabled) return
+        if (!enabled) return
         if (!debugFolder.exists()) debugFolder.mkdirs()
 
         attempt = calculateAttempt()
 
         if (sessionLogging) {
             debugFolder.listFiles()?.forEach {
-                if (it.isFile && it.name != "debugger.txt") it.delete()
+                if (it.isFile && it.name == "debugger.txt") it.delete()
             }
 
             val dateTime = LocalDateTime.now()
-            val formatter = DateTimeFormatter.ofPattern("HH-mm ss-EEE")
+            val formatter = DateTimeFormatter.ofPattern("dd-MM-HH-mm")
             val formatted = dateTime.format(formatter)
 
             logFile = File(debugFolder, "$attempt - $formatted.txt")
         } else {
-            logFile = File(debugFolder, "debugger.txt")
             debugFolder.listFiles()?.forEach {
-                if (it.isFile) it.delete()
+                if (it.isFile && it.name != "debugger.txt") it.delete()
             }
+            logFile = File(debugFolder, "debugger.txt")
         }
 
         if (!logFile.exists()) logFile.createNewFile()
@@ -53,26 +51,26 @@ class Debugger() {
     }
 
     private fun calculateAttempt(): Int {
-        val date = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"))
-        val pattern = Regex("""^(\d+) - .*\.txt$""")
+        val logFiles = debugFolder.listFiles { file -> file.isFile && file.name.endsWith(".txt") }
+        var maxAttempt = 0
 
-        val attemptsToday = debugFolder.listFiles()
-            ?.mapNotNull { file ->
-                val match = pattern.find(file.name)
-                if (match != null) {
-                    val created = file.lastModified()
-                    val fileDate = LocalDateTime.ofEpochSecond(created / 1000, 0, java.time.ZoneOffset.UTC)
-                    if (fileDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd")) == date) {
-                        match.groupValues[1].toIntOrNull()
-                    } else null
-                } else null
-            } ?: emptyList()
+        logFiles?.forEach { file ->
+            val regex = Regex("""^(\d+) - """)
+            val matchResult = regex.find(file.name)
+            if (matchResult != null) {
+                val attemptNumber = matchResult.groupValues[1].toIntOrNull()
+                if (attemptNumber != null && attemptNumber > maxAttempt) {
+                    maxAttempt = attemptNumber
+                }
+            }
+        }
 
-        return if (attemptsToday.isEmpty()) 1 else (attemptsToday.maxOrNull()!! + 1)
+        return maxAttempt + 1
     }
 
+
     fun write(message: String) {
-        if(!enabled) return
+        if (!enabled) return
         val now = LocalDateTime.now()
         val hour = now.format(DateTimeFormatter.ofPattern("HH:mm:ss"))
         val day = now.format(DateTimeFormatter.ofPattern("EEEE"))
@@ -86,7 +84,6 @@ class Debugger() {
     }
 
     fun close() {
-        if(!enabled) return
         log("=== Logger closed ===")
         writer.close()
     }
