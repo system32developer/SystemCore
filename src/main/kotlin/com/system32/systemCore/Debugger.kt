@@ -8,6 +8,7 @@ import java.time.format.DateTimeFormatter
 
 class Debugger() {
 
+    var enabled = false
     var sessionLogging = false
     private val debugFolder = File(SystemCore.plugin.dataFolder, "debug")
     private var attempt = 1
@@ -19,6 +20,7 @@ class Debugger() {
     }
 
     private fun setupLogger() {
+        if(!enabled) return
         if (!debugFolder.exists()) debugFolder.mkdirs()
 
         attempt = calculateAttempt()
@@ -63,6 +65,7 @@ class Debugger() {
     }
 
     fun write(message: String) {
+        if(!enabled) return
         val now = LocalDateTime.now()
         val hour = now.format(DateTimeFormatter.ofPattern("HH:mm:ss"))
         val day = now.format(DateTimeFormatter.ofPattern("EEEE"))
@@ -76,6 +79,7 @@ class Debugger() {
     }
 
     fun close() {
+        if(!enabled) return
         log("=== Logger closed ===")
         writer.close()
     }
