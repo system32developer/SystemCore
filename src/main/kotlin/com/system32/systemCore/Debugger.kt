@@ -6,11 +6,8 @@ import java.io.PrintWriter
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
-class Debugger() {
+class Debugger(val enabled: Boolean = false, val sessionLogging: Boolean = false) {
 
-
-    var enabled : Boolean = false
-    var sessionLogging: Boolean = false
 
     private val debugFolder = File(SystemCore.plugin.dataFolder, "debug")
     private var attempt = 1
