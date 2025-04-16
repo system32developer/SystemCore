@@ -87,6 +87,10 @@ class Table(val name: String, val database: Database) {
      * ```kotlin
      * val usersTable = database.addTable("users")
      *
+     * .addData(TableData.STRING, "username", TableFlag.PRIMARY_KEY, TableFlag.NON_NULL)
+     * .addData(TableData.STRING, "email", TableFlag.NON_NULL)
+     * .addData(TableData.INT, "age")
+     *
      * usersTable.select {
      *    columns("username, email")
      *    where("age > 18") //Or where("username = 'john_doe'")
@@ -149,6 +153,28 @@ class Table(val name: String, val database: Database) {
 
         return results
     }
+
+    /**
+     * Checks if the table contains data that matches the given query.
+     *
+     * * @param builder A lambda function to build the query.
+     *
+     * ### Example usage:
+     * ```kotlin
+     * val usersTable = database.addTable("users")
+     *
+     * .addData(TableData.STRING, "username", TableFlag.PRIMARY_KEY, TableFlag.NON_NULL)
+     * .addData(TableData.STRING, "email", TableFlag.NON_NULL)
+     * .addData(TableData.INT, "age")
+     *
+     * database.createTable("users")
+     *
+     * usersTable.has {
+     *    columns("username, email") //or columns("*") to select all columns
+     *    where("age > 18") //Or where("username = 'john_doe'")
+     * }
+     *
+     */
 
     fun has(builder: QueryBuilder.() -> Unit): Boolean {
         val queryData = QueryBuilder().apply(builder).data
