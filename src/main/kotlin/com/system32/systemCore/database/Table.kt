@@ -17,10 +17,17 @@ class Table(val name: String, val database: Database) {
         val columnsSQL = columns.joinToString(", ") { col ->
             val typeSQL = when (col.type) {
                 TableData.STRING -> "VARCHAR(255)"
-                TableData.INT -> "INT"
+                TableData.TEXT -> "TEXT"
+                TableData.INT -> "INTEGER"
+                TableData.LONG -> "BIGINT"
                 TableData.FLOAT -> "FLOAT"
+                TableData.DOUBLE -> "DOUBLE"
                 TableData.BOOLEAN -> "BOOLEAN"
+                TableData.BLOB -> "BLOB"
+                TableData.DATE -> "DATE"
+                TableData.DATETIME -> "DATETIME"
             }
+
 
             val flagsSQL = buildList {
                 if (TableFlag.NON_NULL in col.flags) add("NOT NULL")
