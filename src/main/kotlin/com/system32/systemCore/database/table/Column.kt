@@ -1,4 +1,4 @@
-package com.system32.systemCore.database
+package com.system32.systemCore.database.table
 
 data class Column(
     val name: String,

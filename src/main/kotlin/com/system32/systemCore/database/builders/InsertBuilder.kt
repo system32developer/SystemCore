@@ -1,4 +1,4 @@
-package com.system32.systemCore.database
+package com.system32.systemCore.database.builders
 
 class InsertBuilder {
     val data = mutableMapOf<String, Any>()

@@ -1,4 +1,4 @@
-package com.system32.systemCore.database
+package com.system32.systemCore.database.table
 
 enum class TableFlag {
     PRIMARY_KEY,

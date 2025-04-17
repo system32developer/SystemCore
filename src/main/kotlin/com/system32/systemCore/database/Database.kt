@@ -1,6 +1,7 @@
 package com.system32.systemCore.database
 
 import com.system32.systemCore.SystemCore
+import com.system32.systemCore.database.table.Table
 import java.io.File
 import java.sql.Connection
 import java.sql.DriverManager
@@ -8,7 +9,7 @@ import java.sql.SQLException
 import kotlin.reflect.KClass
 
 class Database {
-    val plugin = SystemCore.plugin
+    private val plugin = SystemCore.plugin
 
     var connection: Connection? = null
     private val tables = mutableMapOf<String, Table>()
@@ -17,8 +18,14 @@ class Database {
         connect()
     }
 
-    fun connect() {
+    private fun connect() {
         val file = File(plugin.dataFolder, "database.db")
+        if (!file.parentFile.exists()) {
+            file.parentFile.mkdirs()
+        }
+        if (!file.exists()) {
+            file.createNewFile()
+        }
 
         Class.forName("org.sqlite.JDBC")
         connection = DriverManager.getConnection("jdbc:sqlite:$file")
@@ -37,7 +44,7 @@ class Database {
         return table
     }
 
-    fun createTable(name: String) {
+    private fun createTable(name: String) {
         val sql = tables[name]?.generateCreateSQL()
             ?: throw IllegalArgumentException("Table $name not found")
 

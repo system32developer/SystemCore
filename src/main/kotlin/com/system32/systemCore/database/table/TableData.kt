@@ -1,4 +1,4 @@
-package com.system32.systemCore.database
+package com.system32.systemCore.database.table
 
 /**
  * Represents the data types supported for table columns.
