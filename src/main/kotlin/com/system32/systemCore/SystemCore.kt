@@ -96,5 +96,6 @@ object SystemCore {
      */
 
     fun command(commandName: String, command: CommandExecutor) {
+        (plugin as JavaPlugin).getCommand(commandName)?.setExecutor(command)
     }
 }
