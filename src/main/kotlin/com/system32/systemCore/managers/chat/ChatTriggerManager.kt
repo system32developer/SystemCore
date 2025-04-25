@@ -12,20 +12,35 @@ class ChatTriggerManager : Listener {
 
     private val triggers = mutableMapOf<String, (ChatInput) -> Unit>()
 
-    fun addTrigger(keyword: String, action: (ChatInput) -> Unit): ChatTriggerManager {
-        triggers[keyword.lowercase()] = action
+    fun addTrigger(vararg keywords: String, action: (ChatInput) -> Unit): ChatTriggerManager {
+        keywords.forEach { keyword ->
+            triggers[keyword.lowercase()] = action
+        }
+        return this
+    }
+
+    fun addTrigger(keywords: List<String>, action: (ChatInput) -> Unit): ChatTriggerManager {
+        keywords.forEach { keyword ->
+            triggers[keyword.lowercase()] = action
+        }
         return this
     }
 
     @EventHandler
     fun onChat(event: AsyncChatEvent) {
         val player = event.player
-        val message = asText(event.message()).lowercase()
+        val message = asText(event.message()).trim().lowercase()
+        val words = message.split(" ").filter { it.isNotEmpty() }
 
-        triggers.keys.firstOrNull { message.startsWith(it) }?.let { keyword ->
-            val args = message.substringAfter(keyword).trim().split(" ").filter { it.isNotEmpty() }.toTypedArray()
-            triggers[keyword]?.invoke(ChatInput(player, args))
+        if (words.isEmpty()) return
+
+        val keyword = words[0]
+        val args = words.drop(1).toTypedArray()
+
+        triggers[keyword]?.let { action ->
+            action(ChatInput(player, args))
             event.isCancelled = true
         }
     }
+
 }
