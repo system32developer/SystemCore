@@ -1,20 +1,17 @@
 package com.system32.systemCore.database.table
 
-import com.system32.systemCore.SystemCore
-import com.system32.systemCore.database.table.Column
 import com.system32.systemCore.database.Database
 import com.system32.systemCore.database.builders.InsertBuilder
 import com.system32.systemCore.database.builders.QueryBuilder
 import com.system32.systemCore.database.builders.UpdateBuilder
 import com.system32.systemCore.utils.minecraft.ServerUtil.Companion.taskAsync
-import org.bukkit.Bukkit
 import java.sql.SQLException
 import java.util.concurrent.CompletableFuture
 
 class Table(val name: String, val database: Database) {
     private val columns = mutableListOf<Column>()
 
-    fun addData(type: TableData, name: String, vararg flags: TableFlag): Table {
+    fun addData(type: ColumnType, name: String, vararg flags: ColumnFlag): Table {
         val column = Column(name, type, flags.toSet())
         columns.add(column)
         return this
@@ -25,24 +22,24 @@ class Table(val name: String, val database: Database) {
     fun generateCreateSQL(): String {
         val columnsSQL = columns.joinToString(", ") { col ->
             val typeSQL = when (col.type) {
-                TableData.STRING -> "VARCHAR(255)"
-                TableData.TEXT -> "TEXT"
-                TableData.INT -> "INTEGER"
-                TableData.LONG -> "BIGINT"
-                TableData.FLOAT -> "FLOAT"
-                TableData.DOUBLE -> "DOUBLE"
-                TableData.BOOLEAN -> "BOOLEAN"
-                TableData.BLOB -> "BLOB"
-                TableData.DATE -> "DATE"
-                TableData.DATETIME -> "DATETIME"
+                ColumnType.STRING -> "VARCHAR(255)"
+                ColumnType.TEXT -> "TEXT"
+                ColumnType.INT -> "INTEGER"
+                ColumnType.LONG -> "BIGINT"
+                ColumnType.FLOAT -> "FLOAT"
+                ColumnType.DOUBLE -> "DOUBLE"
+                ColumnType.BOOLEAN -> "BOOLEAN"
+                ColumnType.BLOB -> "BLOB"
+                ColumnType.DATE -> "DATE"
+                ColumnType.DATETIME -> "DATETIME"
             }
 
 
             val flagsSQL = buildList {
-                if (TableFlag.NON_NULL in col.flags) add("NOT NULL")
-                if (TableFlag.PRIMARY_KEY in col.flags) add("PRIMARY KEY")
-                if (TableFlag.AUTO_INCREMENT in col.flags) add("AUTOINCREMENT")
-                if (TableFlag.UNIQUE in col.flags) add("UNIQUE")
+                if (ColumnFlag.NON_NULL in col.flags) add("NOT NULL")
+                if (ColumnFlag.PRIMARY_KEY in col.flags) add("PRIMARY KEY")
+                if (ColumnFlag.AUTO_INCREMENT in col.flags) add("AUTOINCREMENT")
+                if (ColumnFlag.UNIQUE in col.flags) add("UNIQUE")
             }.joinToString(" ")
 
             "${col.name} $typeSQL $flagsSQL".trim()

@@ -4,7 +4,7 @@ package com.system32.systemCore.database.table
  * Represents the data types supported for table columns.
  * Each type will map to its corresponding SQLite type.
  */
-enum class TableData {
+enum class ColumnType {
 
     /**
      * Short string (up to 255 characters).
