@@ -44,6 +44,8 @@ class Database {
         return table
     }
 
+    fun getTable(name: String) = tables[name]
+
     private fun createTable(name: String) {
         val sql = tables[name]?.generateCreateSQL()
             ?: throw IllegalArgumentException("Table $name not found")
