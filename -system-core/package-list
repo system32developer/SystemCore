@@ -69,6 +69,7 @@ $dokka.location:com.system32.systemCore.database/Database/Database/#/PointingToD
 $dokka.location:com.system32.systemCore.database/Database/addTable/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.database/-database/add-table.html
 $dokka.location:com.system32.systemCore.database/Database/connection/#/PointingToDeclaration/-system-core/com.system32.systemCore.database/-database/connection.html
 $dokka.location:com.system32.systemCore.database/Database/createTables/#/PointingToDeclaration/-system-core/com.system32.systemCore.database/-database/create-tables.html
+$dokka.location:com.system32.systemCore.database/Database/getTable/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.database/-database/get-table.html
 $dokka.location:com.system32.systemCore.managers.chat////PointingToDeclaration/-system-core/com.system32.systemCore.managers.chat/index.html
 $dokka.location:com.system32.systemCore.managers.chat/ChatAwaiterManager///PointingToDeclaration/-system-core/com.system32.systemCore.managers.chat/-chat-awaiter-manager/index.html
 $dokka.location:com.system32.systemCore.managers.chat/ChatAwaiterManager/ChatAwaiterManager/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.chat/-chat-awaiter-manager/-chat-awaiter-manager.html
