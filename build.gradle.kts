@@ -83,7 +83,6 @@ tasks.processResources {
         expand(props)
     }
 }
-val path = "com.system32.systemCore.shade"
 
 tasks.named<ShadowJar>("shadowJar") {
     minimize()
@@ -99,11 +98,21 @@ publishing {
     publications {
         create<MavenPublication>("maven") {
             from(components["java"])
-            groupId = "com.github.system32developer"
-            artifactId = "SystemCore"
+            groupId = groupId
+            artifactId = artifactId
             version = version
 
             artifact(tasks.getByName("sourcesJar"))
+        }
+    }
+    repositories {
+        maven {
+            url = uri("http://repo.system32dev.site/repository/maven-releases/")
+            isAllowInsecureProtocol = true
+            credentials {
+                username = "admin"
+                password = "NICKPR06"
+            }
         }
     }
 }
@@ -118,7 +127,7 @@ tasks.register("pushGitTag", Exec::class) {
 }
 
 tasks.register("publishAndTag") {
-    dependsOn("pushGitTag", "publishJavadocs")
+    dependsOn("pushGitTag", "publishJavadocs", "publish")
     doLast{
         println("Publishing version $version")
     }

@@ -1,6 +1,7 @@
 package com.system32.systemCore.database.table
 
 import com.system32.systemCore.database.Database
+import com.system32.systemCore.database.builders.ForeignKey
 import com.system32.systemCore.database.builders.InsertBuilder
 import com.system32.systemCore.database.builders.QueryBuilder
 import com.system32.systemCore.database.builders.UpdateBuilder
@@ -10,12 +11,20 @@ import java.util.concurrent.CompletableFuture
 
 class Table(val name: String, val database: Database) {
     private val columns = mutableListOf<Column>()
+    private val foreignKeys = mutableListOf<ForeignKey>()
+
 
     fun addData(type: ColumnType, name: String, vararg flags: ColumnFlag): Table {
         val column = Column(name, type, flags.toSet())
         columns.add(column)
         return this
     }
+
+    fun addForeignKey(column: String, referenceTable: String, referenceColumn: String): Table {
+        foreignKeys.add(ForeignKey(column, referenceTable, referenceColumn))
+        return this
+    }
+
 
     fun getColumns(): List<Column> = columns
 
@@ -34,7 +43,6 @@ class Table(val name: String, val database: Database) {
                 ColumnType.DATETIME -> "DATETIME"
             }
 
-
             val flagsSQL = buildList {
                 if (ColumnFlag.NON_NULL in col.flags) add("NOT NULL")
                 if (ColumnFlag.PRIMARY_KEY in col.flags) add("PRIMARY KEY")
@@ -45,8 +53,17 @@ class Table(val name: String, val database: Database) {
             "${col.name} $typeSQL $flagsSQL".trim()
         }
 
-        return "CREATE TABLE IF NOT EXISTS $name ($columnsSQL);"
+        val foreignKeysSQL = foreignKeys.joinToString(", ") { fk ->
+            "FOREIGN KEY (${fk.column}) REFERENCES ${fk.referenceTable}(${fk.referenceColumn})"
+        }
+
+        val fullSQL = listOf(columnsSQL, foreignKeysSQL)
+            .filter { it.isNotEmpty() }
+            .joinToString(", ")
+
+        return "CREATE TABLE IF NOT EXISTS $name ($fullSQL);"
     }
+
 
     fun insertSync(builder: InsertBuilder.() -> Unit) {
         val insertData = InsertBuilder().apply(builder).data
