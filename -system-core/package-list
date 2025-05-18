@@ -1,6 +1,11 @@
 $dokka.format:html-v1
 $dokka.linkExtension:html
 $dokka.location:com.system32.systemCore.database.builders////PointingToDeclaration/-system-core/com.system32.systemCore.database.builders/index.html
+$dokka.location:com.system32.systemCore.database.builders/ForeignKey///PointingToDeclaration/-system-core/com.system32.systemCore.database.builders/-foreign-key/index.html
+$dokka.location:com.system32.systemCore.database.builders/ForeignKey/ForeignKey/#kotlin.String#kotlin.String#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.database.builders/-foreign-key/-foreign-key.html
+$dokka.location:com.system32.systemCore.database.builders/ForeignKey/column/#/PointingToDeclaration/-system-core/com.system32.systemCore.database.builders/-foreign-key/column.html
+$dokka.location:com.system32.systemCore.database.builders/ForeignKey/referenceColumn/#/PointingToDeclaration/-system-core/com.system32.systemCore.database.builders/-foreign-key/reference-column.html
+$dokka.location:com.system32.systemCore.database.builders/ForeignKey/referenceTable/#/PointingToDeclaration/-system-core/com.system32.systemCore.database.builders/-foreign-key/reference-table.html
 $dokka.location:com.system32.systemCore.database.builders/InsertBuilder///PointingToDeclaration/-system-core/com.system32.systemCore.database.builders/-insert-builder/index.html
 $dokka.location:com.system32.systemCore.database.builders/InsertBuilder/InsertBuilder/#/PointingToDeclaration/-system-core/com.system32.systemCore.database.builders/-insert-builder/-insert-builder.html
 $dokka.location:com.system32.systemCore.database.builders/InsertBuilder/data/#/PointingToDeclaration/-system-core/com.system32.systemCore.database.builders/-insert-builder/data.html
@@ -49,6 +54,7 @@ $dokka.location:com.system32.systemCore.database.table/ColumnType/values/#/Point
 $dokka.location:com.system32.systemCore.database.table/Table///PointingToDeclaration/-system-core/com.system32.systemCore.database.table/-table/index.html
 $dokka.location:com.system32.systemCore.database.table/Table/Table/#kotlin.String#com.system32.systemCore.database.Database/PointingToDeclaration/-system-core/com.system32.systemCore.database.table/-table/-table.html
 $dokka.location:com.system32.systemCore.database.table/Table/addData/#com.system32.systemCore.database.table.ColumnType#kotlin.String#kotlin.Array[com.system32.systemCore.database.table.ColumnFlag]/PointingToDeclaration/-system-core/com.system32.systemCore.database.table/-table/add-data.html
+$dokka.location:com.system32.systemCore.database.table/Table/addForeignKey/#kotlin.String#kotlin.String#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.database.table/-table/add-foreign-key.html
 $dokka.location:com.system32.systemCore.database.table/Table/database/#/PointingToDeclaration/-system-core/com.system32.systemCore.database.table/-table/database.html
 $dokka.location:com.system32.systemCore.database.table/Table/delete/#kotlin.Function1[com.system32.systemCore.database.builders.QueryBuilder,kotlin.Unit]/PointingToDeclaration/-system-core/com.system32.systemCore.database.table/-table/delete.html
 $dokka.location:com.system32.systemCore.database.table/Table/deleteSync/#kotlin.Function1[com.system32.systemCore.database.builders.QueryBuilder,kotlin.Unit]/PointingToDeclaration/-system-core/com.system32.systemCore.database.table/-table/delete-sync.html
