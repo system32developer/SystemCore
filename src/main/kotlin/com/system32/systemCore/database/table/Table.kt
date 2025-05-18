@@ -12,7 +12,7 @@ import java.util.concurrent.CompletableFuture
 class Table(val name: String, val database: Database) {
     private val columns = mutableListOf<Column>()
     private val foreignKeys = mutableListOf<ForeignKey>()
-
+    private var primaryKeys: List<String> = emptyList()
 
     fun addData(type: ColumnType, name: String, vararg flags: ColumnFlag): Table {
         val column = Column(name, type, flags.toSet())
@@ -25,6 +25,10 @@ class Table(val name: String, val database: Database) {
         return this
     }
 
+    fun setPrimaryKeys(vararg keys: String): Table {
+        this.primaryKeys = keys.toList()
+        return this
+    }
 
     fun getColumns(): List<Column> = columns
 
@@ -45,7 +49,7 @@ class Table(val name: String, val database: Database) {
 
             val flagsSQL = buildList {
                 if (ColumnFlag.NON_NULL in col.flags) add("NOT NULL")
-                if (ColumnFlag.PRIMARY_KEY in col.flags) add("PRIMARY KEY")
+                if (ColumnFlag.PRIMARY_KEY in col.flags && primaryKeys.isEmpty()) add("PRIMARY KEY")
                 if (ColumnFlag.AUTO_INCREMENT in col.flags) add("AUTOINCREMENT")
                 if (ColumnFlag.UNIQUE in col.flags) add("UNIQUE")
             }.joinToString(" ")
@@ -57,9 +61,14 @@ class Table(val name: String, val database: Database) {
             "FOREIGN KEY (${fk.column}) REFERENCES ${fk.referenceTable}(${fk.referenceColumn})"
         }
 
-        val fullSQL = listOf(columnsSQL, foreignKeysSQL)
+        val primaryKeySQL = if (primaryKeys.isNotEmpty()) {
+            "PRIMARY KEY (${primaryKeys.joinToString(", ")})"
+        } else ""
+
+        val fullSQL = listOf(columnsSQL, primaryKeySQL, foreignKeysSQL)
             .filter { it.isNotEmpty() }
             .joinToString(", ")
+
 
         return "CREATE TABLE IF NOT EXISTS $name ($fullSQL);"
     }
