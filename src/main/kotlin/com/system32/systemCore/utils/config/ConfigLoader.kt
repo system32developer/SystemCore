@@ -66,23 +66,25 @@ class ConfigLoader<T : Any>(
 
         for (param in constructor.parameters) {
             if (!param.isOptional && !param.type.isMarkedNullable) {
-                args[param] = when (val type = param.type.classifier) {
+                val type = param.type.classifier as? KClass<*>
+                args[param] = when (type) {
                     Boolean::class -> false
                     Int::class -> 0
                     Double::class -> 0.0
                     String::class -> ""
                     List::class -> emptyList<Any>()
-                    is KClass<*> -> {
+                    else -> {
                         val converterEntry = converters[type]
-                        converterEntry?.default
+                        if (converterEntry != null) {
+                            converterEntry.converter(converterEntry.defaultRaw)
+                        } else null
                     }
-                    else -> null
                 }
-
             }
         }
         return constructor.callBy(args)
     }
+
 
 
     fun get(): T = configInstance
@@ -164,15 +166,15 @@ class ConfigLoader<T : Any>(
         return base
     }
 
-    fun <C : Any> registerConverter(type: KClass<C>, converter: (Any) -> C, default: C) {
-        converters[type] = ConverterEntry(converter, default)
+    fun <C : Any> registerConverter(type: KClass<C>, converter: (Any) -> C, defaultRaw: Any) {
+        converters[type] = ConverterEntry(converter, defaultRaw)
     }
 
     private fun registerDefaultConverters() {
         registerConverter(Component::class,{ raw ->
             val input = raw as String
             color(input)
-        }, color(""))
+        }, "hello")
 
         registerConverter(ItemStack::class, { raw ->
             val map = raw as Map<*, *>
@@ -206,7 +208,13 @@ class ConfigLoader<T : Any>(
             }
 
             item
-        }, ItemStack(Material.STONE))
+        }, mapOf(
+            "material" to "STONE",
+            "name" to "&7Stone",
+            "lore" to emptyList<String>(),
+            "model" to null,
+            "amount" to 1
+        ))
     }
 
     private fun String.camelToKebabCase(): String {
@@ -217,5 +225,6 @@ class ConfigLoader<T : Any>(
 
 data class ConverterEntry<T : Any>(
     val converter: (Any) -> T,
-    val default: T
+    val defaultRaw: Any
 )
+
