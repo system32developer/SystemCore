@@ -1,9 +1,11 @@
 package com.system32.systemCore.utils.config
 
+import com.system32.systemCore.SystemCore
 import com.system32.systemCore.utils.text.TextUtil.Companion.color
 import net.kyori.adventure.text.Component
 import org.bukkit.Material
 import org.bukkit.inventory.ItemStack
+import org.bukkit.plugin.java.JavaPlugin
 import org.yaml.snakeyaml.Yaml
 import java.io.File
 import java.io.FileReader
@@ -12,19 +14,45 @@ import kotlin.reflect.KParameter
 import kotlin.reflect.full.*
 
 class ConfigLoader<T : Any>(
-    private val clazz: KClass<T>,
-    private val file: File
+    private val clazz: KClass<T>
 ) {
 
     private val converters: MutableMap<KClass<*>, (Any) -> Any> = mutableMapOf()
+    private val ignoredPaths: List<String> = emptyList()
     private var configInstance: T
+    private val file: File
+    private val plugin: JavaPlugin
 
     init {
+        val configAnnotation = clazz.findAnnotation<Config>()
+            ?: error("Class ${clazz.simpleName} must be annotated with @Config")
+        val ignorePathsAnnotation = clazz.findAnnotation<IgnorePaths>()
+        val ignoredPaths = ignorePathsAnnotation?.paths?.toList() ?: emptyList()
+
+
+        plugin = SystemCore.plugin
+        file = File(plugin.dataFolder, configAnnotation.path)
+
+        if (!file.exists()) {
+            val resourceStream = plugin.getResource(configAnnotation.path)
+            if (resourceStream != null) {
+                file.parentFile.mkdirs()
+                file.outputStream().use { output ->
+                    resourceStream.copyTo(output)
+                }
+            } else {
+                error("Config file ${configAnnotation.path} not found in resources and does not exist in data folder")
+            }
+        }
+
         registerDefaultConverters()
+
+        ConfigUpdater.update(plugin, configAnnotation.path, ignoredPaths)
+
         configInstance = load()
     }
 
-    fun getConfig(): T = configInstance
+    fun get(): T = configInstance
 
     fun reload(): T {
         configInstance = load()
@@ -43,13 +71,18 @@ class ConfigLoader<T : Any>(
 
         for (param in constructor.parameters) {
             val name = param.name ?: continue
+
+            // Ignorar parámetros anotados con @IgnorePath
+            val property = clazz.memberProperties.find { it.name == name }
+            if (property?.findAnnotation<IgnorePaths>() != null) continue
+
             val value = map[name] ?: continue
             val type = param.type.classifier as? KClass<*>
 
             val finalValue = when {
                 type == null -> value
                 converters.containsKey(type) -> converters[type]!!.invoke(value)
-                type.isData && value is Map<*, *> -> buildFromMap(type, value as Map<String, Any>)
+                type.isData && value is Map<*, *> -> buildFromMap(type as KClass<Any>, value as Map<String, Any>)
                 type.isSubclassOf(List::class) && value is List<*> -> value
                 else -> value
             }
