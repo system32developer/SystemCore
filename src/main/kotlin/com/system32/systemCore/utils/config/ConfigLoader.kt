@@ -45,11 +45,13 @@ class ConfigLoader<T : Any>(
 
         val defaultInstance = createDefaultInstance()
         val defaultMap = instanceToMap(defaultInstance)
+        println("Default map: $defaultMap")
 
         val yaml = Yaml()
         val loadedMap = yaml.load<Map<String, Any>>(FileReader(file))?.toMutableMap() ?: mutableMapOf()
 
         val mergedMap = mergeMaps(loadedMap, defaultMap)
+        println("Merged map: $mergedMap")
 
         file.bufferedWriter().use { writer ->
             yaml.dump(mergedMap, writer)
