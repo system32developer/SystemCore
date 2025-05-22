@@ -1,0 +1,10 @@
+welcome-message: "Bienvenido al servidor!"
+max-homes: 3
+starter-item:
+  material: "DIAMOND_SWORD"
+  name: "&bEspada de inicio"
+  lore:
+    - "&7Una espada brillante para comenzar tu aventura."
+    - "&a¡Buena suerte!"
+  amount: 1
+  model: 1001
