@@ -175,7 +175,7 @@ class ConfigLoader<T : Any>(
                     map["amount"] = value.amount
                     map["name"] = meta?.displayName()?.toString() ?: ""
                     map["lore"] = meta?.lore()?.map { it.toString() } ?: emptyList<String>()
-                    map["model"] = meta?.customModelData
+                    map["model"] = if(meta?.hasCustomModelData() == true) meta.customModelData else null
                     result[key] = map
                 }
                 else -> result[key] = value
