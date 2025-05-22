@@ -67,7 +67,8 @@ class ConfigLoader<T : Any>(
         val defaultMap = instanceToMap(configInstance)
         val loadedMap = yaml.load<Map<String, Any>>(FileReader(file))?.toMutableMap() ?: mutableMapOf()
         val mergedMap = mergeMaps(loadedMap, defaultMap)
-        file.bufferedWriter().use { writer -> yaml.dump(mergedMap, writer) }
+        val normalizedMap = normalizeForYaml(mergedMap)
+        file.bufferedWriter().use { writer -> yaml.dump(normalizedMap, writer) }
         configInstance = buildFromMap(mergedMap)
         return configInstance
     }
@@ -223,6 +224,29 @@ class ConfigLoader<T : Any>(
     ) {
         converters[type] = ConverterEntry(converter, toConfig,)
     }
+
+    private fun normalizeForYaml(map: Map<String, Any?>): Map<String, Any?> {
+        return map.mapValues { (_, value) ->
+            when {
+                value == null -> null
+                converters.containsKey(value::class) -> {
+                    val converterEntry = converters[value::class] as ConverterEntry<Any>
+                    converterEntry.toConfig(value)
+                }
+                value is Map<*, *> -> normalizeForYaml(value as Map<String, Any?>)
+                value is List<*> -> value.map { item ->
+                    if (item != null && converters.containsKey(item::class)) {
+                        val converterEntry = converters[item::class] as ConverterEntry<Any>
+                        converterEntry.toConfig(item)
+                    } else if (item is Map<*, *>) {
+                        normalizeForYaml(item as Map<String, Any?>)
+                    } else item
+                }
+                else -> value
+            }
+        }
+    }
+
 
     private fun registerDefaultConverters() {
         registerConverter(Component::class,
