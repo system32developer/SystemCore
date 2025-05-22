@@ -60,14 +60,18 @@ class ConfigLoader<T : Any>(
         }
         yaml = Yaml(dumperOptions)
 
-        val defaultInstance = createDefaultInstance()
-        val defaultMap = instanceToMap(defaultInstance)
+        configInstance = createDefaultInstance()
+    }
+
+    fun load(): T {
+        val defaultMap = instanceToMap(configInstance)
         val loadedMap = yaml.load<Map<String, Any>>(FileReader(file))?.toMutableMap() ?: mutableMapOf()
         val mergedMap = mergeMaps(loadedMap, defaultMap)
         file.bufferedWriter().use { writer -> yaml.dump(mergedMap, writer) }
-
         configInstance = buildFromMap(mergedMap)
+        return configInstance
     }
+
 
     private fun createDefaultInstance(): T {
         val args = mutableMapOf<KParameter, Any?>()
