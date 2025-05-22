@@ -18,7 +18,6 @@ class ConfigLoader<T : Any>(
 ) {
 
     private val converters: MutableMap<KClass<*>, (Any) -> Any> = mutableMapOf()
-    private val ignoredPaths: List<String> = emptyList()
     private var configInstance: T
     private val file: File
     private val plugin: JavaPlugin
@@ -28,7 +27,6 @@ class ConfigLoader<T : Any>(
             ?: error("Class ${clazz.simpleName} must be annotated with @Config")
         val ignorePathsAnnotation = clazz.findAnnotation<IgnorePaths>()
         val ignoredPaths = ignorePathsAnnotation?.paths?.toList() ?: emptyList()
-
 
         plugin = SystemCore.plugin
         file = File(plugin.dataFolder, configAnnotation.path)
@@ -72,7 +70,6 @@ class ConfigLoader<T : Any>(
         for (param in constructor.parameters) {
             val name = param.name ?: continue
 
-            // Ignorar parámetros anotados con @IgnorePath
             val property = clazz.memberProperties.find { it.name == name }
             if (property?.findAnnotation<IgnorePaths>() != null) continue
 
