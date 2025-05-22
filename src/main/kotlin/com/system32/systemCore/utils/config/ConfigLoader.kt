@@ -1,6 +1,7 @@
 package com.system32.systemCore.utils.config
 
 import com.system32.systemCore.SystemCore
+import com.system32.systemCore.utils.text.TextUtil.Companion.asText
 import com.system32.systemCore.utils.text.TextUtil.Companion.color
 import net.kyori.adventure.text.Component
 import org.bukkit.Material
@@ -173,9 +174,9 @@ class ConfigLoader<T : Any>(
                     val map = mutableMapOf<String, Any?>()
                     map["material"] = value.type.name
                     map["amount"] = value.amount
-                    map["name"] = meta?.displayName()?.toString() ?: ""
+                    map["name"] = if(meta?.hasDisplayName() == true) asText(meta.displayName()!!) else "Default name"
                     map["lore"] = meta?.lore()?.map { it.toString() } ?: emptyList<String>()
-                    map["model"] = if(meta?.hasCustomModelData() == true) meta.customModelData else null
+                    map["model"] = if(meta?.hasCustomModelData() == true) meta.customModelData else 0
                     result[key] = map
                 }
                 else -> result[key] = value
@@ -225,7 +226,6 @@ class ConfigLoader<T : Any>(
                 ?: error("Name missing in ItemBuilder config")
             val name = color(nameRaw)
 
-
             val loreRaw = map["lore"] as? List<*>
                 ?: emptyList<Any>()
             val lore = loreRaw.filterIsInstance<String>()
@@ -249,7 +249,7 @@ class ConfigLoader<T : Any>(
             "material" to "STONE",
             "name" to "&7Stone",
             "lore" to emptyList<String>(),
-            "model" to null,
+            "model" to 0,
             "amount" to 1
         ))
     }
