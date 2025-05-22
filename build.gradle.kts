@@ -63,6 +63,8 @@ dependencies {
     implementation("com.tchristofferson:ConfigUpdater:2.2-SNAPSHOT")
     compileOnly("me.clip:placeholderapi:2.11.6")
     api("dev.triumphteam:triumph-gui:3.1.11")
+    implementation("org.jetbrains.kotlin:kotlin-reflect:2.2.0-RC")
+
 }
 
 val targetJavaVersion = 21
