@@ -183,6 +183,11 @@ class ConfigLoader<T : Any>(
                     }
                     result[key] = list
                 }
+
+                value is Component -> {
+                    result[key] = asText(value)
+                }
+
                 value is ItemStack -> {
                     val meta = value.itemMeta
                     val map = mutableMapOf<String, Any?>()
