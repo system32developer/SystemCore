@@ -51,10 +51,8 @@ class ConfigLoader<T : Any>(
 
         val mergedMap = mergeMaps(loadedMap, defaultMap)
 
-        if (mergedMap != loadedMap) {
-            file.bufferedWriter().use { writer ->
-                yaml.dump(mergedMap, writer)
-            }
+        file.bufferedWriter().use { writer ->
+            yaml.dump(mergedMap, writer)
         }
 
         configInstance = buildFromMap(clazz, mergedMap)
@@ -71,7 +69,7 @@ class ConfigLoader<T : Any>(
                     Boolean::class -> false
                     Int::class -> 0
                     Double::class -> 0.0
-                    String::class -> ""
+                    String::class -> "write something here"
                     List::class -> emptyList<Any>()
                     else -> {
                         val converterEntry = converters[type]
