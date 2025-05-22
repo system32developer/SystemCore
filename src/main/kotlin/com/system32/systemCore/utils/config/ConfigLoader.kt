@@ -6,6 +6,7 @@ import net.kyori.adventure.text.Component
 import org.bukkit.Material
 import org.bukkit.inventory.ItemStack
 import org.bukkit.plugin.java.JavaPlugin
+import org.yaml.snakeyaml.DumperOptions
 import org.yaml.snakeyaml.Yaml
 import java.io.File
 import java.io.FileReader
@@ -45,13 +46,15 @@ class ConfigLoader<T : Any>(
 
         val defaultInstance = createDefaultInstance()
         val defaultMap = instanceToMap(defaultInstance)
-        println("Default map: $defaultMap")
 
-        val yaml = Yaml()
+        val options = DumperOptions().apply {
+            defaultFlowStyle = DumperOptions.FlowStyle.BLOCK
+            isPrettyFlow = true
+        }
+        val yaml = Yaml(options)
         val loadedMap = yaml.load<Map<String, Any>>(FileReader(file))?.toMutableMap() ?: mutableMapOf()
 
         val mergedMap = mergeMaps(loadedMap, defaultMap)
-        println("Merged map: $mergedMap")
 
         file.bufferedWriter().use { writer ->
             yaml.dump(mergedMap, writer)
