@@ -85,7 +85,7 @@ class ConfigLoader<T : Any>(
                     type == String::class -> "write something here"
                     type == List::class -> emptyList<Any>()
                     type != null && type.isData -> createDefaultInstance(type)
-                    else -> converters[type]?.converter?.invoke(converters[type]!!.defaultRaw)
+                    else -> null
                 }
             }
         }
@@ -219,17 +219,15 @@ class ConfigLoader<T : Any>(
     fun <C : Any> registerConverter(
         type: KClass<C>,
         converter: (Any) -> C,
-        toConfig: (C) -> Any,
-        defaultRaw: Any
+        toConfig: (C) -> Any
     ) {
-        converters[type] = ConverterEntry(converter, toConfig, defaultRaw)
+        converters[type] = ConverterEntry(converter, toConfig,)
     }
 
     private fun registerDefaultConverters() {
         registerConverter(Component::class,
             converter = { raw -> color(raw as String) },
-            toConfig = { component -> asText(component) },
-            defaultRaw = "hello"
+            toConfig = { component -> asText(component) }
         )
 
         registerConverter(ItemStack::class,
@@ -263,18 +261,11 @@ class ConfigLoader<T : Any>(
                 mapOf(
                     "material" to itemStack.type.name,
                     "name" to asText(meta.displayName()!!),
-                    "lore" to (meta.lore()?.map { asText(it) } ?: emptyList<String>()),
+                    "lore" to (meta.lore()?.map { asText(it) } ?: emptyList()),
                     "model" to if (meta.hasCustomModelData()) meta.customModelData else 0,
                     "amount" to itemStack.amount
                 )
-            },
-            defaultRaw = mapOf(
-                "material" to "STONE",
-                "name" to "&7Stone",
-                "lore" to emptyList<String>(),
-                "model" to 0,
-                "amount" to 1
-            )
+            }
         )
     }
 
@@ -285,5 +276,4 @@ class ConfigLoader<T : Any>(
 data class ConverterEntry<T : Any>(
     val converter: (Any) -> T,
     val toConfig: (T) -> Any,
-    val defaultRaw: Any
 )
