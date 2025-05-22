@@ -176,37 +176,29 @@ class ConfigLoader<T : Any>(
     private fun <T : Any> instanceToMap(instance: T): Map<String, Any> {
         val result = mutableMapOf<String, Any>()
         val clazz = instance::class
-        clazz.memberProperties.filterIsInstance<KProperty1<T, Any>>().forEach { prop ->
-            val value = prop.get(instance)
+        clazz.memberProperties.filterIsInstance<KProperty1<T, Any?>>().forEach { prop ->
+            val value = prop.get(instance) ?: return@forEach
             val key = prop.name.camelToKebabCase()
+            val type = value::class
+
             when {
-                value::class.isData -> result[key] = instanceToMap(value)
+                converters.containsKey(type) -> {
+                    val converterEntry = converters[type] as ConverterEntry<Any>
+                    result[key] = converterEntry.toConfig(value)
+                }
+                type.isData -> result[key] = instanceToMap(value)
                 value is List<*> -> {
                     val list = value.map {
                         if (it != null && it::class.isData) instanceToMap(it) else it
                     }
                     result[key] = list
                 }
-
-                value is Component -> {
-                    result[key] = asText(value)
-                }
-
-                value is ItemStack -> {
-                    val meta = value.itemMeta
-                    val map = mutableMapOf<String, Any?>()
-                    map["material"] = value.type.name
-                    map["amount"] = value.amount
-                    map["name"] = if (meta?.hasDisplayName() == true) asText(meta.displayName()!!) else "Default name"
-                    map["lore"] = meta?.lore()?.map { it.toString() } ?: emptyList<String>()
-                    map["model"] = if (meta?.hasCustomModelData() == true) meta.customModelData else 0
-                    result[key] = map
-                }
                 else -> result[key] = value
             }
         }
         return result
     }
+
 
     @Suppress("UNCHECKED_CAST")
     private fun mergeMaps(base: MutableMap<String, Any>, defaults: Map<String, Any>): MutableMap<String, Any> {
@@ -224,49 +216,66 @@ class ConfigLoader<T : Any>(
         return base
     }
 
-    fun <C : Any> registerConverter(type: KClass<C>, converter: (Any) -> C, defaultRaw: Any) {
-        converters[type] = ConverterEntry(converter, defaultRaw)
+    fun <C : Any> registerConverter(
+        type: KClass<C>,
+        converter: (Any) -> C,
+        toConfig: (C) -> Any,
+        defaultRaw: Any
+    ) {
+        converters[type] = ConverterEntry(converter, toConfig, defaultRaw)
     }
 
     private fun registerDefaultConverters() {
-        registerConverter(Component::class, { raw ->
-            val input = raw as String
-            color(input)
-        }, "hello")
+        registerConverter(Component::class,
+            converter = { raw -> color(raw as String) },
+            toConfig = { component -> asText(component) },
+            defaultRaw = "hello"
+        )
 
-        registerConverter(ItemStack::class, { raw ->
-            val map = raw as Map<*, *>
-            val materialName = map["material"] as? String ?: error("Material missing in ItemBuilder config")
-            val material = Material.valueOf(materialName)
-            if (material == Material.AIR) error("Invalid material name: $materialName")
+        registerConverter(ItemStack::class,
+            converter = { raw ->
+                val map = raw as Map<*, *>
+                val materialName = map["material"] as? String ?: error("Material missing in ItemBuilder config")
+                val material = Material.valueOf(materialName)
+                if (material == Material.AIR) error("Invalid material name: $materialName")
 
-            val nameRaw = map["name"] as? String ?: error("Name missing in ItemBuilder config")
-            val name = color(nameRaw)
+                val nameRaw = map["name"] as? String ?: error("Name missing in ItemBuilder config")
+                val name = color(nameRaw)
 
-            val loreRaw = map["lore"] as? List<*> ?: emptyList<Any>()
-            val lore = loreRaw.filterIsInstance<String>().map { color(it) }
+                val loreRaw = map["lore"] as? List<*> ?: emptyList<Any>()
+                val lore = loreRaw.filterIsInstance<String>().map { color(it) }
 
-            val model = map["model"] as? Int
-            val amount = map["amount"] as? Int ?: 1
+                val model = map["model"] as? Int
+                val amount = map["amount"] as? Int ?: 1
 
-            val item = ItemStack(material)
-            item.amount = amount
-            item.editMeta { meta ->
-                meta.displayName(name)
-                meta.lore(lore)
-                if (model != null) {
-                    meta.setCustomModelData(model)
+                val item = ItemStack(material)
+                item.amount = amount
+                item.editMeta { meta ->
+                    meta.displayName(name)
+                    meta.lore(lore)
+                    if (model != null) meta.setCustomModelData(model)
                 }
-            }
 
-            item
-        }, mapOf(
-            "material" to "STONE",
-            "name" to "&7Stone",
-            "lore" to emptyList<String>(),
-            "model" to 0,
-            "amount" to 1
-        ))
+                item
+            },
+            toConfig = { itemStack ->
+                val meta = itemStack.itemMeta!!
+                mapOf(
+                    "material" to itemStack.type.name,
+                    "name" to asText(meta.displayName()!!),
+                    "lore" to (meta.lore()?.map { asText(it) } ?: emptyList<String>()),
+                    "model" to if (meta.hasCustomModelData()) meta.customModelData else 0,
+                    "amount" to itemStack.amount
+                )
+            },
+            defaultRaw = mapOf(
+                "material" to "STONE",
+                "name" to "&7Stone",
+                "lore" to emptyList<String>(),
+                "model" to 0,
+                "amount" to 1
+            )
+        )
     }
 
     private fun String.camelToKebabCase(): String {
@@ -275,5 +284,6 @@ class ConfigLoader<T : Any>(
 }
 data class ConverterEntry<T : Any>(
     val converter: (Any) -> T,
+    val toConfig: (T) -> Any,
     val defaultRaw: Any
 )
