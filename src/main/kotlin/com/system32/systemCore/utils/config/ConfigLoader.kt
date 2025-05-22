@@ -225,6 +225,7 @@ class ConfigLoader<T : Any>(
                 ?: error("Name missing in ItemBuilder config")
             val name = color(nameRaw)
 
+
             val loreRaw = map["lore"] as? List<*>
                 ?: emptyList<Any>()
             val lore = loreRaw.filterIsInstance<String>()
