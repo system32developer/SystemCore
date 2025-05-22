@@ -12,6 +12,7 @@ import org.yaml.snakeyaml.Yaml
 import java.io.File
 import java.io.FileReader
 import kotlin.reflect.KClass
+import kotlin.reflect.KFunction
 import kotlin.reflect.KParameter
 import kotlin.reflect.KProperty1
 import kotlin.reflect.full.*
@@ -26,49 +27,51 @@ class ConfigLoader<T : Any>(
     private val file: File
     private val plugin: JavaPlugin
 
+    private val constructor: KFunction<T>
+    private val parameters: List<KParameter>
+    private val paramToProperty: Map<KParameter, KProperty1<T, *>?>
+
+    private val yaml: Yaml
+    private val dumperOptions: DumperOptions
+
     init {
         val configAnnotation = clazz.findAnnotation<Config>()
             ?: error("Class ${clazz.simpleName} must be annotated with @Config")
-        //val ignorePathsAnnotation = clazz.findAnnotation<IgnorePaths>()
-        //val ignoredPaths = ignorePathsAnnotation?.paths?.toList() ?: emptyList()
 
         plugin = SystemCore.plugin
         val folder = plugin.dataFolder
-        if (!folder.exists()) {
-            folder.mkdirs()
-        }
-        file = File(plugin.dataFolder, configAnnotation.path+".yml")
+        if (!folder.exists()) folder.mkdirs()
 
-        if (!file.exists()) {
-            file.createNewFile()
-        }
+        file = File(plugin.dataFolder, configAnnotation.path + ".yml")
+        if (!file.exists()) file.createNewFile()
 
         registerDefaultConverters()
 
-        val defaultInstance = createDefaultInstance()
-        val defaultMap = instanceToMap(defaultInstance)
+        constructor = clazz.primaryConstructor ?: error("No primary constructor for ${clazz.simpleName}")
+        parameters = constructor.parameters.toList()
+        @Suppress("UNCHECKED_CAST")
+        paramToProperty = parameters.associateWith { param ->
+            clazz.memberProperties.find { it.name == param.name } as? KProperty1<T, *>
+        }
 
-        val options = DumperOptions().apply {
+        dumperOptions = DumperOptions().apply {
             defaultFlowStyle = DumperOptions.FlowStyle.BLOCK
             isPrettyFlow = true
         }
-        val yaml = Yaml(options)
+        yaml = Yaml(dumperOptions)
+
+        val defaultInstance = createDefaultInstance()
+        val defaultMap = instanceToMap(defaultInstance)
         val loadedMap = yaml.load<Map<String, Any>>(FileReader(file))?.toMutableMap() ?: mutableMapOf()
-
         val mergedMap = mergeMaps(loadedMap, defaultMap)
+        file.bufferedWriter().use { writer -> yaml.dump(mergedMap, writer) }
 
-        file.bufferedWriter().use { writer ->
-            yaml.dump(mergedMap, writer)
-        }
-
-        configInstance = buildFromMap(clazz, mergedMap)
+        configInstance = buildFromMap(mergedMap)
     }
 
     private fun createDefaultInstance(): T {
-        val constructor = clazz.primaryConstructor ?: error("No primary constructor for ${clazz.simpleName}")
         val args = mutableMapOf<KParameter, Any?>()
-
-        for (param in constructor.parameters) {
+        for (param in parameters) {
             if (!param.isOptional && !param.type.isMarkedNullable) {
                 val type = param.type.classifier as? KClass<*>
                 args[param] = when {
@@ -77,15 +80,8 @@ class ConfigLoader<T : Any>(
                     type == Double::class -> 0.0
                     type == String::class -> "write something here"
                     type == List::class -> emptyList<Any>()
-                    type != null && type.isData -> {
-                        createDefaultInstance(type)
-                    }
-                    else -> {
-                        val converterEntry = converters[type]
-                        if (converterEntry != null) {
-                            converterEntry.converter(converterEntry.defaultRaw)
-                        } else null
-                    }
+                    type != null && type.isData -> createDefaultInstance(type)
+                    else -> converters[type]?.converter?.invoke(converters[type]!!.defaultRaw)
                 }
             }
         }
@@ -93,9 +89,10 @@ class ConfigLoader<T : Any>(
     }
 
     private fun <R : Any> createDefaultInstance(type: KClass<R>): R {
-        val constructor = type.primaryConstructor ?: error("No primary constructor for ${type.simpleName}")
+        val cons = type.primaryConstructor ?: error("No primary constructor for ${type.simpleName}")
+        val params = cons.parameters
         val args = mutableMapOf<KParameter, Any?>()
-        for (param in constructor.parameters) {
+        for (param in params) {
             if (!param.isOptional && !param.type.isMarkedNullable) {
                 val paramType = param.type.classifier as? KClass<*>
                 args[param] = when {
@@ -109,32 +106,25 @@ class ConfigLoader<T : Any>(
                 }
             }
         }
-        return constructor.callBy(args)
+        return cons.callBy(args)
     }
-
 
     fun get(): T = configInstance
 
     fun reload(): T {
-        configInstance = load()
+        val loadedMap = yaml.load<Map<String, Any>>(FileReader(file)) ?: error("Config file is empty or malformed")
+        configInstance = buildFromMap(loadedMap)
         return configInstance
     }
 
-    private fun load(): T {
-        val yaml = Yaml()
-        val map = yaml.load<Map<String, Any>>(FileReader(file))
-        return buildFromMap(clazz, map)
-    }
-
-    private fun <T : Any> buildFromMap(clazz: KClass<T>, map: Map<String, Any>): T {
-        val constructor = clazz.primaryConstructor ?: error("No primary constructor for ${clazz.simpleName}")
+    private fun buildFromMap(map: Map<String, Any>): T {
         val args = mutableMapOf<KParameter, Any?>()
 
-        for (param in constructor.parameters) {
+        for (param in parameters) {
             val name = param.name ?: continue
             val kebabName = name.camelToKebabCase()
 
-            val property = clazz.memberProperties.find { it.name == name }
+            val property = paramToProperty[param]
             if (property?.findAnnotation<IgnorePaths>() != null) continue
 
             val value = map[kebabName] ?: continue
@@ -154,6 +144,30 @@ class ConfigLoader<T : Any>(
         return constructor.callBy(args)
     }
 
+    private fun <R : Any> buildFromMap(clazz: KClass<R>, map: Map<String, Any>): R {
+        val cons = clazz.primaryConstructor ?: error("No primary constructor for ${clazz.simpleName}")
+        val params = cons.parameters
+        val args = mutableMapOf<KParameter, Any?>()
+
+        for (param in params) {
+            val name = param.name ?: continue
+            val kebabName = name.camelToKebabCase()
+            val value = map[kebabName] ?: continue
+            val type = param.type.classifier as? KClass<*>
+
+            val finalValue = when {
+                type == null -> value
+                converters.containsKey(type) -> converters[type]!!.converter(value)
+                type.isData && value is Map<*, *> -> buildFromMap(type, value as Map<String, Any>)
+                type.isSubclassOf(List::class) && value is List<*> -> value
+                else -> value
+            }
+
+            args[param] = finalValue
+        }
+
+        return cons.callBy(args)
+    }
 
     private fun <T : Any> instanceToMap(instance: T): Map<String, Any> {
         val result = mutableMapOf<String, Any>()
@@ -174,9 +188,9 @@ class ConfigLoader<T : Any>(
                     val map = mutableMapOf<String, Any?>()
                     map["material"] = value.type.name
                     map["amount"] = value.amount
-                    map["name"] = if(meta?.hasDisplayName() == true) asText(meta.displayName()!!) else "Default name"
+                    map["name"] = if (meta?.hasDisplayName() == true) asText(meta.displayName()!!) else "Default name"
                     map["lore"] = meta?.lore()?.map { it.toString() } ?: emptyList<String>()
-                    map["model"] = if(meta?.hasCustomModelData() == true) meta.customModelData else 0
+                    map["model"] = if (meta?.hasCustomModelData() == true) meta.customModelData else 0
                     result[key] = map
                 }
                 else -> result[key] = value
@@ -184,8 +198,6 @@ class ConfigLoader<T : Any>(
         }
         return result
     }
-
-
 
     @Suppress("UNCHECKED_CAST")
     private fun mergeMaps(base: MutableMap<String, Any>, defaults: Map<String, Any>): MutableMap<String, Any> {
@@ -208,28 +220,22 @@ class ConfigLoader<T : Any>(
     }
 
     private fun registerDefaultConverters() {
-        registerConverter(Component::class,{ raw ->
+        registerConverter(Component::class, { raw ->
             val input = raw as String
             color(input)
         }, "hello")
 
         registerConverter(ItemStack::class, { raw ->
             val map = raw as Map<*, *>
-            val materialName = map["material"] as? String
-                ?: error("Material missing in ItemBuilder config")
+            val materialName = map["material"] as? String ?: error("Material missing in ItemBuilder config")
             val material = Material.valueOf(materialName)
-            if (material == Material.AIR) {
-                error("Invalid material name: $materialName")
-            }
+            if (material == Material.AIR) error("Invalid material name: $materialName")
 
-            val nameRaw = map["name"] as? String
-                ?: error("Name missing in ItemBuilder config")
+            val nameRaw = map["name"] as? String ?: error("Name missing in ItemBuilder config")
             val name = color(nameRaw)
 
-            val loreRaw = map["lore"] as? List<*>
-                ?: emptyList<Any>()
-            val lore = loreRaw.filterIsInstance<String>()
-                .map { color(it) }
+            val loreRaw = map["lore"] as? List<*> ?: emptyList<Any>()
+            val lore = loreRaw.filterIsInstance<String>().map { color(it) }
 
             val model = map["model"] as? Int
             val amount = map["amount"] as? Int ?: 1
@@ -257,11 +263,8 @@ class ConfigLoader<T : Any>(
     private fun String.camelToKebabCase(): String {
         return replace(Regex("([a-z])([A-Z]+)"), "$1-$2").lowercase()
     }
-
 }
-
 data class ConverterEntry<T : Any>(
     val converter: (Any) -> T,
     val defaultRaw: Any
 )
-
