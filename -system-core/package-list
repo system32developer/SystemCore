@@ -185,13 +185,6 @@ $dokka.location:com.system32.systemCore.utils.cache/ExpiringCache/put/#TypeParam
 $dokka.location:com.system32.systemCore.utils.cache/ExpiringCache/remove/#TypeParam(bounds=[kotlin.Any?])/PointingToDeclaration/-system-core/com.system32.systemCore.utils.cache/-expiring-cache/remove.html
 $dokka.location:com.system32.systemCore.utils.cache/ExpiringCache/stop/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils.cache/-expiring-cache/stop.html
 $dokka.location:com.system32.systemCore.utils.config////PointingToDeclaration/-system-core/com.system32.systemCore.utils.config/index.html
-$dokka.location:com.system32.systemCore.utils.config/Config///PointingToDeclaration/-system-core/com.system32.systemCore.utils.config/-config/index.html
-$dokka.location:com.system32.systemCore.utils.config/Config/path/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils.config/-config/path.html
-$dokka.location:com.system32.systemCore.utils.config/ConfigLoader///PointingToDeclaration/-system-core/com.system32.systemCore.utils.config/-config-loader/index.html
-$dokka.location:com.system32.systemCore.utils.config/ConfigLoader/ConfigLoader/#kotlin.reflect.KClass[TypeParam(bounds=[kotlin.Any])]/PointingToDeclaration/-system-core/com.system32.systemCore.utils.config/-config-loader/-config-loader.html
-$dokka.location:com.system32.systemCore.utils.config/ConfigLoader/get/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils.config/-config-loader/get.html
-$dokka.location:com.system32.systemCore.utils.config/ConfigLoader/registerConverter/#kotlin.reflect.KClass[TypeParam(bounds=[kotlin.Any])]#kotlin.Function1[kotlin.Any,TypeParam(bounds=[kotlin.Any])]/PointingToDeclaration/-system-core/com.system32.systemCore.utils.config/-config-loader/register-converter.html
-$dokka.location:com.system32.systemCore.utils.config/ConfigLoader/reload/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils.config/-config-loader/reload.html
 $dokka.location:com.system32.systemCore.utils.config/ConfigUpdater.Companion///PointingToDeclaration/-system-core/com.system32.systemCore.utils.config/-config-updater/-companion/index.html
 $dokka.location:com.system32.systemCore.utils.config/ConfigUpdater.Companion/update/#org.bukkit.plugin.java.JavaPlugin#kotlin.String#kotlin.String#kotlin.collections.List[kotlin.String]/PointingToDeclaration/-system-core/com.system32.systemCore.utils.config/-config-updater/-companion/update.html
 $dokka.location:com.system32.systemCore.utils.config/ConfigUpdater.Companion/update/#org.bukkit.plugin.java.JavaPlugin#kotlin.String#kotlin.collections.List[kotlin.String]/PointingToDeclaration/-system-core/com.system32.systemCore.utils.config/-config-updater/-companion/update.html
@@ -201,8 +194,6 @@ $dokka.location:com.system32.systemCore.utils.config/ConfigUtil///PointingToDecl
 $dokka.location:com.system32.systemCore.utils.config/ConfigUtil/ConfigUtil/#org.bukkit.plugin.java.JavaPlugin#kotlin.String#java.io.File?/PointingToDeclaration/-system-core/com.system32.systemCore.utils.config/-config-util/-config-util.html
 $dokka.location:com.system32.systemCore.utils.config/ConfigUtil/reload/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils.config/-config-util/reload.html
 $dokka.location:com.system32.systemCore.utils.config/ConfigUtil/save/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils.config/-config-util/save.html
-$dokka.location:com.system32.systemCore.utils.config/IgnorePaths///PointingToDeclaration/-system-core/com.system32.systemCore.utils.config/-ignore-paths/index.html
-$dokka.location:com.system32.systemCore.utils.config/IgnorePaths/paths/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils.config/-ignore-paths/paths.html
 $dokka.location:com.system32.systemCore.utils.discord////PointingToDeclaration/-system-core/com.system32.systemCore.utils.discord/index.html
 $dokka.location:com.system32.systemCore.utils.discord/DiscordUtil.Companion///PointingToDeclaration/-system-core/com.system32.systemCore.utils.discord/-discord-util/-companion/index.html
 $dokka.location:com.system32.systemCore.utils.discord/DiscordUtil.Companion/convertToColor/#kotlin.Int#kotlin.Int#kotlin.Int/PointingToDeclaration/-system-core/com.system32.systemCore.utils.discord/-discord-util/-companion/convert-to-color.html
