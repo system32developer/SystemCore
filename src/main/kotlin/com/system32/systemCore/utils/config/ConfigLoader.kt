@@ -28,8 +28,8 @@ class ConfigLoader<T : Any>(
     init {
         val configAnnotation = clazz.findAnnotation<Config>()
             ?: error("Class ${clazz.simpleName} must be annotated with @Config")
-        val ignorePathsAnnotation = clazz.findAnnotation<IgnorePaths>()
-        val ignoredPaths = ignorePathsAnnotation?.paths?.toList() ?: emptyList()
+        //val ignorePathsAnnotation = clazz.findAnnotation<IgnorePaths>()
+        //val ignoredPaths = ignorePathsAnnotation?.paths?.toList() ?: emptyList()
 
         plugin = SystemCore.plugin
         val folder = plugin.dataFolder
@@ -70,12 +70,15 @@ class ConfigLoader<T : Any>(
         for (param in constructor.parameters) {
             if (!param.isOptional && !param.type.isMarkedNullable) {
                 val type = param.type.classifier as? KClass<*>
-                args[param] = when (type) {
-                    Boolean::class -> false
-                    Int::class -> 0
-                    Double::class -> 0.0
-                    String::class -> "write something here"
-                    List::class -> emptyList<Any>()
+                args[param] = when {
+                    type == Boolean::class -> false
+                    type == Int::class -> 0
+                    type == Double::class -> 0.0
+                    type == String::class -> "write something here"
+                    type == List::class -> emptyList<Any>()
+                    type != null && type.isData -> {
+                        createDefaultInstance(type)
+                    }
                     else -> {
                         val converterEntry = converters[type]
                         if (converterEntry != null) {
@@ -88,6 +91,25 @@ class ConfigLoader<T : Any>(
         return constructor.callBy(args)
     }
 
+    private fun <R : Any> createDefaultInstance(type: KClass<R>): R {
+        val constructor = type.primaryConstructor ?: error("No primary constructor for ${type.simpleName}")
+        val args = mutableMapOf<KParameter, Any?>()
+        for (param in constructor.parameters) {
+            if (!param.isOptional && !param.type.isMarkedNullable) {
+                val paramType = param.type.classifier as? KClass<*>
+                args[param] = when {
+                    paramType == Boolean::class -> false
+                    paramType == Int::class -> 0
+                    paramType == Double::class -> 0.0
+                    paramType == String::class -> "write something here"
+                    paramType == List::class -> emptyList<Any>()
+                    paramType != null && paramType.isData -> createDefaultInstance(paramType)
+                    else -> null
+                }
+            }
+        }
+        return constructor.callBy(args)
+    }
 
 
     fun get(): T = configInstance
@@ -146,11 +168,22 @@ class ConfigLoader<T : Any>(
                     }
                     result[key] = list
                 }
+                value is ItemStack -> {
+                    val meta = value.itemMeta
+                    val map = mutableMapOf<String, Any?>()
+                    map["material"] = value.type.name
+                    map["amount"] = value.amount
+                    map["name"] = meta?.displayName()?.toString() ?: ""
+                    map["lore"] = meta?.lore()?.map { it.toString() } ?: emptyList<String>()
+                    map["model"] = meta?.customModelData
+                    result[key] = map
+                }
                 else -> result[key] = value
             }
         }
         return result
     }
+
 
 
     @Suppress("UNCHECKED_CAST")
