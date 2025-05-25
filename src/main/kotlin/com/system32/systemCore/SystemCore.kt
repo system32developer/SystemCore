@@ -13,6 +13,7 @@ import org.bukkit.plugin.java.JavaPlugin
 import revxrsal.commands.Lamp
 import revxrsal.commands.bukkit.BukkitLamp
 import revxrsal.commands.bukkit.actor.BukkitCommandActor
+import revxrsal.commands.parameter.ParameterTypes
 
 /**
  * Main system core class providing utilities and core functionalities.
@@ -30,14 +31,32 @@ object SystemCore {
         get() = _plugin.value
 
     private var _lamp: Lamp<BukkitCommandActor>? = null
+    private var lampBuilder: Lamp.Builder<BukkitCommandActor>? = null
 
-    private val lamp: Lamp<BukkitCommandActor>
+    val lamp: Lamp<BukkitCommandActor>
         get() {
             if (_lamp == null) {
-                _lamp = BukkitLamp.builder(plugin).build()
+                if (lampBuilder == null) {
+                    lampBuilder = BukkitLamp.builder(plugin)
+                }
+                _lamp = lampBuilder!!.build()
+                lampBuilder = null // Liberamos memoria
             }
             return _lamp!!
         }
+
+    /**
+     * Configures the command parameter types for the lamp.
+     */
+    fun parameter(configure: (ParameterTypes.Builder<BukkitCommandActor>) -> Unit) {
+        if (_lamp != null) {
+            error("Cannot configure parameter types after the lamp has been built.")
+        }
+        if (lampBuilder == null) {
+            lampBuilder = BukkitLamp.builder(plugin)
+        }
+        lampBuilder!!.parameterTypes(configure)
+    }
 
     /**
      * Indicates whether PlaceholderAPI support is enabled.
