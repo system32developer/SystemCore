@@ -10,6 +10,9 @@ import org.bukkit.command.CommandExecutor
 import org.bukkit.event.Listener
 import org.bukkit.plugin.Plugin
 import org.bukkit.plugin.java.JavaPlugin
+import revxrsal.commands.Lamp
+import revxrsal.commands.bukkit.BukkitLamp
+import revxrsal.commands.bukkit.actor.BukkitCommandActor
 
 /**
  * Main system core class providing utilities and core functionalities.
@@ -25,6 +28,16 @@ object SystemCore {
 
     val plugin: JavaPlugin
         get() = _plugin.value
+
+    private var _lamp: Lamp<BukkitCommandActor>? = null
+
+    private val lamp: Lamp<BukkitCommandActor>
+        get() {
+            if (_lamp == null) {
+                _lamp = BukkitLamp.builder(plugin).build()
+            }
+            return _lamp!!
+        }
 
     /**
      * Indicates whether PlaceholderAPI support is enabled.
@@ -85,8 +98,8 @@ object SystemCore {
      *
      * @param event The event listener to register.
      */
-    fun event(event: Listener) {
-        plugin.server.pluginManager.registerEvents(event, plugin)
+    fun event(vararg listeners: Listener) {
+        listeners.forEach { plugin.server.pluginManager.registerEvents(it, plugin) }
     }
 
     /**
@@ -95,7 +108,17 @@ object SystemCore {
      * @param command The command executor to register.
      */
 
-    fun command(commandName: String, command: CommandExecutor) {
-        (plugin as JavaPlugin).getCommand(commandName)?.setExecutor(command)
+    fun legacyCommand(commandName: String, command: CommandExecutor) {
+        plugin.getCommand(commandName)?.setExecutor(command)
+    }
+
+    /**
+     * Registers a command to the plugin's command system.
+     *
+     * @param command The command to register.
+     */
+
+    fun command(command: Object) {
+        lamp.register(command)
     }
 }
