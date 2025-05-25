@@ -445,7 +445,9 @@ $dokka.location:com.system32.systemCore/SystemCore/event/#kotlin.Array[org.bukki
 $dokka.location:com.system32.systemCore/SystemCore/githubRepo/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/github-repo.html
 $dokka.location:com.system32.systemCore/SystemCore/githubSupport/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/github-support.html
 $dokka.location:com.system32.systemCore/SystemCore/githubUser/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/github-user.html
+$dokka.location:com.system32.systemCore/SystemCore/lamp/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/lamp.html
 $dokka.location:com.system32.systemCore/SystemCore/legacyCommand/#kotlin.String#org.bukkit.command.CommandExecutor/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/legacy-command.html
+$dokka.location:com.system32.systemCore/SystemCore/parameter/#kotlin.Function1[revxrsal.commands.parameter.ParameterTypes.Builder[revxrsal.commands.bukkit.actor.BukkitCommandActor],kotlin.Unit]/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/parameter.html
 $dokka.location:com.system32.systemCore/SystemCore/placeholderAPISupport/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/placeholder-a-p-i-support.html
 $dokka.location:com.system32.systemCore/SystemCore/plugin/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/plugin.html
 $dokka.location:com.system32.systemCore/SystemCore/usableItemsManager/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/usable-items-manager.html
