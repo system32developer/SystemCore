@@ -438,7 +438,7 @@ $dokka.location:com.system32.systemCore/SystemCore///PointingToDeclaration/-sys
 $dokka.location:com.system32.systemCore/SystemCore/chatAwaiterManager/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/chat-awaiter-manager.html
 $dokka.location:com.system32.systemCore/SystemCore/chatHeadUtil/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/chat-head-util.html
 $dokka.location:com.system32.systemCore/SystemCore/chatTriggerManager/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/chat-trigger-manager.html
-$dokka.location:com.system32.systemCore/SystemCore/command/#kotlin.Any/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/command.html
+$dokka.location:com.system32.systemCore/SystemCore/command/#kotlin.Array[kotlin.Any]/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/command.html
 $dokka.location:com.system32.systemCore/SystemCore/cooldownManager/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/cooldown-manager.html
 $dokka.location:com.system32.systemCore/SystemCore/debugger/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/debugger.html
 $dokka.location:com.system32.systemCore/SystemCore/event/#kotlin.Array[org.bukkit.event.Listener]/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/event.html
