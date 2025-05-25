@@ -118,7 +118,7 @@ object SystemCore {
      * @param command The command to register.
      */
 
-    fun command(command: Any) {
-        lamp.register(command)
+    fun command(vararg commands: Any) {
+        lamp.register(commands)
     }
 }
