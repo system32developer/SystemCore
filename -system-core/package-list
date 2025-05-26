@@ -136,6 +136,16 @@ $dokka.location:com.system32.systemCore.managers.usableItems/UsableItemsManager/
 $dokka.location:com.system32.systemCore.managers.usableItems/UsableItemsManager/UsableItemsManager/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.usableItems/-usable-items-manager/-usable-items-manager.html
 $dokka.location:com.system32.systemCore.managers.usableItems/UsableItemsManager/onPlayerUse/#org.bukkit.event.player.PlayerInteractEvent/PointingToDeclaration/-system-core/com.system32.systemCore.managers.usableItems/-usable-items-manager/on-player-use.html
 $dokka.location:com.system32.systemCore.managers.usableItems/UsableItemsManager/register/#org.bukkit.inventory.ItemStack#kotlin.Function1[org.bukkit.event.player.PlayerInteractEvent,kotlin.Boolean]#kotlin.Function1[org.bukkit.event.player.PlayerInteractEvent,kotlin.Unit]/PointingToDeclaration/-system-core/com.system32.systemCore.managers.usableItems/-usable-items-manager/register.html
+$dokka.location:com.system32.systemCore.managers////PointingToDeclaration/-system-core/com.system32.systemCore.managers/index.html
+$dokka.location:com.system32.systemCore.managers/CommandManager///PointingToDeclaration/-system-core/com.system32.systemCore.managers/-command-manager/index.html
+$dokka.location:com.system32.systemCore.managers/CommandManager/CommandManager/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers/-command-manager/-command-manager.html
+$dokka.location:com.system32.systemCore.managers/CommandManager/build/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers/-command-manager/build.html
+$dokka.location:com.system32.systemCore.managers/CommandManager/builder/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers/-command-manager/builder.html
+$dokka.location:com.system32.systemCore.managers/CommandManager/command/#kotlin.Any/PointingToDeclaration/-system-core/com.system32.systemCore.managers/-command-manager/command.html
+$dokka.location:com.system32.systemCore.managers/CommandManager/lamp/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers/-command-manager/lamp.html
+$dokka.location:com.system32.systemCore.managers/CommandManager/parameter/#kotlin.Array[kotlin.Pair[java.lang.Class[TypeParam(bounds=[kotlin.Any])],revxrsal.commands.parameter.ParameterType[revxrsal.commands.bukkit.actor.BukkitCommandActor,TypeParam(bounds=[kotlin.Any])]]]/PointingToDeclaration/-system-core/com.system32.systemCore.managers/-command-manager/parameter.html
+$dokka.location:com.system32.systemCore.managers/CommandManager/parameters/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers/-command-manager/parameters.html
+$dokka.location:com.system32.systemCore.managers/CommandManager/plugin/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers/-command-manager/plugin.html
 $dokka.location:com.system32.systemCore.shade////PointingToDeclaration/-system-core/com.system32.systemCore.shade/index.html
 $dokka.location:com.system32.systemCore.shade/Metrics.AdvancedBarChart///PointingToDeclaration/-system-core/com.system32.systemCore.shade/-metrics/-advanced-bar-chart/index.html
 $dokka.location:com.system32.systemCore.shade/Metrics.AdvancedBarChart/AdvancedBarChart/#java.lang.String#java.util.concurrent.Callable<java.util.Map<java.lang.String,int[]>>/PointingToDeclaration/-system-core/com.system32.systemCore.shade/-metrics/-advanced-bar-chart/-advanced-bar-chart.html
@@ -438,15 +448,12 @@ $dokka.location:com.system32.systemCore/SystemCore///PointingToDeclaration/-sys
 $dokka.location:com.system32.systemCore/SystemCore/chatAwaiterManager/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/chat-awaiter-manager.html
 $dokka.location:com.system32.systemCore/SystemCore/chatHeadUtil/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/chat-head-util.html
 $dokka.location:com.system32.systemCore/SystemCore/chatTriggerManager/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/chat-trigger-manager.html
-$dokka.location:com.system32.systemCore/SystemCore/command/#kotlin.Array[kotlin.Any]/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/command.html
-$dokka.location:com.system32.systemCore/SystemCore/configure/#kotlin.Function1[revxrsal.commands.parameter.ParameterTypes.Builder[revxrsal.commands.bukkit.actor.BukkitCommandActor],kotlin.Unit]/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/configure.html
 $dokka.location:com.system32.systemCore/SystemCore/cooldownManager/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/cooldown-manager.html
 $dokka.location:com.system32.systemCore/SystemCore/debugger/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/debugger.html
 $dokka.location:com.system32.systemCore/SystemCore/event/#kotlin.Array[org.bukkit.event.Listener]/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/event.html
 $dokka.location:com.system32.systemCore/SystemCore/githubRepo/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/github-repo.html
 $dokka.location:com.system32.systemCore/SystemCore/githubSupport/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/github-support.html
 $dokka.location:com.system32.systemCore/SystemCore/githubUser/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/github-user.html
-$dokka.location:com.system32.systemCore/SystemCore/lamp/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/lamp.html
 $dokka.location:com.system32.systemCore/SystemCore/legacyCommand/#kotlin.String#org.bukkit.command.CommandExecutor/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/legacy-command.html
 $dokka.location:com.system32.systemCore/SystemCore/placeholderAPISupport/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/placeholder-a-p-i-support.html
 $dokka.location:com.system32.systemCore/SystemCore/plugin/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/plugin.html
@@ -455,6 +462,7 @@ com.system32.systemCore
 com.system32.systemCore.database
 com.system32.systemCore.database.builders
 com.system32.systemCore.database.table
+com.system32.systemCore.managers
 com.system32.systemCore.managers.chat
 com.system32.systemCore.managers.cooldown
 com.system32.systemCore.managers.language
