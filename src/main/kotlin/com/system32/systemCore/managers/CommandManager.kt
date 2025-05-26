@@ -21,7 +21,7 @@ class CommandManager {
         }
 
 
-    fun <T : Any> parameter(vararg types: Pair<Class<T>, ParameterType<BukkitCommandActor, T>>) {
+    fun parameter(vararg types: Pair<Class<*>, ParameterType<BukkitCommandActor, *>>) {
         for (type in types) {
             parameters[type.first] = type.second
         }
