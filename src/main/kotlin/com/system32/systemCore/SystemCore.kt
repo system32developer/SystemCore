@@ -58,13 +58,6 @@ object SystemCore {
     val chatHeadUtil = ChatHeadUtil()
 
     /**
-     * Provides a reference to the Bukkit command lamp for command handling.
-     */
-
-    val commandManager = CommandManager()
-
-
-    /**
      * Provides a debugger for logging and debugging purposes.
      */
 
