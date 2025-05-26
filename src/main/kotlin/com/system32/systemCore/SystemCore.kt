@@ -40,7 +40,7 @@ object SystemCore {
                     lampBuilder = BukkitLamp.builder(plugin)
                 }
                 _lamp = lampBuilder!!.build()
-                lampBuilder = null // Liberamos memoria
+                lampBuilder = null
             }
             return _lamp!!
         }
@@ -48,7 +48,7 @@ object SystemCore {
     /**
      * Configures the command parameter types for the lamp.
      */
-    fun parameter(configure: (ParameterTypes.Builder<BukkitCommandActor>) -> Unit) {
+    fun configure(configure: (ParameterTypes.Builder<BukkitCommandActor>) -> Unit) {
         if (_lamp != null) {
             error("Cannot configure parameter types after the lamp has been built.")
         }
@@ -56,6 +56,7 @@ object SystemCore {
             lampBuilder = BukkitLamp.builder(plugin)
         }
         lampBuilder!!.parameterTypes(configure)
+        _lamp = lampBuilder!!.build()
     }
 
     /**
