@@ -66,6 +66,7 @@ dependencies {
     api("io.github.revxrsal:lamp.common:4.0.0-rc.12")
     api("io.github.revxrsal:lamp.paper:4.0.0-beta.19")
     api("io.github.revxrsal:lamp.bukkit:4.0.0-rc.12")
+    implementation("org.jetbrains.kotlin:kotlin-reflect:2.2.0-RC")
 
 }
 
