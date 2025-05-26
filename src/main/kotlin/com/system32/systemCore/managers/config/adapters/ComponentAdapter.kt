@@ -1,6 +1,6 @@
-package com.system32.systemCore.utils.config.configurate.adapters
+package com.system32.systemCore.managers.config.adapters
 
-import com.system32.systemCore.utils.config.configurate.ConfigAdapter
+import com.system32.systemCore.managers.config.ConfigAdapter
 import com.system32.systemCore.utils.text.TextUtil.asText
 import com.system32.systemCore.utils.text.TextUtil.color
 import net.kyori.adventure.text.Component

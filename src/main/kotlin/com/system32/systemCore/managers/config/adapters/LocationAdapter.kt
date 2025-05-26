@@ -1,8 +1,9 @@
-package com.system32.systemCore.utils.config.configurate.adapters
+package com.system32.systemCore.managers.config.adapters
 
-import com.system32.systemCore.utils.config.configurate.ConfigAdapter
+import com.system32.systemCore.managers.config.ConfigAdapter
 import org.bukkit.Bukkit
 import org.bukkit.Location
+import kotlin.collections.get
 
 class LocationAdapter : ConfigAdapter<Location> {
     override fun serialize(value: Location): Any {

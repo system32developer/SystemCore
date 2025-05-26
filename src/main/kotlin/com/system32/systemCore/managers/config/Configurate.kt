@@ -1,8 +1,8 @@
-package com.system32.systemCore.utils.config.configurate
+package com.system32.systemCore.managers.config
 
-import com.system32.systemCore.utils.config.configurate.adapters.ComponentAdapter
-import com.system32.systemCore.utils.config.configurate.adapters.ComponentListAdapter
-import com.system32.systemCore.utils.config.configurate.adapters.LocationAdapter
+import com.system32.systemCore.managers.config.adapters.ComponentAdapter
+import com.system32.systemCore.managers.config.adapters.ComponentListAdapter
+import com.system32.systemCore.managers.config.adapters.LocationAdapter
 import net.kyori.adventure.text.Component
 import org.bukkit.Location
 import org.bukkit.configuration.file.YamlConfiguration
