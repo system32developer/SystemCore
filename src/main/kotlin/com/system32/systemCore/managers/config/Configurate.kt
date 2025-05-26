@@ -126,7 +126,6 @@ object Configurate {
         val kClass = instance::class
 
         for (property in kClass.memberProperties) {
-            property.isAccessible = true
             @Suppress("UNCHECKED_CAST")
             val value = (property as KProperty1<Any, Any?>).get(instance)
 
