@@ -82,6 +82,28 @@ object Configurate {
         return deserializeConfig(map, clazz)
     }
 
+    fun <T : Any> save(plugin: JavaPlugin, instance: T) {
+        val clazz = instance::class
+        val annotation = clazz.findAnnotation<Config>() ?: error("Missing @Config annotation")
+        val folder = plugin.dataFolder
+        if (!folder.exists()) folder.mkdirs()
+        val file = File(folder, "${annotation.value}.yml")
+        if (!file.exists()) file.createNewFile()
+
+        val serialized = serializeConfig(instance)
+        val flat = flattenMap(serialized)
+
+        val config = YamlConfiguration.loadConfiguration(file)
+        for ((key, value) in flat) {
+            config.set(key, value)
+        }
+        config.save(file)
+    }
+
+    fun <T : Any> reload(plugin: JavaPlugin, clazz: KClass<T>): T {
+        return load(plugin, clazz)
+    }
+
     private fun removeSection(set: Set<String>): Set<String> {
         val result = mutableSetOf<String>()
         val sectionsToRemove = mutableSetOf<String>()
