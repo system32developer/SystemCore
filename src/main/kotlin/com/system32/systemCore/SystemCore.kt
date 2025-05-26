@@ -1,5 +1,6 @@
 package com.system32.systemCore
 
+import com.system32.systemCore.managers.CommandManager
 import com.system32.systemCore.managers.chat.ChatAwaiterManager
 import com.system32.systemCore.managers.chat.ChatTriggerManager
 import com.system32.systemCore.managers.cooldown.CooldownManager
@@ -13,6 +14,7 @@ import org.bukkit.plugin.java.JavaPlugin
 import revxrsal.commands.Lamp
 import revxrsal.commands.bukkit.BukkitLamp
 import revxrsal.commands.bukkit.actor.BukkitCommandActor
+import revxrsal.commands.parameter.ParameterType
 import revxrsal.commands.parameter.ParameterTypes
 
 /**
@@ -29,35 +31,6 @@ object SystemCore {
 
     val plugin: JavaPlugin
         get() = _plugin.value
-
-    private var _lamp: Lamp<BukkitCommandActor>? = null
-    private var lampBuilder: Lamp.Builder<BukkitCommandActor>? = null
-
-    val lamp: Lamp<BukkitCommandActor>
-        get() {
-            if (_lamp == null) {
-                if (lampBuilder == null) {
-                    lampBuilder = BukkitLamp.builder(plugin)
-                }
-                _lamp = lampBuilder!!.build()
-                lampBuilder = null
-            }
-            return _lamp!!
-        }
-
-    /**
-     * Configures the command parameter types for the lamp.
-     */
-    fun configure(configure: (ParameterTypes.Builder<BukkitCommandActor>) -> Unit) {
-        if (_lamp != null) {
-            error("Cannot configure parameter types after the lamp has been built.")
-        }
-        if (lampBuilder == null) {
-            lampBuilder = BukkitLamp.builder(plugin)
-        }
-        lampBuilder!!.parameterTypes(configure)
-        _lamp = lampBuilder!!.build()
-    }
 
     /**
      * Indicates whether PlaceholderAPI support is enabled.
@@ -83,6 +56,12 @@ object SystemCore {
      */
 
     val chatHeadUtil = ChatHeadUtil()
+
+    /**
+     * Provides a reference to the Bukkit command lamp for command handling.
+     */
+
+    val commandManager = CommandManager()
 
 
     /**
@@ -131,14 +110,5 @@ object SystemCore {
     fun legacyCommand(commandName: String, command: CommandExecutor) {
         plugin.getCommand(commandName)?.setExecutor(command)
     }
-
-    /**
-     * Registers a command to the plugin's command system.
-     *
-     * @param command The command to register.
-     */
-
-    fun command(vararg commands: Any) {
-        lamp.register(commands)
-    }
 }
+
