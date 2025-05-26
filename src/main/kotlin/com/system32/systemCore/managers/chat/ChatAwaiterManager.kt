@@ -1,7 +1,7 @@
 package com.system32.systemCore.managers.chat
 
 import com.system32.systemCore.SystemCore
-import com.system32.systemCore.utils.text.TextUtil.Companion.asText
+import com.system32.systemCore.utils.text.TextUtil.asText
 import io.papermc.paper.event.player.AsyncChatEvent
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener

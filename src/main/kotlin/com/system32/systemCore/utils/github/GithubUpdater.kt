@@ -2,7 +2,7 @@ package com.system32.systemCore.utils.github
 
 import com.google.gson.JsonParser
 import com.system32.systemCore.SystemCore
-import com.system32.systemCore.utils.minecraft.ServerUtil.Companion.taskAsync
+import com.system32.systemCore.utils.minecraft.ServerUtil.taskAsync
 import org.bukkit.Bukkit
 import java.io.IOException
 import java.io.InputStreamReader

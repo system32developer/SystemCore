@@ -1,7 +1,7 @@
 package com.system32.systemCore.utils.minecraft
 
 import com.system32.systemCore.utils.OtherUtil.Companion.fromRGB
-import com.system32.systemCore.utils.text.TextUtil.Companion.color
+import com.system32.systemCore.utils.text.TextUtil.color
 import net.kyori.adventure.text.Component
 import org.bukkit.entity.Player
 import java.awt.Color

@@ -5,7 +5,7 @@ import com.system32.systemCore.database.builders.ForeignKey
 import com.system32.systemCore.database.builders.InsertBuilder
 import com.system32.systemCore.database.builders.QueryBuilder
 import com.system32.systemCore.database.builders.UpdateBuilder
-import com.system32.systemCore.utils.minecraft.ServerUtil.Companion.taskAsync
+import com.system32.systemCore.utils.minecraft.ServerUtil.taskAsync
 import java.sql.SQLException
 import java.util.concurrent.CompletableFuture
 

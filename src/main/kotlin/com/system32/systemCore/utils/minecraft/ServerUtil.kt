@@ -2,6 +2,7 @@ package com.system32.systemCore.utils.minecraft
 
 import com.system32.systemCore.SystemCore
 import com.system32.systemCore.utils.text.TextUtil
+import com.system32.systemCore.utils.text.TextUtil.color
 import org.bukkit.Bukkit
 import org.bukkit.entity.Player
 import org.bukkit.scheduler.BukkitTask
@@ -29,7 +30,7 @@ object ServerUtil {
     }
 
     fun broadcast(message: String) {
-        Bukkit.broadcast(TextUtil.Companion.color(message))
+        Bukkit.broadcast(color(message))
     }
 
     fun task(runnable: Runnable) : BukkitTask {
