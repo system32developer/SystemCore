@@ -5,7 +5,9 @@ import org.bukkit.plugin.java.JavaPlugin
 import kotlin.reflect.KClass
 import com.system32.systemCore.utils.minecraft.ServerUtil.task
 import com.system32.systemCore.utils.minecraft.ServerUtil.taskAsync
+import org.jetbrains.annotations.ApiStatus
 
+@ApiStatus.Experimental
 object ConfigManager {
     private lateinit var plugin: JavaPlugin
     private val containers = mutableMapOf<KClass<*>, Any>()
@@ -41,7 +43,7 @@ object ConfigManager {
             val elapsedLoadFile = (endLoadFile - startLoadFile) / 1_000_000.0
 
             task {
-                plugin.logger.info("[ConfigManager] ${clazz.simpleName} load file took $elapsedLoadFile ms")
+                plugin.logger.info("[ConfigManager] ${clazz.simpleName} load took $elapsedLoadFile ms ( ${elapsedLoadFile / 1000.0})s")
                 onComplete(configInstance)
             }
         }

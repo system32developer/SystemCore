@@ -7,13 +7,13 @@ import net.kyori.adventure.text.Component
 import org.bukkit.Location
 import org.bukkit.configuration.file.YamlConfiguration
 import org.bukkit.plugin.java.JavaPlugin
+import org.jetbrains.annotations.ApiStatus
 import java.io.File
 import kotlin.collections.iterator
-import kotlin.reflect.KClass
-import kotlin.reflect.KParameter
-import kotlin.reflect.KProperty1
-import kotlin.reflect.full.*
-import kotlin.reflect.jvm.isAccessible
+import kotlin.reflect.*
+import kotlin.reflect.full.findAnnotation
+import kotlin.reflect.full.memberProperties
+import kotlin.reflect.full.primaryConstructor
 import kotlin.reflect.jvm.jvmErasure
 
 @Target(AnnotationTarget.CLASS)
@@ -33,7 +33,6 @@ object AdapterRegistry {
         register(Location::class, LocationAdapter())
         @Suppress("UNCHECKED_CAST")
         register(List::class as KClass<List<Component>>, ComponentListAdapter())
-
     }
 
     fun <T : Any> register(clazz: KClass<T>, adapter: ConfigAdapter<T>) {
@@ -43,31 +42,48 @@ object AdapterRegistry {
     @Suppress("UNCHECKED_CAST")
     fun <T : Any> get(clazz: KClass<T>): ConfigAdapter<T>? = adapters[clazz] as? ConfigAdapter<T>
 }
-
+@ApiStatus.Experimental
 object Configurate {
+    private val propertyCache = mutableMapOf<KClass<*>, List<KProperty1<Any, Any?>>>()
+    private val constructorCache = mutableMapOf<KClass<*>, KFunction<Any>>()
+
+    @Suppress("UNCHECKED_CAST")
+    private fun getProperties(kClass: KClass<*>): List<KProperty1<Any, Any?>> {
+        return propertyCache.getOrPut(kClass) {
+            kClass.memberProperties.map { it as KProperty1<Any, Any?> }
+        }
+    }
+
+    @Suppress("UNCHECKED_CAST")
+    private fun <T : Any> getPrimaryConstructor(clazz: KClass<T>): KFunction<Any> {
+        return constructorCache.getOrPut(clazz) {
+            clazz.primaryConstructor as? KFunction<Any>
+                ?: error("No primary constructor for \${clazz.simpleName}")
+        }
+    }
+
     fun <T : Any> load(plugin: JavaPlugin, clazz: KClass<T>): T {
         val annotation = clazz.findAnnotation<Config>() ?: error("Missing @Config annotation")
         val folder = plugin.dataFolder
-        if (!folder.exists()) folder.mkdirs()
-        val file = File(folder, "${annotation.value}.yml")
-        if (!file.exists()) file.createNewFile()
+        folder.mkdirs()
+        val file = File(folder, "\${annotation.value}.yml")
+        file.createNewFile()
 
         val config = YamlConfiguration.loadConfiguration(file)
 
-        val defaultInstance = clazz.primaryConstructor?.callBy(emptyMap()) ?: error("Could not create default instance of ${clazz.simpleName}")
-
+        val defaultInstance = getPrimaryConstructor(clazz).callBy(emptyMap()) as T
         val flatSerializedDefaults = flattenMap(serializeConfig(defaultInstance))
         val existingKeys = config.getKeys(true).map { it.lowercase() }.toSet()
         val validKeys = flatSerializedDefaults.keys.toSet()
 
         var updated = false
-
         for ((key, value) in flatSerializedDefaults) {
             if (!config.contains(key) || config.get(key) == null) {
                 config.set(key, value)
                 updated = true
             }
         }
+
         val flattenExistingKeys = removeSection(existingKeys)
         for (key in flattenExistingKeys) {
             if (key !in validKeys) {
@@ -86,9 +102,9 @@ object Configurate {
         val clazz = instance::class
         val annotation = clazz.findAnnotation<Config>() ?: error("Missing @Config annotation")
         val folder = plugin.dataFolder
-        if (!folder.exists()) folder.mkdirs()
-        val file = File(folder, "${annotation.value}.yml")
-        if (!file.exists()) file.createNewFile()
+        folder.mkdirs()
+        val file = File(folder, "\${annotation.value}.yml")
+        file.createNewFile()
 
         val serialized = serializeConfig(instance)
         val flat = flattenMap(serialized)
@@ -110,14 +126,13 @@ object Configurate {
 
         val potentialParents = set.filter { !it.contains(".") }
         for (parent in potentialParents) {
-            val hasChildren = set.any { it.startsWith("$parent.") }
+            val hasChildren = set.any { it.startsWith("\$parent.") }
             if (hasChildren) {
                 sectionsToRemove.add(parent)
             }
         }
 
         result.addAll(set.filter { it !in sectionsToRemove })
-
         return result
     }
 
@@ -125,25 +140,16 @@ object Configurate {
         val result = mutableMapOf<String, Any?>()
         val kClass = instance::class
 
-        for (property in kClass.memberProperties) {
-            @Suppress("UNCHECKED_CAST")
-            val value = (property as KProperty1<Any, Any?>).get(instance)
-
-
-            if (value == null) continue
-
+        for (property in getProperties(kClass)) {
+            val value = property.get(instance) ?: continue
             val name = toYamlKey(property.name)
             val type = property.returnType.jvmErasure
             val adapter = AdapterRegistry.get(type)
 
-            if (adapter != null) {
-                @Suppress("UNCHECKED_CAST")
-                val castedAdapter = adapter as ConfigAdapter<Any>
-                result[name] = castedAdapter.serialize(value)
-            } else if (type.isData) {
-                result[name] = serializeConfig(value)
-            } else {
-                result[name] = value
+            result[name] = when {
+                adapter != null -> (adapter as ConfigAdapter<Any>).serialize(value)
+                type.isData -> serializeConfig(value)
+                else -> value
             }
         }
 
@@ -151,7 +157,7 @@ object Configurate {
     }
 
     private fun <T : Any> deserializeConfig(map: Map<String, Any?>, clazz: KClass<T>): T {
-        val constructor = clazz.primaryConstructor ?: error("No primary constructor for ${clazz.simpleName}")
+        val constructor = getPrimaryConstructor(clazz)
         val args = mutableMapOf<KParameter, Any?>()
 
         for (param in constructor.parameters) {
@@ -162,39 +168,25 @@ object Configurate {
             val type = param.type.jvmErasure
             val adapter = AdapterRegistry.get(type)
 
-            if (adapter != null) {
-                if (raw != null) {
-                    args[param] = adapter.deserialize(raw)
-                } else if (param.isOptional) {
-                } else {
-                    args[param] = null
-                }
-            } else if (type.isData) {
-                if (raw is Map<*, *>) {
-                    @Suppress("UNCHECKED_CAST")
-                    args[param] = deserializeConfig(raw as Map<String, Any?>, type)
-                } else if (param.isOptional) {
-                } else {
-                    args[param] = null
-                }
-            } else {
-                if (raw == null && param.isOptional) {
-                } else {
-                    args[param] = raw
-                }
+            args[param] = when {
+                adapter != null && raw != null -> adapter.deserialize(raw)
+                type.isData && raw is Map<*, *> -> deserializeConfig(raw as Map<String, Any?>, type)
+                raw == null && param.isOptional -> continue
+                else -> raw
             }
         }
-        return constructor.callBy(args)
+
+        return constructor.callBy(args) as T
     }
 
     private fun toYamlKey(name: String): String {
-        return name.replace(Regex("([a-z])([A-Z])"), "$1-$2").lowercase()
+        return name.replace(Regex("([a-z])([A-Z])"), "\$1-\$2").lowercase()
     }
 
     private fun flattenMap(map: Map<String, Any?>, prefix: String = ""): Map<String, Any?> {
         val result = mutableMapOf<String, Any?>()
         for ((key, value) in map) {
-            val fullKey = if (prefix.isEmpty()) key else "$prefix.$key"
+            val fullKey = if (prefix.isEmpty()) key else "\$prefix.\$key"
             if (value is Map<*, *>) {
                 @Suppress("UNCHECKED_CAST")
                 result.putAll(flattenMap(value as Map<String, Any?>, fullKey))
