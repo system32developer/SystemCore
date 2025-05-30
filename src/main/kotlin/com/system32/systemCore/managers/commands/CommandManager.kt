@@ -1,11 +1,11 @@
-package com.system32.systemCore.managers
+package com.system32.systemCore.managers.commands
 
 import com.system32.systemCore.SystemCore
-import org.bukkit.plugin.java.JavaPlugin
+import com.system32.systemCore.managers.commands.parameterTypes.OnlinePlayer
+import com.system32.systemCore.managers.commands.parameterTypes.OnlinePlayerParameter
 import revxrsal.commands.Lamp
 import revxrsal.commands.bukkit.BukkitLamp
 import revxrsal.commands.bukkit.actor.BukkitCommandActor
-import revxrsal.commands.command.CommandParameter
 import revxrsal.commands.parameter.ParameterType
 
 /**
@@ -46,6 +46,10 @@ class CommandManager {
         get() {
             return _lamp!!
         }
+
+    init {
+        parameters[OnlinePlayer::class.java] = OnlinePlayerParameter()
+    }
 
 
     /**
