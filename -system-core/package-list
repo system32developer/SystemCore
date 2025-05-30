@@ -97,6 +97,25 @@ $dokka.location:com.system32.systemCore.managers.chat/ChatTriggerManager/ChatTri
 $dokka.location:com.system32.systemCore.managers.chat/ChatTriggerManager/addTrigger/#kotlin.Array[kotlin.String]#kotlin.Function1[com.system32.systemCore.managers.chat.ChatInput,kotlin.Unit]/PointingToDeclaration/-system-core/com.system32.systemCore.managers.chat/-chat-trigger-manager/add-trigger.html
 $dokka.location:com.system32.systemCore.managers.chat/ChatTriggerManager/addTrigger/#kotlin.collections.List[kotlin.String]#kotlin.Function1[com.system32.systemCore.managers.chat.ChatInput,kotlin.Unit]/PointingToDeclaration/-system-core/com.system32.systemCore.managers.chat/-chat-trigger-manager/add-trigger.html
 $dokka.location:com.system32.systemCore.managers.chat/ChatTriggerManager/onChat/#io.papermc.paper.event.player.AsyncChatEvent/PointingToDeclaration/-system-core/com.system32.systemCore.managers.chat/-chat-trigger-manager/on-chat.html
+$dokka.location:com.system32.systemCore.managers.commands.parameterTypes////PointingToDeclaration/-system-core/com.system32.systemCore.managers.commands.parameterTypes/index.html
+$dokka.location:com.system32.systemCore.managers.commands.parameterTypes/OnlinePlayer///PointingToDeclaration/-system-core/com.system32.systemCore.managers.commands.parameterTypes/-online-player/index.html
+$dokka.location:com.system32.systemCore.managers.commands.parameterTypes/OnlinePlayer/OnlinePlayer/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.managers.commands.parameterTypes/-online-player/-online-player.html
+$dokka.location:com.system32.systemCore.managers.commands.parameterTypes/OnlinePlayer/asPlayer/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.commands.parameterTypes/-online-player/as-player.html
+$dokka.location:com.system32.systemCore.managers.commands.parameterTypes/OnlinePlayer/player/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.commands.parameterTypes/-online-player/player.html
+$dokka.location:com.system32.systemCore.managers.commands.parameterTypes/OnlinePlayerParameter///PointingToDeclaration/-system-core/com.system32.systemCore.managers.commands.parameterTypes/-online-player-parameter/index.html
+$dokka.location:com.system32.systemCore.managers.commands.parameterTypes/OnlinePlayerParameter/OnlinePlayerParameter/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.commands.parameterTypes/-online-player-parameter/-online-player-parameter.html
+$dokka.location:com.system32.systemCore.managers.commands.parameterTypes/OnlinePlayerParameter/defaultSuggestions/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.commands.parameterTypes/-online-player-parameter/default-suggestions.html
+$dokka.location:com.system32.systemCore.managers.commands.parameterTypes/OnlinePlayerParameter/parse/#revxrsal.commands.stream.MutableStringStream#revxrsal.commands.node.ExecutionContext[revxrsal.commands.bukkit.actor.BukkitCommandActor]/PointingToDeclaration/-system-core/com.system32.systemCore.managers.commands.parameterTypes/-online-player-parameter/parse.html
+$dokka.location:com.system32.systemCore.managers.commands////PointingToDeclaration/-system-core/com.system32.systemCore.managers.commands/index.html
+$dokka.location:com.system32.systemCore.managers.commands/CommandManager///PointingToDeclaration/-system-core/com.system32.systemCore.managers.commands/-command-manager/index.html
+$dokka.location:com.system32.systemCore.managers.commands/CommandManager/CommandManager/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.commands/-command-manager/-command-manager.html
+$dokka.location:com.system32.systemCore.managers.commands/CommandManager/build/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.commands/-command-manager/build.html
+$dokka.location:com.system32.systemCore.managers.commands/CommandManager/builder/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.commands/-command-manager/builder.html
+$dokka.location:com.system32.systemCore.managers.commands/CommandManager/command/#kotlin.Array[kotlin.Any]/PointingToDeclaration/-system-core/com.system32.systemCore.managers.commands/-command-manager/command.html
+$dokka.location:com.system32.systemCore.managers.commands/CommandManager/lamp/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.commands/-command-manager/lamp.html
+$dokka.location:com.system32.systemCore.managers.commands/CommandManager/parameter/#kotlin.Array[kotlin.Pair[java.lang.Class[*],revxrsal.commands.parameter.ParameterType[revxrsal.commands.bukkit.actor.BukkitCommandActor,*]]]/PointingToDeclaration/-system-core/com.system32.systemCore.managers.commands/-command-manager/parameter.html
+$dokka.location:com.system32.systemCore.managers.commands/CommandManager/parameters/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.commands/-command-manager/parameters.html
+$dokka.location:com.system32.systemCore.managers.commands/CommandManager/plugin/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.commands/-command-manager/plugin.html
 $dokka.location:com.system32.systemCore.managers.config.adapters////PointingToDeclaration/-system-core/com.system32.systemCore.managers.config.adapters/index.html
 $dokka.location:com.system32.systemCore.managers.config.adapters/ComponentAdapter///PointingToDeclaration/-system-core/com.system32.systemCore.managers.config.adapters/-component-adapter/index.html
 $dokka.location:com.system32.systemCore.managers.config.adapters/ComponentAdapter/ComponentAdapter/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.config.adapters/-component-adapter/-component-adapter.html
@@ -168,16 +187,6 @@ $dokka.location:com.system32.systemCore.managers.usableItems/UsableItemsManager/
 $dokka.location:com.system32.systemCore.managers.usableItems/UsableItemsManager/UsableItemsManager/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.usableItems/-usable-items-manager/-usable-items-manager.html
 $dokka.location:com.system32.systemCore.managers.usableItems/UsableItemsManager/onPlayerUse/#org.bukkit.event.player.PlayerInteractEvent/PointingToDeclaration/-system-core/com.system32.systemCore.managers.usableItems/-usable-items-manager/on-player-use.html
 $dokka.location:com.system32.systemCore.managers.usableItems/UsableItemsManager/register/#org.bukkit.inventory.ItemStack#kotlin.Function1[org.bukkit.event.player.PlayerInteractEvent,kotlin.Boolean]#kotlin.Function1[org.bukkit.event.player.PlayerInteractEvent,kotlin.Unit]/PointingToDeclaration/-system-core/com.system32.systemCore.managers.usableItems/-usable-items-manager/register.html
-$dokka.location:com.system32.systemCore.managers////PointingToDeclaration/-system-core/com.system32.systemCore.managers/index.html
-$dokka.location:com.system32.systemCore.managers/CommandManager///PointingToDeclaration/-system-core/com.system32.systemCore.managers/-command-manager/index.html
-$dokka.location:com.system32.systemCore.managers/CommandManager/CommandManager/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers/-command-manager/-command-manager.html
-$dokka.location:com.system32.systemCore.managers/CommandManager/build/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers/-command-manager/build.html
-$dokka.location:com.system32.systemCore.managers/CommandManager/builder/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers/-command-manager/builder.html
-$dokka.location:com.system32.systemCore.managers/CommandManager/command/#kotlin.Array[kotlin.Any]/PointingToDeclaration/-system-core/com.system32.systemCore.managers/-command-manager/command.html
-$dokka.location:com.system32.systemCore.managers/CommandManager/lamp/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers/-command-manager/lamp.html
-$dokka.location:com.system32.systemCore.managers/CommandManager/parameter/#kotlin.Array[kotlin.Pair[java.lang.Class[*],revxrsal.commands.parameter.ParameterType[revxrsal.commands.bukkit.actor.BukkitCommandActor,*]]]/PointingToDeclaration/-system-core/com.system32.systemCore.managers/-command-manager/parameter.html
-$dokka.location:com.system32.systemCore.managers/CommandManager/parameters/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers/-command-manager/parameters.html
-$dokka.location:com.system32.systemCore.managers/CommandManager/plugin/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers/-command-manager/plugin.html
 $dokka.location:com.system32.systemCore.shade////PointingToDeclaration/-system-core/com.system32.systemCore.shade/index.html
 $dokka.location:com.system32.systemCore.shade/Metrics.AdvancedBarChart///PointingToDeclaration/-system-core/com.system32.systemCore.shade/-metrics/-advanced-bar-chart/index.html
 $dokka.location:com.system32.systemCore.shade/Metrics.AdvancedBarChart/AdvancedBarChart/#java.lang.String#java.util.concurrent.Callable<java.util.Map<java.lang.String,int[]>>/PointingToDeclaration/-system-core/com.system32.systemCore.shade/-metrics/-advanced-bar-chart/-advanced-bar-chart.html
@@ -484,8 +493,9 @@ com.system32.systemCore
 com.system32.systemCore.database
 com.system32.systemCore.database.builders
 com.system32.systemCore.database.table
-com.system32.systemCore.managers
 com.system32.systemCore.managers.chat
+com.system32.systemCore.managers.commands
+com.system32.systemCore.managers.commands.parameterTypes
 com.system32.systemCore.managers.config
 com.system32.systemCore.managers.config.adapters
 com.system32.systemCore.managers.cooldown
