@@ -1,64 +1,140 @@
 package com.system32.systemCore.managers.config
 
+import com.google.common.reflect.TypeToken
+import com.system32.systemCore.SystemCore
+import com.system32.systemCore.managers.config.serializers.ComponentSerializer
+import com.system32.systemCore.managers.config.serializers.LocationSerializer
+import net.kyori.adventure.text.Component
+import org.bukkit.Location
+import org.spongepowered.configurate.ConfigurationNode
+import org.spongepowered.configurate.objectmapping.ConfigSerializable
+import org.spongepowered.configurate.objectmapping.ObjectMapper
+import org.spongepowered.configurate.objectmapping.meta.NodeResolver
+import org.spongepowered.configurate.serialize.TypeSerializerCollection
+import org.spongepowered.configurate.yaml.NodeStyle
+import org.spongepowered.configurate.yaml.YamlConfigurationLoader
+import java.io.File
 
-import org.bukkit.plugin.java.JavaPlugin
-import kotlin.reflect.KClass
-import com.system32.systemCore.utils.minecraft.ServerUtil.task
-import com.system32.systemCore.utils.minecraft.ServerUtil.taskAsync
-import org.jetbrains.annotations.ApiStatus
+class ConfigManager {
 
-@ApiStatus.Experimental
-object ConfigManager {
-    private lateinit var plugin: JavaPlugin
-    private val containers = mutableMapOf<KClass<*>, Any>()
+    val plugin = SystemCore.plugin
+    private val configs = mutableMapOf<String, ConfigHolder<out Any>>()
+    private val serializers = TypeSerializerCollection.builder()
 
-    fun initialize(plugin: JavaPlugin, vararg configs: KClass<*>, onComplete: (() -> Unit)? = null) {
-        this.plugin = plugin
+    init {
+        registerDefaultSerializers()
+    }
 
-        if (configs.isEmpty()) {
-            onComplete?.invoke()
-            return
-        }
+    private fun registerDefaultSerializers() {
 
-        val total = configs.size
-        var loadedCount = 0
+        serializers.register(Location::class.java, LocationSerializer())
+        serializers.register(Component::class.java,ComponentSerializer())
+    }
 
-        for (clazz in configs) {
-            loadAsync(plugin, clazz) { config ->
-                containers[clazz] = config
-                loadedCount++
-                if (loadedCount == total) {
-                    onComplete?.invoke()
+    fun <T : Any> config(
+        name: String,
+        clazz: Class<T>,
+        defaultInstance: T
+    ): ConfigManager {
+        configs[name] = ConfigHolder(name, clazz, defaultInstance)
+        return this
+    }
+
+    fun serializer(register: (TypeSerializerCollection.Builder) -> Unit): ConfigManager {
+        register(serializers)
+        return this
+    }
+
+    fun build() {
+        configs.forEach { (_, holder) ->
+            val file = File(plugin.dataFolder, "${holder.name}.yml")
+            if (!plugin.dataFolder.exists()) plugin.dataFolder.mkdirs()
+            if(!file.exists()) {
+                try {
+                    file.createNewFile()
+                } catch (e: Exception) {
+                    plugin.logger.severe("Error creating config file '${holder.name}': ${e.message}")
+                    e.printStackTrace()
                 }
             }
-        }
-    }
 
-    fun <T : Any> loadAsync(plugin: JavaPlugin, clazz: KClass<T>, onComplete: (T) -> Unit) {
-        taskAsync {
-            val startLoadFile = System.nanoTime()
-            val configInstance = Configurate.load(plugin, clazz)
-            val endLoadFile = System.nanoTime()
+            val loader = YamlConfigurationLoader.builder()
+                .file(file)
+                .defaultOptions { opts ->
+                    opts.serializers { it.registerAll(serializers.build()) }.implicitInitialization(true)
+                }
+                .nodeStyle(NodeStyle.BLOCK)
+                .build()
 
-            val elapsedLoadFile = (endLoadFile - startLoadFile) / 1_000_000.0
 
-            task {
-                plugin.logger.info("[ConfigManager] ${clazz.simpleName} load took $elapsedLoadFile ms ( ${elapsedLoadFile / 1000.0})s")
-                onComplete(configInstance)
+            val node = try {
+                loader.load()
+            } catch (e: Exception) {
+                plugin.logger.severe("Error loading config '${holder.name}': ${e.message}")
+                e.printStackTrace()
+                loader.createNode()
+            }
+
+            val loaded = try {
+                node.get(holder.clazz) ?: holder.default
+            } catch (e: Exception) {
+                plugin.logger.severe("Error parsing config '${holder.name}': ${e.message}")
+                e.printStackTrace()
+                holder.default
+            }
+
+            node.set(holder.clazz, loaded)
+            loader.save(node)
+
+            @Suppress("UNCHECKED_CAST")
+            val typedHolder = holder as ConfigHolder<Any>
+            typedHolder.apply {
+                this.loader = loader
+                this.node = node
+                this.instance = loaded
             }
         }
     }
 
+
     @Suppress("UNCHECKED_CAST")
-    fun <T : Any> get(clazz: KClass<T>): T? = containers[clazz] as? T
-
-    fun <T : Any> save(clazz: KClass<T>) {
-        val instance = containers[clazz] ?: error("${clazz.simpleName} not loaded")
-        Configurate.save(plugin, instance)
+    fun <T : Any> get(name: String): T? {
+        return configs[name]?.instance as? T
     }
 
-    fun <T : Any> reload(clazz: KClass<T>) {
-        val newInstance = Configurate.reload(plugin, clazz)
-        containers[clazz] = newInstance
+    fun save(name: String) {
+        val holder = configs[name] ?: return
+        try {
+            holder.node?.set(holder.clazz, holder.instance)
+            holder.loader?.save(holder.node)
+        } catch (e: Exception) {
+            plugin.logger.severe("Error saving config '$name': ${e.message}")
+            e.printStackTrace()
+        }
     }
+
+    fun reload(name: String) {
+        val holder = configs[name] ?: return
+        try {
+            @Suppress("UNCHECKED_CAST")
+            val typedHolder = holder as ConfigHolder<Any>
+            val node = typedHolder.loader?.load() ?: return
+            val loaded = node.get(typedHolder.clazz) ?: typedHolder.default
+            typedHolder.node = node
+            typedHolder.instance = loaded
+
+        } catch (e: Exception) {
+            plugin.logger.severe("Error reloading config '$name': ${e.message}")
+            e.printStackTrace()
+        }
+    }
+
+    private class ConfigHolder<T : Any>(
+        val name: String,
+        val clazz: Class<T>,
+        val default: T,
+        var loader: YamlConfigurationLoader? = null,
+        var node: ConfigurationNode? = null,
+        var instance: T? = null
+    )
 }

@@ -75,6 +75,17 @@ class CommandManager {
      *     }
      * }
      * ```
+     *
+     * Register it like this:
+     * ```kotlin
+     * CommandManager().apply {
+     *     parameter(
+     *     OnlinePlayer::class.java to OnlinePlayerParameter()
+     *     )
+     *     build()
+     *     command(YourCommand())
+     * }
+     * ```
      */
     fun parameter(vararg types: Pair<Class<*>, ParameterType<BukkitCommandActor, *>>) {
         for (type in types) {
