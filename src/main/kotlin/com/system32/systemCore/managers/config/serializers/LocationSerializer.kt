@@ -12,13 +12,23 @@ class LocationSerializer : TypeSerializer<Location> {
         if (node == null || node.string == null) return null
         val raw = node.string!!
         val parts = raw.split(",")
-        if (parts.size != 4) return null
+        if (parts.size < 4 || parts.size > 6) {
+            println("Invalid Location format: $raw")
+            return null
+        }
 
         val worldName = parts[0]
         val world = Bukkit.getWorld(worldName) ?: return null
         val x = parts[1].toDoubleOrNull() ?: return null
         val y = parts[2].toDoubleOrNull() ?: return null
         val z = parts[3].toDoubleOrNull() ?: return null
+
+        val pitch = parts.getOrNull(4)?.toDoubleOrNull() ?: 0.0
+        val yaw = parts.getOrNull(5)?.toDoubleOrNull() ?: 0.0
+
+        if (parts.size > 4) {
+            return Location(world, x, y, z, yaw.toFloat(), pitch.toFloat())
+        }
 
         return Location(world, x, y, z)
     }
@@ -31,7 +41,15 @@ class LocationSerializer : TypeSerializer<Location> {
             return
         }
 
-        val str = "${obj.world.name},${obj.x},${obj.y},${obj.z}"
+        val yaw = obj.yaw
+        val pitch = obj.pitch
+
+        if (yaw == 0f && pitch == 0f) {
+            val str = "${obj.world.name},${obj.x},${obj.y},${obj.z}"
+            node.set(str)
+            return
+        }
+        val str = "${obj.world.name},${obj.x},${obj.y},${obj.z},${pitch},${yaw}"
         node.set(str)
     }
 }
