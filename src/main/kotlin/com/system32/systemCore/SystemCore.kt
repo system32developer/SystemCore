@@ -28,8 +28,6 @@ object SystemCore {
      * Indicates whether PlaceholderAPI support is enabled.
      */
     var placeholderAPISupport: Boolean = false
-        private set
-        get() = plugin.server.pluginManager.isPluginEnabled("PlaceholderAPI")
 
     var githubUser = "System32"
     var githubRepo = "SystemCore"
