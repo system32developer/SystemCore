@@ -33,45 +33,85 @@ object ServerUtil {
         Bukkit.broadcast(color(message))
     }
 
-    fun task(runnable: Runnable) : BukkitTask {
-        return Bukkit.getScheduler().runTask(SystemCore.plugin, runnable)
+    fun task(block: (BukkitTask) -> Unit): BukkitTask {
+        var task: BukkitTask? = null
+        task = Bukkit.getScheduler().runTask(SystemCore.plugin, Runnable {
+            block(task!!)
+        })
+        return task
     }
 
-    fun taskLater(runnable: Runnable, delay: Int) : BukkitTask {
-        return Bukkit.getScheduler().runTaskLater(SystemCore.plugin, runnable, 20L * delay)
+    fun taskLater(delay: Int, block: (BukkitTask) -> Unit): BukkitTask {
+        var task: BukkitTask? = null
+        task = Bukkit.getScheduler().runTaskLater(SystemCore.plugin, Runnable {
+            block(task!!)
+        }, 20L * delay)
+        return task
     }
 
-    fun taskTimer(runnable: Runnable, delay: Int, period: Int) : BukkitTask {
-        return Bukkit.getScheduler().runTaskTimer(SystemCore.plugin, runnable, 20L * delay, 20L * period)
+    fun taskTimer(delay: Int, period: Int, block: (BukkitTask) -> Unit): BukkitTask {
+        var task: BukkitTask? = null
+        task = Bukkit.getScheduler().runTaskTimer(SystemCore.plugin, Runnable {
+            block(task!!)
+        }, 20L * delay, 20L * period)
+        return task
     }
 
-    fun taskAsync(runnable: Runnable) : BukkitTask {
-        return Bukkit.getScheduler().runTaskAsynchronously(SystemCore.plugin, runnable)
+    fun taskAsync(block: (BukkitTask) -> Unit): BukkitTask {
+        var task: BukkitTask? = null
+        task = Bukkit.getScheduler().runTaskAsynchronously(SystemCore.plugin, Runnable {
+            block(task!!)
+        })
+        return task
     }
 
-    fun taskLaterAsync(runnable: Runnable, delay: Int) : BukkitTask {
-        return Bukkit.getScheduler().runTaskLaterAsynchronously(SystemCore.plugin, runnable, 20L * delay)
+    fun taskLaterAsync(delay: Int, block: (BukkitTask) -> Unit): BukkitTask {
+        var task: BukkitTask? = null
+        task = Bukkit.getScheduler().runTaskLaterAsynchronously(SystemCore.plugin, Runnable {
+            block(task!!)
+        }, 20L * delay)
+        return task
     }
 
-    fun taskTimerAsync(runnable: Runnable, delay: Int, period: Int) : BukkitTask {
-        return Bukkit.getScheduler().runTaskTimerAsynchronously(SystemCore.plugin, runnable, 20L * delay, 20L * period)
+    fun taskTimerAsync(delay: Int, period: Int, block: (BukkitTask) -> Unit): BukkitTask {
+        var task: BukkitTask? = null
+        task = Bukkit.getScheduler().runTaskTimerAsynchronously(SystemCore.plugin, Runnable {
+            block(task!!)
+        }, 20L * delay, 20L * period)
+        return task
     }
 
-    //With Long
+// --- With Long versions ---
 
-    fun taskLater(runnable: Runnable, delay: Long) : BukkitTask {
-        return Bukkit.getScheduler().runTaskLater(SystemCore.plugin, runnable, delay)
+    fun taskLater(delay: Long, block: (BukkitTask) -> Unit): BukkitTask {
+        var task: BukkitTask? = null
+        task = Bukkit.getScheduler().runTaskLater(SystemCore.plugin, Runnable {
+            block(task!!)
+        }, delay)
+        return task
     }
 
-    fun taskTimer(runnable: Runnable, delay: Long, period: Long) : BukkitTask {
-        return Bukkit.getScheduler().runTaskTimer(SystemCore.plugin, runnable, delay, period)
+    fun taskTimer(delay: Long, period: Long, block: (BukkitTask) -> Unit): BukkitTask {
+        var task: BukkitTask? = null
+        task = Bukkit.getScheduler().runTaskTimer(SystemCore.plugin, Runnable {
+            block(task!!)
+        }, delay, period)
+        return task
     }
 
-    fun taskLaterAsync(runnable: Runnable, delay: Long) : BukkitTask {
-        return Bukkit.getScheduler().runTaskLaterAsynchronously(SystemCore.plugin, runnable, delay)
+    fun taskLaterAsync(delay: Long, block: (BukkitTask) -> Unit): BukkitTask {
+        var task: BukkitTask? = null
+        task = Bukkit.getScheduler().runTaskLaterAsynchronously(SystemCore.plugin, Runnable {
+            block(task!!)
+        }, delay)
+        return task
     }
 
-    fun taskTimerAsync(runnable: Runnable, delay: Long, period: Long) : BukkitTask {
-        return Bukkit.getScheduler().runTaskTimerAsynchronously(SystemCore.plugin, runnable, delay, period)
+    fun taskTimerAsync(delay: Long, period: Long, block: (BukkitTask) -> Unit): BukkitTask {
+        var task: BukkitTask? = null
+        task = Bukkit.getScheduler().runTaskTimerAsynchronously(SystemCore.plugin, Runnable {
+            block(task!!)
+        }, delay, period)
+        return task
     }
 }
