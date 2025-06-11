@@ -6,6 +6,7 @@ import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.TextComponent
 import net.kyori.adventure.text.minimessage.MiniMessage
 import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer
+import net.kyori.adventure.text.serializer.plain.PlainTextComponentSerializer
 import org.bukkit.entity.Player
 import java.text.DecimalFormat
 import java.util.function.Consumer
@@ -93,6 +94,17 @@ object TextUtil {
      */
     fun asText(component: Component): String {
         return MiniMessage.miniMessage().serialize(component)
+    }
+
+    /**
+     * Converts a Component to a plain text string, removing all formatting.
+     *
+     * @param component The Component to convert.
+     * @return The plain text representation of the Component.
+     */
+
+    fun asPlainText(component: Component): String {
+        return PlainTextComponentSerializer.plainText().serialize(component)
     }
 
     /**
