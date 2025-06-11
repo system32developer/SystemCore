@@ -438,6 +438,7 @@ $dokka.location:com.system32.systemCore.utils.text/FontInfo/valueOf/#kotlin.Stri
 $dokka.location:com.system32.systemCore.utils.text/FontInfo/values/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils.text/-font-info/values.html
 $dokka.location:com.system32.systemCore.utils.text/TextUtil///PointingToDeclaration/-system-core/com.system32.systemCore.utils.text/-text-util/index.html
 $dokka.location:com.system32.systemCore.utils.text/TextUtil/NORMAL_LINE/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils.text/-text-util/-n-o-r-m-a-l_-l-i-n-e.html
+$dokka.location:com.system32.systemCore.utils.text/TextUtil/asPlainText/#net.kyori.adventure.text.Component/PointingToDeclaration/-system-core/com.system32.systemCore.utils.text/-text-util/as-plain-text.html
 $dokka.location:com.system32.systemCore.utils.text/TextUtil/asText/#net.kyori.adventure.text.Component/PointingToDeclaration/-system-core/com.system32.systemCore.utils.text/-text-util/as-text.html
 $dokka.location:com.system32.systemCore.utils.text/TextUtil/centerMessage/#kotlin.String?/PointingToDeclaration/-system-core/com.system32.systemCore.utils.text/-text-util/center-message.html
 $dokka.location:com.system32.systemCore.utils.text/TextUtil/color/#kotlin.String#org.bukkit.entity.Player?/PointingToDeclaration/-system-core/com.system32.systemCore.utils.text/-text-util/color.html
