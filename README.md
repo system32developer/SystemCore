@@ -1,5 +1,0 @@
-[![Release](https://jitpack.io/v/system32developer/SystemCore.svg)](https://jitpack.io/#system32developer/SystemCore)
-![Weekly download statistics](https://jitpack.io/v/system32developer/SystemCore/week.svg)
-![Monthly download statistics](https://jitpack.io/v/system32developer/SystemCore/month.svg)
-[![CodeFactor](https://www.codefactor.io/repository/github/system32developer/systemcore/badge)](https://www.codefactor.io/repository/github/system32developer/systemcore)
-## [Javadocs](https://system32developer.github.io/SystemCore/index.html)
