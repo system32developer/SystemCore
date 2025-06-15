@@ -92,6 +92,7 @@ object TextUtil {
      * @param component The Component to convert.
      * @return The serialized string representation of the Component.
      */
+
     fun asText(component: Component): String {
         return MiniMessage.miniMessage().serialize(component)
     }
@@ -113,6 +114,7 @@ object TextUtil {
      * @param message The message to center.
      * @return The centered message as a string.
      */
+
     fun centerMessage(message: String?): String {
         if (message.isNullOrEmpty()) {
             return ""
