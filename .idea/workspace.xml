@@ -1,0 +1,802 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2e0afdad-1ee4-4be2-9397-762b0452ebff" name="Changes" comment="Add template files for Gradle and Maven project setup" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="SystemCore" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="SystemCore" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="SystemCore" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="other" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="SystemCore" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="publishing" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="SystemCore" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="shadow" type="c8890929:TasksNode$1" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Kotlin Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2xDLCXMoJfBVbWvtysZ91I8xQOO" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.SystemCore [publishAndTag].executor": "Run",
+    "Gradle.SystemCore [publishToMavenLocal].executor": "Run",
+    "Gradle.SystemCore [shadowJar].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/System32/IdeaProjects/KuveruCosmetics",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "inlay.hints",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\System32\IdeaProjects\personal\SystemCore" />
+    </key>
+    <key name="K2MoveDeclarationsDialog.RECENT_PACKAGE_KEY">
+      <recent name="com.system32.systemCore.managers.config.serializers" />
+      <recent name="com.system32.systemCore.managers.commands" />
+      <recent name="com.system32.systemCore.utils.config.configurate" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Gradle.SystemCore [publishAndTag]">
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SystemCore [publishAndTag]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="publishAndTag" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="SystemCore [publishAndTag]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="publishAndTag" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="SystemCore [publishToMavenLocal]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="publishToMavenLocal" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="SystemCore [publishToMavenLocal]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="publishToMavenLocal" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="SystemCore [shadowJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="shadowJar" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="SystemCore [shadowJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="shadowJar" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.SystemCore [shadowJar]" />
+        <item itemvalue="Gradle.SystemCore [publishToMavenLocal]" />
+        <item itemvalue="Gradle.SystemCore [publishAndTag]" />
+        <item itemvalue="Gradle.SystemCore [shadowJar]" />
+        <item itemvalue="Gradle.SystemCore [publishToMavenLocal]" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.26094.121" />
+        <option value="bundled-js-predefined-d6986cc7102b-b26f3e71634d-JavaScript-IU-251.26094.121" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2e0afdad-1ee4-4be2-9397-762b0452ebff" name="Changes" comment="" />
+      <created>1740447648891</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1740447648891</updated>
+      <workItem from="1747467572056" duration="49000" />
+      <workItem from="1747468052078" duration="13000" />
+      <workItem from="1747469233182" duration="4000" />
+      <workItem from="1747497995793" duration="2442000" />
+      <workItem from="1747501321559" duration="982000" />
+      <workItem from="1747591943783" duration="334000" />
+      <workItem from="1747603334896" duration="8000" />
+      <workItem from="1747603583389" duration="228000" />
+      <workItem from="1747613371247" duration="46000" />
+      <workItem from="1747883029028" duration="1188000" />
+      <workItem from="1747884434902" duration="8000" />
+      <workItem from="1747884688586" duration="2304000" />
+      <workItem from="1747887193409" duration="432000" />
+      <workItem from="1747887918695" duration="2369000" />
+      <workItem from="1747890418680" duration="270000" />
+      <workItem from="1747890876333" duration="500000" />
+      <workItem from="1747891455732" duration="751000" />
+      <workItem from="1747892228434" duration="82000" />
+      <workItem from="1747892355681" duration="63000" />
+      <workItem from="1747892437932" duration="148000" />
+      <workItem from="1747929883324" duration="221000" />
+      <workItem from="1748194092930" duration="1125000" />
+      <workItem from="1748195334550" duration="75000" />
+      <workItem from="1748195421222" duration="93000" />
+      <workItem from="1748203029162" duration="362000" />
+      <workItem from="1748203453474" duration="66000" />
+      <workItem from="1748210857798" duration="403000" />
+      <workItem from="1748211677270" duration="80000" />
+      <workItem from="1748212275479" duration="102000" />
+      <workItem from="1748217853176" duration="201000" />
+      <workItem from="1748218136657" duration="3307000" />
+      <workItem from="1748222257083" duration="65000" />
+      <workItem from="1748225708644" duration="82000" />
+      <workItem from="1748276020170" duration="61000" />
+      <workItem from="1748276134981" duration="636000" />
+      <workItem from="1748278338855" duration="2000" />
+      <workItem from="1748279413412" duration="760000" />
+      <workItem from="1748286876524" duration="166000" />
+      <workItem from="1748289337036" duration="936000" />
+      <workItem from="1748290506718" duration="1101000" />
+      <workItem from="1748291718797" duration="433000" />
+      <workItem from="1748292390648" duration="380000" />
+      <workItem from="1748292795983" duration="5000" />
+      <workItem from="1748292975730" duration="13000" />
+      <workItem from="1748293290710" duration="67000" />
+      <workItem from="1748293524262" duration="802000" />
+      <workItem from="1748302363581" duration="167000" />
+      <workItem from="1748302729969" duration="102000" />
+      <workItem from="1748443501792" duration="35000" />
+      <workItem from="1748444406458" duration="218000" />
+      <workItem from="1748467687956" duration="20000" />
+      <workItem from="1748543918081" duration="9000" />
+      <workItem from="1748575519921" duration="313000" />
+      <workItem from="1748578074250" duration="2000" />
+      <workItem from="1748578360813" duration="32000" />
+      <workItem from="1748705750167" duration="8000" />
+      <workItem from="1748708451432" duration="40000" />
+      <workItem from="1748708500954" duration="10000" />
+      <workItem from="1748718899665" duration="27000" />
+      <workItem from="1748809614881" duration="7000" />
+      <workItem from="1748813146337" duration="8000" />
+      <workItem from="1748817350424" duration="5000" />
+      <workItem from="1748817402922" duration="13000" />
+      <workItem from="1748817467262" duration="1936000" />
+      <workItem from="1748820125981" duration="87000" />
+      <workItem from="1748895090261" duration="13000" />
+      <workItem from="1748918351498" duration="6000" />
+      <workItem from="1748918692050" duration="4000" />
+      <workItem from="1748919381664" duration="168000" />
+      <workItem from="1749078236349" duration="593000" />
+      <workItem from="1749080205787" duration="92000" />
+      <workItem from="1749312091430" duration="25000" />
+      <workItem from="1749312168244" duration="273000" />
+      <workItem from="1749438618906" duration="4000" />
+      <workItem from="1749684442394" duration="323000" />
+      <workItem from="1749829300015" duration="7000" />
+      <workItem from="1750003003524" duration="316000" />
+      <workItem from="1750003456899" duration="6000" />
+      <workItem from="1750004610524" duration="453000" />
+      <workItem from="1750005580759" duration="44000" />
+    </task>
+    <task id="LOCAL-00002" summary="Add support for primary keys in Table class and update SQL generation">
+      <option name="closed" value="true" />
+      <created>1747603736058</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1747603736058</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Add Config and ConfigLoader classes for YAML configuration management">
+      <option name="closed" value="true" />
+      <created>1747884186834</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1747884186834</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Add IgnorePaths annotation and enhance ConfigLoader for ignored paths">
+      <option name="closed" value="true" />
+      <created>1747885274824</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1747885274824</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Remove unused ignoredPaths property and clean up related code in ConfigLoader">
+      <option name="closed" value="true" />
+      <created>1747885336800</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1747885336800</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Add YAML configuration support with default values and converters in ConfigLoader">
+      <option name="closed" value="true" />
+      <created>1747886784626</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1747886784626</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Refactor converter registration in ConfigLoader to use raw default values">
+      <option name="closed" value="true" />
+      <created>1747887526193</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1747887526193</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Update default string value in ConfigLoader to prompt user input">
+      <option name="closed" value="true" />
+      <created>1747888161816</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1747888161817</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Add debug logging for default and merged configuration maps in ConfigLoader">
+      <option name="closed" value="true" />
+      <created>1747888313117</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1747888313117</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Enhance YAML configuration output formatting in ConfigLoader">
+      <option name="closed" value="true" />
+      <created>1747888504915</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1747888504915</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Add support for creating default instances of data classes in ConfigLoader">
+      <option name="closed" value="true" />
+      <created>1747888918540</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1747888918540</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Add support for creating default instances of data classes in ConfigLoader">
+      <option name="closed" value="true" />
+      <created>1747889254884</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1747889254884</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Update model assignment logic in ConfigLoader to handle absence of custom model data">
+      <option name="closed" value="true" />
+      <created>1747889320420</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1747889320420</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Fix formatting issue in ConfigLoader by adding a blank line for readability">
+      <option name="closed" value="true" />
+      <created>1747889381287</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1747889381287</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Update ConfigLoader to improve default values for item properties">
+      <option name="closed" value="true" />
+      <created>1747889751329</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1747889751329</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Refactor ConfigLoader to streamline instance creation and improve parameter handling">
+      <option name="closed" value="true" />
+      <created>1747889942362</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1747889942362</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Add support for Component handling in ConfigLoader">
+      <option name="closed" value="true" />
+      <created>1747890206227</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1747890206227</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Refactor ConfigLoader to improve instance handling and loading process">
+      <option name="closed" value="true" />
+      <created>1747890666184</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1747890666184</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Refactor ConfigLoader to enhance converter registration and improve item handling">
+      <option name="closed" value="true" />
+      <created>1747891337957</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1747891337957</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Refactor ConfigLoader to simplify converter registration and remove unused default values">
+      <option name="closed" value="true" />
+      <created>1747891868441</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1747891868441</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Refactor ConfigLoader to normalize merged maps for YAML output">
+      <option name="closed" value="true" />
+      <created>1747892559558</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1747892559558</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Removed Config thing, im done">
+      <option name="closed" value="true" />
+      <created>1747930053039</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1747930053039</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Refactor SystemCore to integrate Lamp command system and enhance event registration">
+      <option name="closed" value="true" />
+      <created>1748195174187</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1748195174187</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Refactor SystemCore command method to accept Any type for improved flexibility">
+      <option name="closed" value="true" />
+      <created>1748195347276</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1748195347276</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Refactor SystemCore command method to accept vararg commands for improved registration">
+      <option name="closed" value="true" />
+      <created>1748195465286</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1748195465286</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Refactor SystemCore to support parameter configuration for the lamp command system">
+      <option name="closed" value="true" />
+      <created>1748203330114</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1748203330114</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Refactor SystemCore to rename parameter method and ensure lamp is built after configuration">
+      <option name="closed" value="true" />
+      <created>1748217932937</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1748217932937</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Add CommandManager for improved command handling and parameter management">
+      <option name="closed" value="true" />
+      <created>1748221089916</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1748221089916</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Remove unused CommandManager reference from SystemCore">
+      <option name="closed" value="true" />
+      <created>1748221122298</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1748221122298</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Refactor CommandManager and ItemUtil for improved parameter handling and serialization">
+      <option name="closed" value="true" />
+      <created>1748225736777</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1748225736777</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Remove unused imports from SystemCore for cleaner code">
+      <option name="closed" value="true" />
+      <created>1748225761963</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1748225761963</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Enhance CommandManager documentation with usage examples and parameter registration details">
+      <option name="closed" value="true" />
+      <created>1748279563402</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1748279563402</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Refactor ServerUtil and SpigotUtil to use object declaration for cleaner code structure">
+      <option name="closed" value="true" />
+      <created>1748280088788</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1748280088788</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Refactor imports in multiple files to use direct method references for cleaner code">
+      <option name="closed" value="true" />
+      <created>1748280178532</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1748280178532</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Add configuration adapters for Component, List&lt;Component&gt;, and Location">
+      <option name="closed" value="true" />
+      <created>1748290264056</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1748290264056</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Add save and reload functions for configuration management">
+      <option name="closed" value="true" />
+      <created>1748291335192</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1748291335192</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Refactor configuration adapters and introduce ConfigManager for improved management">
+      <option name="closed" value="true" />
+      <created>1748292639827</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1748292639827</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Remove unnecessary accessibility modification for property reflection in Configurate">
+      <option name="closed" value="true" />
+      <created>1748293557027</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1748293557027</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Add experimental API status annotations and improve property handling in ConfigManager and Configurate">
+      <option name="closed" value="true" />
+      <created>1748444553238</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1748444553238</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Add CommandManager and OnlinePlayer parameter type for command handling">
+      <option name="closed" value="true" />
+      <created>1748575769240</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1748575769241</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Add serializers for Component and Location, and update ConfigManager for improved configuration handling (Using sponge configurate)">
+      <option name="closed" value="true" />
+      <created>1748819831806</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1748819831806</updated>
+    </task>
+    <task id="LOCAL-00042" summary="Update Gradle dependencies to use API configuration for Configurate libraries">
+      <option name="closed" value="true" />
+      <created>1748820177252</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1748820177252</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Enhance LocationSerializer to support optional pitch and yaw values in location format">
+      <option name="closed" value="true" />
+      <created>1748919457210</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1748919457211</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Remove redundant getter for placeholderAPISupport and simplify its initialization">
+      <option name="closed" value="true" />
+      <created>1749080242442</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1749080242442</updated>
+    </task>
+    <task id="LOCAL-00045" summary="Refactor task scheduling methods to use lambda expressions for improved readability and flexibility">
+      <option name="closed" value="true" />
+      <created>1749312382338</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1749312382338</updated>
+    </task>
+    <task id="LOCAL-00046" summary="Add asPlainText method to convert Component to plain text representation">
+      <option name="closed" value="true" />
+      <created>1749684538495</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1749684538495</updated>
+    </task>
+    <task id="LOCAL-00047" summary="Add missing line breaks in asText and centerMessage method documentation">
+      <option name="closed" value="true" />
+      <created>1750004653363</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1750004653363</updated>
+    </task>
+    <task id="LOCAL-00048" summary="Add missing line breaks in asText and centerMessage method documentation">
+      <option name="closed" value="true" />
+      <created>1750004740324</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1750004740324</updated>
+    </task>
+    <task id="LOCAL-00049" summary="Add .gitignore files for Gradle and Maven projects">
+      <option name="closed" value="true" />
+      <created>1750004937738</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1750004937738</updated>
+    </task>
+    <task id="LOCAL-00050" summary="Add template files for Gradle and Maven project setup">
+      <option name="closed" value="true" />
+      <created>1750004961677</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1750004961677</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Refactor SystemCore command method to accept vararg commands for improved registration" />
+    <MESSAGE value="Refactor SystemCore to support parameter configuration for the lamp command system" />
+    <MESSAGE value="Refactor SystemCore to rename parameter method and ensure lamp is built after configuration" />
+    <MESSAGE value="Add CommandManager for improved command handling and parameter management" />
+    <MESSAGE value="Remove unused CommandManager reference from SystemCore" />
+    <MESSAGE value="Refactor CommandManager and ItemUtil for improved parameter handling and serialization" />
+    <MESSAGE value="Remove unused imports from SystemCore for cleaner code" />
+    <MESSAGE value="Enhance CommandManager documentation with usage examples and parameter registration details" />
+    <MESSAGE value="Refactor ServerUtil and SpigotUtil to use object declaration for cleaner code structure" />
+    <MESSAGE value="Refactor imports in multiple files to use direct method references for cleaner code" />
+    <MESSAGE value="Add configuration adapters for Component, List&lt;Component&gt;, and Location" />
+    <MESSAGE value="Add save and reload functions for configuration management" />
+    <MESSAGE value="Refactor configuration adapters and introduce ConfigManager for improved management" />
+    <MESSAGE value="Remove unnecessary accessibility modification for property reflection in Configurate" />
+    <MESSAGE value="Add experimental API status annotations and improve property handling in ConfigManager and Configurate" />
+    <MESSAGE value="Add CommandManager and OnlinePlayer parameter type for command handling" />
+    <MESSAGE value="Add serializers for Component and Location, and update ConfigManager for improved configuration handling (Using sponge configurate)" />
+    <MESSAGE value="Update Gradle dependencies to use API configuration for Configurate libraries" />
+    <MESSAGE value="Enhance LocationSerializer to support optional pitch and yaw values in location format" />
+    <MESSAGE value="Remove redundant getter for placeholderAPISupport and simplify its initialization" />
+    <MESSAGE value="Refactor task scheduling methods to use lambda expressions for improved readability and flexibility" />
+    <MESSAGE value="Add asPlainText method to convert Component to plain text representation" />
+    <MESSAGE value="Add missing line breaks in asText and centerMessage method documentation" />
+    <MESSAGE value="Add .gitignore files for Gradle and Maven projects" />
+    <MESSAGE value="Add template files for Gradle and Maven project setup" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add template files for Gradle and Maven project setup" />
+  </component>
+</project>
