@@ -15,7 +15,7 @@ import org.bukkit.plugin.java.JavaPlugin
  */
 object SystemCore {
     /**
-     * Provides the main plugin instance. asd
+     * Provides the main plugin instance.
      */
     private val _plugin: Lazy<JavaPlugin> = lazy {
         JavaPlugin.getProvidingPlugin(SystemCore::class.java)
