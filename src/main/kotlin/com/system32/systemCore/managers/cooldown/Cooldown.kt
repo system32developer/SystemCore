@@ -2,7 +2,7 @@ package com.system32.systemCore.managers.cooldown
 
 import com.system32.systemCore.managers.language.Language
 
-class Cooldown(val expirationTime: Long) {
+data class Cooldown(val expirationTime: Long) {
 
     fun getTimeLeft(): Long {
         return (expirationTime - System.currentTimeMillis()).coerceAtLeast(0) / 1000

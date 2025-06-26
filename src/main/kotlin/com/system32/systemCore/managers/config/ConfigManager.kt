@@ -102,6 +102,10 @@ class ConfigManager {
         return configs[name]?.instance as? T
     }
 
+    fun remove(name: String) {
+        configs.remove(name)
+    }
+
     fun save(name: String) {
         val holder = configs[name] ?: return
         try {
