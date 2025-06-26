@@ -133,6 +133,7 @@ $dokka.location:com.system32.systemCore.managers.config/ConfigManager/config/#ko
 $dokka.location:com.system32.systemCore.managers.config/ConfigManager/get/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.managers.config/-config-manager/get.html
 $dokka.location:com.system32.systemCore.managers.config/ConfigManager/plugin/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.config/-config-manager/plugin.html
 $dokka.location:com.system32.systemCore.managers.config/ConfigManager/reload/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.managers.config/-config-manager/reload.html
+$dokka.location:com.system32.systemCore.managers.config/ConfigManager/remove/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.managers.config/-config-manager/remove.html
 $dokka.location:com.system32.systemCore.managers.config/ConfigManager/save/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.managers.config/-config-manager/save.html
 $dokka.location:com.system32.systemCore.managers.config/ConfigManager/serializer/#kotlin.Function1[org.spongepowered.configurate.serialize.TypeSerializerCollection.Builder,kotlin.Unit]/PointingToDeclaration/-system-core/com.system32.systemCore.managers.config/-config-manager/serializer.html
 $dokka.location:com.system32.systemCore.managers.cooldown////PointingToDeclaration/-system-core/com.system32.systemCore.managers.cooldown/index.html
