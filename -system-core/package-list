@@ -151,31 +151,6 @@ $dokka.location:com.system32.systemCore.managers.cooldown/CooldownManager/getCoo
 $dokka.location:com.system32.systemCore.managers.cooldown/CooldownManager/isCooldownActive/#kotlin.String#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.managers.cooldown/-cooldown-manager/is-cooldown-active.html
 $dokka.location:com.system32.systemCore.managers.cooldown/CooldownManager/removeCooldown/#kotlin.String#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.managers.cooldown/-cooldown-manager/remove-cooldown.html
 $dokka.location:com.system32.systemCore.managers.cooldown/CooldownManager/startCooldown/#kotlin.String#kotlin.String#kotlin.Double/PointingToDeclaration/-system-core/com.system32.systemCore.managers.cooldown/-cooldown-manager/start-cooldown.html
-$dokka.location:com.system32.systemCore.managers.language////PointingToDeclaration/-system-core/com.system32.systemCore.managers.language/index.html
-$dokka.location:com.system32.systemCore.managers.language/Language.ANVIL_TITLE///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-system-core/com.system32.systemCore.managers.language/-language/-a-n-v-i-l_-t-i-t-l-e/index.html
-$dokka.location:com.system32.systemCore.managers.language/Language.Companion///PointingToDeclaration/-system-core/com.system32.systemCore.managers.language/-language/-companion/index.html
-$dokka.location:com.system32.systemCore.managers.language/Language.Companion/get/#com.system32.systemCore.managers.language.Language/PointingToDeclaration/-system-core/com.system32.systemCore.managers.language/-language/-companion/get.html
-$dokka.location:com.system32.systemCore.managers.language/Language.TIME_UNIT_DAY///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-system-core/com.system32.systemCore.managers.language/-language/-t-i-m-e_-u-n-i-t_-d-a-y/index.html
-$dokka.location:com.system32.systemCore.managers.language/Language.TIME_UNIT_HOUR///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-system-core/com.system32.systemCore.managers.language/-language/-t-i-m-e_-u-n-i-t_-h-o-u-r/index.html
-$dokka.location:com.system32.systemCore.managers.language/Language.TIME_UNIT_MINUTE///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-system-core/com.system32.systemCore.managers.language/-language/-t-i-m-e_-u-n-i-t_-m-i-n-u-t-e/index.html
-$dokka.location:com.system32.systemCore.managers.language/Language.TIME_UNIT_SECOND///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-system-core/com.system32.systemCore.managers.language/-language/-t-i-m-e_-u-n-i-t_-s-e-c-o-n-d/index.html
-$dokka.location:com.system32.systemCore.managers.language/Language///PointingToDeclaration/-system-core/com.system32.systemCore.managers.language/-language/index.html
-$dokka.location:com.system32.systemCore.managers.language/Language/entries/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.language/-language/entries.html
-$dokka.location:com.system32.systemCore.managers.language/Language/invoke/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.language/-language/invoke.html
-$dokka.location:com.system32.systemCore.managers.language/Language/toString/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.language/-language/to-string.html
-$dokka.location:com.system32.systemCore.managers.language/Language/translation/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.language/-language/translation.html
-$dokka.location:com.system32.systemCore.managers.language/Language/valueOf/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.managers.language/-language/value-of.html
-$dokka.location:com.system32.systemCore.managers.language/Language/values/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.language/-language/values.html
-$dokka.location:com.system32.systemCore.managers.usableItems////PointingToDeclaration/-system-core/com.system32.systemCore.managers.usableItems/index.html
-$dokka.location:com.system32.systemCore.managers.usableItems/UsableItemsManager.UsableItem///PointingToDeclaration/-system-core/com.system32.systemCore.managers.usableItems/-usable-items-manager/-usable-item/index.html
-$dokka.location:com.system32.systemCore.managers.usableItems/UsableItemsManager.UsableItem/UsableItem/#org.bukkit.inventory.ItemStack#kotlin.Function1[org.bukkit.event.player.PlayerInteractEvent,kotlin.Boolean]#kotlin.Function1[org.bukkit.event.player.PlayerInteractEvent,kotlin.Unit]/PointingToDeclaration/-system-core/com.system32.systemCore.managers.usableItems/-usable-items-manager/-usable-item/-usable-item.html
-$dokka.location:com.system32.systemCore.managers.usableItems/UsableItemsManager.UsableItem/item/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.usableItems/-usable-items-manager/-usable-item/item.html
-$dokka.location:com.system32.systemCore.managers.usableItems/UsableItemsManager.UsableItem/onUse/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.usableItems/-usable-items-manager/-usable-item/on-use.html
-$dokka.location:com.system32.systemCore.managers.usableItems/UsableItemsManager.UsableItem/validate/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.usableItems/-usable-items-manager/-usable-item/validate.html
-$dokka.location:com.system32.systemCore.managers.usableItems/UsableItemsManager///PointingToDeclaration/-system-core/com.system32.systemCore.managers.usableItems/-usable-items-manager/index.html
-$dokka.location:com.system32.systemCore.managers.usableItems/UsableItemsManager/UsableItemsManager/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.usableItems/-usable-items-manager/-usable-items-manager.html
-$dokka.location:com.system32.systemCore.managers.usableItems/UsableItemsManager/onPlayerUse/#org.bukkit.event.player.PlayerInteractEvent/PointingToDeclaration/-system-core/com.system32.systemCore.managers.usableItems/-usable-items-manager/on-player-use.html
-$dokka.location:com.system32.systemCore.managers.usableItems/UsableItemsManager/register/#org.bukkit.inventory.ItemStack#kotlin.Function1[org.bukkit.event.player.PlayerInteractEvent,kotlin.Boolean]#kotlin.Function1[org.bukkit.event.player.PlayerInteractEvent,kotlin.Unit]/PointingToDeclaration/-system-core/com.system32.systemCore.managers.usableItems/-usable-items-manager/register.html
 $dokka.location:com.system32.systemCore.shade////PointingToDeclaration/-system-core/com.system32.systemCore.shade/index.html
 $dokka.location:com.system32.systemCore.shade/Metrics.AdvancedBarChart///PointingToDeclaration/-system-core/com.system32.systemCore.shade/-metrics/-advanced-bar-chart/index.html
 $dokka.location:com.system32.systemCore.shade/Metrics.AdvancedBarChart/AdvancedBarChart/#java.lang.String#java.util.concurrent.Callable<java.util.Map<java.lang.String,int[]>>/PointingToDeclaration/-system-core/com.system32.systemCore.shade/-metrics/-advanced-bar-chart/-advanced-bar-chart.html
@@ -478,7 +453,6 @@ $dokka.location:com.system32.systemCore/SystemCore/githubUser/#/PointingToDeclar
 $dokka.location:com.system32.systemCore/SystemCore/legacyCommand/#kotlin.String#org.bukkit.command.CommandExecutor/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/legacy-command.html
 $dokka.location:com.system32.systemCore/SystemCore/placeholderAPISupport/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/placeholder-a-p-i-support.html
 $dokka.location:com.system32.systemCore/SystemCore/plugin/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/plugin.html
-$dokka.location:com.system32.systemCore/SystemCore/usableItemsManager/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/usable-items-manager.html
 com.system32.systemCore
 com.system32.systemCore.database
 com.system32.systemCore.database.builders
@@ -489,8 +463,6 @@ com.system32.systemCore.managers.commands.parameterTypes
 com.system32.systemCore.managers.config
 com.system32.systemCore.managers.config.serializers
 com.system32.systemCore.managers.cooldown
-com.system32.systemCore.managers.language
-com.system32.systemCore.managers.usableItems
 com.system32.systemCore.shade
 com.system32.systemCore.utils
 com.system32.systemCore.utils.cache
