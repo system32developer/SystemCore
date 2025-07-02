@@ -18,7 +18,7 @@ import java.io.File
 
 class ConfigManager {
 
-    val plugin = SystemCore.plugin
+    private val plugin = SystemCore.plugin
     private val configs = mutableMapOf<String, ConfigHolder<out Any>>()
     private val serializers = TypeSerializerCollection.builder()
 
@@ -133,6 +133,15 @@ class ConfigManager {
             e.printStackTrace()
         }
     }
+
+    fun saveAll() {
+        configs.keys.forEach { save(it) }
+    }
+
+    fun reloadAll() {
+        configs.keys.forEach { reload(it) }
+    }
+
 
     private class ConfigHolder<T : Any>(
         val name: String,
