@@ -79,7 +79,6 @@ $dokka.location:com.system32.systemCore.database/Database/createTables/#/Pointin
 $dokka.location:com.system32.systemCore.database/Database/getTable/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.database/-database/get-table.html
 $dokka.location:com.system32.systemCore.managers.chat////PointingToDeclaration/-system-core/com.system32.systemCore.managers.chat/index.html
 $dokka.location:com.system32.systemCore.managers.chat/ChatAwaiterManager///PointingToDeclaration/-system-core/com.system32.systemCore.managers.chat/-chat-awaiter-manager/index.html
-$dokka.location:com.system32.systemCore.managers.chat/ChatAwaiterManager/ChatAwaiterManager/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.chat/-chat-awaiter-manager/-chat-awaiter-manager.html
 $dokka.location:com.system32.systemCore.managers.chat/ChatAwaiterManager/addAwaiter/#kotlin.String#java.util.function.Consumer[com.system32.systemCore.managers.chat.ChatInput]/PointingToDeclaration/-system-core/com.system32.systemCore.managers.chat/-chat-awaiter-manager/add-awaiter.html
 $dokka.location:com.system32.systemCore.managers.chat/ChatAwaiterManager/clearAllAwaiters/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.chat/-chat-awaiter-manager/clear-all-awaiters.html
 $dokka.location:com.system32.systemCore.managers.chat/ChatAwaiterManager/getAwaiter/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.managers.chat/-chat-awaiter-manager/get-awaiter.html
@@ -93,7 +92,6 @@ $dokka.location:com.system32.systemCore.managers.chat/ChatInput/args/#/PointingT
 $dokka.location:com.system32.systemCore.managers.chat/ChatInput/player/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.chat/-chat-input/player.html
 $dokka.location:com.system32.systemCore.managers.chat/ChatInput/response/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.chat/-chat-input/response.html
 $dokka.location:com.system32.systemCore.managers.chat/ChatTriggerManager///PointingToDeclaration/-system-core/com.system32.systemCore.managers.chat/-chat-trigger-manager/index.html
-$dokka.location:com.system32.systemCore.managers.chat/ChatTriggerManager/ChatTriggerManager/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.chat/-chat-trigger-manager/-chat-trigger-manager.html
 $dokka.location:com.system32.systemCore.managers.chat/ChatTriggerManager/addTrigger/#kotlin.Array[kotlin.String]#kotlin.Function1[com.system32.systemCore.managers.chat.ChatInput,kotlin.Unit]/PointingToDeclaration/-system-core/com.system32.systemCore.managers.chat/-chat-trigger-manager/add-trigger.html
 $dokka.location:com.system32.systemCore.managers.chat/ChatTriggerManager/addTrigger/#kotlin.collections.List[kotlin.String]#kotlin.Function1[com.system32.systemCore.managers.chat.ChatInput,kotlin.Unit]/PointingToDeclaration/-system-core/com.system32.systemCore.managers.chat/-chat-trigger-manager/add-trigger.html
 $dokka.location:com.system32.systemCore.managers.chat/ChatTriggerManager/onChat/#io.papermc.paper.event.player.AsyncChatEvent/PointingToDeclaration/-system-core/com.system32.systemCore.managers.chat/-chat-trigger-manager/on-chat.html
@@ -145,7 +143,6 @@ $dokka.location:com.system32.systemCore.managers.cooldown/Cooldown/getTimeLeft/#
 $dokka.location:com.system32.systemCore.managers.cooldown/Cooldown/time/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.cooldown/-cooldown/time.html
 $dokka.location:com.system32.systemCore.managers.cooldown/Cooldown/verbose/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.cooldown/-cooldown/verbose.html
 $dokka.location:com.system32.systemCore.managers.cooldown/CooldownManager///PointingToDeclaration/-system-core/com.system32.systemCore.managers.cooldown/-cooldown-manager/index.html
-$dokka.location:com.system32.systemCore.managers.cooldown/CooldownManager/CooldownManager/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.cooldown/-cooldown-manager/-cooldown-manager.html
 $dokka.location:com.system32.systemCore.managers.cooldown/CooldownManager/clearAllCooldowns/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.cooldown/-cooldown-manager/clear-all-cooldowns.html
 $dokka.location:com.system32.systemCore.managers.cooldown/CooldownManager/getCooldown/#kotlin.String#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.managers.cooldown/-cooldown-manager/get-cooldown.html
 $dokka.location:com.system32.systemCore.managers.cooldown/CooldownManager/isCooldownActive/#kotlin.String#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.managers.cooldown/-cooldown-manager/is-cooldown-active.html
@@ -441,11 +438,6 @@ $dokka.location:com.system32.systemCore/Debugger/enabled/#/PointingToDeclaration
 $dokka.location:com.system32.systemCore/Debugger/sessionLogging/#/PointingToDeclaration/-system-core/com.system32.systemCore/-debugger/session-logging.html
 $dokka.location:com.system32.systemCore/Debugger/write/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore/-debugger/write.html
 $dokka.location:com.system32.systemCore/SystemCore///PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/index.html
-$dokka.location:com.system32.systemCore/SystemCore/chatAwaiterManager/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/chat-awaiter-manager.html
-$dokka.location:com.system32.systemCore/SystemCore/chatHeadUtil/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/chat-head-util.html
-$dokka.location:com.system32.systemCore/SystemCore/chatTriggerManager/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/chat-trigger-manager.html
-$dokka.location:com.system32.systemCore/SystemCore/cooldownManager/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/cooldown-manager.html
-$dokka.location:com.system32.systemCore/SystemCore/debugger/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/debugger.html
 $dokka.location:com.system32.systemCore/SystemCore/event/#kotlin.Array[org.bukkit.event.Listener]/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/event.html
 $dokka.location:com.system32.systemCore/SystemCore/githubRepo/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/github-repo.html
 $dokka.location:com.system32.systemCore/SystemCore/githubSupport/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/github-support.html
