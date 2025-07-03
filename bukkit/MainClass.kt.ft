@@ -1,14 +1,38 @@
 package ${MAIN_CLASS.packageName}
 
+import ${MAIN_CLASS.packageName}.config.ConfigContainer
+import ${MAIN_CLASS.packageName}.commands.MainCommand
+import com.system32.systemCore.managers.commands.CommandManager
+import com.system32.systemCore.managers.config.ConfigManager
 import org.bukkit.plugin.java.JavaPlugin
 
 class ${MAIN_CLASS.className} : JavaPlugin() {
 
+    lateinit var manager: ConfigManager
+
+    companion object {
+        lateinit var instance: ${MAIN_CLASS.className}
+        lateinit var configContainer: ConfigContainer
+    }
+
     override fun onEnable() {
-        // Plugin startup logic
+        instance = this
+
+        manager = ConfigManager().apply {
+            config("config", ConfigContainer::class.java, ConfigContainer())
+            build()
+        }
+
+        CommandManager().apply {
+            build()
+            command(MainCommand())
+        }
+
+        configContainer = manager.get("config")!!
+        
     }
 
     override fun onDisable() {
-        // Plugin shutdown logic
+        
     }
 }

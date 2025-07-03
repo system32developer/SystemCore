@@ -1,0 +1,22 @@
+package ${MAIN_CLASS.packageName}.commands
+
+import ${MAIN_CLASS.packageName}.${MAIN_CLASS.className}
+import revxrsal.commands.annotation.Command
+import revxrsal.commands.annotation.Subcommand
+import revxrsal.commands.bukkit.actor.BukkitCommandActor
+import revxrsal.commands.bukkit.annotation.CommandPermission
+import com.system32.systemCore.utils.text.TextUtil.color
+
+@Command("${MAIN_CLASS.className.toLowerCase()}")
+class MainCommand {
+    
+    @Subcommand("reload")
+    @CommandPermission("${MAIN_CLASS.className.toLowerCase()}.reload")
+    fun reload(actor: BukkitCommandActor) {
+        val manager = ${MAIN_CLASS.className}.instance.manager
+        manager.reload("config")
+        ${MAIN_CLASS.className}.configContainer = manager.get("config")!!
+        actor.reply(color("<green>Configuración recargada correctamente."))
+    }
+    
+}

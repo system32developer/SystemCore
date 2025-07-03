@@ -1,3 +1,6 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile
+import xyz.jpenilla.runtask.task.AbstractRun
+
 plugins {
     kotlin("jvm") version "${KOTLIN_VERSION}"
     id("com.gradleup.shadow") version "8.3.0"
@@ -38,10 +41,10 @@ dependencies {
 
 tasks {
   runServer {
-    // Configure the Minecraft version for our task.
-    // This is the only required configuration besides applying the plugin.
-    // Your plugin's jar (or shadowJar if present) will be used automatically.
     minecraftVersion("${API_VERSION}")
+    downloadPlugins {
+            hangar("SkinsRestorer", "15.7.3")
+        }
   }
 }
 
@@ -52,6 +55,12 @@ kotlin {
 
 tasks.build {
     dependsOn("shadowJar")
+}
+
+tasks.withType<KotlinJvmCompile> {
+    compilerOptions {
+        javaParameters = true
+    }
 }
 
 #if ($USE_PAPER_MANIFEST)
@@ -66,4 +75,8 @@ tasks.processResources {
     filesMatching("${MANIFEST_NAME}") {
         expand(props)
     }
+}
+
+tasks.withType(AbstractRun::class) {
+    systemProperty("net.kyori.adventure.text.warnWhenLegacyFormattingDetected", false)
 }

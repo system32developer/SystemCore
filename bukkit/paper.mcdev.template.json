@@ -215,6 +215,24 @@
       "destination": "src/main/kotlin/${MAIN_CLASS.path}.kt",
       "condition": "$LANGUAGE=='Kotlin'",
       "openInEditor": true
+    },
+    {
+      "template": "ConfigContainer.kt.ft",
+      "destination": "src/main/kotlin/${MAIN_CLASS.packagePath}/config/ConfigContainer.kt",
+      "condition": "$LANGUAGE=='Kotlin'",
+      "openInEditor": false
+    },
+    {
+      "template": "MainCommand.kt.ft",
+      "destination": "src/main/kotlin/${MAIN_CLASS.packagePath}/commands/MainCommand.kt",
+      "condition": "$LANGUAGE=='Kotlin'",
+      "openInEditor": false
+    },
+    {
+      "template": "eula.txt.ft",
+      "destination": "run/eula.txt",
+      "condition": "$LANGUAGE=='Kotlin'",
+      "openInEditor": false
     }
   ],
   "finalizers": [

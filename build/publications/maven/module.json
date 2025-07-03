@@ -1,0 +1,192 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.system32",
+    "module": "SystemCore",
+    "version": "2.0.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.8"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.jvm.version": 21,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "dev.triumphteam",
+          "module": "triumph-gui",
+          "version": {
+            "requires": "3.1.11"
+          }
+        },
+        {
+          "group": "io.github.revxrsal",
+          "module": "lamp.common",
+          "version": {
+            "requires": "4.0.0-rc.12"
+          }
+        },
+        {
+          "group": "io.github.revxrsal",
+          "module": "lamp.paper",
+          "version": {
+            "requires": "4.0.0-beta.19"
+          }
+        },
+        {
+          "group": "io.github.revxrsal",
+          "module": "lamp.bukkit",
+          "version": {
+            "requires": "4.0.0-rc.12"
+          }
+        },
+        {
+          "group": "org.spongepowered",
+          "module": "configurate-yaml",
+          "version": {
+            "requires": "4.2.0"
+          }
+        },
+        {
+          "group": "org.spongepowered",
+          "module": "configurate-core",
+          "version": {
+            "requires": "4.2.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "SystemCore-2.0.0.jar",
+          "url": "SystemCore-2.0.0.jar",
+          "size": 143135,
+          "sha512": "3cdaa58ad19dace3f33b9b9550a5d8e184cd737b5b0c2acca74a844585667f2e9165b98d52139916ad4a86a7c52dc380dde00eddce0133afedf2653e63f7f045",
+          "sha256": "f4801fa7ca15d48c72a09ee87ac18811eb3632ff24d338c982086cb13007ce7e",
+          "sha1": "74b6eff8261ffd01f9fd019df870ba847a3d7d08",
+          "md5": "cddf24175dd444da42f93864ee8d1788"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.jvm.version": 21,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib-jdk8"
+        },
+        {
+          "group": "com.tchristofferson",
+          "module": "ConfigUpdater",
+          "version": {
+            "requires": "2.2-SNAPSHOT"
+          }
+        },
+        {
+          "group": "dev.triumphteam",
+          "module": "triumph-gui",
+          "version": {
+            "requires": "3.1.11"
+          }
+        },
+        {
+          "group": "io.github.revxrsal",
+          "module": "lamp.common",
+          "version": {
+            "requires": "4.0.0-rc.12"
+          }
+        },
+        {
+          "group": "io.github.revxrsal",
+          "module": "lamp.paper",
+          "version": {
+            "requires": "4.0.0-beta.19"
+          }
+        },
+        {
+          "group": "io.github.revxrsal",
+          "module": "lamp.bukkit",
+          "version": {
+            "requires": "4.0.0-rc.12"
+          }
+        },
+        {
+          "group": "org.spongepowered",
+          "module": "configurate-yaml",
+          "version": {
+            "requires": "4.2.0"
+          }
+        },
+        {
+          "group": "org.spongepowered",
+          "module": "configurate-core",
+          "version": {
+            "requires": "4.2.0"
+          }
+        }
+      ],
+      "dependencyConstraints": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib-jdk8",
+          "version": {
+            "requires": "2.1.20-RC"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "SystemCore-2.0.0.jar",
+          "url": "SystemCore-2.0.0.jar",
+          "size": 143135,
+          "sha512": "3cdaa58ad19dace3f33b9b9550a5d8e184cd737b5b0c2acca74a844585667f2e9165b98d52139916ad4a86a7c52dc380dde00eddce0133afedf2653e63f7f045",
+          "sha256": "f4801fa7ca15d48c72a09ee87ac18811eb3632ff24d338c982086cb13007ce7e",
+          "sha1": "74b6eff8261ffd01f9fd019df870ba847a3d7d08",
+          "md5": "cddf24175dd444da42f93864ee8d1788"
+        }
+      ]
+    },
+    {
+      "name": "shadowRuntimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "shadowed",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "SystemCore-2.0.0-all.jar",
+          "url": "SystemCore-2.0.0-all.jar",
+          "size": 3754217,
+          "sha512": "dca4cb17f752dd75c42d685f7c3f0276496d4a1cc3a828671e3a8819defefe76adb5907faacdd3a657087b55f3025758c296784d53190924110fccdf12658246",
+          "sha256": "527df0796217246c5b364f915860e624aafa544f00c18b29817980818ffcbc02",
+          "sha1": "56438acfb19bb94886288d0dd046f76ed4fe706e",
+          "md5": "6e40bb8f3cf77639def813484917f002"
+        }
+      ]
+    }
+  ]
+}
