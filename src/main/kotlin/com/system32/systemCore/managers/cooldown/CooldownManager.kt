@@ -4,7 +4,7 @@ package com.system32.systemCore.managers.cooldown
  * Manages cooldowns for different actions performed by players.
  * This class allows tracking, starting, checking, retrieving, and removing cooldowns per action and player.
  */
-class CooldownManager {
+object CooldownManager {
     private val playerCooldowns = mutableMapOf<String, MutableMap<String, Cooldown>>()
 
     /**

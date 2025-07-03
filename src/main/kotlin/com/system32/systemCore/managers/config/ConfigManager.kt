@@ -28,8 +28,8 @@ class ConfigManager {
 
     private fun registerDefaultSerializers() {
 
-        serializers.register(Location::class.java, LocationSerializer())
-        serializers.register(Component::class.java,ComponentSerializer())
+        serializer(Location::class.java, LocationSerializer())
+        serializer(Component::class.java,ComponentSerializer())
     }
 
     fun <T : Any> config(

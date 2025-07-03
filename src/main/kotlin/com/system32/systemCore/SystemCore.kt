@@ -3,7 +3,6 @@ package com.system32.systemCore
 import com.system32.systemCore.managers.chat.ChatAwaiterManager
 import com.system32.systemCore.managers.chat.ChatTriggerManager
 import com.system32.systemCore.managers.cooldown.CooldownManager
-import com.system32.systemCore.managers.usableItems.UsableItemsManager
 import com.system32.systemCore.utils.minecraft.ChatHeadUtil
 import org.bukkit.command.CommandExecutor
 import org.bukkit.event.Listener
@@ -35,45 +34,6 @@ object SystemCore {
     var githubSupport: Boolean = false
         private set
         get() = !(githubUser == "System32" && githubRepo == "SystemCore")
-
-    /**
-     * Manages cooldowns for various actions.
-     */
-    val cooldownManager = CooldownManager()
-
-    /**
-     * Utility class for managing chat heads.
-     */
-
-    val chatHeadUtil = ChatHeadUtil()
-
-    /**
-     * Provides a debugger for logging and debugging purposes.
-     */
-
-    lateinit var debugger : Debugger
-
-    /**
-     * Manages chat awaiters and triggers.
-     */
-    val chatAwaiterManager: ChatAwaiterManager by lazy {
-        ChatAwaiterManager().also { event(it) }
-    }
-
-    /**
-     * Manages chat triggers for specific keywords.
-     */
-    val chatTriggerManager: ChatTriggerManager by lazy {
-        ChatTriggerManager().also { event(it) }
-    }
-
-    /**
-     * Manages usable items and their interactions.
-     */
-
-    val usableItemsManager: UsableItemsManager by lazy {
-        UsableItemsManager().also { event(it) }
-    }
 
     /**
      * Registers an event listener to the plugin's event system.

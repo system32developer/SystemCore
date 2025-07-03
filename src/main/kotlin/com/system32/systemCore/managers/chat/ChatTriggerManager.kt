@@ -7,8 +7,11 @@ import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.entity.Player
 
-class ChatTriggerManager : Listener {
+object ChatTriggerManager : Listener {
 
+    init {
+        SystemCore.event(this)
+    }
 
     private val triggers = mutableMapOf<String, (ChatInput) -> Unit>()
 
@@ -42,5 +45,4 @@ class ChatTriggerManager : Listener {
             event.isCancelled = true
         }
     }
-
 }

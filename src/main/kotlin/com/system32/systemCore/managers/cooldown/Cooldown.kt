@@ -1,7 +1,5 @@
 package com.system32.systemCore.managers.cooldown
 
-import com.system32.systemCore.managers.language.Language
-
 data class Cooldown(val expirationTime: Long) {
 
     fun getTimeLeft(): Long {
@@ -35,11 +33,13 @@ data class Cooldown(val expirationTime: Long) {
                 return if (value == 1L) "$value ${unit.dropLast(1)}" else "$value $unit"
             }
 
-            return listOf(
-                formatUnit(days, Language.TIME_UNIT_DAY()),
-                formatUnit(hours, Language.TIME_UNIT_HOUR()),
-                formatUnit(minutes, Language.TIME_UNIT_MINUTE()),
-                formatUnit(seconds, Language.TIME_UNIT_SECOND())
-            ).filter { !it.startsWith("0") }.joinToString(" with ")
+            val parts = listOf(
+                formatUnit(days, "dias"),
+                formatUnit(hours, "horas"),
+                formatUnit(minutes, "minutos"),
+                formatUnit(seconds, "segundos")
+            ).filterNot { it.startsWith("0") }
+
+            return if (parts.isEmpty()) "1 segundo" else parts.joinToString(" con ")
         }
 }
