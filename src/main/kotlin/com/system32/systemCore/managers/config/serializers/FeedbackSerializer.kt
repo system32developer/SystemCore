@@ -9,7 +9,7 @@ class FeedbackSerializer  : TypeSerializer<Feedback> {
 
     override fun deserialize(type: Type?, node: ConfigurationNode?): Feedback? {
         if (node == null || node.string == null) return null
-        return Feedback(node.string ?: "No text found")
+        return Feedback(if(node.isList) node.getList(String::class.java)!! else listOf(node.string?: "No message provided"))
     }
 
     override fun serialize(type: Type?, obj: Feedback?, node: ConfigurationNode?) {
@@ -19,7 +19,6 @@ class FeedbackSerializer  : TypeSerializer<Feedback> {
             println("No Component to save, setting node to null")
             return
         }
-
-        node.set(obj.toString())
+        if (!obj.isList) node.set(obj.message[0]) else node.setList(String::class.java, obj.message)
     }
 }

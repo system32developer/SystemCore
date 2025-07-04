@@ -16,55 +16,38 @@ import org.bukkit.entity.Player
  *
  * @property message The raw message string, written in MiniMessage format.
  */
-class Feedback private constructor(
-    val message: String,
-    private val fromList: Boolean
-) {
+class Feedback(val message: List<String>) {
 
     /**
-     * Indicates whether the message is a single line or a list of lines.
-     * If `true`, if the message was constructed for a single line,
-     * otherwise it is treated as a list of lines.
-     */
-
-    val isSingle: Boolean
-        get() = !fromList
-
-    /**
-     * Creates a [Feedback] instance with a single line message.
-     * The message will not be treated as a list.
+     * Creates a [Feedback] instance from a single MiniMessage-formatted string.
      *
-     * @param message The raw message string in MiniMessage format.
+     * @param line The single message line.
      */
-    constructor(message: String) : this(message, false)
+    constructor(line: String) : this(listOf(line))
 
     /**
      * Creates a [Feedback] instance from multiple lines using vararg.
-     * The lines will be joined using newline characters (`\n`).
      *
      * @param lines The lines of the message.
      */
-    constructor(vararg lines: String) : this(lines.joinToString("\n"), true)
+    constructor(vararg lines: String) : this(lines.toList())
 
     /**
-     * Creates a [Feedback] instance from a list of strings.
-     * The lines will be joined using newline characters (`\n`).
-     *
-     * @param lines The list of message lines.
+     * Whether the message contains multiple lines.
      */
-    constructor(lines: List<String>) : this(lines.joinToString("\n"), true)
-
+    val isList: Boolean
+        get() = message.size > 1
 
     /**
      * The colored and parsed [Component] version of the message, lazily initialized.
      */
-    private val coloredMessage: Component by lazy { color(message) }
+    private val coloredMessage: List<Component> by lazy { color(message) }
 
     /**
      * Sends the message to the console.
      */
     fun send() {
-        Bukkit.getConsoleSender().sendMessage(coloredMessage)
+        coloredMessage.forEach { Bukkit.getConsoleSender().sendMessage(it) }
     }
 
     /**
@@ -74,7 +57,7 @@ class Feedback private constructor(
      * @param audience The target audience (can be a player, console, commandsender, entity, server, world, team)
      */
     fun sendIf(condition: Boolean, audience: Audience) {
-        if (condition) audience.sendMessage(coloredMessage)
+        if (condition) coloredMessage.forEach { audience.sendMessage(it) }
     }
 
     /**
@@ -83,7 +66,7 @@ class Feedback private constructor(
      * @param audience Vararg of [Audience] to send the message to.
      */
     fun send(vararg audience: Audience) {
-        audience.forEach { it.sendMessage(coloredMessage) }
+        audience.forEach { target -> coloredMessage.forEach { target.sendMessage(it) } }
     }
 
     /**
@@ -92,7 +75,7 @@ class Feedback private constructor(
      * @param audience Iterable of [Audience] to send the message to.
      */
     fun send(audience: Iterable<Audience>) {
-        audience.forEach { it.sendMessage(coloredMessage) }
+        audience.forEach { target -> coloredMessage.forEach { target.sendMessage(it) } }
     }
 
     /**
@@ -102,14 +85,14 @@ class Feedback private constructor(
      * @param radius The maximum distance to receive the message.
      */
     fun send(center: Player, radius: Double) {
-        center.location.getNearbyPlayers(radius).forEach { it.sendMessage(coloredMessage) }
+        center.location.getNearbyPlayers(radius).forEach { target -> coloredMessage.forEach { target.sendMessage(it) } }
     }
 
     /**
      * Sends the message to all online players.
      */
     fun broadcast() {
-        Bukkit.getOnlinePlayers().forEach { it.sendMessage(coloredMessage) }
+        Bukkit.getOnlinePlayers().forEach { target -> coloredMessage.forEach { target.sendMessage(it) } }
     }
 
     /**
@@ -118,7 +101,7 @@ class Feedback private constructor(
      * @param condition Boolean condition to check.
      */
     fun broadcastIf(condition: Boolean) {
-        if (condition) Bukkit.getOnlinePlayers().forEach { it.sendMessage(coloredMessage) }
+        if (condition) Bukkit.getOnlinePlayers().forEach { target -> coloredMessage.forEach { target.sendMessage(it) } }
     }
 
     /**
@@ -128,11 +111,6 @@ class Feedback private constructor(
      * @param radius The maximum distance to receive the message.
      */
     fun broadcast(center: Location, radius: Double) {
-        center.getNearbyPlayers(radius).forEach { it.sendMessage(coloredMessage) }
+        center.getNearbyPlayers(radius).forEach { target -> coloredMessage.forEach { target.sendMessage(it) } }
     }
-
-    /**
-     * Returns the raw MiniMessage-formatted string.
-     */
-    override fun toString(): String = message
 }
