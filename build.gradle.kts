@@ -113,7 +113,7 @@ publishing {
     }
     repositories {
         maven {
-            url = uri("http://26.181.4.36/repository/maven-releases/")
+            url = uri("http://repo.system32dev.site/repository/maven-releases/")
             isAllowInsecureProtocol = true
             credentials {
                 username = "admin"
