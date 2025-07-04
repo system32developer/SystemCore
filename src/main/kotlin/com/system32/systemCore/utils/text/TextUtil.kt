@@ -31,13 +31,12 @@ object TextUtil {
         var message = input
         val mini = MiniMessage.miniMessage()
         if(SystemCore.placeholderAPISupport) message = PlaceholderAPI.setPlaceholders(target, message)
-        if(input.contains("&")) {
+        if(input.contains("&") || input.contains("§")) {
+            message = message.replace('§', '&')
             val legacy: TextComponent = LegacyComponentSerializer.legacyAmpersand().deserialize(message);
             message = mini.serialize(legacy).replace("\\", "");
         }
-        if(!message.startsWith("<!italic>")) {
-            message = "<!italic>$message"
-        }
+        if(!message.startsWith("<!italic>")) message = "<!italic>$message"
         return if (message.isEmpty()) Component.empty() else mini.deserialize(message)
     }
 
@@ -51,21 +50,6 @@ object TextUtil {
         val components: MutableList<Component> = ArrayList()
         messages.forEach(Consumer { message: String -> components.add(color(message, target)) })
         return components
-    }
-
-    /**
-     * Checks if a given string represents an integer.
-     *
-     * @param s The string to check.
-     * @return True if the string is an integer, false otherwise.
-     */
-    fun isInteger(s: String): Boolean {
-        return try {
-            s.toInt()
-            true
-        } catch (e: Exception) {
-            false
-        }
     }
 
     /**
@@ -162,7 +146,7 @@ object TextUtil {
      * @param string The input string.
      * @return The formatted string with the first letter in uppercase.
      */
-    fun upperCaseFirst(string: String): String {
+    fun caseFirst(string: String): String {
         return string.substring(0, 1).uppercase() + string.substring(1).lowercase()
     }
 
