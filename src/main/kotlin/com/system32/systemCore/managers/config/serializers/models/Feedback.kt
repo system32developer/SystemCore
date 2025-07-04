@@ -16,7 +16,27 @@ import org.bukkit.entity.Player
  *
  * @property message The raw message string, written in MiniMessage format.
  */
-class Feedback(val message: String) {
+class Feedback private constructor(
+    val message: String,
+    private val fromList: Boolean
+) {
+
+    /**
+     * Indicates whether the message is a single line or a list of lines.
+     * If `true`, if the message was constructed for a single line,
+     * otherwise it is treated as a list of lines.
+     */
+
+    val isSingle: Boolean
+        get() = !fromList
+
+    /**
+     * Creates a [Feedback] instance with a single line message.
+     * The message will not be treated as a list.
+     *
+     * @param message The raw message string in MiniMessage format.
+     */
+    constructor(message: String) : this(message, false)
 
     /**
      * Creates a [Feedback] instance from multiple lines using vararg.
@@ -24,7 +44,7 @@ class Feedback(val message: String) {
      *
      * @param lines The lines of the message.
      */
-    constructor(vararg lines: String) : this(lines.joinToString("\n"))
+    constructor(vararg lines: String) : this(lines.joinToString("\n"), true)
 
     /**
      * Creates a [Feedback] instance from a list of strings.
@@ -32,7 +52,8 @@ class Feedback(val message: String) {
      *
      * @param lines The list of message lines.
      */
-    constructor(lines: List<String>) : this(lines.joinToString("\n"))
+    constructor(lines: List<String>) : this(lines.joinToString("\n"), true)
+
 
     /**
      * The colored and parsed [Component] version of the message, lazily initialized.
