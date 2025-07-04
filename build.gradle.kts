@@ -24,7 +24,6 @@ fun getLatestGitTag(): String {
     return tags.firstOrNull()?.trim() ?: "1.0.0"
 }
 
-
 fun incrementVersion(version: String): String {
     val parts = version.split(".").map { it.toInt() }.toMutableList()
     if (parts.size < 3) parts.add(0)

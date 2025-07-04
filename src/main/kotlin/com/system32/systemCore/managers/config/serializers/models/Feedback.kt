@@ -19,6 +19,22 @@ import org.bukkit.entity.Player
 class Feedback(val message: String) {
 
     /**
+     * Creates a [Feedback] instance from multiple lines using vararg.
+     * The lines will be joined using newline characters (`\n`).
+     *
+     * @param lines The lines of the message.
+     */
+    constructor(vararg lines: String) : this(lines.joinToString("\n"))
+
+    /**
+     * Creates a [Feedback] instance from a list of strings.
+     * The lines will be joined using newline characters (`\n`).
+     *
+     * @param lines The list of message lines.
+     */
+    constructor(lines: List<String>) : this(lines.joinToString("\n"))
+
+    /**
      * The colored and parsed [Component] version of the message, lazily initialized.
      */
     private val coloredMessage: Component by lazy { color(message) }
