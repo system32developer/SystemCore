@@ -187,10 +187,11 @@ $dokka.location:com.system32.systemCore.managers.regions.events/RegionLeftEvent/
 $dokka.location:com.system32.systemCore.managers.regions.events/RegionLeftEvent/region/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.events/-region-left-event/region.html
 $dokka.location:com.system32.systemCore.managers.regions.events/RegionLeftEvent/setCancelled/#kotlin.Boolean/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.events/-region-left-event/set-cancelled.html
 $dokka.location:com.system32.systemCore.managers.regions.model////PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/index.html
+$dokka.location:com.system32.systemCore.managers.regions.model/AABB.Companion///PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-a-a-b-b/-companion/index.html
+$dokka.location:com.system32.systemCore.managers.regions.model/AABB.Companion/of/#com.system32.systemCore.managers.regions.model.Vector3#com.system32.systemCore.managers.regions.model.Vector3/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-a-a-b-b/-companion/of.html
 $dokka.location:com.system32.systemCore.managers.regions.model/AABB///PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-a-a-b-b/index.html
 $dokka.location:com.system32.systemCore.managers.regions.model/AABB/AABB/#com.system32.systemCore.managers.regions.model.Vector3#com.system32.systemCore.managers.regions.model.Vector3/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-a-a-b-b/-a-a-b-b.html
 $dokka.location:com.system32.systemCore.managers.regions.model/AABB/contains/#com.system32.systemCore.managers.regions.model.Vector3/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-a-a-b-b/contains.html
-$dokka.location:com.system32.systemCore.managers.regions.model/AABB/intersects/#com.system32.systemCore.managers.regions.model.AABB/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-a-a-b-b/intersects.html
 $dokka.location:com.system32.systemCore.managers.regions.model/AABB/max/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-a-a-b-b/max.html
 $dokka.location:com.system32.systemCore.managers.regions.model/AABB/min/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-a-a-b-b/min.html
 $dokka.location:com.system32.systemCore.managers.regions.model/Region///PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-region/index.html
@@ -201,6 +202,7 @@ $dokka.location:com.system32.systemCore.managers.regions.model/Region/contains/#
 $dokka.location:com.system32.systemCore.managers.regions.model/Region/contains/#org.bukkit.entity.Player/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-region/contains.html
 $dokka.location:com.system32.systemCore.managers.regions.model/Region/id/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-region/id.html
 $dokka.location:com.system32.systemCore.managers.regions.model/Region/players/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-region/players.html
+$dokka.location:com.system32.systemCore.managers.regions.model/Region/show/#org.bukkit.Particle#kotlin.Double/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-region/show.html
 $dokka.location:com.system32.systemCore.managers.regions.model/Region/toVector3/org.bukkit.Location#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-region/to-vector3.html
 $dokka.location:com.system32.systemCore.managers.regions.model/Region/world/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-region/world.html
 $dokka.location:com.system32.systemCore.managers.regions.model/RegionTree///PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-region-tree/index.html
@@ -208,7 +210,6 @@ $dokka.location:com.system32.systemCore.managers.regions.model/RegionTree/Region
 $dokka.location:com.system32.systemCore.managers.regions.model/RegionTree/getAllRegions/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-region-tree/get-all-regions.html
 $dokka.location:com.system32.systemCore.managers.regions.model/RegionTree/insert/#com.system32.systemCore.managers.regions.model.Region/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-region-tree/insert.html
 $dokka.location:com.system32.systemCore.managers.regions.model/RegionTree/query/#kotlin.Double#kotlin.Double#kotlin.Double/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-region-tree/query.html
-$dokka.location:com.system32.systemCore.managers.regions.model/RegionTree/queryBox/#com.system32.systemCore.managers.regions.model.AABB/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-region-tree/query-box.html
 $dokka.location:com.system32.systemCore.managers.regions.model/Vector3///PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-vector3/index.html
 $dokka.location:com.system32.systemCore.managers.regions.model/Vector3/Vector3/#kotlin.Double#kotlin.Double#kotlin.Double/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-vector3/-vector3.html
 $dokka.location:com.system32.systemCore.managers.regions.model/Vector3/x/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-vector3/x.html
