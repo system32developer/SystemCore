@@ -167,6 +167,61 @@ $dokka.location:com.system32.systemCore.managers.cooldown/CooldownManager/getCoo
 $dokka.location:com.system32.systemCore.managers.cooldown/CooldownManager/isCooldownActive/#kotlin.String#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.managers.cooldown/-cooldown-manager/is-cooldown-active.html
 $dokka.location:com.system32.systemCore.managers.cooldown/CooldownManager/removeCooldown/#kotlin.String#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.managers.cooldown/-cooldown-manager/remove-cooldown.html
 $dokka.location:com.system32.systemCore.managers.cooldown/CooldownManager/startCooldown/#kotlin.String#kotlin.String#kotlin.Double/PointingToDeclaration/-system-core/com.system32.systemCore.managers.cooldown/-cooldown-manager/start-cooldown.html
+$dokka.location:com.system32.systemCore.managers.regions.events////PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.events/index.html
+$dokka.location:com.system32.systemCore.managers.regions.events/RegionEnteredEvent.Companion///PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.events/-region-entered-event/-companion/index.html
+$dokka.location:com.system32.systemCore.managers.regions.events/RegionEnteredEvent.Companion/handlerList/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.events/-region-entered-event/-companion/handler-list.html
+$dokka.location:com.system32.systemCore.managers.regions.events/RegionEnteredEvent///PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.events/-region-entered-event/index.html
+$dokka.location:com.system32.systemCore.managers.regions.events/RegionEnteredEvent/RegionEnteredEvent/#org.bukkit.entity.Player#com.system32.systemCore.managers.regions.model.Region/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.events/-region-entered-event/-region-entered-event.html
+$dokka.location:com.system32.systemCore.managers.regions.events/RegionEnteredEvent/getHandlers/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.events/-region-entered-event/get-handlers.html
+$dokka.location:com.system32.systemCore.managers.regions.events/RegionEnteredEvent/isCancelled/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.events/-region-entered-event/is-cancelled.html
+$dokka.location:com.system32.systemCore.managers.regions.events/RegionEnteredEvent/player/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.events/-region-entered-event/player.html
+$dokka.location:com.system32.systemCore.managers.regions.events/RegionEnteredEvent/region/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.events/-region-entered-event/region.html
+$dokka.location:com.system32.systemCore.managers.regions.events/RegionEnteredEvent/setCancelled/#kotlin.Boolean/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.events/-region-entered-event/set-cancelled.html
+$dokka.location:com.system32.systemCore.managers.regions.events/RegionLeftEvent.Companion///PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.events/-region-left-event/-companion/index.html
+$dokka.location:com.system32.systemCore.managers.regions.events/RegionLeftEvent.Companion/handlerList/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.events/-region-left-event/-companion/handler-list.html
+$dokka.location:com.system32.systemCore.managers.regions.events/RegionLeftEvent///PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.events/-region-left-event/index.html
+$dokka.location:com.system32.systemCore.managers.regions.events/RegionLeftEvent/RegionLeftEvent/#org.bukkit.entity.Player#com.system32.systemCore.managers.regions.model.Region/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.events/-region-left-event/-region-left-event.html
+$dokka.location:com.system32.systemCore.managers.regions.events/RegionLeftEvent/getHandlers/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.events/-region-left-event/get-handlers.html
+$dokka.location:com.system32.systemCore.managers.regions.events/RegionLeftEvent/isCancelled/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.events/-region-left-event/is-cancelled.html
+$dokka.location:com.system32.systemCore.managers.regions.events/RegionLeftEvent/player/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.events/-region-left-event/player.html
+$dokka.location:com.system32.systemCore.managers.regions.events/RegionLeftEvent/region/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.events/-region-left-event/region.html
+$dokka.location:com.system32.systemCore.managers.regions.events/RegionLeftEvent/setCancelled/#kotlin.Boolean/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.events/-region-left-event/set-cancelled.html
+$dokka.location:com.system32.systemCore.managers.regions.model////PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/index.html
+$dokka.location:com.system32.systemCore.managers.regions.model/AABB///PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-a-a-b-b/index.html
+$dokka.location:com.system32.systemCore.managers.regions.model/AABB/AABB/#com.system32.systemCore.managers.regions.model.Vector3#com.system32.systemCore.managers.regions.model.Vector3/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-a-a-b-b/-a-a-b-b.html
+$dokka.location:com.system32.systemCore.managers.regions.model/AABB/contains/#com.system32.systemCore.managers.regions.model.Vector3/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-a-a-b-b/contains.html
+$dokka.location:com.system32.systemCore.managers.regions.model/AABB/intersects/#com.system32.systemCore.managers.regions.model.AABB/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-a-a-b-b/intersects.html
+$dokka.location:com.system32.systemCore.managers.regions.model/AABB/max/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-a-a-b-b/max.html
+$dokka.location:com.system32.systemCore.managers.regions.model/AABB/min/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-a-a-b-b/min.html
+$dokka.location:com.system32.systemCore.managers.regions.model/Region///PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-region/index.html
+$dokka.location:com.system32.systemCore.managers.regions.model/Region/Region/#kotlin.String#kotlin.String#com.system32.systemCore.managers.regions.model.AABB/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-region/-region.html
+$dokka.location:com.system32.systemCore.managers.regions.model/Region/bounds/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-region/bounds.html
+$dokka.location:com.system32.systemCore.managers.regions.model/Region/contains/#com.system32.systemCore.managers.regions.model.Vector3/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-region/contains.html
+$dokka.location:com.system32.systemCore.managers.regions.model/Region/contains/#kotlin.Double#kotlin.Double#kotlin.Double/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-region/contains.html
+$dokka.location:com.system32.systemCore.managers.regions.model/Region/contains/#org.bukkit.entity.Player/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-region/contains.html
+$dokka.location:com.system32.systemCore.managers.regions.model/Region/id/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-region/id.html
+$dokka.location:com.system32.systemCore.managers.regions.model/Region/players/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-region/players.html
+$dokka.location:com.system32.systemCore.managers.regions.model/Region/toVector3/org.bukkit.Location#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-region/to-vector3.html
+$dokka.location:com.system32.systemCore.managers.regions.model/Region/world/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-region/world.html
+$dokka.location:com.system32.systemCore.managers.regions.model/RegionTree///PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-region-tree/index.html
+$dokka.location:com.system32.systemCore.managers.regions.model/RegionTree/RegionTree/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-region-tree/-region-tree.html
+$dokka.location:com.system32.systemCore.managers.regions.model/RegionTree/getAllRegions/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-region-tree/get-all-regions.html
+$dokka.location:com.system32.systemCore.managers.regions.model/RegionTree/insert/#com.system32.systemCore.managers.regions.model.Region/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-region-tree/insert.html
+$dokka.location:com.system32.systemCore.managers.regions.model/RegionTree/query/#kotlin.Double#kotlin.Double#kotlin.Double/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-region-tree/query.html
+$dokka.location:com.system32.systemCore.managers.regions.model/RegionTree/queryBox/#com.system32.systemCore.managers.regions.model.AABB/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-region-tree/query-box.html
+$dokka.location:com.system32.systemCore.managers.regions.model/Vector3///PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-vector3/index.html
+$dokka.location:com.system32.systemCore.managers.regions.model/Vector3/Vector3/#kotlin.Double#kotlin.Double#kotlin.Double/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-vector3/-vector3.html
+$dokka.location:com.system32.systemCore.managers.regions.model/Vector3/x/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-vector3/x.html
+$dokka.location:com.system32.systemCore.managers.regions.model/Vector3/y/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-vector3/y.html
+$dokka.location:com.system32.systemCore.managers.regions.model/Vector3/z/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-vector3/z.html
+$dokka.location:com.system32.systemCore.managers.regions////PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions/index.html
+$dokka.location:com.system32.systemCore.managers.regions/RegionManager///PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions/-region-manager/index.html
+$dokka.location:com.system32.systemCore.managers.regions/RegionManager/call/TypeParam(bounds=[org.bukkit.event.Event])#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions/-region-manager/call.html
+$dokka.location:com.system32.systemCore.managers.regions/RegionManager/getRegionById/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions/-region-manager/get-region-by-id.html
+$dokka.location:com.system32.systemCore.managers.regions/RegionManager/getRegionsAt/#kotlin.String#kotlin.Double#kotlin.Double#kotlin.Double/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions/-region-manager/get-regions-at.html
+$dokka.location:com.system32.systemCore.managers.regions/RegionManager/getRegionsAt/#org.bukkit.Location/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions/-region-manager/get-regions-at.html
+$dokka.location:com.system32.systemCore.managers.regions/RegionManager/onPlayerMove/#org.bukkit.event.player.PlayerMoveEvent/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions/-region-manager/on-player-move.html
+$dokka.location:com.system32.systemCore.managers.regions/RegionManager/registerRegion/#com.system32.systemCore.managers.regions.model.Region/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions/-region-manager/register-region.html
 $dokka.location:com.system32.systemCore.shade////PointingToDeclaration/-system-core/com.system32.systemCore.shade/index.html
 $dokka.location:com.system32.systemCore.shade/Metrics.AdvancedBarChart///PointingToDeclaration/-system-core/com.system32.systemCore.shade/-metrics/-advanced-bar-chart/index.html
 $dokka.location:com.system32.systemCore.shade/Metrics.AdvancedBarChart/AdvancedBarChart/#java.lang.String#java.util.concurrent.Callable<java.util.Map<java.lang.String,int[]>>/PointingToDeclaration/-system-core/com.system32.systemCore.shade/-metrics/-advanced-bar-chart/-advanced-bar-chart.html
@@ -474,6 +529,9 @@ com.system32.systemCore.managers.config
 com.system32.systemCore.managers.config.serializers
 com.system32.systemCore.managers.config.serializers.models
 com.system32.systemCore.managers.cooldown
+com.system32.systemCore.managers.regions
+com.system32.systemCore.managers.regions.events
+com.system32.systemCore.managers.regions.model
 com.system32.systemCore.shade
 com.system32.systemCore.utils
 com.system32.systemCore.utils.cache
