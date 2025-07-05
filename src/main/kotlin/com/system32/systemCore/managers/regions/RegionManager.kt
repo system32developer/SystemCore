@@ -9,12 +9,15 @@ import com.system32.systemCore.managers.regions.model.RegionTree
 import com.system32.systemCore.managers.regions.model.Vector3
 import org.bukkit.Bukkit
 import org.bukkit.Location
+import org.bukkit.entity.Player
+import org.bukkit.event.Cancellable
 import org.bukkit.event.Event
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.player.PlayerJoinEvent
 import org.bukkit.event.player.PlayerMoveEvent
 import org.bukkit.event.player.PlayerQuitEvent
+import org.bukkit.event.player.PlayerTeleportEvent
 import java.util.UUID
 
 object RegionManager : Listener {
@@ -46,12 +49,20 @@ object RegionManager : Listener {
 
     @EventHandler
     fun onPlayerMove(event: PlayerMoveEvent) {
-        val player = event.player
-        if (event.from.block == event.to?.block) return
+        if (event.from.block == event.to.block) return
+        handlePlayerMovement(event.player, event.to, event)
+    }
 
-        val current = event.to ?: return
+    @EventHandler
+    fun onPlayerTeleport(event: PlayerTeleportEvent) {
+        if (event.from.block == event.to.block) return
+        handlePlayerMovement(event.player, event.to, event)
+    }
+
+
+    private fun handlePlayerMovement(player: Player, to: Location, cancellable: Cancellable) {
         val uuid = player.uniqueId
-        val currentRegions = getRegionsAt(current)
+        val currentRegions = getRegionsAt(to)
         val currentIds = currentRegions.map { it.id }.toSet()
         val previousRegions = playerRegions[uuid] ?: emptySet()
 
@@ -61,7 +72,7 @@ object RegionManager : Listener {
         for (region in entered) {
             val called = RegionEnteredEvent(player, region).call()
             if (called.isCancelled) {
-                event.isCancelled = true
+                cancellable.isCancelled = true
                 continue
             }
             region.players.add(uuid)
@@ -75,7 +86,7 @@ object RegionManager : Listener {
             val region = getRegionById(regionId) ?: continue
             val called = RegionLeftEvent(player, region).call()
             if (called.isCancelled) {
-                event.isCancelled = true
+                cancellable.isCancelled = true
                 continue
             }
             region.players.remove(uuid)
@@ -84,6 +95,7 @@ object RegionManager : Listener {
 
         playerRegions[uuid] = ((previousRegions + acceptedEnteredIds) - acceptedExitedIds)
     }
+
 
 
     @EventHandler
