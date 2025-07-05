@@ -57,8 +57,8 @@ object RegionManager : Listener {
 
         val entered = currentRegions.filter { it.id !in previousRegions }
         for (region in entered) {
-            val event = RegionEnteredEvent(player, region).call()
-            if(event.isCancelled){
+            val called = RegionEnteredEvent(player, region).call()
+            if(called.isCancelled){
                 event.isCancelled = true
                 continue
             }
@@ -68,8 +68,8 @@ object RegionManager : Listener {
         val exited = previousRegions.filter { id -> currentIds.none { id == it } }
         for (regionId in exited) {
             val region = getRegionById(regionId)?: continue
-            val event = RegionLeftEvent(player, region).call()
-            if(event.isCancelled){
+            val called = RegionLeftEvent(player, region).call()
+            if(called.isCancelled){
                 event.isCancelled = true
                 continue
             }

@@ -11,9 +11,9 @@ data class AABB(val min: Vector3, val max: Vector3) {
                     minOf(a.z, b.z)
                 ),
                 Vector3(
-                    maxOf(a.x, b.x),
-                    maxOf(a.y, b.y),
-                    maxOf(a.z, b.z)
+                    maxOf(a.x, b.x) + 1.0,
+                    maxOf(a.y, b.y) + 1.0,
+                    maxOf(a.z, b.z) + 1.0
                 )
             )
         }
