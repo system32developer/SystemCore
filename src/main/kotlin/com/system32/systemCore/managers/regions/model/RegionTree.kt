@@ -11,9 +11,5 @@ class RegionTree {
         return regions.filter { it.contains(x, y, z) }
     }
 
-    fun queryBox(box: AABB): List<Region> {
-        return regions.filter { it.bounds.intersects(box) }
-    }
-
     fun getAllRegions(): List<Region> = regions
 }
