@@ -47,38 +47,44 @@ object RegionManager : Listener {
     @EventHandler
     fun onPlayerMove(event: PlayerMoveEvent) {
         val player = event.player
-        if(event.from.block == event.to.block) return
+        if (event.from.block == event.to?.block) return
 
-        val current = event.to
+        val current = event.to ?: return
         val uuid = player.uniqueId
         val currentRegions = getRegionsAt(current)
         val currentIds = currentRegions.map { it.id }.toSet()
         val previousRegions = playerRegions[uuid] ?: emptySet()
 
+        val acceptedEnteredIds = mutableSetOf<String>()
         val entered = currentRegions.filter { it.id !in previousRegions }
+
         for (region in entered) {
             val called = RegionEnteredEvent(player, region).call()
-            if(called.isCancelled){
+            if (called.isCancelled) {
                 event.isCancelled = true
                 continue
             }
             region.players.add(uuid)
+            acceptedEnteredIds.add(region.id)
         }
 
-        val exited = previousRegions.filter { id -> currentIds.none { id == it } }
+        val acceptedExitedIds = mutableSetOf<String>()
+        val exited = previousRegions.filter { id -> currentIds.none { it == id } }
+
         for (regionId in exited) {
-            val region = getRegionById(regionId)?: continue
+            val region = getRegionById(regionId) ?: continue
             val called = RegionLeftEvent(player, region).call()
-            if(called.isCancelled){
+            if (called.isCancelled) {
                 event.isCancelled = true
                 continue
             }
             region.players.remove(uuid)
-
+            acceptedExitedIds.add(regionId)
         }
 
-        playerRegions[uuid] = currentIds
+        playerRegions[uuid] = ((previousRegions + acceptedEnteredIds) - acceptedExitedIds)
     }
+
 
     @EventHandler
     fun onPlayerJoin(event: PlayerJoinEvent) {
