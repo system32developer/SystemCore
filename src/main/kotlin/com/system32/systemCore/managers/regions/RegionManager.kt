@@ -12,7 +12,9 @@ import org.bukkit.Location
 import org.bukkit.event.Event
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
+import org.bukkit.event.player.PlayerJoinEvent
 import org.bukkit.event.player.PlayerMoveEvent
+import org.bukkit.event.player.PlayerQuitEvent
 import java.util.UUID
 
 object RegionManager : Listener {
@@ -77,6 +79,47 @@ object RegionManager : Listener {
 
         playerRegions[uuid] = currentIds
     }
+
+    @EventHandler
+    fun onPlayerJoin(event: PlayerJoinEvent) {
+        val player = event.player
+        val uuid = player.uniqueId
+        val location = player.location
+
+        val currentRegions = getRegionsAt(location)
+        val currentIds = currentRegions.map { it.id }.toSet()
+
+        playerRegions[uuid] = currentIds
+
+        for (region in currentRegions) {
+
+            val called = RegionEnteredEvent(player, region).call()
+            if(called.isCancelled){
+                continue
+            }
+            region.players.add(uuid)
+        }
+    }
+
+    @EventHandler
+    fun onPlayerQuit(event: PlayerQuitEvent) {
+        val player = event.player
+        val uuid = player.uniqueId
+
+        val regionIds = playerRegions.remove(uuid) ?: return
+
+        for (regionId in regionIds) {
+            val region = getRegionById(regionId) ?: continue
+
+            val called = RegionLeftEvent(player, region).call()
+
+            if(called.isCancelled){
+                continue
+            }
+            region.players.remove(uuid)
+        }
+    }
+
 
     fun <T : Event> T.call(): T {
         Bukkit.getPluginManager().callEvent(this)
