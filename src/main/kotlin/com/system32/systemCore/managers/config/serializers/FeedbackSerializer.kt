@@ -19,6 +19,7 @@ class FeedbackSerializer  : TypeSerializer<Feedback> {
             println("No Component to save, setting node to null")
             return
         }
+
         if (!obj.isList) node.set(obj.message[0]) else node.setList(String::class.java, obj.message)
     }
 }
