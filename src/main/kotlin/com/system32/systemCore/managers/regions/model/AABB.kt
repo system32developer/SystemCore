@@ -1,5 +1,7 @@
 package com.system32.systemCore.managers.regions.model
 
+import org.bukkit.Location
+
 data class AABB(val min: Vector3, val max: Vector3) {
 
     companion object {
@@ -15,6 +17,13 @@ data class AABB(val min: Vector3, val max: Vector3) {
                     maxOf(a.y, b.y) + 1.0,
                     maxOf(a.z, b.z) + 1.0
                 )
+            )
+        }
+
+        fun of(a: Location, b: Location): AABB {
+            return AABB(
+                Vector3(a),
+                Vector3(b)
             )
         }
     }

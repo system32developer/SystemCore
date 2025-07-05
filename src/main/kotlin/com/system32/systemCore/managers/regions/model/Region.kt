@@ -11,6 +11,10 @@ data class Region(
     val world: String,
     val bounds: AABB
 ) {
+    constructor(id: String, world: String, min: Vector3, max: Vector3) : this(id, world, AABB.of(min, max))
+
+    constructor(id: String, world: String, min: Location, max: Location) : this(id, world, AABB.of(min, max))
+
     val players: MutableSet<UUID> = mutableSetOf()
 
     fun contains(location: Vector3): Boolean {
@@ -22,14 +26,11 @@ data class Region(
     }
 
     fun contains(player: Player): Boolean {
-        return player.world.name == world && contains(player.location.toVector3())
+        return player.world.name == world && contains(Vector3(player.location))
     }
 
     fun show(particle: Particle = Particle.HAPPY_VILLAGER, step: Double = 1.0){
         val world = Bukkit.getWorld(world) ?: return
     }
 
-    fun Location.toVector3(): Vector3 {
-        return Vector3(x, y, z)
-    }
 }

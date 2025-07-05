@@ -24,9 +24,11 @@ object RegionManager : Listener {
     private val trees = mutableMapOf<String, RegionTree>()
     private val playerRegions = mutableMapOf<UUID, Set<String>>()
 
-    fun registerRegion(region: Region) {
-        val tree = trees.computeIfAbsent(region.world) { RegionTree() }
-        tree.insert(region)
+    fun register(vararg regions: Region) {
+        regions.forEach { region ->
+            val tree = trees.computeIfAbsent(region.world) { RegionTree() }
+            tree.insert(region)
+        }
     }
 
     fun getRegionsAt(world: String, x: Double, y: Double, z: Double): List<Region> {
