@@ -1,5 +1,6 @@
 package com.system32.systemCore.managers.regions
 
+import com.system32.systemCore.SystemCore
 import com.system32.systemCore.managers.regions.events.RegionEnteredEvent
 import com.system32.systemCore.managers.regions.events.RegionLeftEvent
 import com.system32.systemCore.managers.regions.model.AABB
@@ -35,6 +36,10 @@ object RegionManager : Listener {
         return trees.values
             .flatMap { it.getAllRegions() }
             .firstOrNull { it.id == id }
+    }
+
+    init {
+        SystemCore.event(this)
     }
 
 

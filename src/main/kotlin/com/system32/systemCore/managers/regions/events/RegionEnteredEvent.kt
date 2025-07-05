@@ -26,7 +26,5 @@ class RegionEnteredEvent (
         @JvmStatic
         val handlerList = HandlerList()
 
-        @JvmStatic
-        fun getHandlerList(): HandlerList = handlerList
     }
 }

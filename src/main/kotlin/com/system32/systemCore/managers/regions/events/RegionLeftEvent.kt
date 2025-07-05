@@ -24,8 +24,5 @@ class RegionLeftEvent (
     companion object {
         @JvmStatic
         val handlerList = HandlerList()
-
-        @JvmStatic
-        fun getHandlerList(): HandlerList = handlerList
     }
 }
