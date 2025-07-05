@@ -1,6 +1,8 @@
 package com.system32.systemCore.managers.regions.model
 
+import org.bukkit.Bukkit
 import org.bukkit.Location
+import org.bukkit.Particle
 import org.bukkit.entity.Player
 import java.util.UUID
 
@@ -21,6 +23,10 @@ data class Region(
 
     fun contains(player: Player): Boolean {
         return player.world.name == world && contains(player.location.toVector3())
+    }
+
+    fun show(particle: Particle = Particle.HAPPY_VILLAGER, step: Double = 1.0){
+        val world = Bukkit.getWorld(world) ?: return
     }
 
     fun Location.toVector3(): Vector3 {

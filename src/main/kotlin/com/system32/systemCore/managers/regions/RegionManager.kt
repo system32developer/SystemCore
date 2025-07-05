@@ -42,7 +42,6 @@ object RegionManager : Listener {
         SystemCore.event(this)
     }
 
-
     @EventHandler
     fun onPlayerMove(event: PlayerMoveEvent) {
         val player = event.player
