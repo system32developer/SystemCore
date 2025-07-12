@@ -28,8 +28,7 @@ enum class Driver(val driver: String) {
      * implementation("org.mariadb.jdbc:mariadb-java-client:3.5.4")
      * ```
      */
-    MARIADB("org.mariadb.jdbc.Driver")
-    ;
+    MARIADB("org.mariadb.jdbc.Driver");
     fun get(): String {
         return driver
     }
