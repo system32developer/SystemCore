@@ -67,6 +67,8 @@ dependencies {
     api("io.github.revxrsal:lamp.bukkit:4.0.0-rc.12")
     api("org.spongepowered:configurate-yaml:4.2.0")
     api("org.spongepowered:configurate-core:4.2.0")
+    api("org.jetbrains.exposed:exposed-core:1.0.0-beta-3")
+    api("org.jetbrains.exposed:exposed-jdbc:1.0.0-beta-3")
 
 }
 

@@ -1,5 +1,6 @@
 package com.system32.systemCore.managers.config.serializers
 
+import com.system32.systemCore.database.model.Driver
 import com.system32.systemCore.managers.config.serializers.models.Feedback
 import org.spongepowered.configurate.ConfigurationNode
 import org.spongepowered.configurate.serialize.TypeSerializer
@@ -17,6 +18,7 @@ class FeedbackSerializer  : TypeSerializer<Feedback> {
         if (obj == null) {
             node.set(null)
             println("No Component to save, setting node to null")
+            Driver.H2
             return
         }
 

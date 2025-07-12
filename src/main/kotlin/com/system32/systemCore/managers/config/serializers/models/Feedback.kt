@@ -3,6 +3,7 @@ package com.system32.systemCore.managers.config.serializers.models
 import com.system32.systemCore.utils.text.TextUtil.color
 import net.kyori.adventure.audience.Audience
 import net.kyori.adventure.text.Component
+import net.kyori.adventure.text.TextReplacementConfig
 import org.bukkit.Bukkit
 import org.bukkit.Location
 import org.bukkit.command.CommandSender
