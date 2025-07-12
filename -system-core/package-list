@@ -1,82 +1,16 @@
 $dokka.format:html-v1
 $dokka.linkExtension:html
-$dokka.location:com.system32.systemCore.database.builders////PointingToDeclaration/-system-core/com.system32.systemCore.database.builders/index.html
-$dokka.location:com.system32.systemCore.database.builders/ForeignKey///PointingToDeclaration/-system-core/com.system32.systemCore.database.builders/-foreign-key/index.html
-$dokka.location:com.system32.systemCore.database.builders/ForeignKey/ForeignKey/#kotlin.String#kotlin.String#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.database.builders/-foreign-key/-foreign-key.html
-$dokka.location:com.system32.systemCore.database.builders/ForeignKey/column/#/PointingToDeclaration/-system-core/com.system32.systemCore.database.builders/-foreign-key/column.html
-$dokka.location:com.system32.systemCore.database.builders/ForeignKey/referenceColumn/#/PointingToDeclaration/-system-core/com.system32.systemCore.database.builders/-foreign-key/reference-column.html
-$dokka.location:com.system32.systemCore.database.builders/ForeignKey/referenceTable/#/PointingToDeclaration/-system-core/com.system32.systemCore.database.builders/-foreign-key/reference-table.html
-$dokka.location:com.system32.systemCore.database.builders/InsertBuilder///PointingToDeclaration/-system-core/com.system32.systemCore.database.builders/-insert-builder/index.html
-$dokka.location:com.system32.systemCore.database.builders/InsertBuilder/InsertBuilder/#/PointingToDeclaration/-system-core/com.system32.systemCore.database.builders/-insert-builder/-insert-builder.html
-$dokka.location:com.system32.systemCore.database.builders/InsertBuilder/data/#/PointingToDeclaration/-system-core/com.system32.systemCore.database.builders/-insert-builder/data.html
-$dokka.location:com.system32.systemCore.database.builders/InsertBuilder/set/#kotlin.String#kotlin.Any/PointingToDeclaration/-system-core/com.system32.systemCore.database.builders/-insert-builder/set.html
-$dokka.location:com.system32.systemCore.database.builders/QueryBuilder///PointingToDeclaration/-system-core/com.system32.systemCore.database.builders/-query-builder/index.html
-$dokka.location:com.system32.systemCore.database.builders/QueryBuilder/QueryBuilder/#/PointingToDeclaration/-system-core/com.system32.systemCore.database.builders/-query-builder/-query-builder.html
-$dokka.location:com.system32.systemCore.database.builders/QueryBuilder/columns/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.database.builders/-query-builder/columns.html
-$dokka.location:com.system32.systemCore.database.builders/QueryBuilder/data/#/PointingToDeclaration/-system-core/com.system32.systemCore.database.builders/-query-builder/data.html
-$dokka.location:com.system32.systemCore.database.builders/QueryBuilder/where/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.database.builders/-query-builder/where.html
-$dokka.location:com.system32.systemCore.database.builders/UpdateBuilder///PointingToDeclaration/-system-core/com.system32.systemCore.database.builders/-update-builder/index.html
-$dokka.location:com.system32.systemCore.database.builders/UpdateBuilder/UpdateBuilder/#/PointingToDeclaration/-system-core/com.system32.systemCore.database.builders/-update-builder/-update-builder.html
-$dokka.location:com.system32.systemCore.database.builders/UpdateBuilder/data/#/PointingToDeclaration/-system-core/com.system32.systemCore.database.builders/-update-builder/data.html
-$dokka.location:com.system32.systemCore.database.builders/UpdateBuilder/rawData/#/PointingToDeclaration/-system-core/com.system32.systemCore.database.builders/-update-builder/raw-data.html
-$dokka.location:com.system32.systemCore.database.builders/UpdateBuilder/set/#kotlin.String#kotlin.Any?/PointingToDeclaration/-system-core/com.system32.systemCore.database.builders/-update-builder/set.html
-$dokka.location:com.system32.systemCore.database.builders/UpdateBuilder/setRaw/#kotlin.String#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.database.builders/-update-builder/set-raw.html
-$dokka.location:com.system32.systemCore.database.builders/UpdateBuilder/where/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.database.builders/-update-builder/where.html
-$dokka.location:com.system32.systemCore.database.builders/UpdateBuilder/whereCondition/#/PointingToDeclaration/-system-core/com.system32.systemCore.database.builders/-update-builder/where-condition.html
-$dokka.location:com.system32.systemCore.database.table////PointingToDeclaration/-system-core/com.system32.systemCore.database.table/index.html
-$dokka.location:com.system32.systemCore.database.table/Column///PointingToDeclaration/-system-core/com.system32.systemCore.database.table/-column/index.html
-$dokka.location:com.system32.systemCore.database.table/Column/Column/#kotlin.String#com.system32.systemCore.database.table.ColumnType#kotlin.collections.Set[com.system32.systemCore.database.table.ColumnFlag]/PointingToDeclaration/-system-core/com.system32.systemCore.database.table/-column/-column.html
-$dokka.location:com.system32.systemCore.database.table/Column/flags/#/PointingToDeclaration/-system-core/com.system32.systemCore.database.table/-column/flags.html
-$dokka.location:com.system32.systemCore.database.table/Column/name/#/PointingToDeclaration/-system-core/com.system32.systemCore.database.table/-column/name.html
-$dokka.location:com.system32.systemCore.database.table/Column/type/#/PointingToDeclaration/-system-core/com.system32.systemCore.database.table/-column/type.html
-$dokka.location:com.system32.systemCore.database.table/ColumnFlag.AUTO_INCREMENT///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-system-core/com.system32.systemCore.database.table/-column-flag/-a-u-t-o_-i-n-c-r-e-m-e-n-t/index.html
-$dokka.location:com.system32.systemCore.database.table/ColumnFlag.NON_NULL///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-system-core/com.system32.systemCore.database.table/-column-flag/-n-o-n_-n-u-l-l/index.html
-$dokka.location:com.system32.systemCore.database.table/ColumnFlag.PRIMARY_KEY///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-system-core/com.system32.systemCore.database.table/-column-flag/-p-r-i-m-a-r-y_-k-e-y/index.html
-$dokka.location:com.system32.systemCore.database.table/ColumnFlag.UNIQUE///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-system-core/com.system32.systemCore.database.table/-column-flag/-u-n-i-q-u-e/index.html
-$dokka.location:com.system32.systemCore.database.table/ColumnFlag///PointingToDeclaration/-system-core/com.system32.systemCore.database.table/-column-flag/index.html
-$dokka.location:com.system32.systemCore.database.table/ColumnFlag/entries/#/PointingToDeclaration/-system-core/com.system32.systemCore.database.table/-column-flag/entries.html
-$dokka.location:com.system32.systemCore.database.table/ColumnFlag/valueOf/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.database.table/-column-flag/value-of.html
-$dokka.location:com.system32.systemCore.database.table/ColumnFlag/values/#/PointingToDeclaration/-system-core/com.system32.systemCore.database.table/-column-flag/values.html
-$dokka.location:com.system32.systemCore.database.table/ColumnType.BLOB///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-system-core/com.system32.systemCore.database.table/-column-type/-b-l-o-b/index.html
-$dokka.location:com.system32.systemCore.database.table/ColumnType.BOOLEAN///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-system-core/com.system32.systemCore.database.table/-column-type/-b-o-o-l-e-a-n/index.html
-$dokka.location:com.system32.systemCore.database.table/ColumnType.DATE///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-system-core/com.system32.systemCore.database.table/-column-type/-d-a-t-e/index.html
-$dokka.location:com.system32.systemCore.database.table/ColumnType.DATETIME///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-system-core/com.system32.systemCore.database.table/-column-type/-d-a-t-e-t-i-m-e/index.html
-$dokka.location:com.system32.systemCore.database.table/ColumnType.DOUBLE///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-system-core/com.system32.systemCore.database.table/-column-type/-d-o-u-b-l-e/index.html
-$dokka.location:com.system32.systemCore.database.table/ColumnType.FLOAT///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-system-core/com.system32.systemCore.database.table/-column-type/-f-l-o-a-t/index.html
-$dokka.location:com.system32.systemCore.database.table/ColumnType.INT///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-system-core/com.system32.systemCore.database.table/-column-type/-i-n-t/index.html
-$dokka.location:com.system32.systemCore.database.table/ColumnType.LONG///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-system-core/com.system32.systemCore.database.table/-column-type/-l-o-n-g/index.html
-$dokka.location:com.system32.systemCore.database.table/ColumnType.STRING///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-system-core/com.system32.systemCore.database.table/-column-type/-s-t-r-i-n-g/index.html
-$dokka.location:com.system32.systemCore.database.table/ColumnType.TEXT///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-system-core/com.system32.systemCore.database.table/-column-type/-t-e-x-t/index.html
-$dokka.location:com.system32.systemCore.database.table/ColumnType///PointingToDeclaration/-system-core/com.system32.systemCore.database.table/-column-type/index.html
-$dokka.location:com.system32.systemCore.database.table/ColumnType/entries/#/PointingToDeclaration/-system-core/com.system32.systemCore.database.table/-column-type/entries.html
-$dokka.location:com.system32.systemCore.database.table/ColumnType/valueOf/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.database.table/-column-type/value-of.html
-$dokka.location:com.system32.systemCore.database.table/ColumnType/values/#/PointingToDeclaration/-system-core/com.system32.systemCore.database.table/-column-type/values.html
-$dokka.location:com.system32.systemCore.database.table/Table///PointingToDeclaration/-system-core/com.system32.systemCore.database.table/-table/index.html
-$dokka.location:com.system32.systemCore.database.table/Table/Table/#kotlin.String#com.system32.systemCore.database.Database/PointingToDeclaration/-system-core/com.system32.systemCore.database.table/-table/-table.html
-$dokka.location:com.system32.systemCore.database.table/Table/addData/#com.system32.systemCore.database.table.ColumnType#kotlin.String#kotlin.Array[com.system32.systemCore.database.table.ColumnFlag]/PointingToDeclaration/-system-core/com.system32.systemCore.database.table/-table/add-data.html
-$dokka.location:com.system32.systemCore.database.table/Table/addForeignKey/#kotlin.String#kotlin.String#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.database.table/-table/add-foreign-key.html
-$dokka.location:com.system32.systemCore.database.table/Table/database/#/PointingToDeclaration/-system-core/com.system32.systemCore.database.table/-table/database.html
-$dokka.location:com.system32.systemCore.database.table/Table/delete/#kotlin.Function1[com.system32.systemCore.database.builders.QueryBuilder,kotlin.Unit]/PointingToDeclaration/-system-core/com.system32.systemCore.database.table/-table/delete.html
-$dokka.location:com.system32.systemCore.database.table/Table/deleteSync/#kotlin.Function1[com.system32.systemCore.database.builders.QueryBuilder,kotlin.Unit]/PointingToDeclaration/-system-core/com.system32.systemCore.database.table/-table/delete-sync.html
-$dokka.location:com.system32.systemCore.database.table/Table/generateCreateSQL/#/PointingToDeclaration/-system-core/com.system32.systemCore.database.table/-table/generate-create-s-q-l.html
-$dokka.location:com.system32.systemCore.database.table/Table/getColumns/#/PointingToDeclaration/-system-core/com.system32.systemCore.database.table/-table/get-columns.html
-$dokka.location:com.system32.systemCore.database.table/Table/has/#kotlin.Function1[com.system32.systemCore.database.builders.QueryBuilder,kotlin.Unit]/PointingToDeclaration/-system-core/com.system32.systemCore.database.table/-table/has.html
-$dokka.location:com.system32.systemCore.database.table/Table/insert/#kotlin.Function1[com.system32.systemCore.database.builders.InsertBuilder,kotlin.Unit]/PointingToDeclaration/-system-core/com.system32.systemCore.database.table/-table/insert.html
-$dokka.location:com.system32.systemCore.database.table/Table/insertSync/#kotlin.Function1[com.system32.systemCore.database.builders.InsertBuilder,kotlin.Unit]/PointingToDeclaration/-system-core/com.system32.systemCore.database.table/-table/insert-sync.html
-$dokka.location:com.system32.systemCore.database.table/Table/name/#/PointingToDeclaration/-system-core/com.system32.systemCore.database.table/-table/name.html
-$dokka.location:com.system32.systemCore.database.table/Table/select/#kotlin.Function1[com.system32.systemCore.database.builders.QueryBuilder,kotlin.Unit]/PointingToDeclaration/-system-core/com.system32.systemCore.database.table/-table/select.html
-$dokka.location:com.system32.systemCore.database.table/Table/selectAll/#/PointingToDeclaration/-system-core/com.system32.systemCore.database.table/-table/select-all.html
-$dokka.location:com.system32.systemCore.database.table/Table/selectAsync/#kotlin.Function1[com.system32.systemCore.database.builders.QueryBuilder,kotlin.Unit]#kotlin.Function1[kotlin.collections.List[kotlin.collections.Map[kotlin.String,kotlin.Any?]],kotlin.Unit]#kotlin.Function1[kotlin.Throwable,kotlin.Unit]/PointingToDeclaration/-system-core/com.system32.systemCore.database.table/-table/select-async.html
-$dokka.location:com.system32.systemCore.database.table/Table/setPrimaryKeys/#kotlin.Array[kotlin.String]/PointingToDeclaration/-system-core/com.system32.systemCore.database.table/-table/set-primary-keys.html
-$dokka.location:com.system32.systemCore.database.table/Table/update/#kotlin.Function1[com.system32.systemCore.database.builders.UpdateBuilder,kotlin.Unit]/PointingToDeclaration/-system-core/com.system32.systemCore.database.table/-table/update.html
-$dokka.location:com.system32.systemCore.database.table/Table/updateSync/#kotlin.Function1[com.system32.systemCore.database.builders.UpdateBuilder,kotlin.Unit]/PointingToDeclaration/-system-core/com.system32.systemCore.database.table/-table/update-sync.html
-$dokka.location:com.system32.systemCore.database////PointingToDeclaration/-system-core/com.system32.systemCore.database/index.html
-$dokka.location:com.system32.systemCore.database/Database///PointingToDeclaration/-system-core/com.system32.systemCore.database/-database/index.html
-$dokka.location:com.system32.systemCore.database/Database/Database/#/PointingToDeclaration/-system-core/com.system32.systemCore.database/-database/-database.html
-$dokka.location:com.system32.systemCore.database/Database/addTable/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.database/-database/add-table.html
-$dokka.location:com.system32.systemCore.database/Database/connection/#/PointingToDeclaration/-system-core/com.system32.systemCore.database/-database/connection.html
-$dokka.location:com.system32.systemCore.database/Database/createTables/#/PointingToDeclaration/-system-core/com.system32.systemCore.database/-database/create-tables.html
-$dokka.location:com.system32.systemCore.database/Database/getTable/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.database/-database/get-table.html
+$dokka.location:com.system32.systemCore.database.model////PointingToDeclaration/-system-core/com.system32.systemCore.database.model/index.html
+$dokka.location:com.system32.systemCore.database.model/Driver.H2///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-system-core/com.system32.systemCore.database.model/-driver/-h2/index.html
+$dokka.location:com.system32.systemCore.database.model/Driver.MARIADB///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-system-core/com.system32.systemCore.database.model/-driver/-m-a-r-i-a-d-b/index.html
+$dokka.location:com.system32.systemCore.database.model/Driver.MYSQL///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-system-core/com.system32.systemCore.database.model/-driver/-m-y-s-q-l/index.html
+$dokka.location:com.system32.systemCore.database.model/Driver.SQLITE///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}-system-core/com.system32.systemCore.database.model/-driver/-s-q-l-i-t-e/index.html
+$dokka.location:com.system32.systemCore.database.model/Driver///PointingToDeclaration/-system-core/com.system32.systemCore.database.model/-driver/index.html
+$dokka.location:com.system32.systemCore.database.model/Driver/driver/#/PointingToDeclaration/-system-core/com.system32.systemCore.database.model/-driver/driver.html
+$dokka.location:com.system32.systemCore.database.model/Driver/entries/#/PointingToDeclaration/-system-core/com.system32.systemCore.database.model/-driver/entries.html
+$dokka.location:com.system32.systemCore.database.model/Driver/get/#/PointingToDeclaration/-system-core/com.system32.systemCore.database.model/-driver/get.html
+$dokka.location:com.system32.systemCore.database.model/Driver/valueOf/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.database.model/-driver/value-of.html
+$dokka.location:com.system32.systemCore.database.model/Driver/values/#/PointingToDeclaration/-system-core/com.system32.systemCore.database.model/-driver/values.html
 $dokka.location:com.system32.systemCore.managers.chat////PointingToDeclaration/-system-core/com.system32.systemCore.managers.chat/index.html
 $dokka.location:com.system32.systemCore.managers.chat/ChatAwaiterManager///PointingToDeclaration/-system-core/com.system32.systemCore.managers.chat/-chat-awaiter-manager/index.html
 $dokka.location:com.system32.systemCore.managers.chat/ChatAwaiterManager/addAwaiter/#kotlin.String#java.util.function.Consumer[com.system32.systemCore.managers.chat.ChatInput]/PointingToDeclaration/-system-core/com.system32.systemCore.managers.chat/-chat-awaiter-manager/add-awaiter.html
@@ -211,7 +145,9 @@ $dokka.location:com.system32.systemCore.managers.regions.model/RegionTree///Poin
 $dokka.location:com.system32.systemCore.managers.regions.model/RegionTree/RegionTree/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-region-tree/-region-tree.html
 $dokka.location:com.system32.systemCore.managers.regions.model/RegionTree/getAllRegions/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-region-tree/get-all-regions.html
 $dokka.location:com.system32.systemCore.managers.regions.model/RegionTree/insert/#com.system32.systemCore.managers.regions.model.Region/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-region-tree/insert.html
+$dokka.location:com.system32.systemCore.managers.regions.model/RegionTree/isEmpty/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-region-tree/is-empty.html
 $dokka.location:com.system32.systemCore.managers.regions.model/RegionTree/query/#kotlin.Double#kotlin.Double#kotlin.Double/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-region-tree/query.html
+$dokka.location:com.system32.systemCore.managers.regions.model/RegionTree/remove/#com.system32.systemCore.managers.regions.model.Region/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-region-tree/remove.html
 $dokka.location:com.system32.systemCore.managers.regions.model/Vector3///PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-vector3/index.html
 $dokka.location:com.system32.systemCore.managers.regions.model/Vector3/Vector3/#kotlin.Double#kotlin.Double#kotlin.Double/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-vector3/-vector3.html
 $dokka.location:com.system32.systemCore.managers.regions.model/Vector3/Vector3/#org.bukkit.Location/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-vector3/-vector3.html
@@ -224,12 +160,14 @@ $dokka.location:com.system32.systemCore.managers.regions/RegionManager/call/Type
 $dokka.location:com.system32.systemCore.managers.regions/RegionManager/getRegionById/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions/-region-manager/get-region-by-id.html
 $dokka.location:com.system32.systemCore.managers.regions/RegionManager/getRegionsAt/#kotlin.String#kotlin.Double#kotlin.Double#kotlin.Double/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions/-region-manager/get-regions-at.html
 $dokka.location:com.system32.systemCore.managers.regions/RegionManager/getRegionsAt/#org.bukkit.Location/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions/-region-manager/get-regions-at.html
+$dokka.location:com.system32.systemCore.managers.regions/RegionManager/getRegionsAt/#org.bukkit.block.Block/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions/-region-manager/get-regions-at.html
 $dokka.location:com.system32.systemCore.managers.regions/RegionManager/getRegionsAt/#org.bukkit.entity.Player/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions/-region-manager/get-regions-at.html
 $dokka.location:com.system32.systemCore.managers.regions/RegionManager/onPlayerJoin/#org.bukkit.event.player.PlayerJoinEvent/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions/-region-manager/on-player-join.html
 $dokka.location:com.system32.systemCore.managers.regions/RegionManager/onPlayerMove/#org.bukkit.event.player.PlayerMoveEvent/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions/-region-manager/on-player-move.html
 $dokka.location:com.system32.systemCore.managers.regions/RegionManager/onPlayerQuit/#org.bukkit.event.player.PlayerQuitEvent/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions/-region-manager/on-player-quit.html
 $dokka.location:com.system32.systemCore.managers.regions/RegionManager/onPlayerTeleport/#org.bukkit.event.player.PlayerTeleportEvent/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions/-region-manager/on-player-teleport.html
 $dokka.location:com.system32.systemCore.managers.regions/RegionManager/register/#kotlin.Array[com.system32.systemCore.managers.regions.model.Region]/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions/-region-manager/register.html
+$dokka.location:com.system32.systemCore.managers.regions/RegionManager/unregister/#kotlin.Array[com.system32.systemCore.managers.regions.model.Region]/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions/-region-manager/unregister.html
 $dokka.location:com.system32.systemCore.shade////PointingToDeclaration/-system-core/com.system32.systemCore.shade/index.html
 $dokka.location:com.system32.systemCore.shade/Metrics.AdvancedBarChart///PointingToDeclaration/-system-core/com.system32.systemCore.shade/-metrics/-advanced-bar-chart/index.html
 $dokka.location:com.system32.systemCore.shade/Metrics.AdvancedBarChart/AdvancedBarChart/#java.lang.String#java.util.concurrent.Callable<java.util.Map<java.lang.String,int[]>>/PointingToDeclaration/-system-core/com.system32.systemCore.shade/-metrics/-advanced-bar-chart/-advanced-bar-chart.html
@@ -269,15 +207,6 @@ $dokka.location:com.system32.systemCore.shade/Metrics///PointingToDeclaration/-
 $dokka.location:com.system32.systemCore.shade/Metrics/Metrics/#org.bukkit.plugin.Plugin#int/PointingToDeclaration/-system-core/com.system32.systemCore.shade/-metrics/-metrics.html
 $dokka.location:com.system32.systemCore.shade/Metrics/addCustomChart/#com.system32.systemCore.shade.Metrics.CustomChart/PointingToDeclaration/-system-core/com.system32.systemCore.shade/-metrics/add-custom-chart.html
 $dokka.location:com.system32.systemCore.shade/Metrics/shutdown/#/PointingToDeclaration/-system-core/com.system32.systemCore.shade/-metrics/shutdown.html
-$dokka.location:com.system32.systemCore.utils.cache////PointingToDeclaration/-system-core/com.system32.systemCore.utils.cache/index.html
-$dokka.location:com.system32.systemCore.utils.cache/ExpiringCache///PointingToDeclaration/-system-core/com.system32.systemCore.utils.cache/-expiring-cache/index.html
-$dokka.location:com.system32.systemCore.utils.cache/ExpiringCache/ExpiringCache/#kotlin.Int#kotlin.Int/PointingToDeclaration/-system-core/com.system32.systemCore.utils.cache/-expiring-cache/-expiring-cache.html
-$dokka.location:com.system32.systemCore.utils.cache/ExpiringCache/cleanup/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils.cache/-expiring-cache/cleanup.html
-$dokka.location:com.system32.systemCore.utils.cache/ExpiringCache/expireIn/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils.cache/-expiring-cache/expire-in.html
-$dokka.location:com.system32.systemCore.utils.cache/ExpiringCache/get/#TypeParam(bounds=[kotlin.Any?])/PointingToDeclaration/-system-core/com.system32.systemCore.utils.cache/-expiring-cache/get.html
-$dokka.location:com.system32.systemCore.utils.cache/ExpiringCache/put/#TypeParam(bounds=[kotlin.Any?])#TypeParam(bounds=[kotlin.Any?])/PointingToDeclaration/-system-core/com.system32.systemCore.utils.cache/-expiring-cache/put.html
-$dokka.location:com.system32.systemCore.utils.cache/ExpiringCache/remove/#TypeParam(bounds=[kotlin.Any?])/PointingToDeclaration/-system-core/com.system32.systemCore.utils.cache/-expiring-cache/remove.html
-$dokka.location:com.system32.systemCore.utils.cache/ExpiringCache/stop/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils.cache/-expiring-cache/stop.html
 $dokka.location:com.system32.systemCore.utils.config////PointingToDeclaration/-system-core/com.system32.systemCore.utils.config/index.html
 $dokka.location:com.system32.systemCore.utils.config/ConfigUpdater.Companion///PointingToDeclaration/-system-core/com.system32.systemCore.utils.config/-config-updater/-companion/index.html
 $dokka.location:com.system32.systemCore.utils.config/ConfigUpdater.Companion/update/#org.bukkit.plugin.java.JavaPlugin#kotlin.String#kotlin.String#kotlin.collections.List[kotlin.String]/PointingToDeclaration/-system-core/com.system32.systemCore.utils.config/-config-updater/-companion/update.html
@@ -288,64 +217,6 @@ $dokka.location:com.system32.systemCore.utils.config/ConfigUtil///PointingToDecl
 $dokka.location:com.system32.systemCore.utils.config/ConfigUtil/ConfigUtil/#org.bukkit.plugin.java.JavaPlugin#kotlin.String#java.io.File?/PointingToDeclaration/-system-core/com.system32.systemCore.utils.config/-config-util/-config-util.html
 $dokka.location:com.system32.systemCore.utils.config/ConfigUtil/reload/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils.config/-config-util/reload.html
 $dokka.location:com.system32.systemCore.utils.config/ConfigUtil/save/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils.config/-config-util/save.html
-$dokka.location:com.system32.systemCore.utils.discord////PointingToDeclaration/-system-core/com.system32.systemCore.utils.discord/index.html
-$dokka.location:com.system32.systemCore.utils.discord/DiscordUtil.Companion///PointingToDeclaration/-system-core/com.system32.systemCore.utils.discord/-discord-util/-companion/index.html
-$dokka.location:com.system32.systemCore.utils.discord/DiscordUtil.Companion/convertToColor/#kotlin.Int#kotlin.Int#kotlin.Int/PointingToDeclaration/-system-core/com.system32.systemCore.utils.discord/-discord-util/-companion/convert-to-color.html
-$dokka.location:com.system32.systemCore.utils.discord/DiscordUtil.Companion/convertToColor/#kotlin.String#kotlin.String#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.utils.discord/-discord-util/-companion/convert-to-color.html
-$dokka.location:com.system32.systemCore.utils.discord/DiscordUtil///PointingToDeclaration/-system-core/com.system32.systemCore.utils.discord/-discord-util/index.html
-$dokka.location:com.system32.systemCore.utils.discord/DiscordUtil/DiscordUtil/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils.discord/-discord-util/-discord-util.html
-$dokka.location:com.system32.systemCore.utils.discord/EmbedObject.Author///PointingToDeclaration/-system-core/com.system32.systemCore.utils.discord/-embed-object/-author/index.html
-$dokka.location:com.system32.systemCore.utils.discord/EmbedObject.Author/Author/#kotlin.String#kotlin.String?#kotlin.String?/PointingToDeclaration/-system-core/com.system32.systemCore.utils.discord/-embed-object/-author/-author.html
-$dokka.location:com.system32.systemCore.utils.discord/EmbedObject.Author/iconUrl/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils.discord/-embed-object/-author/icon-url.html
-$dokka.location:com.system32.systemCore.utils.discord/EmbedObject.Author/name/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils.discord/-embed-object/-author/name.html
-$dokka.location:com.system32.systemCore.utils.discord/EmbedObject.Author/url/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils.discord/-embed-object/-author/url.html
-$dokka.location:com.system32.systemCore.utils.discord/EmbedObject.Field///PointingToDeclaration/-system-core/com.system32.systemCore.utils.discord/-embed-object/-field/index.html
-$dokka.location:com.system32.systemCore.utils.discord/EmbedObject.Field/Field/#kotlin.String#kotlin.String#kotlin.Boolean/PointingToDeclaration/-system-core/com.system32.systemCore.utils.discord/-embed-object/-field/-field.html
-$dokka.location:com.system32.systemCore.utils.discord/EmbedObject.Field/inline/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils.discord/-embed-object/-field/inline.html
-$dokka.location:com.system32.systemCore.utils.discord/EmbedObject.Field/name/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils.discord/-embed-object/-field/name.html
-$dokka.location:com.system32.systemCore.utils.discord/EmbedObject.Field/value/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils.discord/-embed-object/-field/value.html
-$dokka.location:com.system32.systemCore.utils.discord/EmbedObject.Footer///PointingToDeclaration/-system-core/com.system32.systemCore.utils.discord/-embed-object/-footer/index.html
-$dokka.location:com.system32.systemCore.utils.discord/EmbedObject.Footer/Footer/#kotlin.String#kotlin.String?/PointingToDeclaration/-system-core/com.system32.systemCore.utils.discord/-embed-object/-footer/-footer.html
-$dokka.location:com.system32.systemCore.utils.discord/EmbedObject.Footer/iconUrl/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils.discord/-embed-object/-footer/icon-url.html
-$dokka.location:com.system32.systemCore.utils.discord/EmbedObject.Footer/text/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils.discord/-embed-object/-footer/text.html
-$dokka.location:com.system32.systemCore.utils.discord/EmbedObject.Image///PointingToDeclaration/-system-core/com.system32.systemCore.utils.discord/-embed-object/-image/index.html
-$dokka.location:com.system32.systemCore.utils.discord/EmbedObject.Image/Image/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.utils.discord/-embed-object/-image/-image.html
-$dokka.location:com.system32.systemCore.utils.discord/EmbedObject.Image/url/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils.discord/-embed-object/-image/url.html
-$dokka.location:com.system32.systemCore.utils.discord/EmbedObject.Thumbnail///PointingToDeclaration/-system-core/com.system32.systemCore.utils.discord/-embed-object/-thumbnail/index.html
-$dokka.location:com.system32.systemCore.utils.discord/EmbedObject.Thumbnail/Thumbnail/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.utils.discord/-embed-object/-thumbnail/-thumbnail.html
-$dokka.location:com.system32.systemCore.utils.discord/EmbedObject.Thumbnail/url/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils.discord/-embed-object/-thumbnail/url.html
-$dokka.location:com.system32.systemCore.utils.discord/EmbedObject///PointingToDeclaration/-system-core/com.system32.systemCore.utils.discord/-embed-object/index.html
-$dokka.location:com.system32.systemCore.utils.discord/EmbedObject/EmbedObject/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils.discord/-embed-object/-embed-object.html
-$dokka.location:com.system32.systemCore.utils.discord/EmbedObject/addField/#kotlin.String#kotlin.String#kotlin.Boolean/PointingToDeclaration/-system-core/com.system32.systemCore.utils.discord/-embed-object/add-field.html
-$dokka.location:com.system32.systemCore.utils.discord/EmbedObject/author/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils.discord/-embed-object/author.html
-$dokka.location:com.system32.systemCore.utils.discord/EmbedObject/color/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils.discord/-embed-object/color.html
-$dokka.location:com.system32.systemCore.utils.discord/EmbedObject/description/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils.discord/-embed-object/description.html
-$dokka.location:com.system32.systemCore.utils.discord/EmbedObject/fields/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils.discord/-embed-object/fields.html
-$dokka.location:com.system32.systemCore.utils.discord/EmbedObject/footer/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils.discord/-embed-object/footer.html
-$dokka.location:com.system32.systemCore.utils.discord/EmbedObject/image/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils.discord/-embed-object/image.html
-$dokka.location:com.system32.systemCore.utils.discord/EmbedObject/setAuthor/#kotlin.String#kotlin.String?#kotlin.String?/PointingToDeclaration/-system-core/com.system32.systemCore.utils.discord/-embed-object/set-author.html
-$dokka.location:com.system32.systemCore.utils.discord/EmbedObject/setColor/#java.awt.Color/PointingToDeclaration/-system-core/com.system32.systemCore.utils.discord/-embed-object/set-color.html
-$dokka.location:com.system32.systemCore.utils.discord/EmbedObject/setDescription/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.utils.discord/-embed-object/set-description.html
-$dokka.location:com.system32.systemCore.utils.discord/EmbedObject/setFooter/#kotlin.String#kotlin.String?/PointingToDeclaration/-system-core/com.system32.systemCore.utils.discord/-embed-object/set-footer.html
-$dokka.location:com.system32.systemCore.utils.discord/EmbedObject/setImage/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.utils.discord/-embed-object/set-image.html
-$dokka.location:com.system32.systemCore.utils.discord/EmbedObject/setThumbnail/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.utils.discord/-embed-object/set-thumbnail.html
-$dokka.location:com.system32.systemCore.utils.discord/EmbedObject/setTitle/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.utils.discord/-embed-object/set-title.html
-$dokka.location:com.system32.systemCore.utils.discord/EmbedObject/setUrl/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.utils.discord/-embed-object/set-url.html
-$dokka.location:com.system32.systemCore.utils.discord/EmbedObject/thumbnail/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils.discord/-embed-object/thumbnail.html
-$dokka.location:com.system32.systemCore.utils.discord/EmbedObject/title/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils.discord/-embed-object/title.html
-$dokka.location:com.system32.systemCore.utils.discord/EmbedObject/url/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils.discord/-embed-object/url.html
-$dokka.location:com.system32.systemCore.utils.discord/JSONObject///PointingToDeclaration/-system-core/com.system32.systemCore.utils.discord/-j-s-o-n-object/index.html
-$dokka.location:com.system32.systemCore.utils.discord/JSONObject/JSONObject/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils.discord/-j-s-o-n-object/-j-s-o-n-object.html
-$dokka.location:com.system32.systemCore.utils.discord/JSONObject/put/#kotlin.String#kotlin.Any?/PointingToDeclaration/-system-core/com.system32.systemCore.utils.discord/-j-s-o-n-object/put.html
-$dokka.location:com.system32.systemCore.utils.discord/JSONObject/toString/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils.discord/-j-s-o-n-object/to-string.html
-$dokka.location:com.system32.systemCore.utils.discord/Webhook///PointingToDeclaration/-system-core/com.system32.systemCore.utils.discord/-webhook/index.html
-$dokka.location:com.system32.systemCore.utils.discord/Webhook/Webhook/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.utils.discord/-webhook/-webhook.html
-$dokka.location:com.system32.systemCore.utils.discord/Webhook/addEmbed/#com.system32.systemCore.utils.discord.EmbedObject/PointingToDeclaration/-system-core/com.system32.systemCore.utils.discord/-webhook/add-embed.html
-$dokka.location:com.system32.systemCore.utils.discord/Webhook/execute/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils.discord/-webhook/execute.html
-$dokka.location:com.system32.systemCore.utils.discord/Webhook/setAvatarUrl/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.utils.discord/-webhook/set-avatar-url.html
-$dokka.location:com.system32.systemCore.utils.discord/Webhook/setContent/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.utils.discord/-webhook/set-content.html
-$dokka.location:com.system32.systemCore.utils.discord/Webhook/setTts/#kotlin.Boolean/PointingToDeclaration/-system-core/com.system32.systemCore.utils.discord/-webhook/set-tts.html
-$dokka.location:com.system32.systemCore.utils.discord/Webhook/setUsername/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.utils.discord/-webhook/set-username.html
 $dokka.location:com.system32.systemCore.utils.github////PointingToDeclaration/-system-core/com.system32.systemCore.utils.github/index.html
 $dokka.location:com.system32.systemCore.utils.github/GithubUpdater.Companion///PointingToDeclaration/-system-core/com.system32.systemCore.utils.github/-github-updater/-companion/index.html
 $dokka.location:com.system32.systemCore.utils.github/GithubUpdater///PointingToDeclaration/-system-core/com.system32.systemCore.utils.github/-github-updater/index.html
@@ -527,9 +398,7 @@ $dokka.location:com.system32.systemCore/SystemCore/legacyCommand/#kotlin.String#
 $dokka.location:com.system32.systemCore/SystemCore/placeholderAPISupport/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/placeholder-a-p-i-support.html
 $dokka.location:com.system32.systemCore/SystemCore/plugin/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/plugin.html
 com.system32.systemCore
-com.system32.systemCore.database
-com.system32.systemCore.database.builders
-com.system32.systemCore.database.table
+com.system32.systemCore.database.model
 com.system32.systemCore.managers.chat
 com.system32.systemCore.managers.commands
 com.system32.systemCore.managers.commands.parameterTypes
@@ -542,9 +411,7 @@ com.system32.systemCore.managers.regions.events
 com.system32.systemCore.managers.regions.model
 com.system32.systemCore.shade
 com.system32.systemCore.utils
-com.system32.systemCore.utils.cache
 com.system32.systemCore.utils.config
-com.system32.systemCore.utils.discord
 com.system32.systemCore.utils.github
 com.system32.systemCore.utils.minecraft
 com.system32.systemCore.utils.text
