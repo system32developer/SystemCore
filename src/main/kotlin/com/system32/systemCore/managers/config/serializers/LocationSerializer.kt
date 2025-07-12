@@ -1,5 +1,6 @@
 package com.system32.systemCore.managers.config.serializers
 
+import com.system32.systemCore.database.model.Driver
 import org.bukkit.Bukkit
 import org.bukkit.Location
 import org.spongepowered.configurate.ConfigurationNode
@@ -22,6 +23,7 @@ class LocationSerializer : TypeSerializer<Location> {
         val x = parts[1].toDoubleOrNull() ?: return null
         val y = parts[2].toDoubleOrNull() ?: return null
         val z = parts[3].toDoubleOrNull() ?: return null
+        Driver.MYSQL.driver
 
         val pitch = parts.getOrNull(4)?.toDoubleOrNull() ?: 0.0
         val yaw = parts.getOrNull(5)?.toDoubleOrNull() ?: 0.0
