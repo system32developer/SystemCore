@@ -9,6 +9,7 @@ import com.system32.systemCore.managers.regions.model.RegionTree
 import com.system32.systemCore.managers.regions.model.Vector3
 import org.bukkit.Bukkit
 import org.bukkit.Location
+import org.bukkit.block.Block
 import org.bukkit.entity.Player
 import org.bukkit.event.Cancellable
 import org.bukkit.event.Event
@@ -31,8 +32,26 @@ object RegionManager : Listener {
         }
     }
 
+    fun unregister(vararg regions: Region) {
+        regions.forEach { region ->
+            val tree = trees[region.world] ?: return@forEach
+            tree.remove(region)
+            if (tree.isEmpty()) {
+                trees.remove(region.world)
+            }
+        }
+    }
+
     fun getRegionsAt(world: String, x: Double, y: Double, z: Double): List<Region> {
         return trees[world]?.query(x, y, z) ?: emptyList()
+    }
+
+    fun getRegionsAt(player: Player): List<Region> {
+        return getRegionsAt(player.location)
+    }
+
+    fun getRegionsAt(block: Block): List<Region> {
+        return getRegionsAt(block.location)
     }
 
     fun getRegionsAt(location: Location): List<Region> {
