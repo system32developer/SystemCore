@@ -8,7 +8,7 @@ $dokka.location:com.system32.systemCore.database.model/Driver.SQLITE///PointingT
 $dokka.location:com.system32.systemCore.database.model/Driver///PointingToDeclaration/-system-core/com.system32.systemCore.database.model/-driver/index.html
 $dokka.location:com.system32.systemCore.database.model/Driver/driver/#/PointingToDeclaration/-system-core/com.system32.systemCore.database.model/-driver/driver.html
 $dokka.location:com.system32.systemCore.database.model/Driver/entries/#/PointingToDeclaration/-system-core/com.system32.systemCore.database.model/-driver/entries.html
-$dokka.location:com.system32.systemCore.database.model/Driver/get/#/PointingToDeclaration/-system-core/com.system32.systemCore.database.model/-driver/get.html
+$dokka.location:com.system32.systemCore.database.model/Driver/url/#/PointingToDeclaration/-system-core/com.system32.systemCore.database.model/-driver/url.html
 $dokka.location:com.system32.systemCore.database.model/Driver/valueOf/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.database.model/-driver/value-of.html
 $dokka.location:com.system32.systemCore.database.model/Driver/values/#/PointingToDeclaration/-system-core/com.system32.systemCore.database.model/-driver/values.html
 $dokka.location:com.system32.systemCore.managers.chat////PointingToDeclaration/-system-core/com.system32.systemCore.managers.chat/index.html
