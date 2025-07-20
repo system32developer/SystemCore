@@ -11,6 +11,10 @@ $dokka.location:com.system32.systemCore.database.model/Driver/entries/#/Pointing
 $dokka.location:com.system32.systemCore.database.model/Driver/url/#/PointingToDeclaration/-system-core/com.system32.systemCore.database.model/-driver/url.html
 $dokka.location:com.system32.systemCore.database.model/Driver/valueOf/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.database.model/-driver/value-of.html
 $dokka.location:com.system32.systemCore.database.model/Driver/values/#/PointingToDeclaration/-system-core/com.system32.systemCore.database.model/-driver/values.html
+$dokka.location:com.system32.systemCore.database////PointingToDeclaration/-system-core/com.system32.systemCore.database/index.html
+$dokka.location:com.system32.systemCore.database/DatabaseUtils///PointingToDeclaration/-system-core/com.system32.systemCore.database/-database-utils/index.html
+$dokka.location:com.system32.systemCore.database/DatabaseUtils/localDatabase/#/PointingToDeclaration/-system-core/com.system32.systemCore.database/-database-utils/local-database.html
+$dokka.location:com.system32.systemCore.database/DatabaseUtils/localDatabaseUrl/#/PointingToDeclaration/-system-core/com.system32.systemCore.database/-database-utils/local-database-url.html
 $dokka.location:com.system32.systemCore.managers.chat////PointingToDeclaration/-system-core/com.system32.systemCore.managers.chat/index.html
 $dokka.location:com.system32.systemCore.managers.chat/ChatAwaiterManager///PointingToDeclaration/-system-core/com.system32.systemCore.managers.chat/-chat-awaiter-manager/index.html
 $dokka.location:com.system32.systemCore.managers.chat/ChatAwaiterManager/addAwaiter/#kotlin.String#java.util.function.Consumer[com.system32.systemCore.managers.chat.ChatInput]/PointingToDeclaration/-system-core/com.system32.systemCore.managers.chat/-chat-awaiter-manager/add-awaiter.html
@@ -33,7 +37,9 @@ $dokka.location:com.system32.systemCore.managers.commands.parameterTypes////Poin
 $dokka.location:com.system32.systemCore.managers.commands.parameterTypes/OnlinePlayer///PointingToDeclaration/-system-core/com.system32.systemCore.managers.commands.parameterTypes/-online-player/index.html
 $dokka.location:com.system32.systemCore.managers.commands.parameterTypes/OnlinePlayer/OnlinePlayer/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.managers.commands.parameterTypes/-online-player/-online-player.html
 $dokka.location:com.system32.systemCore.managers.commands.parameterTypes/OnlinePlayer/asPlayer/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.commands.parameterTypes/-online-player/as-player.html
+$dokka.location:com.system32.systemCore.managers.commands.parameterTypes/OnlinePlayer/name/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.commands.parameterTypes/-online-player/name.html
 $dokka.location:com.system32.systemCore.managers.commands.parameterTypes/OnlinePlayer/player/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.commands.parameterTypes/-online-player/player.html
+$dokka.location:com.system32.systemCore.managers.commands.parameterTypes/OnlinePlayer/uniqueId/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.commands.parameterTypes/-online-player/unique-id.html
 $dokka.location:com.system32.systemCore.managers.commands.parameterTypes/OnlinePlayerParameter///PointingToDeclaration/-system-core/com.system32.systemCore.managers.commands.parameterTypes/-online-player-parameter/index.html
 $dokka.location:com.system32.systemCore.managers.commands.parameterTypes/OnlinePlayerParameter/OnlinePlayerParameter/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.commands.parameterTypes/-online-player-parameter/-online-player-parameter.html
 $dokka.location:com.system32.systemCore.managers.commands.parameterTypes/OnlinePlayerParameter/defaultSuggestions/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.commands.parameterTypes/-online-player-parameter/default-suggestions.html
@@ -398,6 +404,7 @@ $dokka.location:com.system32.systemCore/SystemCore/legacyCommand/#kotlin.String#
 $dokka.location:com.system32.systemCore/SystemCore/placeholderAPISupport/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/placeholder-a-p-i-support.html
 $dokka.location:com.system32.systemCore/SystemCore/plugin/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/plugin.html
 com.system32.systemCore
+com.system32.systemCore.database
 com.system32.systemCore.database.model
 com.system32.systemCore.managers.chat
 com.system32.systemCore.managers.commands
