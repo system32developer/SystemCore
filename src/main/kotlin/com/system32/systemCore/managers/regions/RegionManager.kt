@@ -32,8 +32,10 @@ object RegionManager : Listener {
         }
     }
 
-    fun unregister(vararg regions: Region) {
+    fun unregister(vararg regions: Region, condition: ((Region) -> Boolean)? = null) {
         regions.forEach { region ->
+            if (condition != null && !condition(region)) return@forEach
+
             val tree = trees[region.world] ?: return@forEach
             tree.remove(region)
             if (tree.isEmpty()) {
@@ -41,6 +43,7 @@ object RegionManager : Listener {
             }
         }
     }
+
 
     fun getRegionsAt(world: String, x: Double, y: Double, z: Double): List<Region> {
         return trees[world]?.query(x, y, z) ?: emptyList()

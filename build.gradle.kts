@@ -69,7 +69,6 @@ dependencies {
     api("org.spongepowered:configurate-core:4.2.0")
     api("org.jetbrains.exposed:exposed-core:1.0.0-beta-3")
     api("org.jetbrains.exposed:exposed-jdbc:1.0.0-beta-3")
-
 }
 
 val targetJavaVersion = 21
@@ -100,7 +99,6 @@ tasks.register<Jar>("sourcesJar") {
     from(sourceSets.main.get().allSource)
 }
 
-
 publishing {
     publications {
         create<MavenPublication>("maven") {
@@ -112,6 +110,7 @@ publishing {
             artifact(tasks.getByName("sourcesJar"))
         }
     }
+
     repositories {
         maven {
             url = uri("http://repo.system32dev.site/repository/maven-releases/")
