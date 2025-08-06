@@ -58,8 +58,7 @@ repositories {
 
 dependencies {
     compileOnly("io.papermc.paper:paper-api:1.21.1-R0.1-SNAPSHOT")
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-    implementation("com.tchristofferson:ConfigUpdater:2.2-SNAPSHOT")
+    compileOnly("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     compileOnly("me.clip:placeholderapi:2.11.6")
     api("dev.triumphteam:triumph-gui:3.1.11")
     api("io.github.revxrsal:lamp.common:4.0.0-rc.12")
@@ -67,8 +66,8 @@ dependencies {
     api("io.github.revxrsal:lamp.bukkit:4.0.0-rc.12")
     api("org.spongepowered:configurate-yaml:4.2.0")
     api("org.spongepowered:configurate-core:4.2.0")
-    api("org.jetbrains.exposed:exposed-core:1.0.0-beta-3")
-    api("org.jetbrains.exposed:exposed-jdbc:1.0.0-beta-3")
+    api("org.jetbrains.exposed:exposed-core:1.0.0-beta-5")
+    api("org.jetbrains.exposed:exposed-jdbc:1.0.0-beta-5")
 }
 
 val targetJavaVersion = 21

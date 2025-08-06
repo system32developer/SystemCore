@@ -18,7 +18,6 @@ class FeedbackSerializer  : TypeSerializer<Feedback> {
         if (obj == null) {
             node.set(null)
             println("No Component to save, setting node to null")
-            Driver.H2
             return
         }
 

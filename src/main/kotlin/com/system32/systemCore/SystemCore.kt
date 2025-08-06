@@ -1,7 +1,6 @@
 package com.system32.systemCore
 
 import com.system32.systemCore.managers.chat.ChatAwaiterManager
-import com.system32.systemCore.managers.chat.ChatTriggerManager
 import com.system32.systemCore.managers.cooldown.CooldownManager
 import com.system32.systemCore.utils.minecraft.ChatHeadUtil
 import org.bukkit.command.CommandExecutor
@@ -30,10 +29,6 @@ object SystemCore {
 
     var githubUser = "System32"
     var githubRepo = "SystemCore"
-
-    var githubSupport: Boolean = false
-        private set
-        get() = !(githubUser == "System32" && githubRepo == "SystemCore")
 
     /**
      * Registers an event listener to the plugin's event system.
