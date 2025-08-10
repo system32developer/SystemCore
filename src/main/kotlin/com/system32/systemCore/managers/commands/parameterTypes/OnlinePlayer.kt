@@ -8,10 +8,8 @@ import revxrsal.commands.node.ExecutionContext
 import revxrsal.commands.parameter.ParameterType
 import revxrsal.commands.stream.MutableStringStream
 
-class OnlinePlayer(val player: String) {
-    val asPlayer get() = Bukkit.getPlayer(player) ?: throw CommandErrorException("Player with name '$player' is not online or does not exist.")
-    
-    val name get() = player
+class OnlinePlayer(val name: String) {
+    val asPlayer get() = Bukkit.getPlayer(name) ?: throw CommandErrorException("Player with name '$player' is not online or does not exist.")
 
     val uniqueId get() = asPlayer.uniqueId
 

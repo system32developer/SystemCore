@@ -3,6 +3,7 @@ package com.system32.systemCore.managers.other
 import com.system32.systemCore.SystemCore
 import com.system32.systemCore.utils.minecraft.ServerUtil.taskLater
 import com.system32.systemCore.utils.text.TextUtil.color
+import me.clip.placeholderapi.PlaceholderAPI
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.title.Title
 import org.bukkit.Bukkit
@@ -32,7 +33,9 @@ class ActionManager (private val actions: MutableList<String>) {
     private fun executeNext(player: Player, remaining: MutableList<String>) {
         if (remaining.isEmpty()) return
 
-        val raw = remaining.removeAt(0)
+
+        var raw = remaining.removeAt(0)
+        if(SystemCore.placeholderAPISupport) raw = PlaceholderAPI.setPlaceholders(player, raw)
         val type = extractType(raw)?.let {
             runCatching { ActionType.valueOf(it.uppercase()) }.getOrNull()
         } ?: run {
@@ -66,7 +69,7 @@ class ActionManager (private val actions: MutableList<String>) {
                 return
             }
             ActionType.TITLE -> {
-                val parts = data.split(";", limit = 3)
+                val parts = data.split(";", limit = 5)
                 val title = if (parts.size > 0) color(parts[0]) else Component.empty()
                 val subtitle = if (parts.size > 1) color(parts[1]) else Component.empty()
                 val fadeIn = parts.getOrNull(2)?.toLongOrNull() ?: 10
@@ -90,12 +93,19 @@ class ActionManager (private val actions: MutableList<String>) {
     }
 
     private fun applyPlaceholders(message: String, player: Player): String {
-        return message
-            .replace("%player%", player.name)
-            .replace("%world%", player.world.name)
-            .replace("%x%", player.location.blockX.toString())
-            .replace("%y%", player.location.blockY.toString())
-            .replace("%z%", player.location.blockZ.toString())
+        val placeholders = mapOf(
+            "%player%" to player.name,
+            "%world%" to player.world.name,
+            "%x%" to player.location.blockX.toString(),
+            "%y%" to player.location.blockY.toString(),
+            "%z%" to player.location.blockZ.toString()
+        )
+
+        var result = message
+        for ((key, value) in placeholders) {
+            result = result.replace(key, value)
+        }
+        return result
     }
 
     enum class ActionType {
