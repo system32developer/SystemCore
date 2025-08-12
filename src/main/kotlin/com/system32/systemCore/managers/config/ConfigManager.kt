@@ -18,7 +18,9 @@ import org.spongepowered.configurate.yaml.NodeStyle
 import org.spongepowered.configurate.yaml.YamlConfigurationLoader
 import java.io.File
 
-class ConfigManager {
+class ConfigManager(
+    private val baseFolder: File = SystemCore.plugin.dataFolder
+) {
 
     private val plugin = SystemCore.plugin
     private val configs = mutableMapOf<String, ConfigHolder<out Any>>()
@@ -51,8 +53,8 @@ class ConfigManager {
 
     fun build() {
         configs.forEach { (_, holder) ->
-            val file = File(plugin.dataFolder, "${holder.name}.yml")
-            if (!plugin.dataFolder.exists()) plugin.dataFolder.mkdirs()
+            val file = File(baseFolder, "${holder.name}.yml")
+            if (!baseFolder.exists()) baseFolder.mkdirs()
             if(!file.exists()) {
                 try {
                     file.createNewFile()
