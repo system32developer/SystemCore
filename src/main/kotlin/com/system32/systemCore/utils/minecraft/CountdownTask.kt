@@ -8,6 +8,7 @@ class CountdownTask(
     private val async: Boolean = false
 ) {
     private val secondCallbacks = mutableMapOf<Int, MutableList<() -> Unit>>()
+    private var onStart: (() -> Unit)? = null
     private var onTick: ((Int) -> Unit)? = null
     private var onFinish: (() -> Unit)? = null
     private var task: BukkitRunnable? = null
@@ -19,6 +20,8 @@ class CountdownTask(
     val isRunning: Boolean
         get() = task?.isCancelled == false
 
+    fun onStart(block: () -> Unit) = apply { onStart = block }
+
     fun onTick(block: (Int) -> Unit) = apply { onTick = block }
 
     fun at(second: Int, block: () -> Unit) = apply {
@@ -29,6 +32,8 @@ class CountdownTask(
 
     fun start(): CountdownTask {
         _timeLeft = duration
+
+        onStart?.invoke()
 
         task = object : BukkitRunnable() {
             override fun run() {
@@ -44,7 +49,10 @@ class CountdownTask(
             }
         }
 
-        if (async) task!!.runTaskTimerAsynchronously(SystemCore.plugin, 0L, 20L) else task!!.runTaskTimer(SystemCore.plugin, 0L, 20L)
+        if (async)
+            task!!.runTaskTimerAsynchronously(SystemCore.plugin, 0L, 20L)
+        else
+            task!!.runTaskTimer(SystemCore.plugin, 0L, 20L)
 
         return this
     }
