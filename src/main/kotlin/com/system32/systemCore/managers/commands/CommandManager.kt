@@ -36,13 +36,13 @@ import revxrsal.commands.parameter.ParameterType
  * ```
  */
 class CommandManager {
-    val plugin = SystemCore.plugin
+    private val plugin = SystemCore.plugin
 
-    val builder = BukkitLamp.builder(plugin)
+    private val builder = BukkitLamp.builder(plugin)
     private var _lamp: Lamp<BukkitCommandActor>? = null
-    val parameters = mutableMapOf<Class<*>, ParameterType<BukkitCommandActor, *>>()
+    private val parameters = mutableMapOf<Class<*>, ParameterType<BukkitCommandActor, *>>()
 
-    val lamp: Lamp<BukkitCommandActor>
+    private val lamp: Lamp<BukkitCommandActor>
         get() {
             return _lamp!!
         }
@@ -108,5 +108,4 @@ class CommandManager {
             lamp.register(command)
         }
     }
-
 }

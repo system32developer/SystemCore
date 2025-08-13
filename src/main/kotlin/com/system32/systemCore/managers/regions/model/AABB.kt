@@ -21,10 +21,7 @@ data class AABB(val min: Vector3, val max: Vector3) {
         }
 
         fun of(a: Location, b: Location): AABB {
-            return AABB(
-                Vector3(a),
-                Vector3(b)
-            )
+            return of(Vector3(a), Vector3(b))
         }
     }
 

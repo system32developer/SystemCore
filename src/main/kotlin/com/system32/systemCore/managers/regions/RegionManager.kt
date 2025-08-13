@@ -72,13 +72,13 @@ object RegionManager : Listener {
     }
 
     @EventHandler
-    fun onPlayerMove(event: PlayerMoveEvent) {
+    private fun onPlayerMove(event: PlayerMoveEvent) {
         if (event.from.block == event.to.block) return
         handlePlayerMovement(event.player, event.to, event)
     }
 
     @EventHandler
-    fun onPlayerTeleport(event: PlayerTeleportEvent) {
+    private fun onPlayerTeleport(event: PlayerTeleportEvent) {
         if (event.from.block == event.to.block) return
         handlePlayerMovement(event.player, event.to, event)
     }
@@ -123,7 +123,7 @@ object RegionManager : Listener {
 
 
     @EventHandler
-    fun onPlayerJoin(event: PlayerJoinEvent) {
+    private fun onPlayerJoin(event: PlayerJoinEvent) {
         val player = event.player
         val uuid = player.uniqueId
         val location = player.location
@@ -144,7 +144,7 @@ object RegionManager : Listener {
     }
 
     @EventHandler
-    fun onPlayerQuit(event: PlayerQuitEvent) {
+    private fun onPlayerQuit(event: PlayerQuitEvent) {
         val player = event.player
         val uuid = player.uniqueId
 
@@ -163,7 +163,7 @@ object RegionManager : Listener {
     }
 
 
-    fun <T : Event> T.call(): T {
+    private fun <T : Event> T.call(): T {
         Bukkit.getPluginManager().callEvent(this)
         return this
     }
