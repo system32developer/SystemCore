@@ -1,9 +1,13 @@
 package com.system32.systemCore.managers.config.serializers.models
 
+import com.system32.systemCore.utils.text.TextUtil.asText
 import com.system32.systemCore.utils.text.TextUtil.color
 import net.kyori.adventure.audience.Audience
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.TextReplacementConfig
+import net.kyori.adventure.text.minimessage.MiniMessage
+import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder
+import net.kyori.adventure.text.minimessage.tag.resolver.TagResolver
 import org.bukkit.Bukkit
 import org.bukkit.Location
 import org.bukkit.command.CommandSender
@@ -18,7 +22,7 @@ import java.util.regex.Pattern
  *
  * @property message The raw message string, written in MiniMessage format.
  */
-class Feedback(val message: List<String>) {
+class Feedback(private val message: List<String>) {
 
     /**
      * Creates a [Feedback] instance from a single MiniMessage-formatted string.
@@ -180,21 +184,20 @@ class Feedback(val message: List<String>) {
     /**
      * Sends the message to a specific audience with placeholders replaced.
      *
-     * @param audience The target audience (can be a player, console, commandsender, entity, server, world, team)
      * @param placeholders A map of placeholders to replace in the message.
      */
 
     private fun Component.withPlaceholders(placeholders: Map<String, String>): Component {
-        var comp = this
-        placeholders.forEach { (key, value) ->
+        val resolvers = placeholders.map { (key, value) -> Placeholder.parsed(key, value) }
+        /*placeholders.forEach { (key, value) ->
             comp = comp.replaceText(
                 TextReplacementConfig.builder()
                     .match(Pattern.compile("%$key%"))
                     .replacement(value)
                     .build()
             )
-        }
-        return comp
+        }*/
+        return MiniMessage.miniMessage().deserialize(asText(this), TagResolver.resolver(resolvers))
     }
 
 }
