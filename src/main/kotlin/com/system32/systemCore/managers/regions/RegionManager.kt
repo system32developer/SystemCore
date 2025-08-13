@@ -44,6 +44,13 @@ object RegionManager : Listener {
         }
     }
 
+    fun unregister(vararg regions: String) {
+        regions.forEach { regionId ->
+            val region = getRegionById(regionId) ?: return@forEach
+            unregister(region)
+        }
+    }
+
 
     fun getRegionsAt(world: String, x: Double, y: Double, z: Double): List<Region> {
         return trees[world]?.query(x, y, z) ?: emptyList()
