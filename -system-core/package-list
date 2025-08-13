@@ -229,6 +229,7 @@ $dokka.location:com.system32.systemCore.utils.minecraft/CountdownTask/at/#kotlin
 $dokka.location:com.system32.systemCore.utils.minecraft/CountdownTask/cancel/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-countdown-task/cancel.html
 $dokka.location:com.system32.systemCore.utils.minecraft/CountdownTask/isRunning/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-countdown-task/is-running.html
 $dokka.location:com.system32.systemCore.utils.minecraft/CountdownTask/onFinish/#kotlin.Function0[kotlin.Unit]/PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-countdown-task/on-finish.html
+$dokka.location:com.system32.systemCore.utils.minecraft/CountdownTask/onStart/#kotlin.Function0[kotlin.Unit]/PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-countdown-task/on-start.html
 $dokka.location:com.system32.systemCore.utils.minecraft/CountdownTask/onTick/#kotlin.Function1[kotlin.Int,kotlin.Unit]/PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-countdown-task/on-tick.html
 $dokka.location:com.system32.systemCore.utils.minecraft/CountdownTask/start/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-countdown-task/start.html
 $dokka.location:com.system32.systemCore.utils.minecraft/CountdownTask/timeLeft/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-countdown-task/time-left.html
