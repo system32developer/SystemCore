@@ -1,5 +1,7 @@
 package com.system32.systemCore.managers.commands.parameterTypes
 
+import com.system32.systemCore.utils.text.TextUtil.color
+import net.kyori.adventure.text.TextReplacementConfig
 import org.bukkit.Bukkit
 import revxrsal.commands.autocomplete.SuggestionProvider
 import revxrsal.commands.bukkit.actor.BukkitCommandActor

@@ -8,6 +8,7 @@ import org.bukkit.Bukkit
 import org.bukkit.Location
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
+import java.util.regex.Pattern
 
 /**
  * Represents a preformatted message that can be sent to players, the console, or any [CommandSender].
@@ -114,4 +115,86 @@ class Feedback(val message: List<String>) {
     fun broadcast(center: Location, radius: Double) {
         center.getNearbyPlayers(radius).forEach { target -> coloredMessage.forEach { target.sendMessage(it) } }
     }
+
+    /**
+     * Sends the message to a specific audience with placeholders replaced.
+     *
+     * @param audience The target audience (can be a player, console, commandsender, entity, server, world, team)
+     * @param placeholders A map of placeholders to replace in the message.
+     */
+
+    fun send(audience: Audience, placeholders: Map<String, String>) {
+        coloredMessage.forEach { audience.sendMessage(it.withPlaceholders(placeholders)) }
+    }
+
+    /**
+     * Sends the message to multiple audiences with placeholders replaced.
+     *
+     * @param audience Vararg of [Audience] to send the message to.
+     * @param placeholders A map of placeholders to replace in the message.
+     */
+
+    fun send(audience: Iterable<Audience>, placeholders: Map<String, String>) {
+        audience.forEach { target -> coloredMessage.forEach { target.sendMessage(it.withPlaceholders(placeholders)) } }
+    }
+
+    /**
+     * Sends the message to players near a given player within a certain radius, with placeholders replaced.
+     *
+     * @param center The central player used for distance calculation.
+     * @param radius The maximum distance to receive the message.
+     * @param placeholders A map of placeholders to replace in the message.
+     */
+
+    fun send(center: Player, radius: Double, placeholders: Map<String, String>) {
+        center.location.getNearbyPlayers(radius).forEach { target ->
+            coloredMessage.forEach { target.sendMessage(it.withPlaceholders(placeholders)) }
+        }
+    }
+
+    /**
+     * Sends the message to all online players with placeholders replaced.
+     *
+     * @param placeholders A map of placeholders to replace in the message.
+     */
+
+    fun broadcast(placeholders: Map<String, String>) {
+        Bukkit.getOnlinePlayers().forEach { target ->
+            coloredMessage.forEach { target.sendMessage(it.withPlaceholders(placeholders)) }
+        }
+    }
+
+    /**
+     * Sends the message to all online players if the given condition is true, with placeholders replaced.
+     *
+     * @param condition Boolean condition to check.
+     * @param placeholders A map of placeholders to replace in the message.
+     */
+
+    fun broadcast(center: Location, radius: Double, placeholders: Map<String, String>) {
+        center.getNearbyPlayers(radius).forEach { target ->
+            coloredMessage.forEach { target.sendMessage(it.withPlaceholders(placeholders)) }
+        }
+    }
+
+    /**
+     * Sends the message to a specific audience with placeholders replaced.
+     *
+     * @param audience The target audience (can be a player, console, commandsender, entity, server, world, team)
+     * @param placeholders A map of placeholders to replace in the message.
+     */
+
+    private fun Component.withPlaceholders(placeholders: Map<String, String>): Component {
+        var comp = this
+        placeholders.forEach { (key, value) ->
+            comp = comp.replaceText(
+                TextReplacementConfig.builder()
+                    .match(Pattern.compile("%$key%"))
+                    .replacement(value)
+                    .build()
+            )
+        }
+        return comp
+    }
+
 }

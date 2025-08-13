@@ -7,7 +7,7 @@ class CountdownTask(
     private val duration: Int,
     private val async: Boolean = false
 ) {
-    private val secondCallbacks = mutableMapOf<Int, MutableList<() -> Unit>>()
+    private val secondCallbacks = mutableMapOf<Int, MutableList<(Int) -> Unit>>()
     private var onStart: (() -> Unit)? = null
     private var onTick: ((Int) -> Unit)? = null
     private var onFinish: (() -> Unit)? = null
@@ -24,8 +24,15 @@ class CountdownTask(
 
     fun onTick(block: (Int) -> Unit) = apply { onTick = block }
 
-    fun at(second: Int, block: () -> Unit) = apply {
-        secondCallbacks.getOrPut(second) { mutableListOf() }.add(block)
+    fun at(vararg seconds: Int, block: (Int) -> Unit) = apply {
+        for (second in seconds) {
+            secondCallbacks.getOrPut(second) { mutableListOf() }.add(block)
+        }
+    }
+
+    fun atHalf(block: (Int) -> Unit) = apply {
+        val half = duration / 2
+        secondCallbacks.getOrPut(half) { mutableListOf() }.add(block)
     }
 
     fun onFinish(block: () -> Unit) = apply { onFinish = block }
@@ -44,7 +51,7 @@ class CountdownTask(
                 }
 
                 onTick?.invoke(_timeLeft)
-                secondCallbacks[_timeLeft]?.forEach { it() }
+                secondCallbacks[_timeLeft]?.forEach { it(_timeLeft) }
                 _timeLeft--
             }
         }
