@@ -22,7 +22,7 @@ import java.util.regex.Pattern
  *
  * @property message The raw message string, written in MiniMessage format.
  */
-class Feedback(private val message: List<String>) {
+class Feedback(val message: List<String>) {
 
     /**
      * Creates a [Feedback] instance from a single MiniMessage-formatted string.
