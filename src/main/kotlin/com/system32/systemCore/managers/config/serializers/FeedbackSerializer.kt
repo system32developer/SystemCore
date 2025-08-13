@@ -9,7 +9,7 @@ import java.lang.reflect.Type
 class FeedbackSerializer  : TypeSerializer<Feedback> {
 
     override fun deserialize(type: Type?, node: ConfigurationNode?): Feedback? {
-        if (node == null || node.string == null) return null
+        if (node == null) return null
         return Feedback(if(node.isList) node.getList(String::class.java)!! else listOf(node.string?: "No message provided"))
     }
 
