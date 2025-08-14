@@ -4,9 +4,11 @@ import com.system32.systemCore.SystemCore
 import me.clip.placeholderapi.PlaceholderAPI
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.TextComponent
+import net.kyori.adventure.text.format.TextDecoration
 import net.kyori.adventure.text.minimessage.MiniMessage
 import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer
 import net.kyori.adventure.text.serializer.plain.PlainTextComponentSerializer
+import org.bukkit.ChatColor
 import org.bukkit.entity.Player
 import java.text.DecimalFormat
 import java.util.function.Consumer
@@ -31,13 +33,14 @@ object TextUtil {
         var message = input
         val mini = MiniMessage.miniMessage()
         if(SystemCore.placeholderAPISupport) message = PlaceholderAPI.setPlaceholders(target, message)
-        if(input.contains("&") || input.contains("§")) {
-            message = message.replace('§', '&')
+        if(input.contains("&")) {
+            message = ChatColor.translateAlternateColorCodes('&', input)
             val legacy: TextComponent = LegacyComponentSerializer.legacyAmpersand().deserialize(message);
             message = mini.serialize(legacy).replace("\\", "");
         }
-        if(!message.startsWith("<!italic>")) message = "<!italic>$message"
-        return if (message.isEmpty()) Component.empty() else mini.deserialize(message)
+
+        return if (message.isEmpty()) Component.empty() else mini.deserialize(message).decorationIfAbsent(TextDecoration.ITALIC ,
+            TextDecoration.State.FALSE)
     }
 
     /**

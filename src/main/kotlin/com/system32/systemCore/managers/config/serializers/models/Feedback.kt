@@ -44,6 +44,8 @@ class Feedback(val message: List<String>) {
     val isList: Boolean
         get() = message.size > 1
 
+    val inlineText : String = message.joinToString(separator = "\n")
+
     /**
      * The colored and parsed [Component] version of the message, lazily initialized.
      */
@@ -128,7 +130,7 @@ class Feedback(val message: List<String>) {
      */
 
     fun send(audience: Audience, placeholders: Map<String, String>) {
-        coloredMessage.forEach { audience.sendMessage(it.withPlaceholders(placeholders)) }
+        coloredMessage.forEach { audience.sendMessage(inlineText.withPlaceholders(placeholders)) }
     }
 
     /**
@@ -139,7 +141,7 @@ class Feedback(val message: List<String>) {
      */
 
     fun send(audience: Iterable<Audience>, placeholders: Map<String, String>) {
-        audience.forEach { target -> coloredMessage.forEach { target.sendMessage(it.withPlaceholders(placeholders)) } }
+        audience.forEach { target -> coloredMessage.forEach { target.sendMessage(inlineText.withPlaceholders(placeholders)) } }
     }
 
     /**
@@ -152,7 +154,7 @@ class Feedback(val message: List<String>) {
 
     fun send(center: Player, radius: Double, placeholders: Map<String, String>) {
         center.location.getNearbyPlayers(radius).forEach { target ->
-            coloredMessage.forEach { target.sendMessage(it.withPlaceholders(placeholders)) }
+            coloredMessage.forEach { target.sendMessage(inlineText.withPlaceholders(placeholders)) }
         }
     }
 
@@ -164,7 +166,7 @@ class Feedback(val message: List<String>) {
 
     fun broadcast(placeholders: Map<String, String>) {
         Bukkit.getOnlinePlayers().forEach { target ->
-            coloredMessage.forEach { target.sendMessage(it.withPlaceholders(placeholders)) }
+            coloredMessage.forEach { target.sendMessage(inlineText.withPlaceholders(placeholders)) }
         }
     }
 
@@ -177,7 +179,7 @@ class Feedback(val message: List<String>) {
 
     fun broadcast(center: Location, radius: Double, placeholders: Map<String, String>) {
         center.getNearbyPlayers(radius).forEach { target ->
-            coloredMessage.forEach { target.sendMessage(it.withPlaceholders(placeholders)) }
+            coloredMessage.forEach { target.sendMessage(inlineText.withPlaceholders(placeholders)) }
         }
     }
 
@@ -187,17 +189,9 @@ class Feedback(val message: List<String>) {
      * @param placeholders A map of placeholders to replace in the message.
      */
 
-    private fun Component.withPlaceholders(placeholders: Map<String, String>): Component {
-        val resolvers = placeholders.map { (key, value) -> Placeholder.parsed(key, value) }
-        /*placeholders.forEach { (key, value) ->
-            comp = comp.replaceText(
-                TextReplacementConfig.builder()
-                    .match(Pattern.compile("%$key%"))
-                    .replacement(value)
-                    .build()
-            )
-        }*/
-        return MiniMessage.miniMessage().deserialize(asText(this), TagResolver.resolver(resolvers))
+    private fun String.withPlaceholders(placeholders: Map<String, String>): Component {
+
+        return MiniMessage.miniMessage().deserialize(this, *placeholders.map { (key, value) -> Placeholder.parsed(key, value) }.toTypedArray())
     }
 
 }
