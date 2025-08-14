@@ -49,13 +49,13 @@ class Feedback(val message: List<String>) {
     /**
      * The colored and parsed [Component] version of the message, lazily initialized.
      */
-    private val coloredMessage: List<Component> by lazy { color(message) }
+    private val component: Component by lazy { color(inlineText) }
 
     /**
      * Sends the message to the console.
      */
     fun send() {
-        coloredMessage.forEach { Bukkit.getConsoleSender().sendMessage(it) }
+        Bukkit.getConsoleSender().sendMessage(component)
     }
 
     /**
@@ -65,7 +65,7 @@ class Feedback(val message: List<String>) {
      * @param audience The target audience (can be a player, console, commandsender, entity, server, world, team)
      */
     fun sendIf(condition: Boolean, audience: Audience) {
-        if (condition) coloredMessage.forEach { audience.sendMessage(it) }
+        if (condition) audience.sendMessage(component)
     }
 
     /**
@@ -74,7 +74,7 @@ class Feedback(val message: List<String>) {
      * @param audience Vararg of [Audience] to send the message to.
      */
     fun send(vararg audience: Audience) {
-        audience.forEach { target -> coloredMessage.forEach { target.sendMessage(it) } }
+        audience.forEach { target -> target.sendMessage(component) }
     }
 
     /**
@@ -83,7 +83,7 @@ class Feedback(val message: List<String>) {
      * @param audience Iterable of [Audience] to send the message to.
      */
     fun send(audience: Iterable<Audience>) {
-        audience.forEach { target -> coloredMessage.forEach { target.sendMessage(it) } }
+        audience.forEach { target -> target.sendMessage(component) }
     }
 
     /**
@@ -93,14 +93,14 @@ class Feedback(val message: List<String>) {
      * @param radius The maximum distance to receive the message.
      */
     fun send(center: Player, radius: Double) {
-        center.location.getNearbyPlayers(radius).forEach { target -> coloredMessage.forEach { target.sendMessage(it) } }
+        center.location.getNearbyPlayers(radius).forEach { target ->  target.sendMessage(component) }
     }
 
     /**
      * Sends the message to all online players.
      */
     fun broadcast() {
-        Bukkit.getOnlinePlayers().forEach { target -> coloredMessage.forEach { target.sendMessage(it) } }
+        Bukkit.getOnlinePlayers().forEach { target -> target.sendMessage(component) }
     }
 
     /**
@@ -109,7 +109,7 @@ class Feedback(val message: List<String>) {
      * @param condition Boolean condition to check.
      */
     fun broadcastIf(condition: Boolean) {
-        if (condition) Bukkit.getOnlinePlayers().forEach { target -> coloredMessage.forEach { target.sendMessage(it) } }
+        if (condition) Bukkit.getOnlinePlayers().forEach { target -> target.sendMessage(component) }
     }
 
     /**
@@ -119,7 +119,7 @@ class Feedback(val message: List<String>) {
      * @param radius The maximum distance to receive the message.
      */
     fun broadcast(center: Location, radius: Double) {
-        center.getNearbyPlayers(radius).forEach { target -> coloredMessage.forEach { target.sendMessage(it) } }
+        center.getNearbyPlayers(radius).forEach { target -> target.sendMessage(component) }
     }
 
     /**
@@ -130,18 +130,7 @@ class Feedback(val message: List<String>) {
      */
 
     fun send(audience: Audience, placeholders: Map<String, String>) {
-        coloredMessage.forEach { audience.sendMessage(inlineText.withPlaceholders(placeholders)) }
-    }
-
-    /**
-     * Sends the message to multiple audiences with placeholders replaced.
-     *
-     * @param audience Vararg of [Audience] to send the message to.
-     * @param placeholders A map of placeholders to replace in the message.
-     */
-
-    fun send(audience: Iterable<Audience>, placeholders: Map<String, String>) {
-        audience.forEach { target -> coloredMessage.forEach { target.sendMessage(inlineText.withPlaceholders(placeholders)) } }
+        audience.sendMessage(inlineText.withPlaceholders(placeholders))
     }
 
     /**
@@ -154,7 +143,7 @@ class Feedback(val message: List<String>) {
 
     fun send(center: Player, radius: Double, placeholders: Map<String, String>) {
         center.location.getNearbyPlayers(radius).forEach { target ->
-            coloredMessage.forEach { target.sendMessage(inlineText.withPlaceholders(placeholders)) }
+            target.sendMessage(inlineText.withPlaceholders(placeholders))
         }
     }
 
@@ -166,7 +155,7 @@ class Feedback(val message: List<String>) {
 
     fun broadcast(placeholders: Map<String, String>) {
         Bukkit.getOnlinePlayers().forEach { target ->
-            coloredMessage.forEach { target.sendMessage(inlineText.withPlaceholders(placeholders)) }
+            target.sendMessage(inlineText.withPlaceholders(placeholders))
         }
     }
 
@@ -179,7 +168,7 @@ class Feedback(val message: List<String>) {
 
     fun broadcast(center: Location, radius: Double, placeholders: Map<String, String>) {
         center.getNearbyPlayers(radius).forEach { target ->
-            coloredMessage.forEach { target.sendMessage(inlineText.withPlaceholders(placeholders)) }
+            target.sendMessage(inlineText.withPlaceholders(placeholders))
         }
     }
 
