@@ -1,8 +1,0 @@
-package ${MAIN_CLASS.packageName}.config
-
-import org.spongepowered.configurate.objectmapping.ConfigSerializable
-
-@ConfigSerializable
-data class ConfigContainer (
-    val version: String = "1.0.0",
-)
