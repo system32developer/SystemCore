@@ -44,7 +44,7 @@ class Feedback(val message: List<String>) {
     val isList: Boolean
         get() = message.size > 1
 
-    val inlineText : String = message.joinToString(separator = "\n")
+    val inlineText : String = message.joinToString("\n")
 
     /**
      * The colored and parsed [Component] version of the message, lazily initialized.

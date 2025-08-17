@@ -54,13 +54,14 @@ repositories {
         name = "sonatype"
     }
     maven("https://repo.extendedclip.com/releases/")
+    maven("https://repo.triumphteam.dev/snapshots/")
 }
 
 dependencies {
     compileOnly("io.papermc.paper:paper-api:1.21.1-R0.1-SNAPSHOT")
     compileOnly("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     compileOnly("me.clip:placeholderapi:2.11.6")
-    api("dev.triumphteam:triumph-gui:3.1.11")
+    api("dev.triumphteam:triumph-gui:3.1.13-SNAPSHOT")
     api("io.github.revxrsal:lamp.common:4.0.0-rc.12")
     api("io.github.revxrsal:lamp.paper:4.0.0-beta.19")
     api("io.github.revxrsal:lamp.bukkit:4.0.0-rc.12")
