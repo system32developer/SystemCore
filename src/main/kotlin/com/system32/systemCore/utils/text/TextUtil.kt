@@ -20,19 +20,13 @@ object TextUtil {
     private const val CENTER_PX: Int = 154
     const val NORMAL_LINE: String = "&7&m-----------------------------"
 
-    /**
-     * Color a string using the MiniMessage API or Bukkit's legacy color codes
-     * You can use placeholders using PlaceholderAPI but you need to set it up in your plugin @onEnable first using SystemCore.placeHolderAPIHook(true)
-     *
-     * @param input The string to color
-     * @return The colored string as a Component
-     *
-     * * ### Example usage:
-     * ```
-     * val message = ChatUtil.color("&aHello, &bworld!")
-     * player.sendMessage(message)
-     * ```
-     */
+    fun color(input: String): Component {
+        return color(input, null, null)
+    }
+
+    fun color(input: String, target: Player): Component {
+        return color(input, target, null)
+    }
 
     fun color(input: String, tag: TagResolver? = null): Component {
         return color(input, null, tag)
