@@ -147,9 +147,10 @@ $dokka.location:com.system32.systemCore.managers.regions.model/Region/bounds/#/P
 $dokka.location:com.system32.systemCore.managers.regions.model/Region/contains/#kotlin.Double#kotlin.Double#kotlin.Double/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-region/contains.html
 $dokka.location:com.system32.systemCore.managers.regions.model/Region/contains/#org.bukkit.Location/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-region/contains.html
 $dokka.location:com.system32.systemCore.managers.regions.model/Region/contains/#org.bukkit.entity.Player/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-region/contains.html
+$dokka.location:com.system32.systemCore.managers.regions.model/Region/getEdges/#org.bukkit.util.Vector#org.bukkit.util.Vector/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-region/get-edges.html
 $dokka.location:com.system32.systemCore.managers.regions.model/Region/id/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-region/id.html
 $dokka.location:com.system32.systemCore.managers.regions.model/Region/players/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-region/players.html
-$dokka.location:com.system32.systemCore.managers.regions.model/Region/show/#org.bukkit.Particle#kotlin.Double/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-region/show.html
+$dokka.location:com.system32.systemCore.managers.regions.model/Region/show/#org.bukkit.Particle#kotlin.Double#kotlin.Int/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-region/show.html
 $dokka.location:com.system32.systemCore.managers.regions.model/Region/world/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-region/world.html
 $dokka.location:com.system32.systemCore.managers.regions.model/RegionTree///PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-region-tree/index.html
 $dokka.location:com.system32.systemCore.managers.regions.model/RegionTree/RegionTree/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-region-tree/-region-tree.html
