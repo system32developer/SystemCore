@@ -3,7 +3,6 @@ package com.system32.systemCore.managers.regions
 import com.system32.systemCore.SystemCore
 import com.system32.systemCore.managers.regions.events.RegionEnteredEvent
 import com.system32.systemCore.managers.regions.events.RegionLeftEvent
-import com.system32.systemCore.managers.regions.model.AABB
 import com.system32.systemCore.managers.regions.model.Region
 import com.system32.systemCore.managers.regions.model.RegionTree
 import org.bukkit.Bukkit

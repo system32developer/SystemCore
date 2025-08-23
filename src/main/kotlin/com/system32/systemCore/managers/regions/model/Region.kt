@@ -17,7 +17,18 @@ data class Region(
     val bounds: BoundingBox
 ) {
 
-    constructor(id: String, world: String, min: Location, max: Location) : this(id, world, BoundingBox.of(min, max))
+    constructor(id: String, world: String, min: Location, max: Location) : this(
+        id,
+        world,
+        BoundingBox(
+            min.x,
+            min.y,
+            min.z,
+            max.x + 1.0,
+            max.y + 1.0,
+            max.z + 1.0
+        )
+    )
 
     val players: MutableSet<UUID> = mutableSetOf()
 
