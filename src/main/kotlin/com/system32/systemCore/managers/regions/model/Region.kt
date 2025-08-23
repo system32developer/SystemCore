@@ -42,7 +42,6 @@ data class Region(
                 for (z in min.z.toInt()..max.z.toInt() step step.toInt()) {
                     val location = Location(world, x.toDouble(), y.toDouble(), z.toDouble())
                     world.spawnParticle(particle, location, 1)
-                    TextUtil.
                 }
             }
         }

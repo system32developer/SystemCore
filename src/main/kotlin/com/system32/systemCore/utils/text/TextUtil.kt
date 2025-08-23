@@ -67,7 +67,11 @@ object TextUtil {
 
 
     fun tag(vararg tags: Pair<String, Any>): TagResolver {
-        return TagResolver.resolver(tags.map { (placeholder, value) -> TagResolver.resolver(placeholder, Tag.selfClosingInserting(color(value.toString())))})
+        return TagResolver.resolver(
+            tags.map { (placeholder, value) ->
+                TagResolver.resolver(placeholder, Tag.selfClosingInserting(color(value.toString())))
+            }
+        )
     }
 
     /**
