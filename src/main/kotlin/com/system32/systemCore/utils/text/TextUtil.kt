@@ -6,16 +6,20 @@ import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.TextComponent
 import net.kyori.adventure.text.format.TextDecoration
 import net.kyori.adventure.text.minimessage.MiniMessage
+import net.kyori.adventure.text.minimessage.tag.Tag
+import net.kyori.adventure.text.minimessage.tag.resolver.TagResolver
 import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer
 import net.kyori.adventure.text.serializer.plain.PlainTextComponentSerializer
 import org.bukkit.ChatColor
 import org.bukkit.entity.Player
 import java.text.DecimalFormat
+import java.util.Objects
 import java.util.function.Consumer
 
 object TextUtil {
     private const val CENTER_PX: Int = 154
     const val NORMAL_LINE: String = "&7&m-----------------------------"
+
     /**
      * Color a string using the MiniMessage API or Bukkit's legacy color codes
      * You can use placeholders using PlaceholderAPI but you need to set it up in your plugin @onEnable first using SystemCore.placeHolderAPIHook(true)
@@ -29,7 +33,24 @@ object TextUtil {
      * player.sendMessage(message)
      * ```
      */
-    fun color(input: String, target: Player? = null): Component {
+
+    fun color(input: String, tag: TagResolver? = null): Component {
+        return color(input, null, tag)
+    }
+    /**
+     * Color a string using the MiniMessage API or Bukkit's legacy color codes
+     * You can use placeholders using PlaceholderAPI but you need to set it up in your plugin @onEnable first using SystemCore.placeHolderAPIHook(true)
+     *
+     * @param input The string to color
+     * @return The colored string as a Component
+     *
+     * * ### Example usage:
+     * ```
+     * val message = ChatUtil.color("&aHello, &bworld!")
+     * player.sendMessage(message)
+     * ```
+     */
+    fun color(input: String, target: Player? = null, tag: TagResolver? = null): Component {
         var message = input
         val mini = MiniMessage.miniMessage()
         if(SystemCore.placeholderAPISupport) message = PlaceholderAPI.setPlaceholders(target, message)
@@ -38,9 +59,15 @@ object TextUtil {
             val legacy: TextComponent = LegacyComponentSerializer.legacyAmpersand().deserialize(message);
             message = mini.serialize(legacy).replace("\\", "");
         }
-
-        return if (message.isEmpty()) Component.empty() else mini.deserialize(message).decorationIfAbsent(TextDecoration.ITALIC ,
+        if (message.isEmpty()) return Component.empty()
+        val component = if(tag != null) mini.deserialize(message, tag) else mini.deserialize(message)
+        return component.decorationIfAbsent(TextDecoration.ITALIC ,
             TextDecoration.State.FALSE)
+    }
+
+
+    fun tag(vararg tags: Pair<String, Any>): TagResolver {
+        return TagResolver.resolver(tags.map { (placeholder, value) -> TagResolver.resolver(placeholder, Tag.selfClosingInserting(color(value.toString())))})
     }
 
     /**
