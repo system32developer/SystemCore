@@ -140,8 +140,6 @@ $dokka.location:com.system32.systemCore.managers.regions.events/RegionLeftEvent/
 $dokka.location:com.system32.systemCore.managers.regions.events/RegionLeftEvent/region/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.events/-region-left-event/region.html
 $dokka.location:com.system32.systemCore.managers.regions.events/RegionLeftEvent/setCancelled/#kotlin.Boolean/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.events/-region-left-event/set-cancelled.html
 $dokka.location:com.system32.systemCore.managers.regions.model////PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/index.html
-$dokka.location:com.system32.systemCore.managers.regions.model/AABB///PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-a-a-b-b/index.html
-$dokka.location:com.system32.systemCore.managers.regions.model/AABB/AABB/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-a-a-b-b/-a-a-b-b.html
 $dokka.location:com.system32.systemCore.managers.regions.model/Region///PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-region/index.html
 $dokka.location:com.system32.systemCore.managers.regions.model/Region/Region/#kotlin.String#kotlin.String#org.bukkit.Location#org.bukkit.Location/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-region/-region.html
 $dokka.location:com.system32.systemCore.managers.regions.model/Region/Region/#kotlin.String#kotlin.String#org.bukkit.util.BoundingBox/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.model/-region/-region.html
@@ -367,7 +365,9 @@ $dokka.location:com.system32.systemCore.utils.text/TextUtil/asText/#net.kyori.ad
 $dokka.location:com.system32.systemCore.utils.text/TextUtil/caseFirst/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.utils.text/-text-util/case-first.html
 $dokka.location:com.system32.systemCore.utils.text/TextUtil/centerMessage/#kotlin.String?/PointingToDeclaration/-system-core/com.system32.systemCore.utils.text/-text-util/center-message.html
 $dokka.location:com.system32.systemCore.utils.text/TextUtil/color/#kotlin.String#net.kyori.adventure.text.minimessage.tag.resolver.TagResolver?/PointingToDeclaration/-system-core/com.system32.systemCore.utils.text/-text-util/color.html
+$dokka.location:com.system32.systemCore.utils.text/TextUtil/color/#kotlin.String#org.bukkit.entity.Player/PointingToDeclaration/-system-core/com.system32.systemCore.utils.text/-text-util/color.html
 $dokka.location:com.system32.systemCore.utils.text/TextUtil/color/#kotlin.String#org.bukkit.entity.Player?#net.kyori.adventure.text.minimessage.tag.resolver.TagResolver?/PointingToDeclaration/-system-core/com.system32.systemCore.utils.text/-text-util/color.html
+$dokka.location:com.system32.systemCore.utils.text/TextUtil/color/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.utils.text/-text-util/color.html
 $dokka.location:com.system32.systemCore.utils.text/TextUtil/color/#kotlin.collections.List[kotlin.String]#org.bukkit.entity.Player?/PointingToDeclaration/-system-core/com.system32.systemCore.utils.text/-text-util/color.html
 $dokka.location:com.system32.systemCore.utils.text/TextUtil/formatNumber/#kotlin.Any/PointingToDeclaration/-system-core/com.system32.systemCore.utils.text/-text-util/format-number.html
 $dokka.location:com.system32.systemCore.utils.text/TextUtil/normalize/#kotlin.Number#kotlin.Number/PointingToDeclaration/-system-core/com.system32.systemCore.utils.text/-text-util/normalize.html
