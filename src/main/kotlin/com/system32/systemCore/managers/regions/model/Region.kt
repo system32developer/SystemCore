@@ -17,16 +17,16 @@ data class Region(
     val bounds: BoundingBox
 ) {
 
-    constructor(id: String, world: String, min: Location, max: Location) : this(
+    constructor(id: String, world: String, a: Location, b: Location) : this(
         id,
         world,
         BoundingBox(
-            min.x,
-            min.y,
-            min.z,
-            max.x + 1.0,
-            max.y + 1.0,
-            max.z + 1.0
+            minOf(a.x, b.x),
+            minOf(a.y, b.y),
+            minOf(a.z, b.z),
+            maxOf(a.x, b.x) + 1.0,
+            maxOf(a.y, b.y) + 1.0,
+            maxOf(a.z, b.z) + 1.0
         )
     )
 
