@@ -10,20 +10,20 @@ class ServiceProcessor(
     private val logger: KSPLogger
 ) : SymbolProcessor {
 
+    private var generated = false
+
     override fun process(resolver: Resolver): List<KSAnnotated> {
+        if (generated) return emptyList()
+
         val symbols = resolver.getSymbolsWithAnnotation(Service::class.qualifiedName!!)
             .filterIsInstance<KSClassDeclaration>()
-
-        println(symbols.count())
-
-        println(symbols.map { it.qualifiedName!!.asString() })
 
         if (!symbols.iterator().hasNext()) return emptyList()
 
         val serviceInterface = PluginService::class.qualifiedName!!
         val file = codeGenerator.createNewFile(
             Dependencies(false),
-            "META-INF/services/",
+            "META-INF/services",
             serviceInterface,
             ""
         )
@@ -41,6 +41,7 @@ class ServiceProcessor(
             }
         }
 
+        generated = true
         return emptyList()
     }
 }
