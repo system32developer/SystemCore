@@ -34,7 +34,7 @@ class ServiceProcessor(
 
         val imports = listOf("com.system32.systemCore.managers.service.PluginService")
 
-        val servicesCode = collected.joinToString("\n") { symbol ->
+        val servicesCode = collected.joinToString(",\n") { symbol ->
             val fqName = symbol.qualifiedName!!.asString()
             val isObject = (symbol.classKind == ClassKind.OBJECT)
             if (isObject) {
@@ -58,6 +58,9 @@ class ServiceProcessor(
             appendLine("    }")
             appendLine("    fun onDisable() {")
             appendLine("        services.forEach { it.onDisable() }")
+            appendLine("    }")
+            appendLine("    fun reload() {")
+            appendLine("        services.forEach { it.reload() }")
             appendLine("    }")
             appendLine("}")
         }
