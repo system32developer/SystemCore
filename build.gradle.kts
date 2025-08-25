@@ -2,11 +2,12 @@ import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 import java.io.ByteArrayOutputStream
 
 plugins {
-    kotlin("jvm") version "2.1.20-RC"
+    kotlin("jvm") version "2.2.0"
     java
     id("com.gradleup.shadow") version "8.3.2"
     `maven-publish`
     id("org.jetbrains.dokka") version "2.0.0"
+    id("com.google.devtools.ksp") version "2.2.0-2.0.2"
 }
 
 fun getLatestGitTag(): String {
@@ -69,6 +70,7 @@ dependencies {
     api("org.spongepowered:configurate-core:4.2.0")
     api("org.jetbrains.exposed:exposed-core:1.0.0-beta-5")
     api("org.jetbrains.exposed:exposed-jdbc:1.0.0-beta-5")
+    implementation("com.google.devtools.ksp:symbol-processing-api:1.5.30-1.0.0")
 }
 
 val targetJavaVersion = 21
