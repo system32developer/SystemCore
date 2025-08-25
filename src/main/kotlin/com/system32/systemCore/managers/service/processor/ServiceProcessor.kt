@@ -1,7 +1,7 @@
 package com.system32.systemCore.managers.service.processor
+
 import com.google.devtools.ksp.processing.*
 import com.google.devtools.ksp.symbol.*
-import com.system32.systemCore.managers.service.PluginService
 import com.system32.systemCore.managers.service.annotation.Service
 import java.io.OutputStreamWriter
 
@@ -10,39 +10,61 @@ class ServiceProcessor(
     private val logger: KSPLogger
 ) : SymbolProcessor {
 
-    private var generated = false
+    private val collected = mutableSetOf<KSClassDeclaration>()
 
     override fun process(resolver: Resolver): List<KSAnnotated> {
-        if (generated) return emptyList()
-
-        val symbols = resolver.getSymbolsWithAnnotation(Service::class.qualifiedName!!)
+        val symbols = resolver
+            .getSymbolsWithAnnotation(Service::class.qualifiedName!!)
             .filterIsInstance<KSClassDeclaration>()
 
-        if (!symbols.iterator().hasNext()) return emptyList()
+        if (symbols.none()) return emptyList()
 
-        val serviceInterface = PluginService::class.qualifiedName!!
+        collected += symbols
+        return emptyList()
+    }
+
+    override fun finish() {
+        if (collected.isEmpty()) return
+
         val file = codeGenerator.createNewFile(
             Dependencies(false),
-            "META-INF/services",
-            serviceInterface,
-            ""
+            "com.system32.generated",
+            "ServiceRegistry"
         )
 
-        OutputStreamWriter(file, Charsets.UTF_8).use { writer ->
-            for (symbol in symbols) {
-                val className = symbol.qualifiedName?.asString()
-                if (className != null &&
-                    symbol.superTypes.any { it.resolve().declaration.qualifiedName?.asString() == serviceInterface }
-                ) {
-                    writer.write("$className\n")
-                } else {
-                    logger.warn("The class $className is annotated with @Service but does not implement PluginService interface.")
-                }
+        val imports = listOf("com.system32.systemCore.managers.service.PluginService")
+
+        val servicesCode = collected.joinToString("\n") { symbol ->
+            val fqName = symbol.qualifiedName!!.asString()
+            val isObject = (symbol.classKind == ClassKind.OBJECT)
+            if (isObject) {
+                "        $fqName"
+            } else {
+                "        $fqName()"
             }
         }
 
-        generated = true
-        return emptyList()
+        val code = buildString {
+            appendLine("package com.system32.generated")
+            appendLine()
+            imports.forEach { appendLine("import $it") }
+            appendLine()
+            appendLine("object ServiceRegistry {")
+            appendLine("    val services: List<PluginService> = listOf(")
+            appendLine(servicesCode)
+            appendLine("    )")
+            appendLine("    fun onEnable() {")
+            appendLine("        services.forEach { it.onEnable() }")
+            appendLine("    }")
+            appendLine("    fun onDisable() {")
+            appendLine("        services.forEach { it.onDisable() }")
+            appendLine("    }")
+            appendLine("}")
+        }
+
+        OutputStreamWriter(file, Charsets.UTF_8).use { writer ->
+            writer.write(code)
+        }
     }
 }
 

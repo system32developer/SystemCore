@@ -6,6 +6,7 @@ plugins {
     java
     id("com.gradleup.shadow") version "8.3.2"
     `maven-publish`
+    `java-library`
     id("org.jetbrains.dokka") version "2.0.0"
     id("com.google.devtools.ksp") version "2.2.0-2.0.2"
 }
