@@ -169,6 +169,20 @@ $dokka.location:com.system32.systemCore.managers.regions/RegionManager/getRegion
 $dokka.location:com.system32.systemCore.managers.regions/RegionManager/register/#kotlin.Array[com.system32.systemCore.managers.regions.model.Region]/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions/-region-manager/register.html
 $dokka.location:com.system32.systemCore.managers.regions/RegionManager/unregister/#kotlin.Array[com.system32.systemCore.managers.regions.model.Region]#kotlin.Function1[com.system32.systemCore.managers.regions.model.Region,kotlin.Boolean]?/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions/-region-manager/unregister.html
 $dokka.location:com.system32.systemCore.managers.regions/RegionManager/unregister/#kotlin.Array[kotlin.String]/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions/-region-manager/unregister.html
+$dokka.location:com.system32.systemCore.managers.service.annotation////PointingToDeclaration/-system-core/com.system32.systemCore.managers.service.annotation/index.html
+$dokka.location:com.system32.systemCore.managers.service.annotation/Service///PointingToDeclaration/-system-core/com.system32.systemCore.managers.service.annotation/-service/index.html
+$dokka.location:com.system32.systemCore.managers.service.processor////PointingToDeclaration/-system-core/com.system32.systemCore.managers.service.processor/index.html
+$dokka.location:com.system32.systemCore.managers.service.processor/ServiceProcessor///PointingToDeclaration/-system-core/com.system32.systemCore.managers.service.processor/-service-processor/index.html
+$dokka.location:com.system32.systemCore.managers.service.processor/ServiceProcessor/ServiceProcessor/#com.google.devtools.ksp.processing.CodeGenerator#com.google.devtools.ksp.processing.KSPLogger/PointingToDeclaration/-system-core/com.system32.systemCore.managers.service.processor/-service-processor/-service-processor.html
+$dokka.location:com.system32.systemCore.managers.service.processor/ServiceProcessor/finish/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.service.processor/-service-processor/finish.html
+$dokka.location:com.system32.systemCore.managers.service.processor/ServiceProcessor/process/#com.google.devtools.ksp.processing.Resolver/PointingToDeclaration/-system-core/com.system32.systemCore.managers.service.processor/-service-processor/process.html
+$dokka.location:com.system32.systemCore.managers.service.processor/ServiceProcessorProvider///PointingToDeclaration/-system-core/com.system32.systemCore.managers.service.processor/-service-processor-provider/index.html
+$dokka.location:com.system32.systemCore.managers.service.processor/ServiceProcessorProvider/ServiceProcessorProvider/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.service.processor/-service-processor-provider/-service-processor-provider.html
+$dokka.location:com.system32.systemCore.managers.service.processor/ServiceProcessorProvider/create/#com.google.devtools.ksp.processing.SymbolProcessorEnvironment/PointingToDeclaration/-system-core/com.system32.systemCore.managers.service.processor/-service-processor-provider/create.html
+$dokka.location:com.system32.systemCore.managers.service////PointingToDeclaration/-system-core/com.system32.systemCore.managers.service/index.html
+$dokka.location:com.system32.systemCore.managers.service/PluginService///PointingToDeclaration/-system-core/com.system32.systemCore.managers.service/-plugin-service/index.html
+$dokka.location:com.system32.systemCore.managers.service/PluginService/onDisable/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.service/-plugin-service/on-disable.html
+$dokka.location:com.system32.systemCore.managers.service/PluginService/onEnable/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.service/-plugin-service/on-enable.html
 $dokka.location:com.system32.systemCore.shade////PointingToDeclaration/-system-core/com.system32.systemCore.shade/index.html
 $dokka.location:com.system32.systemCore.shade/Metrics.AdvancedBarChart///PointingToDeclaration/-system-core/com.system32.systemCore.shade/-metrics/-advanced-bar-chart/index.html
 $dokka.location:com.system32.systemCore.shade/Metrics.AdvancedBarChart/AdvancedBarChart/#java.lang.String#java.util.concurrent.Callable<java.util.Map<java.lang.String,int[]>>/PointingToDeclaration/-system-core/com.system32.systemCore.shade/-metrics/-advanced-bar-chart/-advanced-bar-chart.html
@@ -398,6 +412,9 @@ com.system32.systemCore.managers.other
 com.system32.systemCore.managers.regions
 com.system32.systemCore.managers.regions.events
 com.system32.systemCore.managers.regions.model
+com.system32.systemCore.managers.service
+com.system32.systemCore.managers.service.annotation
+com.system32.systemCore.managers.service.processor
 com.system32.systemCore.shade
 com.system32.systemCore.utils.minecraft
 com.system32.systemCore.utils.text
