@@ -183,6 +183,7 @@ $dokka.location:com.system32.systemCore.managers.service////PointingToDeclaratio
 $dokka.location:com.system32.systemCore.managers.service/PluginService///PointingToDeclaration/-system-core/com.system32.systemCore.managers.service/-plugin-service/index.html
 $dokka.location:com.system32.systemCore.managers.service/PluginService/onDisable/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.service/-plugin-service/on-disable.html
 $dokka.location:com.system32.systemCore.managers.service/PluginService/onEnable/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.service/-plugin-service/on-enable.html
+$dokka.location:com.system32.systemCore.managers.service/PluginService/reload/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.service/-plugin-service/reload.html
 $dokka.location:com.system32.systemCore.shade////PointingToDeclaration/-system-core/com.system32.systemCore.shade/index.html
 $dokka.location:com.system32.systemCore.shade/Metrics.AdvancedBarChart///PointingToDeclaration/-system-core/com.system32.systemCore.shade/-metrics/-advanced-bar-chart/index.html
 $dokka.location:com.system32.systemCore.shade/Metrics.AdvancedBarChart/AdvancedBarChart/#java.lang.String#java.util.concurrent.Callable<java.util.Map<java.lang.String,int[]>>/PointingToDeclaration/-system-core/com.system32.systemCore.shade/-metrics/-advanced-bar-chart/-advanced-bar-chart.html
