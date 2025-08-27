@@ -13,7 +13,7 @@ class LocationSerializer : TypeSerializer<Location> {
         if (node == null || node.string == null) return null
         val raw = node.string!!
         val parts = raw.split(",")
-        if (parts.size < 4 || parts.size > 6) {
+        if (parts.size !in 4..6) {
             println("Invalid Location format: $raw")
             return null
         }

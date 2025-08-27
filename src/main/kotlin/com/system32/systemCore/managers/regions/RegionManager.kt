@@ -114,7 +114,6 @@ object RegionManager : Listener {
                 taskLater(1L){
                     player.teleport(from)
                 }
-                println("Advanced teleport")
                 continue
             }
             region.players.add(uuid)
