@@ -5,6 +5,7 @@ import com.system32.systemCore.managers.regions.events.RegionEnteredEvent
 import com.system32.systemCore.managers.regions.events.RegionLeftEvent
 import com.system32.systemCore.managers.regions.model.Region
 import com.system32.systemCore.managers.regions.model.RegionTree
+import com.system32.systemCore.utils.minecraft.SpigotUtil.center
 import org.bukkit.Bukkit
 import org.bukkit.Location
 import org.bukkit.block.Block
@@ -79,17 +80,18 @@ object RegionManager : Listener {
     @EventHandler
     private fun onPlayerMove(event: PlayerMoveEvent) {
         if (event.from.block == event.to.block) return
-        handlePlayerMovement(event.player, event.to, event)
+        handlePlayerMovement(event.player, event.to, event, center(event.from.block))
     }
 
     @EventHandler
     private fun onPlayerTeleport(event: PlayerTeleportEvent) {
         if (event.from.block == event.to.block) return
-        handlePlayerMovement(event.player, event.to, event)
+        handlePlayerMovement(event.player, event.to, event, center(event.from.block))
     }
 
 
-    private fun handlePlayerMovement(player: Player, to: Location, cancellable: Cancellable) {
+    private fun handlePlayerMovement(player: Player, to: Location, event: Cancellable, from: Location) {
+
         val uuid = player.uniqueId
         val currentRegions = getRegionsAt(to)
         val currentIds = currentRegions.map { it.id }.toSet()
@@ -101,7 +103,8 @@ object RegionManager : Listener {
         for (region in entered) {
             val called = RegionEnteredEvent(player, region).call()
             if (called.isCancelled) {
-                cancellable.isCancelled = true
+                event.isCancelled = true
+                player.teleport(from)
                 continue
             }
             region.players.add(uuid)
@@ -115,7 +118,8 @@ object RegionManager : Listener {
             val region = getRegionById(regionId) ?: continue
             val called = RegionLeftEvent(player, region).call()
             if (called.isCancelled) {
-                cancellable.isCancelled = true
+                event.isCancelled = true
+                player.teleport(from)
                 continue
             }
             region.players.remove(uuid)
@@ -124,8 +128,6 @@ object RegionManager : Listener {
 
         playerRegions[uuid] = ((previousRegions + acceptedEnteredIds) - acceptedExitedIds)
     }
-
-
 
     @EventHandler
     private fun onPlayerJoin(event: PlayerJoinEvent) {
