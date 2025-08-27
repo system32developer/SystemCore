@@ -5,6 +5,7 @@ import com.system32.systemCore.managers.regions.events.RegionEnteredEvent
 import com.system32.systemCore.managers.regions.events.RegionLeftEvent
 import com.system32.systemCore.managers.regions.model.Region
 import com.system32.systemCore.managers.regions.model.RegionTree
+import com.system32.systemCore.utils.minecraft.ServerUtil.taskLater
 import com.system32.systemCore.utils.minecraft.SpigotUtil.center
 import org.bukkit.Bukkit
 import org.bukkit.Location
@@ -80,13 +81,19 @@ object RegionManager : Listener {
     @EventHandler
     private fun onPlayerMove(event: PlayerMoveEvent) {
         if (event.from.block == event.to.block) return
-        handlePlayerMovement(event.player, event.to, event, center(event.from.block))
+        val from = center(event.from.block).subtract(0.0, 0.5, 0.0)
+        from.yaw = event.player.yaw
+        from.pitch = event.player.pitch
+        handlePlayerMovement(event.player, event.to, event, from)
     }
 
     @EventHandler
     private fun onPlayerTeleport(event: PlayerTeleportEvent) {
         if (event.from.block == event.to.block) return
-        handlePlayerMovement(event.player, event.to, event, center(event.from.block))
+        val from = center(event.from.block).subtract(0.0, 0.5, 0.0)
+        from.yaw = event.player.yaw
+        from.pitch = event.player.pitch
+        handlePlayerMovement(event.player, event.to, event, from)
     }
 
 
@@ -103,8 +110,11 @@ object RegionManager : Listener {
         for (region in entered) {
             val called = RegionEnteredEvent(player, region).call()
             if (called.isCancelled) {
-                player.teleport(from)
-                println("Teleporting back to center")
+                event.isCancelled = true
+                taskLater(1L){
+                    player.teleport(from)
+                }
+                println("Advanced teleport")
                 continue
             }
             region.players.add(uuid)
@@ -118,7 +128,10 @@ object RegionManager : Listener {
             val region = getRegionById(regionId) ?: continue
             val called = RegionLeftEvent(player, region).call()
             if (called.isCancelled) {
-                player.teleport(from)
+                event.isCancelled = true
+                taskLater(1L){
+                    player.teleport(from)
+                }
                 continue
             }
             region.players.remove(uuid)
