@@ -103,7 +103,6 @@ object RegionManager : Listener {
         for (region in entered) {
             val called = RegionEnteredEvent(player, region).call()
             if (called.isCancelled) {
-                event.isCancelled = true
                 player.teleport(from)
                 continue
             }
@@ -118,7 +117,6 @@ object RegionManager : Listener {
             val region = getRegionById(regionId) ?: continue
             val called = RegionLeftEvent(player, region).call()
             if (called.isCancelled) {
-                event.isCancelled = true
                 player.teleport(from)
                 continue
             }
