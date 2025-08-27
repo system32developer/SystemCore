@@ -104,6 +104,7 @@ object RegionManager : Listener {
             val called = RegionEnteredEvent(player, region).call()
             if (called.isCancelled) {
                 player.teleport(from)
+                println("Teleporting back to center")
                 continue
             }
             region.players.add(uuid)
