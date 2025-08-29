@@ -32,6 +32,19 @@ data class Region(
         )
     )
 
+    constructor(id: String, center: Location, radius: Int) : this(
+        id,
+        center.world?.name ?: throw IllegalArgumentException("Center location must have a world"),
+        BoundingBox(
+            center.x - radius,
+            center.y - radius,
+            center.z - radius,
+            center.x + radius + 1.0,
+            center.y + radius + 1.0,
+            center.z + radius + 1.0
+        )
+    )
+
     val players: MutableSet<UUID> = mutableSetOf()
 
     fun contains(location: Location): Boolean {
