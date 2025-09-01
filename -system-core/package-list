@@ -220,6 +220,11 @@ $dokka.location:com.system32.systemCore.shade/Metrics/Metrics/#org.bukkit.plugin
 $dokka.location:com.system32.systemCore.shade/Metrics/addCustomChart/#com.system32.systemCore.shade.Metrics.CustomChart/PointingToDeclaration/-system-core/com.system32.systemCore.shade/-metrics/add-custom-chart.html
 $dokka.location:com.system32.systemCore.shade/Metrics/shutdown/#/PointingToDeclaration/-system-core/com.system32.systemCore.shade/-metrics/shutdown.html
 $dokka.location:com.system32.systemCore.utils.minecraft////PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/index.html
+$dokka.location:com.system32.systemCore.utils.minecraft//async/#kotlin.Function0[TypeParam(bounds=[kotlin.Any?])]/PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/async.html
+$dokka.location:com.system32.systemCore.utils.minecraft/AsyncTask///PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-async-task/index.html
+$dokka.location:com.system32.systemCore.utils.minecraft/AsyncTask/AsyncTask/#kotlin.Function0[TypeParam(bounds=[kotlin.Any?])]/PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-async-task/-async-task.html
+$dokka.location:com.system32.systemCore.utils.minecraft/AsyncTask/launch/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-async-task/launch.html
+$dokka.location:com.system32.systemCore.utils.minecraft/AsyncTask/onComplete/#kotlin.Function1[TypeParam(bounds=[kotlin.Any?]),kotlin.Unit]/PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-async-task/on-complete.html
 $dokka.location:com.system32.systemCore.utils.minecraft/ChatHeadUtil///PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-chat-head-util/index.html
 $dokka.location:com.system32.systemCore.utils.minecraft/ChatHeadUtil/ChatHeadUtil/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-chat-head-util/-chat-head-util.html
 $dokka.location:com.system32.systemCore.utils.minecraft/ChatHeadUtil/generateChatHead/#kotlin.String#kotlin.Int#kotlin.String#kotlin.Boolean#kotlin.Boolean/PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-chat-head-util/generate-chat-head.html
