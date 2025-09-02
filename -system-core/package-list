@@ -13,7 +13,8 @@ $dokka.location:com.system32.systemCore.database.model/Driver/valueOf/#kotlin.St
 $dokka.location:com.system32.systemCore.database.model/Driver/values/#/PointingToDeclaration/-system-core/com.system32.systemCore.database.model/-driver/values.html
 $dokka.location:com.system32.systemCore.database////PointingToDeclaration/-system-core/com.system32.systemCore.database/index.html
 $dokka.location:com.system32.systemCore.database/DatabaseUtils///PointingToDeclaration/-system-core/com.system32.systemCore.database/-database-utils/index.html
-$dokka.location:com.system32.systemCore.database/DatabaseUtils/localDatabase/#/PointingToDeclaration/-system-core/com.system32.systemCore.database/-database-utils/local-database.html
+$dokka.location:com.system32.systemCore.database/DatabaseUtils/localDatabase/#kotlin.Array[org.jetbrains.exposed.v1.core.Table]/PointingToDeclaration/-system-core/com.system32.systemCore.database/-database-utils/local-database.html
+$dokka.location:com.system32.systemCore.database/DatabaseUtils/localDatabaseFile/#/PointingToDeclaration/-system-core/com.system32.systemCore.database/-database-utils/local-database-file.html
 $dokka.location:com.system32.systemCore.database/DatabaseUtils/localDatabaseUrl/#/PointingToDeclaration/-system-core/com.system32.systemCore.database/-database-utils/local-database-url.html
 $dokka.location:com.system32.systemCore.managers.chat////PointingToDeclaration/-system-core/com.system32.systemCore.managers.chat/index.html
 $dokka.location:com.system32.systemCore.managers.chat/ChatAwaiterManager///PointingToDeclaration/-system-core/com.system32.systemCore.managers.chat/-chat-awaiter-manager/index.html
