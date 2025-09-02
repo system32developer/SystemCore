@@ -9,13 +9,14 @@ import org.jetbrains.exposed.v1.core.statements.api.ExposedBlob
 import org.jetbrains.exposed.v1.jdbc.Database
 import org.jetbrains.exposed.v1.jdbc.SchemaUtils
 import org.jetbrains.exposed.v1.jdbc.exists
+import org.jetbrains.exposed.v1.jdbc.transactions.transaction
 import java.io.File
 
 object DatabaseUtils {
 
     fun localDatabase(vararg tables: Table){
         Database.connect(localDatabaseUrl(), Driver.SQLITE.driver)
-        SchemaUtils.create(tables = tables)
+        transaction { SchemaUtils.create(tables = tables) }
     }
 
     fun localDatabaseUrl(): String {
