@@ -44,6 +44,30 @@ class ConfigManager(
         return this
     }
 
+    /**
+     * Registers a custom serializer for a specific type.
+     * @param type The class type to register the serializer for.
+     * @param serializer The serializer instance to handle the specified type.
+     * @return The current instance of ConfigManager for method chaining.
+     *
+     * Example:
+     * ```kotlin
+     * configManager.serializer(CustomType::class.java, CustomTypeSerializer())
+     * ```
+     *
+     * Serializer Example:
+     * ```kotlin
+     * class CustomTypeSerializer : TypeSerializer<CustomType> {
+     *     override fun deserialize(type: Type?, node: ConfigurationNode?): CustomType? {
+     *         // Implement deserialization logic
+     *     }
+     *     override fun serialize(type: Type?, obj: CustomType?, node: ConfigurationNode?) {
+     *     // Implement serialization logic
+     *     }
+     * }
+     * ```
+     */
+
     fun <T : Any> serializer(type: Class<T>, serializer: TypeSerializer<T>): ConfigManager {
         serializers.register(type, serializer)
         return this
