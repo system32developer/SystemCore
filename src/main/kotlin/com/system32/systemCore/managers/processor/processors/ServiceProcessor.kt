@@ -1,8 +1,8 @@
-package com.system32.systemCore.managers.service.processor
+package com.system32.systemCore.managers.processor.processors
 
 import com.google.devtools.ksp.processing.*
 import com.google.devtools.ksp.symbol.*
-import com.system32.systemCore.managers.service.annotation.Service
+import com.system32.systemCore.managers.processor.annotations.Service
 import java.io.OutputStreamWriter
 
 class ServiceProcessor(
@@ -32,7 +32,7 @@ class ServiceProcessor(
             "ServiceRegistry"
         )
 
-        val imports = listOf("com.system32.systemCore.managers.service.PluginService")
+        val imports = listOf("com.system32.systemCore.managers.processors.PluginService")
 
         val servicesCode = collected.joinToString(",\n") { symbol ->
             val fqName = symbol.qualifiedName!!.asString()

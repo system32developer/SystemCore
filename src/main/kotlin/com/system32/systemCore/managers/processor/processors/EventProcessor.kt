@@ -1,0 +1,101 @@
+package com.system32.systemCore.managers.processor.processors
+
+import com.google.devtools.ksp.processing.CodeGenerator
+import com.google.devtools.ksp.processing.Dependencies
+import com.google.devtools.ksp.processing.KSPLogger
+import com.google.devtools.ksp.processing.Resolver
+import com.google.devtools.ksp.processing.SymbolProcessor
+import com.google.devtools.ksp.processing.SymbolProcessorEnvironment
+import com.google.devtools.ksp.processing.SymbolProcessorProvider
+import com.google.devtools.ksp.symbol.ClassKind
+import com.google.devtools.ksp.symbol.KSAnnotated
+import com.google.devtools.ksp.symbol.KSClassDeclaration
+import com.system32.systemCore.managers.processor.annotations.Event
+import com.system32.systemCore.managers.processor.annotations.Service
+import java.io.OutputStreamWriter
+
+class EventProcessor (
+    private val codeGenerator: CodeGenerator,
+    private val logger: KSPLogger
+) : SymbolProcessor {
+
+    private val collected = mutableSetOf<KSClassDeclaration>()
+
+    override fun process(resolver: Resolver): List<KSAnnotated> {
+        val symbols = resolver
+            .getSymbolsWithAnnotation(Event::class.qualifiedName!!)
+            .filterIsInstance<KSClassDeclaration>()
+
+        if (symbols.none()) return emptyList()
+
+        collected += symbols
+        return emptyList()
+    }
+
+    override fun finish() {
+        if (collected.isEmpty()) return
+
+        val file = codeGenerator.createNewFile(
+            Dependencies(false),
+            "com.system32.generated",
+            "EventRegistry"
+        )
+
+        val imports = listOf("com.system32.systemCore.managers.processor.processors.PluginService")
+
+        val classesCode = collected.joinToString(",\n") { symbol ->
+            val fqName = symbol.qualifiedName!!.asString()
+            val isObject = (symbol.classKind == ClassKind.OBJECT)
+            if (isObject) {
+                "        $fqName"
+            } else {
+                "        $fqName()"
+            }
+        }
+
+        val code = buildString {
+            appendLine("package com.system32.generated")
+            appendLine()
+            appendLine("import org.bukkit.event.Listener")
+            appendLine("import com.system32.systemCore.SystemCore")
+            appendLine("import com.system32.systemCore.managers.processor.annotations.Event")
+            appendLine()
+            appendLine("object EventRegistry {")
+            appendLine("    private val listeners: List<Any> = listOf(")
+            appendLine(classesCode)
+            appendLine("    )")
+            appendLine()
+            appendLine("    fun register() {")
+            appendLine("        val plugin = SystemCore.plugin")
+            appendLine("        listeners.forEach { obj ->")
+            appendLine("            val listener = object : Listener {}")
+            appendLine("            val clazz = obj::class.java")
+            appendLine("            for (method in clazz.declaredMethods) {")
+            appendLine("                val ann = method.getAnnotation(Event::class.java) ?: continue")
+            appendLine("                val params = method.parameterTypes")
+            appendLine("                if (params.size == 1 && org.bukkit.event.Event::class.java.isAssignableFrom(params[0])) {")
+            appendLine("                    val eventClass = params[0] as Class<out org.bukkit.event.Event>")
+            appendLine("                    plugin.server.pluginManager.registerEvent(eventClass, listener, ann.priority, { _, event ->")
+            appendLine("                        if (eventClass.isInstance(event)) {")
+            appendLine("                            method.isAccessible = true")
+            appendLine("                            method.invoke(obj, eventClass.cast(event))")
+            appendLine("                        }")
+            appendLine("                    }, plugin, ann.ignoreCancelled)")
+            appendLine("                }")
+            appendLine("            }")
+            appendLine("        }")
+            appendLine("    }")
+            appendLine("}")
+        }
+
+        OutputStreamWriter(file, Charsets.UTF_8).use { writer ->
+            writer.write(code)
+        }
+    }
+}
+
+class ServiceProcessorProvider : SymbolProcessorProvider {
+    override fun create(environment: SymbolProcessorEnvironment): SymbolProcessor {
+        return ServiceProcessor(environment.codeGenerator, environment.logger)
+    }
+}

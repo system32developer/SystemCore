@@ -42,7 +42,7 @@ public class Metrics {
      * Creates a new Metrics instance.
      *
      * @param plugin Your plugin instance.
-     * @param serviceId The id of the service. It can be found at <a
+     * @param serviceId The id of the processors. It can be found at <a
      *     href="https://bstats.org/what-is-my-plugin-id">What is my plugin id?</a>
      */
     public Metrics(Plugin plugin, int serviceId) {
@@ -110,7 +110,7 @@ public class Metrics {
                         false);
     }
 
-    /** Shuts down the underlying scheduler service. */
+    /** Shuts down the underlying scheduler processors. */
     public void shutdown() {
         metricsBase.shutdown();
     }
@@ -195,18 +195,18 @@ public class Metrics {
         /**
          * Creates a new MetricsBase class instance.
          *
-         * @param platform The platform of the service.
-         * @param serviceId The id of the service.
+         * @param platform The platform of the processors.
+         * @param serviceId The id of the processors.
          * @param serverUuid The server uuid.
          * @param enabled Whether or not data sending is enabled.
          * @param appendPlatformDataConsumer A consumer that receives a {@code JsonObjectBuilder} and
          *     appends all platform-specific data.
          * @param appendServiceDataConsumer A consumer that receives a {@code JsonObjectBuilder} and
-         *     appends all service-specific data.
+         *     appends all processors-specific data.
          * @param submitTaskConsumer A consumer that takes a runnable with the submit task. This can be
          *     used to delegate the data collection to a another thread to prevent errors caused by
          *     concurrency. Can be {@code null}.
-         * @param checkServiceEnabledSupplier A supplier to check if the service is still enabled.
+         * @param checkServiceEnabledSupplier A supplier to check if the processors is still enabled.
          * @param errorLogger A consumer that accepts log message and an error.
          * @param infoLogger A consumer that accepts info log messages.
          * @param logErrors Whether or not errors should be logged.
@@ -278,7 +278,7 @@ public class Metrics {
             final Runnable submitTask =
                     () -> {
                         if (!enabled || !checkServiceEnabledSupplier.get()) {
-                            // Submitting data or service is disabled
+                            // Submitting data or processors is disabled
                             scheduler.shutdown();
                             return;
                         }
@@ -315,7 +315,7 @@ public class Metrics {
                             .toArray(JsonObjectBuilder.JsonObject[]::new);
             serviceJsonBuilder.appendField("id", serviceId);
             serviceJsonBuilder.appendField("customCharts", chartData);
-            baseJsonBuilder.appendField("service", serviceJsonBuilder.build());
+            baseJsonBuilder.appendField("processors", serviceJsonBuilder.build());
             baseJsonBuilder.appendField("serverUUID", serverUuid);
             baseJsonBuilder.appendField("metricsVersion", METRICS_VERSION);
             JsonObjectBuilder.JsonObject data = baseJsonBuilder.build();

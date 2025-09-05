@@ -1,4 +1,4 @@
-package com.system32.systemCore.managers.service
+package com.system32.systemCore.managers.processor
 
 interface PluginService {
     fun onEnable()
