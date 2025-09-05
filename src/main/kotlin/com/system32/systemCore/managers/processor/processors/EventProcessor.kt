@@ -41,7 +41,7 @@ class EventProcessor (
             "EventRegistry"
         )
 
-        val imports = listOf("com.system32.systemCore.managers.processor.processors.PluginService")
+        val imports = listOf("")
 
         val classesCode = collected.joinToString(",\n") { symbol ->
             val fqName = symbol.qualifiedName!!.asString()

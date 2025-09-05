@@ -32,7 +32,7 @@ class ServiceProcessor(
             "ServiceRegistry"
         )
 
-        val imports = listOf("com.system32.systemCore.managers.processors.PluginService")
+        val imports = listOf("com.system32.systemCore.managers.processor.PluginService")
 
         val servicesCode = collected.joinToString(",\n") { symbol ->
             val fqName = symbol.qualifiedName!!.asString()
