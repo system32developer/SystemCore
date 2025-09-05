@@ -1,1 +1,2 @@
 com.system32.systemCore.managers.processor.processors.ServiceProcessorProvider
+com.system32.systemCore.managers.processor.processors.EventProcessorProvider

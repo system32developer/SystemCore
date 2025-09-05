@@ -94,8 +94,8 @@ class EventProcessor (
     }
 }
 
-class ServiceProcessorProvider : SymbolProcessorProvider {
+class EventProcessorProvider : SymbolProcessorProvider {
     override fun create(environment: SymbolProcessorEnvironment): SymbolProcessor {
-        return ServiceProcessor(environment.codeGenerator, environment.logger)
+        return EventProcessor(environment.codeGenerator, environment.logger)
     }
 }
