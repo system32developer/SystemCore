@@ -10,6 +10,7 @@ import com.google.devtools.ksp.processing.SymbolProcessorProvider
 import com.google.devtools.ksp.symbol.ClassKind
 import com.google.devtools.ksp.symbol.KSAnnotated
 import com.google.devtools.ksp.symbol.KSClassDeclaration
+import com.google.devtools.ksp.symbol.KSFunctionDeclaration
 import com.system32.systemCore.managers.processor.annotations.Event
 import com.system32.systemCore.managers.processor.annotations.Service
 import java.io.OutputStreamWriter
@@ -24,11 +25,15 @@ class EventProcessor (
     override fun process(resolver: Resolver): List<KSAnnotated> {
         val symbols = resolver
             .getSymbolsWithAnnotation(Event::class.qualifiedName!!)
-            .filterIsInstance<KSClassDeclaration>()
+            .filterIsInstance<KSFunctionDeclaration>()
 
         if (symbols.none()) return emptyList()
 
-        collected += symbols
+        for (func in symbols) {
+            val parent = func.parentDeclaration as? KSClassDeclaration ?: continue
+            collected += parent
+        }
+
         return emptyList()
     }
 
@@ -43,9 +48,9 @@ class EventProcessor (
 
         val imports = listOf("")
 
-        val classesCode = collected.joinToString(",\n") { symbol ->
-            val fqName = symbol.qualifiedName!!.asString()
-            val isObject = (symbol.classKind == ClassKind.OBJECT)
+        val classesCode = collected.joinToString(",\n") { clazz ->
+            val fqName = clazz.qualifiedName!!.asString()
+            val isObject = clazz.classKind == ClassKind.OBJECT
             if (isObject) {
                 "        $fqName"
             } else {
