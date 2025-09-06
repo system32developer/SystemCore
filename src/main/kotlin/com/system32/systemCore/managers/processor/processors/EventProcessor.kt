@@ -12,11 +12,11 @@ import com.google.devtools.ksp.symbol.KSAnnotated
 import com.google.devtools.ksp.symbol.KSClassDeclaration
 import com.google.devtools.ksp.symbol.KSFunctionDeclaration
 import com.system32.systemCore.managers.processor.TemplateEngine
-import com.system32.systemCore.managers.processor.annotations.Event
+import com.system32.systemCore.managers.processor.annotations.ListenerComponent
 import com.system32.systemCore.managers.processor.annotations.Service
 import java.io.OutputStreamWriter
 
-class EventProcessor (
+class EventProcessor(
     private val codeGenerator: CodeGenerator,
     private val logger: KSPLogger
 ) : SymbolProcessor {
@@ -25,15 +25,10 @@ class EventProcessor (
 
     override fun process(resolver: Resolver): List<KSAnnotated> {
         val symbols = resolver
-            .getSymbolsWithAnnotation(Event::class.qualifiedName!!)
-            .filterIsInstance<KSFunctionDeclaration>()
+            .getSymbolsWithAnnotation(ListenerComponent::class.qualifiedName!!)
+            .filterIsInstance<KSClassDeclaration>()
 
-        if (symbols.none()) return emptyList()
-
-        for (func in symbols) {
-            val parent = func.parentDeclaration as? KSClassDeclaration ?: continue
-            collected += parent
-        }
+        collected += symbols
 
         return emptyList()
     }
@@ -46,22 +41,17 @@ class EventProcessor (
             if (clazz.classKind == ClassKind.OBJECT) fqName else "$fqName()"
         }
 
-        val engine = TemplateEngine
-        val template = engine.loadTemplate("EventRegistry.kt")
-        val code = engine.render(template, mapOf("listeners" to listenersCode))
+        val template = TemplateEngine.loadTemplate("EventRegistry.kt")
+        val code = TemplateEngine.render(template, mapOf("listeners" to listenersCode))
 
         codeGenerator.createNewFile(
             Dependencies(false),
             "com.system32.generated",
             "EventRegistry"
         ).use { out ->
-            out.writer(Charsets.UTF_8).use { it.write(code) }
+            OutputStreamWriter(out, Charsets.UTF_8).use { it.write(code) }
         }
-    }
-}
 
-class EventProcessorProvider : SymbolProcessorProvider {
-    override fun create(environment: SymbolProcessorEnvironment): SymbolProcessor {
-        return EventProcessor(environment.codeGenerator, environment.logger)
+        logger.info("[EventProcessor] EventRegistry generated with ${collected.size} listeners.")
     }
 }
