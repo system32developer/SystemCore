@@ -2,6 +2,7 @@ package com.system32.systemCore.managers.processor.processors
 
 import com.google.devtools.ksp.processing.*
 import com.google.devtools.ksp.symbol.*
+import com.system32.systemCore.managers.processor.TemplateEngine
 import com.system32.systemCore.managers.processor.annotations.Service
 import java.io.OutputStreamWriter
 
@@ -26,47 +27,22 @@ class ServiceProcessor(
     override fun finish() {
         if (collected.isEmpty()) return
 
-        val file = codeGenerator.createNewFile(
-            Dependencies(false),
-            "com.system32.generated",
-            "ServiceRegistry"
-        )
-
-        val imports = listOf("com.system32.systemCore.managers.processor.PluginService")
-
         val servicesCode = collected.joinToString(",\n") { symbol ->
             val fqName = symbol.qualifiedName!!.asString()
             val isObject = (symbol.classKind == ClassKind.OBJECT)
-            if (isObject) {
-                "        $fqName"
-            } else {
-                "        $fqName()"
-            }
+            if (isObject) fqName else "$fqName()"
         }
 
-        val code = buildString {
-            appendLine("package com.system32.generated")
-            appendLine()
-            imports.forEach { appendLine("import $it") }
-            appendLine()
-            appendLine("object ServiceRegistry {")
-            appendLine("    val services: List<PluginService> = listOf(")
-            appendLine(servicesCode)
-            appendLine("    )")
-            appendLine("    fun onEnable() {")
-            appendLine("        services.forEach { it.onEnable() }")
-            appendLine("    }")
-            appendLine("    fun onDisable() {")
-            appendLine("        services.forEach { it.onDisable() }")
-            appendLine("    }")
-            appendLine("    fun reload() {")
-            appendLine("        services.forEach { it.reload() }")
-            appendLine("    }")
-            appendLine("}")
-        }
+        val engine = TemplateEngine
+        val template = engine.loadTemplate("ServiceRegistry.kt")
+        val code = engine.render(template, mapOf("services" to servicesCode))
 
-        OutputStreamWriter(file, Charsets.UTF_8).use { writer ->
-            writer.write(code)
+        codeGenerator.createNewFile(
+            Dependencies(false),
+            "com.system32.generated",
+            "ServiceRegistry"
+        ).use { out ->
+            out.writer(Charsets.UTF_8).use { it.write(code) }
         }
     }
 }
