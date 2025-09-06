@@ -118,9 +118,7 @@ $dokka.location:com.system32.systemCore.managers.other/ActionManager/allow/#kotl
 $dokka.location:com.system32.systemCore.managers.other/ActionManager/disallow/#kotlin.Array[com.system32.systemCore.managers.other.ActionManager.ActionType]/PointingToDeclaration/-system-core/com.system32.systemCore.managers.other/-action-manager/disallow.html
 $dokka.location:com.system32.systemCore.managers.other/ActionManager/handle/#org.bukkit.entity.Player/PointingToDeclaration/-system-core/com.system32.systemCore.managers.other/-action-manager/handle.html
 $dokka.location:com.system32.systemCore.managers.processor.annotations////PointingToDeclaration/-system-core/com.system32.systemCore.managers.processor.annotations/index.html
-$dokka.location:com.system32.systemCore.managers.processor.annotations/Event///PointingToDeclaration/-system-core/com.system32.systemCore.managers.processor.annotations/-event/index.html
-$dokka.location:com.system32.systemCore.managers.processor.annotations/Event/ignoreCancelled/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.processor.annotations/-event/ignore-cancelled.html
-$dokka.location:com.system32.systemCore.managers.processor.annotations/Event/priority/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.processor.annotations/-event/priority.html
+$dokka.location:com.system32.systemCore.managers.processor.annotations/ListenerComponent///PointingToDeclaration/-system-core/com.system32.systemCore.managers.processor.annotations/-listener-component/index.html
 $dokka.location:com.system32.systemCore.managers.processor.annotations/Service///PointingToDeclaration/-system-core/com.system32.systemCore.managers.processor.annotations/-service/index.html
 $dokka.location:com.system32.systemCore.managers.processor.processors////PointingToDeclaration/-system-core/com.system32.systemCore.managers.processor.processors/index.html
 $dokka.location:com.system32.systemCore.managers.processor.processors/EventProcessor///PointingToDeclaration/-system-core/com.system32.systemCore.managers.processor.processors/-event-processor/index.html
@@ -138,12 +136,13 @@ $dokka.location:com.system32.systemCore.managers.processor.processors/ServicePro
 $dokka.location:com.system32.systemCore.managers.processor.processors/ServiceProcessorProvider/ServiceProcessorProvider/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.processor.processors/-service-processor-provider/-service-processor-provider.html
 $dokka.location:com.system32.systemCore.managers.processor.processors/ServiceProcessorProvider/create/#com.google.devtools.ksp.processing.SymbolProcessorEnvironment/PointingToDeclaration/-system-core/com.system32.systemCore.managers.processor.processors/-service-processor-provider/create.html
 $dokka.location:com.system32.systemCore.managers.processor////PointingToDeclaration/-system-core/com.system32.systemCore.managers.processor/index.html
-$dokka.location:com.system32.systemCore.managers.processor/EventRegistry///PointingToDeclaration/-system-core/com.system32.systemCore.managers.processor/-event-registry/index.html
-$dokka.location:com.system32.systemCore.managers.processor/EventRegistry/register/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.processor/-event-registry/register.html
 $dokka.location:com.system32.systemCore.managers.processor/PluginService///PointingToDeclaration/-system-core/com.system32.systemCore.managers.processor/-plugin-service/index.html
 $dokka.location:com.system32.systemCore.managers.processor/PluginService/onDisable/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.processor/-plugin-service/on-disable.html
 $dokka.location:com.system32.systemCore.managers.processor/PluginService/onEnable/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.processor/-plugin-service/on-enable.html
 $dokka.location:com.system32.systemCore.managers.processor/PluginService/reload/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.processor/-plugin-service/reload.html
+$dokka.location:com.system32.systemCore.managers.processor/TemplateEngine///PointingToDeclaration/-system-core/com.system32.systemCore.managers.processor/-template-engine/index.html
+$dokka.location:com.system32.systemCore.managers.processor/TemplateEngine/loadTemplate/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.managers.processor/-template-engine/load-template.html
+$dokka.location:com.system32.systemCore.managers.processor/TemplateEngine/render/#kotlin.String#kotlin.collections.Map[kotlin.String,kotlin.Any]/PointingToDeclaration/-system-core/com.system32.systemCore.managers.processor/-template-engine/render.html
 $dokka.location:com.system32.systemCore.managers.regions.events////PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.events/index.html
 $dokka.location:com.system32.systemCore.managers.regions.events/RegionEnteredEvent.Companion///PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.events/-region-entered-event/-companion/index.html
 $dokka.location:com.system32.systemCore.managers.regions.events/RegionEnteredEvent.Companion/handlerList/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.regions.events/-region-entered-event/-companion/handler-list.html
