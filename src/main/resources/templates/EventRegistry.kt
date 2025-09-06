@@ -2,7 +2,6 @@ package com.system32.generated
 
 import org.bukkit.event.Listener
 import com.system32.systemCore.SystemCore
-import com.system32.systemCore.managers.processor.annotations.Event
 
 object EventRegistry {
     private val listeners: List<Any> = listOf(
