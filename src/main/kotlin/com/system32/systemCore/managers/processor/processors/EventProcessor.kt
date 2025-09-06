@@ -55,3 +55,9 @@ class EventProcessor(
         logger.info("[EventProcessor] EventRegistry generated with ${collected.size} listeners.")
     }
 }
+
+class EventProcessorProvider : SymbolProcessorProvider {
+    override fun create(environment: SymbolProcessorEnvironment): SymbolProcessor {
+        return EventProcessor(environment.codeGenerator, environment.logger)
+    }
+}
