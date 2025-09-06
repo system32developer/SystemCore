@@ -49,14 +49,12 @@ object TextUtil {
         val mini = MiniMessage.miniMessage()
         if(SystemCore.placeholderAPISupport) message = PlaceholderAPI.setPlaceholders(target, message)
         if(input.contains("&")) {
-            message = ChatColor.translateAlternateColorCodes('&', input)
-            val legacy: TextComponent = LegacyComponentSerializer.legacyAmpersand().deserialize(message);
-            message = mini.serialize(legacy).replace("\\", "");
+            if(input.contains("§")) message = input.replace("§", "&")
+            message = mini.serialize(LegacyComponentSerializer.legacyAmpersand().deserialize(message)).replace("\\", "")
         }
         if (message.isEmpty()) return Component.empty()
         val component = if(tag != null) mini.deserialize(message, tag) else mini.deserialize(message)
-        return component.decorationIfAbsent(TextDecoration.ITALIC ,
-            TextDecoration.State.FALSE)
+        return component.decorationIfAbsent(TextDecoration.ITALIC, TextDecoration.State.FALSE)
     }
 
 
