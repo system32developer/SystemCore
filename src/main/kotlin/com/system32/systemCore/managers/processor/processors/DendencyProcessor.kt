@@ -32,7 +32,8 @@ class DendencyProcessor(
         codeGenerator.createNewFile(
             Dependencies(false),
             "com.system32.generated",
-            "DependencyResolver"
+            "DependencyResolver",
+            "java"
         ).use { out ->
             OutputStreamWriter(out, Charsets.UTF_8).use { it.write(code) }
         }
