@@ -15,7 +15,7 @@ object SystemCore {
     /**
      * Provides the main plugin instance.
      */
-    private val _plugin: Lazy<JavaPlugin> = lazy {
+    private var _plugin: Lazy<JavaPlugin> = lazy {
         JavaPlugin.getProvidingPlugin(SystemCore::class.java)
     }
 
