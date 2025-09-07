@@ -41,7 +41,7 @@ class DendencyProcessor(
     }
 }
 
-class DendencyProcessorProvider : SymbolProcessorProvider {
+class DependencyProcessorProvider : SymbolProcessorProvider {
     override fun create(environment: SymbolProcessorEnvironment): SymbolProcessor {
         return DendencyProcessor(environment.codeGenerator, environment.logger)
     }
