@@ -40,7 +40,7 @@ object TextUtil {
      *
      * * ### Example usage:
      * ```
-     * val message = ChatUtil.color("&aHello, &bworld!")
+     * val message = ChatUtil.color("<red>Hello, &bworld!")
      * player.sendMessage(message)
      * ```
      */
