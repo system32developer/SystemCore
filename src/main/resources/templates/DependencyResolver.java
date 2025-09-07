@@ -1,4 +1,4 @@
-package com.system32.generated
+package com.system32.generated;
 
 import io.papermc.paper.plugin.loader.PluginClasspathBuilder;
 import io.papermc.paper.plugin.loader.PluginLoader;
@@ -6,6 +6,10 @@ import io.papermc.paper.plugin.loader.library.impl.MavenLibraryResolver;
 import org.eclipse.aether.artifact.DefaultArtifact;
 import org.eclipse.aether.graph.Dependency;
 import org.eclipse.aether.repository.RemoteRepository;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.jar.Manifest;
 
 public class DependencyResolver implements PluginLoader {
 
@@ -54,7 +58,15 @@ public class DependencyResolver implements PluginLoader {
         classpathBuilder.addLibrary(resolver);
     }
 
-    fun systemCoreVersion(): String{
-        return Manifest(DependencyResolver::class.java.getResourceAsStream("/META-INF/MANIFEST.MF")).mainAttributes.getValue("SystemCore")
+    public static String systemCoreVersion() {
+        try (InputStream input = DependencyResolver.class.getResourceAsStream("/META-INF/MANIFEST.MF")) {
+            if (input == null) {
+                throw new IllegalStateException("No se encontró el archivo MANIFEST.MF");
+            }
+            Manifest manifest = new Manifest(input);
+            return manifest.getMainAttributes().getValue("SystemCore");
+        } catch (IOException e) {
+            throw new RuntimeException("Error leyendo MANIFEST.MF", e);
+        }
     }
 }
