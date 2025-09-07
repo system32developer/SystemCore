@@ -15,13 +15,8 @@ object SystemCore {
     /**
      * Provides the main plugin instance.
      */
-    private var _plugin: Lazy<JavaPlugin> = lazy {
-        JavaPlugin.getProvidingPlugin(SystemCore::class.java)
-    }
 
-    val plugin: JavaPlugin
-        get() = _plugin.value
-
+    lateinit var plugin: JavaPlugin
     /**
      * Indicates whether PlaceholderAPI support is enabled.
      */
