@@ -61,12 +61,12 @@ public class DependencyResolver implements PluginLoader {
     public static String systemCoreVersion() {
         try (InputStream input = DependencyResolver.class.getResourceAsStream("/META-INF/MANIFEST.MF")) {
             if (input == null) {
-                throw new IllegalStateException("No se encontró el archivo MANIFEST.MF");
+                throw new IllegalStateException("Not found MANIFEST.MF");
             }
             Manifest manifest = new Manifest(input);
             return manifest.getMainAttributes().getValue("SystemCore");
         } catch (IOException e) {
-            throw new RuntimeException("Error leyendo MANIFEST.MF", e);
+            throw new RuntimeException("Cannot read MANIFEST.MF", e);
         }
     }
 }
