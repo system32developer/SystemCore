@@ -50,7 +50,7 @@ public class DependencyResolver implements PluginLoader {
         );
         resolver.addDependency(
                 new Dependency(
-                        new DefaultArtifact("com.system32:SystemCore:2.5.8"),
+                        new DefaultArtifact("com.system32:SystemCore:"+systemCoreVersion()),
                         null
                 )
         );
