@@ -105,6 +105,7 @@ class CommandManager {
 
     fun command(vararg commands: Any) {
         for (command in commands) {
+            //no longer using paper lamp
             lamp.register(command)
         }
     }

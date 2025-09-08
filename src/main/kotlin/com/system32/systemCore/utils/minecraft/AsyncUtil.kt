@@ -1,6 +1,7 @@
 package com.system32.systemCore.utils.minecraft
 
-import com.system32.systemCore.utils.minecraft.ServerUtil.task
+import org.bukkit.Bukkit
+import com.system32.systemCore.SystemCore
 import java.util.concurrent.CompletableFuture
 
 class AsyncTask<T>(private val block: () -> T) {
@@ -9,18 +10,20 @@ class AsyncTask<T>(private val block: () -> T) {
     fun launch() {
         CompletableFuture.supplyAsync {
             block()
-        }.thenAccept { result ->
-            future.complete(result)
-        }.exceptionally { ex ->
-            future.completeExceptionally(ex)
-            null
+        }.whenComplete { result, ex ->
+            if (ex != null) {
+                future.completeExceptionally(ex)
+            } else {
+                future.complete(result)
+            }
         }
     }
 
     fun onComplete(action: (T) -> Unit): AsyncTask<T> {
-        future.thenAccept { result ->
-            task{ action(result) }
-        }
+        future.thenAcceptAsync(
+            { result -> action(result) },
+            Bukkit.getScheduler().getMainThreadExecutor(SystemCore.plugin)
+        )
         return this
     }
 }
