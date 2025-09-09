@@ -414,10 +414,7 @@ $dokka.location:com.system32.systemCore.utils.text/TextUtil/tag/#kotlin.Array[ko
 $dokka.location:com.system32.systemCore////PointingToDeclaration/-system-core/com.system32.systemCore/index.html
 $dokka.location:com.system32.systemCore/SystemCore///PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/index.html
 $dokka.location:com.system32.systemCore/SystemCore/event/#kotlin.Array[org.bukkit.event.Listener]/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/event.html
-$dokka.location:com.system32.systemCore/SystemCore/githubRepo/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/github-repo.html
-$dokka.location:com.system32.systemCore/SystemCore/githubUser/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/github-user.html
 $dokka.location:com.system32.systemCore/SystemCore/legacyCommand/#kotlin.String#org.bukkit.command.CommandExecutor/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/legacy-command.html
-$dokka.location:com.system32.systemCore/SystemCore/placeholderAPISupport/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/placeholder-a-p-i-support.html
 $dokka.location:com.system32.systemCore/SystemCore/plugin/#/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/plugin.html
 com.system32.systemCore
 com.system32.systemCore.database
