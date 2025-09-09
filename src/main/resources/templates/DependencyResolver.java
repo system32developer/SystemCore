@@ -41,33 +41,11 @@ public class DependencyResolver implements PluginLoader {
                 ).build()
         );
 
-        resolver.addRepository(
-                new RemoteRepository.Builder(
-                        "papi",
-                        "default",
-                        "https://repo.extendedclip.com/releases/"
-                ).build()
-        );
+        resolver.addDependency(new Dependency(new DefaultArtifact("org.jetbrains.kotlin:kotlin-stdlib:2.2.0"), null));
 
-        resolver.addDependency(
-                new Dependency(new DefaultArtifact("org.jetbrains.kotlin:kotlin-stdlib:2.2.0"), null)
-        );
+        resolver.addDependency(new Dependency(new DefaultArtifact("org.jetbrains.kotlin:kotlin-reflect:2.2.0"), null));
 
-
-        resolver.addDependency(
-                new Dependency(new DefaultArtifact("org.jetbrains.kotlin:kotlin-reflect:2.2.0"), null)
-        );
-
-        resolver.addDependency(
-                new Dependency(new DefaultArtifact("me.clip:placeholderapi:2.11.6"), null)
-        );
-
-        resolver.addDependency(
-                new Dependency(
-                        new DefaultArtifact("com.system32:SystemCore:"+systemCoreVersion()),
-                        null
-                )
-        );
+        resolver.addDependency(new Dependency(new DefaultArtifact("com.system32:SystemCore:"+systemCoreVersion()), null));
 
         classpathBuilder.addLibrary(resolver);
     }
