@@ -17,13 +17,6 @@ object SystemCore {
      */
 
     lateinit var plugin: JavaPlugin
-    /**
-     * Indicates whether PlaceholderAPI support is enabled.
-     */
-    var placeholderAPISupport: Boolean = false
-
-    var githubUser = "System32"
-    var githubRepo = "SystemCore"
 
     /**
      * Registers an event listener to the plugin's event system.

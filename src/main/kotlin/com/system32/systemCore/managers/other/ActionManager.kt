@@ -1,9 +1,7 @@
 package com.system32.systemCore.managers.other
 
-import com.system32.systemCore.SystemCore
 import com.system32.systemCore.utils.minecraft.ServerUtil.taskLater
 import com.system32.systemCore.utils.text.TextUtil.color
-import me.clip.placeholderapi.PlaceholderAPI
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.title.Title
 import org.bukkit.Bukkit
@@ -33,9 +31,7 @@ class ActionManager (private val actions: MutableList<String>) {
     private fun executeNext(player: Player, remaining: MutableList<String>) {
         if (remaining.isEmpty()) return
 
-
-        var raw = remaining.removeAt(0)
-        if(SystemCore.placeholderAPISupport) raw = PlaceholderAPI.setPlaceholders(player, raw)
+        val raw = remaining.removeAt(0)
         val type = extractType(raw)?.let {
             runCatching { ActionType.valueOf(it.uppercase()) }.getOrNull()
         } ?: run {

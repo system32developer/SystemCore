@@ -1,19 +1,14 @@
 package com.system32.systemCore.utils.text
 
-import com.system32.systemCore.SystemCore
-import me.clip.placeholderapi.PlaceholderAPI
 import net.kyori.adventure.text.Component
-import net.kyori.adventure.text.TextComponent
 import net.kyori.adventure.text.format.TextDecoration
 import net.kyori.adventure.text.minimessage.MiniMessage
 import net.kyori.adventure.text.minimessage.tag.Tag
 import net.kyori.adventure.text.minimessage.tag.resolver.TagResolver
 import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer
 import net.kyori.adventure.text.serializer.plain.PlainTextComponentSerializer
-import org.bukkit.ChatColor
 import org.bukkit.entity.Player
 import java.text.DecimalFormat
-import java.util.Objects
 import java.util.function.Consumer
 
 object TextUtil {
@@ -47,7 +42,6 @@ object TextUtil {
     fun color(input: String, target: Player? = null, tag: TagResolver? = null): Component {
         var message = input
         val mini = MiniMessage.miniMessage()
-        if(SystemCore.placeholderAPISupport) message = PlaceholderAPI.setPlaceholders(target, message)
         if(input.contains("&")) {
             if(input.contains("§")) message = input.replace("§", "&")
             message = mini.serialize(LegacyComponentSerializer.legacyAmpersand().deserialize(message)).replace("\\", "")
