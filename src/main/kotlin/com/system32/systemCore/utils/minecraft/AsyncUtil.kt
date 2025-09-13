@@ -11,11 +11,7 @@ class AsyncTask<T>(private val block: () -> T) {
         CompletableFuture.supplyAsync {
             block()
         }.whenComplete { result, ex ->
-            if (ex != null) {
-                future.completeExceptionally(ex)
-            } else {
-                future.complete(result)
-            }
+            if (ex != null) future.completeExceptionally(ex) else future.complete(result)
         }
     }
 

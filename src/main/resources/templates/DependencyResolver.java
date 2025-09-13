@@ -29,7 +29,7 @@ public class DependencyResolver implements PluginLoader {
                 new RemoteRepository.Builder(
                         "maven-central",
                         "default",
-                        "https://repo1.maven.org/maven2/"
+                        "https://maven-central.storage-download.googleapis.com/maven2"
                 ).build()
         );
 
