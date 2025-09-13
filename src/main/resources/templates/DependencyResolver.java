@@ -45,7 +45,7 @@ public class DependencyResolver implements PluginLoader {
 
         resolver.addDependency(new Dependency(new DefaultArtifact("org.jetbrains.kotlin:kotlin-reflect:2.2.0"), null));
 
-        resolver.addDependency(new Dependency(new DefaultArtifact("dev.triumphteam:triumph-gui:3.1.13-SNAPSHOT), null));
+        resolver.addDependency(new Dependency(new DefaultArtifact("dev.triumphteam:triumph-gui:3.1.13-SNAPSHOT"), null));
 
         resolver.addDependency(new Dependency(new DefaultArtifact("com.system32:SystemCore:"+systemCoreVersion()), null));
 
