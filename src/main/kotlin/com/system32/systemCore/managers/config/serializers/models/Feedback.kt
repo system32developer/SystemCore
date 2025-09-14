@@ -12,6 +12,9 @@ import org.bukkit.Bukkit
 import org.bukkit.Location
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
+import org.spongepowered.configurate.ConfigurationNode
+import org.spongepowered.configurate.serialize.TypeSerializer
+import java.lang.reflect.Type
 import java.util.regex.Pattern
 
 /**
@@ -181,6 +184,25 @@ class Feedback(val message: List<String>) {
     private fun String.withPlaceholders(placeholders: Map<String, String>): Component {
 
         return MiniMessage.miniMessage().deserialize(this, *placeholders.map { (key, value) -> Placeholder.parsed(key, value) }.toTypedArray())
+    }
+
+    class Serializer  : TypeSerializer<Feedback> {
+
+        override fun deserialize(type: Type?, node: ConfigurationNode?): Feedback? {
+            if (node == null) return null
+            return Feedback(if(node.isList) node.getList(String::class.java)!! else listOf(node.string?: "No message provided"))
+        }
+
+        override fun serialize(type: Type?, obj: Feedback?, node: ConfigurationNode?) {
+            if (node == null) return
+            if (obj == null) {
+                node.set(null)
+                println("No Component to save, setting node to null")
+                return
+            }
+
+            if (!obj.isList) node.set(obj.message[0]) else node.setList(String::class.java, obj.message)
+        }
     }
 
 }

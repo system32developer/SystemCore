@@ -2,9 +2,9 @@ package com.system32.systemCore.managers.config
 
 import com.google.common.reflect.TypeToken
 import com.system32.systemCore.SystemCore
-import com.system32.systemCore.managers.config.serializers.FeedbackSerializer
 import com.system32.systemCore.managers.config.serializers.LocationSerializer
 import com.system32.systemCore.managers.config.serializers.models.Feedback
+import com.system32.systemCore.managers.config.serializers.models.ItemBuilder
 import net.kyori.adventure.text.Component
 import org.bukkit.Location
 import org.spongepowered.configurate.ConfigurationNode
@@ -32,7 +32,8 @@ class ConfigManager(
     private fun registerDefaultSerializers() {
 
         serializer(Location::class.java, LocationSerializer())
-        serializer(Feedback::class.java, FeedbackSerializer())
+        serializer(Feedback::class.java, Feedback.Serializer())
+        serializer(ItemBuilder::class.java, ItemBuilder.Serializer())
     }
 
     fun <T : Any> config(
