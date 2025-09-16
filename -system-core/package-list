@@ -161,6 +161,7 @@ $dokka.location:com.system32.systemCore.managers.processor////PointingToDeclarat
 $dokka.location:com.system32.systemCore.managers.processor/PluginService///PointingToDeclaration/-system-core/com.system32.systemCore.managers.processor/-plugin-service/index.html
 $dokka.location:com.system32.systemCore.managers.processor/PluginService/onDisable/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.processor/-plugin-service/on-disable.html
 $dokka.location:com.system32.systemCore.managers.processor/PluginService/onEnable/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.processor/-plugin-service/on-enable.html
+$dokka.location:com.system32.systemCore.managers.processor/PluginService/onLoad/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.processor/-plugin-service/on-load.html
 $dokka.location:com.system32.systemCore.managers.processor/PluginService/reload/#/PointingToDeclaration/-system-core/com.system32.systemCore.managers.processor/-plugin-service/reload.html
 $dokka.location:com.system32.systemCore.managers.processor/TemplateEngine///PointingToDeclaration/-system-core/com.system32.systemCore.managers.processor/-template-engine/index.html
 $dokka.location:com.system32.systemCore.managers.processor/TemplateEngine/loadTemplate/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.managers.processor/-template-engine/load-template.html
