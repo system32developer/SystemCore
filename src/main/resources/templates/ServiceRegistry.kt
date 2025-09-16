@@ -7,6 +7,10 @@ object ServiceRegistry {
         {{services}}
     )
 
+    fun onLoad() {
+        services.forEach { it.onLoad() }
+    }
+
     fun onEnable() {
         services.forEach { it.onEnable() }
     }
