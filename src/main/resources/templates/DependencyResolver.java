@@ -19,23 +19,9 @@ public class DependencyResolver implements PluginLoader {
     public void classloader(PluginClasspathBuilder classpathBuilder) {
         MavenLibraryResolver resolver = new MavenLibraryResolver();
 
-        {{#customDeps}}
-        resolver.addRepository(
-                new RemoteRepository.Builder(
-                        "{{id}}",
-                        "default",
-                        "{{repository}}"
-                ).build()
-        );
-        {{/customDeps}}
+        {{repositories}}
 
-        {{#centralDeps}}
-        resolver.addDependency(new Dependency(new DefaultArtifact("{{.}}"), null));
-        {{/centralDeps}}
-
-        {{#customDeps}}
-        resolver.addDependency(new Dependency(new DefaultArtifact("{{coordinates}}"), null));
-        {{/customDeps}}
+        {{dependencies}}
 
         resolver.addRepository(
                 new RemoteRepository.Builder(
