@@ -47,28 +47,20 @@ class DendencyProcessor(
     }
 
     override fun finish() {
-        val centralDeps = dependencies.filter { it.second == null }
+        val centralDeps = dependencies.filter { it.second == null }.map { it.first }
         val customDeps = dependencies.filter { it.second != null }
 
         val repositoriesCode = customDeps.joinToString("\n\n") { (coords, repo) ->
             val id = repo!!.substringAfter("//").substringBefore("/").replace(".", "-")
-            """
-        resolver.addRepository(
-            new RemoteRepository.Builder(
-                "$id",
-                "default",
-                "$repo"
-            ).build()
-        );
-        """.trimIndent()
+            """resolver.addRepository(new RemoteRepository.Builder("$id", "default", "$repo").build());""".trimIndent()
         }
 
         val dependenciesCode =
             centralDeps.joinToString("\n") { coords ->
-                """resolver.addDependency(new Dependency(new DefaultArtifact("$coords"), null));"""
+                """        resolver.addDependency(new Dependency(new DefaultArtifact("$coords"), null));"""
             } + "\n" +
                     customDeps.joinToString("\n") { (coords, _) ->
-                        """resolver.addDependency(new Dependency(new DefaultArtifact("$coords"), null));"""
+                        """        resolver.addDependency(new Dependency(new DefaultArtifact("$coords"), null));"""
                     }
 
         val template = TemplateEngine.loadTemplate("DependencyResolver.java")
