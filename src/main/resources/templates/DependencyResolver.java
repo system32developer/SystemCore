@@ -13,8 +13,6 @@ import java.util.jar.Manifest;
 
 public class DependencyResolver implements PluginLoader {
 
-
-
     @Override
     public void classloader(PluginClasspathBuilder classpathBuilder) {
         MavenLibraryResolver resolver = new MavenLibraryResolver();
