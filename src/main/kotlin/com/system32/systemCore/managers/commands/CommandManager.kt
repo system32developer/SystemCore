@@ -2,7 +2,6 @@ package com.system32.systemCore.managers.commands
 
 import com.system32.systemCore.SystemCore
 import com.system32.systemCore.managers.commands.parameterTypes.OnlinePlayer
-import com.system32.systemCore.managers.commands.parameterTypes.OnlinePlayerParameter
 import revxrsal.commands.Lamp
 import revxrsal.commands.bukkit.BukkitLamp
 import revxrsal.commands.bukkit.actor.BukkitCommandActor
@@ -48,7 +47,7 @@ class CommandManager {
         }
 
     init {
-        parameters[OnlinePlayer::class.java] = OnlinePlayerParameter()
+        parameters[OnlinePlayer::class.java] = OnlinePlayer.Parameter()
     }
 
 

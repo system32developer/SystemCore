@@ -13,9 +13,29 @@ import java.util.jar.Manifest;
 
 public class DependencyResolver implements PluginLoader {
 
+
+
     @Override
     public void classloader(PluginClasspathBuilder classpathBuilder) {
         MavenLibraryResolver resolver = new MavenLibraryResolver();
+
+        {{#customDeps}}
+        resolver.addRepository(
+                new RemoteRepository.Builder(
+                        "{{id}}",
+                        "default",
+                        "{{repository}}"
+                ).build()
+        );
+        {{/customDeps}}
+
+        {{#centralDeps}}
+        resolver.addDependency(new Dependency(new DefaultArtifact("{{.}}"), null));
+        {{/centralDeps}}
+
+        {{#customDeps}}
+        resolver.addDependency(new Dependency(new DefaultArtifact("{{coordinates}}"), null));
+        {{/customDeps}}
 
         resolver.addRepository(
                 new RemoteRepository.Builder(

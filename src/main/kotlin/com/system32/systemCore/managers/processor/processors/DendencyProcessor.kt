@@ -11,7 +11,9 @@ import com.google.devtools.ksp.symbol.ClassKind
 import com.google.devtools.ksp.symbol.KSAnnotated
 import com.google.devtools.ksp.symbol.KSClassDeclaration
 import com.system32.systemCore.managers.processor.TemplateEngine
+import com.system32.systemCore.managers.processor.annotations.Dependency
 import com.system32.systemCore.managers.processor.annotations.ListenerComponent
+import org.apache.maven.model.Repository
 import java.io.OutputStreamWriter
 
 class DendencyProcessor(
@@ -19,15 +21,41 @@ class DendencyProcessor(
     private val logger: KSPLogger
 ) : SymbolProcessor {
 
+    private val dependencies = mutableListOf<Pair<String, String?>>()
+
     override fun process(resolver: Resolver): List<KSAnnotated> {
+        val symbols = resolver.getSymbolsWithAnnotation(Dependency::class.qualifiedName!!)
+            .filterIsInstance<KSClassDeclaration>()
+
+        for (symbol in symbols) {
+            val annotation = symbol.annotations.first {
+                it.shortName.asString() == "Dependency"
+            }
+
+            val coordinates = annotation.arguments
+                .first { it.name?.asString() == "coordinates" }
+                .value as String
+
+            val repository = annotation.arguments
+                .first { it.name?.asString() == "repository" }
+                .value as String
+
+            dependencies += coordinates to repository.ifBlank { null }
+        }
 
         return emptyList()
     }
 
     override fun finish() {
+        val centralDeps = dependencies.filter { it.second == null }.map { it.first }
+        val customDeps = dependencies.filter { it.second != null }
 
         val template = TemplateEngine.loadTemplate("DependencyResolver.java")
-        val code = TemplateEngine.render(template, mapOf())
+
+        val code = TemplateEngine.render(template, mapOf(
+            "centralDeps" to centralDeps,
+            "customDeps" to customDeps
+        ))
 
         codeGenerator.createNewFile(
             Dependencies(false),
@@ -38,7 +66,7 @@ class DendencyProcessor(
             OutputStreamWriter(out, Charsets.UTF_8).use { it.write(code) }
         }
 
-        logger.info("[EventProcessor] DependencyResolver generated")
+        logger.info("[DependencyProcessor] DependencyResolver generated with ${dependencies.size} deps")
     }
 }
 

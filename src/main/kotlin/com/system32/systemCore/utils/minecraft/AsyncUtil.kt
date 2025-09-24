@@ -11,7 +11,10 @@ class AsyncTask<T>(private val block: () -> T) {
         CompletableFuture.supplyAsync {
             block()
         }.whenComplete { result, ex ->
-            if (ex != null) future.completeExceptionally(ex) else future.complete(result)
+            if (ex != null) {
+                ex.printStackTrace()
+                future.completeExceptionally(ex)
+            } else future.complete(result)
         }
     }
 
@@ -20,6 +23,14 @@ class AsyncTask<T>(private val block: () -> T) {
             { result -> action(result) },
             Bukkit.getScheduler().getMainThreadExecutor(SystemCore.plugin)
         )
+        return this
+    }
+
+    fun onError(action: (Throwable) -> Unit): AsyncTask<T> {
+        future.exceptionally { ex ->
+            action(ex)
+            null
+        }
         return this
     }
 }

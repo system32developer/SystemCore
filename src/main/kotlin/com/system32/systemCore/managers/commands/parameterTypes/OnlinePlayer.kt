@@ -15,19 +15,19 @@ class OnlinePlayer(val name: String) {
 
     val uniqueId get() = asPlayer.uniqueId
 
-}
-class OnlinePlayerParameter : ParameterType<BukkitCommandActor, OnlinePlayer> {
+    class Parameter : ParameterType<BukkitCommandActor, OnlinePlayer> {
 
-    override fun parse(input: MutableStringStream, context: ExecutionContext<BukkitCommandActor>): OnlinePlayer {
-        val name = input.readString()
-        val player = Bukkit.getPlayer(name)
-            ?: throw CommandErrorException("Player with name '$name' is not online or does not exist.")
-        return OnlinePlayer(player.name)
-    }
+        override fun parse(input: MutableStringStream, context: ExecutionContext<BukkitCommandActor>): OnlinePlayer {
+            val name = input.readString()
+            val player = Bukkit.getPlayer(name)
+                ?: throw CommandErrorException("Player with name '$name' is not online or does not exist.")
+            return OnlinePlayer(player.name)
+        }
 
-    override fun defaultSuggestions(): SuggestionProvider<BukkitCommandActor> {
-        return SuggestionProvider { _ ->
-            Bukkit.getOnlinePlayers().map { it.name }.toList()
+        override fun defaultSuggestions(): SuggestionProvider<BukkitCommandActor> {
+            return SuggestionProvider { _ ->
+                Bukkit.getOnlinePlayers().map { it.name }.toList()
+            }
         }
     }
 }
