@@ -5,6 +5,8 @@ import com.system32.systemCore.utils.text.TextUtil
 import com.system32.systemCore.utils.text.TextUtil.color
 import org.bukkit.Bukkit
 import org.bukkit.entity.Player
+import org.bukkit.inventory.Inventory
+import org.bukkit.inventory.ItemStack
 import org.bukkit.scheduler.BukkitTask
 import java.util.UUID
 
@@ -16,6 +18,23 @@ object ServerUtil {
     fun player(name: String) : Player?{
         return Bukkit.getPlayer(name)
     }
+
+    fun addItems(
+        inventory: Inventory,
+        items: Iterable<ItemStack>,
+        onFail: (List<ItemStack>) -> Unit = {}
+    ): List<ItemStack> {
+        val leftover = inventory.addItem(*items.toList().toTypedArray()).values.toList()
+        if (leftover.isNotEmpty()) onFail(leftover)
+
+        return leftover
+    }
+
+    fun addItems(
+        inventory: Inventory,
+        vararg items: ItemStack,
+        onFail: (List<ItemStack>) -> Unit = {}
+    ): List<ItemStack> = addItems(inventory, items.toList(), onFail)
 
     fun offlinePlayer(name: String) : Player?{
         return Bukkit.getOfflinePlayer(name).player

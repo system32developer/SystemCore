@@ -4,5 +4,5 @@ interface PluginService {
     fun onLoad() {}
     fun onEnable()
     fun onDisable()
-    fun reload()
+    fun onReload()
 }

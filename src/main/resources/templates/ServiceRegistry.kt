@@ -20,6 +20,6 @@ object ServiceRegistry {
     }
 
     fun reload() {
-        services.forEach { it.reload() }
+        services.forEach { it.onReload() }
     }
 }
