@@ -271,6 +271,13 @@ $dokka.location:com.system32.systemCore.utils.minecraft/ChatHeadUtil/generateCha
 $dokka.location:com.system32.systemCore.utils.minecraft/ChatHeadUtil/generateChatHead/#kotlin.String#kotlin.String#kotlin.Boolean#kotlin.Boolean/PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-chat-head-util/generate-chat-head.html
 $dokka.location:com.system32.systemCore.utils.minecraft/ChatHeadUtil/generateChatHead/#org.bukkit.entity.Player#kotlin.Int#kotlin.String#kotlin.Boolean#kotlin.Boolean/PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-chat-head-util/generate-chat-head.html
 $dokka.location:com.system32.systemCore.utils.minecraft/ChatHeadUtil/headsCache/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-chat-head-util/heads-cache.html
+$dokka.location:com.system32.systemCore.utils.minecraft/ConditionEvaluator///PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-condition-evaluator/index.html
+$dokka.location:com.system32.systemCore.utils.minecraft/ConditionEvaluator/evaluate/#kotlin.String#org.bukkit.entity.Player/PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-condition-evaluator/evaluate.html
+$dokka.location:com.system32.systemCore.utils.minecraft/ConditionEvaluator/evaluateAll/#kotlin.collections.Iterable[kotlin.String]#org.bukkit.entity.Player/PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-condition-evaluator/evaluate-all.html
+$dokka.location:com.system32.systemCore.utils.minecraft/ConditionEvaluator/evaluateAny/#kotlin.collections.Iterable[kotlin.String]#org.bukkit.entity.Player/PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-condition-evaluator/evaluate-any.html
+$dokka.location:com.system32.systemCore.utils.minecraft/ConditionEvaluator/parse/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-condition-evaluator/parse.html
+$dokka.location:com.system32.systemCore.utils.minecraft/ConditionEvaluator/parseLeft/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-condition-evaluator/parse-left.html
+$dokka.location:com.system32.systemCore.utils.minecraft/ConditionEvaluator/parseRight/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-condition-evaluator/parse-right.html
 $dokka.location:com.system32.systemCore.utils.minecraft/CountdownTask///PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-countdown-task/index.html
 $dokka.location:com.system32.systemCore.utils.minecraft/CountdownTask/CountdownTask/#kotlin.Int#kotlin.Boolean/PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-countdown-task/-countdown-task.html
 $dokka.location:com.system32.systemCore.utils.minecraft/CountdownTask/at/#kotlin.IntArray#kotlin.Function1[kotlin.Int,kotlin.Unit]/PointingToDeclaration/-system-core/com.system32.systemCore.utils.minecraft/-countdown-task/at.html
@@ -434,6 +441,16 @@ $dokka.location:com.system32.systemCore.utils.text/TextUtil/parseTime/#kotlin.In
 $dokka.location:com.system32.systemCore.utils.text/TextUtil/progressBar/#kotlin.Double#kotlin.Double#kotlin.Int#kotlin.String#kotlin.String#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.utils.text/-text-util/progress-bar.html
 $dokka.location:com.system32.systemCore.utils.text/TextUtil/progressBar/#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.String#kotlin.String#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.utils.text/-text-util/progress-bar.html
 $dokka.location:com.system32.systemCore.utils.text/TextUtil/tag/#kotlin.Array[kotlin.Pair[kotlin.String,kotlin.Any]]/PointingToDeclaration/-system-core/com.system32.systemCore.utils.text/-text-util/tag.html
+$dokka.location:com.system32.systemCore.utils////PointingToDeclaration/-system-core/com.system32.systemCore.utils/index.html
+$dokka.location:com.system32.systemCore.utils/Debug.Section///PointingToDeclaration/-system-core/com.system32.systemCore.utils/-debug/-section/index.html
+$dokka.location:com.system32.systemCore.utils/Debug.Section/Section/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-debug/-section/-section.html
+$dokka.location:com.system32.systemCore.utils/Debug.Section/addData/#kotlin.String#kotlin.Any/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-debug/-section/add-data.html
+$dokka.location:com.system32.systemCore.utils/Debug.Section/data/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-debug/-section/data.html
+$dokka.location:com.system32.systemCore.utils/Debug.Section/name/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-debug/-section/name.html
+$dokka.location:com.system32.systemCore.utils/Debug///PointingToDeclaration/-system-core/com.system32.systemCore.utils/-debug/index.html
+$dokka.location:com.system32.systemCore.utils/Debug/Debug/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-debug/-debug.html
+$dokka.location:com.system32.systemCore.utils/Debug/addSection/#kotlin.String/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-debug/add-section.html
+$dokka.location:com.system32.systemCore.utils/Debug/send/#/PointingToDeclaration/-system-core/com.system32.systemCore.utils/-debug/send.html
 $dokka.location:com.system32.systemCore////PointingToDeclaration/-system-core/com.system32.systemCore/index.html
 $dokka.location:com.system32.systemCore/SystemCore///PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/index.html
 $dokka.location:com.system32.systemCore/SystemCore/event/#kotlin.Array[org.bukkit.event.Listener]/PointingToDeclaration/-system-core/com.system32.systemCore/-system-core/event.html
@@ -457,5 +474,6 @@ com.system32.systemCore.managers.regions
 com.system32.systemCore.managers.regions.events
 com.system32.systemCore.managers.regions.model
 com.system32.systemCore.shade
+com.system32.systemCore.utils
 com.system32.systemCore.utils.minecraft
 com.system32.systemCore.utils.text
