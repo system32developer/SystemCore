@@ -14,7 +14,7 @@ class Debug {
         return section
     }
 
-    fun buildContent(): String {
+    private fun buildContent(): String {
         val builder = StringBuilder()
         for (section in sections) {
             builder.appendLine("${section.name}:")
