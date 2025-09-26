@@ -28,19 +28,21 @@ class DendencyProcessor(
             .filterIsInstance<KSClassDeclaration>()
 
         for (symbol in symbols) {
-            val annotation = symbol.annotations.first {
+            val dependencyAnnotations = symbol.annotations.filter {
                 it.shortName.asString() == "Dependency"
             }
 
-            val coordinates = annotation.arguments
-                .first { it.name?.asString() == "coordinates" }
-                .value as String
+            for (annotation in dependencyAnnotations) {
+                val coordinates = annotation.arguments
+                    .first { it.name?.asString() == "coordinates" }
+                    .value as String
 
-            val repository = annotation.arguments
-                .first { it.name?.asString() == "repository" }
-                .value as String
+                val repository = annotation.arguments
+                    .first { it.name?.asString() == "repository" }
+                    .value as String
 
-            dependencies += coordinates to repository.ifBlank { null }
+                dependencies += coordinates to repository.ifBlank { null }
+            }
         }
 
         return emptyList()
