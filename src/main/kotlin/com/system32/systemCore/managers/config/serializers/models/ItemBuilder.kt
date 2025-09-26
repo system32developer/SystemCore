@@ -21,7 +21,7 @@ data class ItemBuilder(
     var name: String = "",
     var lore: List<String> = listOf(),
     var flags: List<String> = listOf(),
-    //format is base:texture, texture:texture or  owner:playername
+    //format is base:texture, texture:texture or owner:playername
     val skullTexture: String = "",
     val glow: Boolean = false,
     val customModelData: Int = 0,
