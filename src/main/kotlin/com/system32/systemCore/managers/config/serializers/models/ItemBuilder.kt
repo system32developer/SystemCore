@@ -66,6 +66,9 @@ data class ItemBuilder(
         item.itemMeta = meta
         return item
     }
+
+    fun clone() = ItemBuilder(amount, material, name, lore.toList(), flags.toList(), skullTexture, glow, customModelData)
+
     class Serializer : TypeSerializer<ItemBuilder> {
         override fun deserialize(
             type: Type,

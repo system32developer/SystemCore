@@ -11,7 +11,7 @@ import org.bukkit.entity.Player
 import java.time.Duration
 import java.util.regex.Pattern
 
-class ActionManager (private val actions: MutableList<String>) {
+class ActionManager (private val actions: Iterable<String>) {
 
     private val allowedActions: MutableList<ActionType> = ActionType.entries.toMutableList()
 
@@ -66,7 +66,7 @@ class ActionManager (private val actions: MutableList<String>) {
             }
             ActionType.TITLE -> {
                 val parts = data.split(";", limit = 5)
-                val title = if (parts.size > 0) color(parts[0]) else Component.empty()
+                val title = if (parts.isNotEmpty()) color(parts[0]) else Component.empty()
                 val subtitle = if (parts.size > 1) color(parts[1]) else Component.empty()
                 val fadeIn = parts.getOrNull(2)?.toLongOrNull() ?: 10
                 val stay = parts.getOrNull(3)?.toLongOrNull() ?: 70
