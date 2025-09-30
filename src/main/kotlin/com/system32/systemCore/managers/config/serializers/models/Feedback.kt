@@ -49,142 +49,23 @@ class Feedback(val message: List<String>) {
 
     val inlineText : String = message.joinToString("\n")
 
-    /**
-     * The colored and parsed [Component] version of the message, lazily initialized.
-     */
-    private val component: Component by lazy { color(inlineText) }
+    fun log(tag: TagResolver? = null) =  Bukkit.getConsoleSender().sendMessage(color(inlineText, tag))
 
-    /**
-     * Sends the message to the console.
-     */
-    fun send() {
-        Bukkit.getConsoleSender().sendMessage(component)
-    }
+    fun send(tag: TagResolver? = null, vararg audience: Audience) = audience.forEach { target -> target.sendMessage(color(inlineText, tag))}
 
-    /**
-     * Sends the message to the player only if the given condition is true.
-     *
-     * @param condition Boolean condition to check.
-     * @param audience The target audience (can be a player, console, commandsender, entity, server, world, team)
-     */
-    fun sendIf(condition: Boolean, audience: Audience) {
-        if (condition) audience.sendMessage(component)
-    }
+    fun send(audience: Iterable<Audience>, tag: TagResolver? = null) = audience.forEach { target -> target.sendMessage(color(inlineText, tag))}
 
-    /**
-     * Sends the message to multiple players.
-     *
-     * @param audience Vararg of [Audience] to send the message to.
-     */
-    fun send(vararg audience: Audience) {
-        audience.forEach { target -> target.sendMessage(component) }
-    }
+    fun send(audience: Audience, tag: TagResolver? = null) = audience.sendMessage(color(inlineText, tag))
 
-    /**
-     * Sends the message to a collection of players.
-     *
-     * @param audience Iterable of [Audience] to send the message to.
-     */
-    fun send(audience: Iterable<Audience>) {
-        audience.forEach { target -> target.sendMessage(component) }
-    }
-
-    /**
-     * Sends the message to players near a given player within a certain radius.
-     *
-     * @param center The central player used for distance calculation.
-     * @param radius The maximum distance to receive the message.
-     */
-    fun send(center: Player, radius: Double) {
-        center.location.getNearbyPlayers(radius).forEach { target ->  target.sendMessage(component) }
-    }
-
-    /**
-     * Sends the message to all online players.
-     */
-    fun broadcast() {
-        Bukkit.getOnlinePlayers().forEach { target -> target.sendMessage(component) }
-    }
-
-    /**
-     * Sends the message to all online players if the given condition is true.
-     *
-     * @param condition Boolean condition to check.
-     */
-    fun broadcastIf(condition: Boolean) {
-        if (condition) Bukkit.getOnlinePlayers().forEach { target -> target.sendMessage(component) }
-    }
-
-    /**
-     * Sends the message to all players near a given location within a radius.
-     *
-     * @param center The central location.
-     * @param radius The maximum distance to receive the message.
-     */
-    fun broadcast(center: Location, radius: Double) {
-        center.getNearbyPlayers(radius).forEach { target -> target.sendMessage(component) }
-    }
-
-    /**
-     * Sends the message to a specific audience with placeholders replaced.
-     *
-     * @param audience The target audience (can be a player, console, commandsender, entity, server, world, team)
-     * @param placeholders A map of placeholders to replace in the message.
-     */
-
-    fun send(audience: Audience, placeholders: Map<String, String>) {
-        audience.sendMessage(inlineText.withPlaceholders(placeholders))
-    }
-
-    /**
-     * Sends the message to players near a given player within a certain radius, with placeholders replaced.
-     *
-     * @param center The central player used for distance calculation.
-     * @param radius The maximum distance to receive the message.
-     * @param placeholders A map of placeholders to replace in the message.
-     */
-
-    fun send(center: Player, radius: Double, placeholders: Map<String, String>) {
-        center.location.getNearbyPlayers(radius).forEach { target ->
-            target.sendMessage(inlineText.withPlaceholders(placeholders))
+    fun send(player: Player, tag: TagResolver? = null, radius: Int = 0) {
+        if(radius > 0) {
+            send(Audience.audience(player.location.getNearbyPlayers(radius.toDouble()).toList()), tag)
+            return
         }
+        player.sendMessage(color(inlineText, tag))
     }
 
-    /**
-     * Sends the message to all online players with placeholders replaced.
-     *
-     * @param placeholders A map of placeholders to replace in the message.
-     */
-
-    fun broadcast(placeholders: Map<String, String>) {
-        Bukkit.getOnlinePlayers().forEach { target ->
-            target.sendMessage(inlineText.withPlaceholders(placeholders))
-        }
-    }
-
-    /**
-     * Sends the message to all online players if the given condition is true, with placeholders replaced.
-     *
-     * @param condition Boolean condition to check.
-     * @param placeholders A map of placeholders to replace in the message.
-     */
-
-    fun broadcast(center: Location, radius: Double, placeholders: Map<String, String>) {
-        center.getNearbyPlayers(radius).forEach { target ->
-            target.sendMessage(inlineText.withPlaceholders(placeholders))
-        }
-    }
-
-    /**
-     * Sends the message to a specific audience with placeholders replaced.
-     *
-     * @param placeholders A map of placeholders to replace in the message.
-     */
-
-    private fun String.withPlaceholders(placeholders: Map<String, String>): Component {
-
-        return MiniMessage.miniMessage().deserialize(this, *placeholders.map { (key, value) -> Placeholder.parsed(key, value) }.toTypedArray())
-    }
+    fun broadcast(tag: TagResolver? = null) = Bukkit.getOnlinePlayers().forEach { target -> target.sendMessage(color(inlineText, tag)) }
 
     class Serializer  : TypeSerializer<Feedback> {
 

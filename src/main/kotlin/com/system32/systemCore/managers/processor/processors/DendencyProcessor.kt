@@ -57,13 +57,10 @@ class DendencyProcessor(
             """resolver.addRepository(new RemoteRepository.Builder("$id", "default", "$repo").build());""".trimIndent()
         }
 
-        val dependenciesCode =
-            centralDeps.joinToString("\n") { coords ->
-                """        resolver.addDependency(new Dependency(new DefaultArtifact("$coords"), null));"""
-            } + "\n" +
-                    customDeps.joinToString("\n") { (coords, _) ->
-                        """        resolver.addDependency(new Dependency(new DefaultArtifact("$coords"), null));"""
-                    }
+        val dependenciesCode = (centralDeps + customDeps.map { it.first })
+            .joinToString("\n") { coords ->
+                """resolver.addDependency(new Dependency(new DefaultArtifact("$coords"), null));"""
+            }
 
         val template = TemplateEngine.loadTemplate("DependencyResolver.java")
 

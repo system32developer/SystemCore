@@ -4,10 +4,7 @@ import com.google.gson.Gson
 import java.net.HttpURLConnection
 import java.net.URL
 
-class Debug {
-
-    private val sections = mutableListOf<Section>()
-
+data class Debug(private val sections: MutableList<Section> = mutableListOf()) {
     fun addSection(name: String): Section {
         val section = Section(name)
         sections.add(section)
@@ -50,7 +47,7 @@ class Debug {
         return "https://pastes.dev/$key"
     }
 
-    class Section(val name: String) {
+    data class Section(val name: String) {
         val data = mutableMapOf<String, Any>()
 
         fun addData(key: String, value: Any) {

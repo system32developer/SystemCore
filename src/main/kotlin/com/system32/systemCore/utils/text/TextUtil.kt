@@ -15,22 +15,12 @@ object TextUtil {
     private const val CENTER_PX: Int = 154
     const val NORMAL_LINE: String = "&7&m-----------------------------"
 
-    fun color(input: String): Component {
-        return color(input, null, null)
-    }
-
-    fun color(input: String, target: Player): Component {
-        return color(input, target, null)
-    }
-
-    fun color(input: String, tag: TagResolver? = null): Component {
-        return color(input, null, tag)
-    }
     /**
      * Color a string using the MiniMessage API or Bukkit's legacy color codes
      * You can use placeholders using PlaceholderAPI but you need to set it up in your plugin @onEnable first using SystemCore.placeHolderAPIHook(true)
      *
      * @param input The string to color
+     * @param tag Optional TagResolver for placeholders.
      * @return The colored string as a Component
      *
      * * ### Example usage:
@@ -39,7 +29,7 @@ object TextUtil {
      * player.sendMessage(message)
      * ```
      */
-    fun color(input: String, target: Player? = null, tag: TagResolver? = null): Component {
+    fun color(input: String, tag: TagResolver? = null): Component {
         var message = input
         val mini = MiniMessage.miniMessage()
         if(input.contains("&")) {
@@ -64,11 +54,12 @@ object TextUtil {
      * Colors a list of strings using MiniMessage API or Bukkit's legacy color codes.
      *
      * @param messages List of strings to color.
+     * @param tag Optional TagResolver for placeholders.
      * @return A list of colored Components.
      */
-    fun color(messages: List<String>, target: Player? = null): List<Component> {
+    fun color(messages: List<String>, tag: TagResolver? = null): List<Component> {
         val components: MutableList<Component> = ArrayList()
-        messages.forEach(Consumer { message: String -> components.add(color(message, target)) })
+        messages.forEach { components.add(color(it, tag)) }
         return components
     }
 
