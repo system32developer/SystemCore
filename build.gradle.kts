@@ -105,7 +105,8 @@ publishing {
 
     repositories {
         maven {
-            url = uri("https://nexus.system32dev.com/repository/maven-releases/")
+            url = uri("http://207.180.248.101:8081/repository/maven-releases/")
+            isAllowInsecureProtocol = true
             credentials {
                 username = "admin"
                 password = "NICKPR06"
