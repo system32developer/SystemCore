@@ -29,7 +29,7 @@ class DendencyProcessor(
 
         for (symbol in symbols) {
             val dependencyAnnotations = symbol.annotations.filter {
-                it.shortName.asString() == "Dependency"
+                it.shortName.asString() == "Dependency.kt"
             }
 
             for (annotation in dependencyAnnotations) {
@@ -59,7 +59,7 @@ class DendencyProcessor(
 
         val dependenciesCode = (centralDeps + customDeps.map { it.first })
             .joinToString("\n") { coords ->
-                """resolver.addDependency(new Dependency(new DefaultArtifact("$coords"), null));"""
+                """resolver.addDependency(new Dependency.kt(new DefaultArtifact("$coords"), null));"""
             }
 
         val template = TemplateEngine.loadTemplate("DependencyResolver.java")
