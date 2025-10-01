@@ -33,7 +33,7 @@ atlassian-ide-plugin.xml
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
-
+gradlew
 *~
 
 # temporary files which can be created if a process still has a handle open of a deleted file
