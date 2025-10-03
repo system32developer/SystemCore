@@ -9,43 +9,16 @@ plugins {
     `java-library`
     id("org.jetbrains.dokka") version "2.0.0"
     id("com.google.devtools.ksp") version "2.2.0-2.0.2"
+    id("com.system32dev.autoversion") version "1.0.0"
 }
 
-fun getLatestGitTag(): String {
-    val output = ByteArrayOutputStream()
-    try {
-        project.exec {
-            commandLine("git", "tag", "--sort=-v:refname")
-            standardOutput = output
-        }
-    } catch (e: Exception) {
-        return "1.0.0"
-    }
-
-    val tags = output.toString().trim().split("\n")
-    return tags.firstOrNull()?.trim() ?: "1.0.0"
-}
-
-fun incrementVersion(version: String): String {
-    val parts = version.split(".").map { it.toInt() }.toMutableList()
-    if (parts.size < 3) parts.add(0)
-    parts[2]++
-    if(parts[2] == 10) {
-        parts[2] = 0
-        parts[1]++
-    }
-    if(parts[1] == 10) {
-        parts[1] = 0
-        parts[0]++
-    }
-    return parts.joinToString(".")
-}
-
-val lastTag = getLatestGitTag()
-val newVersion = incrementVersion(lastTag)
 
 group = "com.system32"
-version = newVersion
+
+autoversion {
+    owner = "system32developer"
+    repo = "SystemCore"
+}
 
 repositories {
     mavenCentral()
@@ -55,14 +28,12 @@ repositories {
     maven("https://oss.sonatype.org/content/groups/public/") {
         name = "sonatype"
     }
-    maven("https://repo.extendedclip.com/releases/")
-    maven("https://repo.triumphteam.dev/snapshots/")
 }
 
 dependencies {
     compileOnly("io.papermc.paper:paper-api:1.21.1-R0.1-SNAPSHOT")
     compileOnly("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-    api("dev.triumphteam:triumph-gui:3.1.13-SNAPSHOT")
+    api("dev.triumphteam:triumph-gui:3.1.13")
     api("io.github.revxrsal:lamp.common:4.0.0-rc.12")
     api("io.github.revxrsal:lamp.bukkit:4.0.0-rc.12")
     api("org.spongepowered:configurate-yaml:4.2.0")
@@ -75,11 +46,22 @@ dependencies {
 val targetJavaVersion = 21
 kotlin {
     jvmToolchain(targetJavaVersion)
-
 }
 
-tasks.build {
-    dependsOn("shadowJar")
+tasks {
+    jar {
+        enabled = false
+    }
+
+    shadowJar {
+        archiveBaseName.set("SystemCore")
+        archiveClassifier.set("")
+        archiveVersion.set(project.version.toString())
+    }
+
+    build {
+        dependsOn(shadowJar)
+    }
 }
 
 tasks.named<ShadowJar>("shadowJar") {
@@ -115,81 +97,11 @@ publishing {
     }
 }
 
-tasks.register("createGitTag", Exec::class) {
-    commandLine("git", "tag", "$version")
-}
-
-tasks.register("pushGitTag", Exec::class) {
-    commandLine("git", "push", "origin", "$version")
-    dependsOn("createGitTag")
-}
-
-tasks.register("publishAndTag") {
-    dependsOn("pushGitTag", "publishJavadocs", "publish")
-    doLast{
-        println("Publishing version $version")
-    }
-}
-
 tasks.javadoc {
     options.encoding = "UTF-8"
     (options as StandardJavadocDocletOptions).apply {
         addStringOption("Xdoclint:none", "-quiet")
         addStringOption("sourcepath", "src/main/java")
-    }
-}
-
-tasks.register("publishJavadocs") {
-    dependsOn("dokkaHtml")
-
-    doLast {
-        val docsDir = File(buildDir, "dokka/html")
-        if (!docsDir.exists()) {
-            println("❌ No se encontraron Javadocs en $docsDir")
-            return@doLast
-        }
-
-        val tempDir = File(buildDir, "gh-pages-temp")
-        tempDir.deleteRecursively()
-
-        exec {
-            commandLine(
-                "git", "clone", "--depth", "1", "--branch", "gh-pages",
-                "https://github.com/system32developer/SystemCore.git", tempDir.absolutePath
-            )
-            isIgnoreExitValue = true
-        }
-
-        exec {
-            workingDir = tempDir
-            commandLine("git", "rm", "-rf", ".")
-        }
-
-        docsDir.copyRecursively(tempDir, overwrite = true)
-
-        exec {
-            workingDir = tempDir
-            commandLine("git", "add", ".")
-        }
-
-        val status = ByteArrayOutputStream()
-        exec {
-            workingDir = tempDir
-            commandLine("git", "status", "--porcelain")
-            standardOutput = status
-        }
-
-        if (status.toString().trim().isNotEmpty()) {
-            exec {
-                workingDir = tempDir
-                commandLine("git", "commit", "-m", "Actualizar Javadocs")
-            }
-            exec {
-                workingDir = tempDir
-                commandLine("git", "push", "--force", "origin", "gh-pages")
-            }
-        }
-        tempDir.deleteRecursively()
     }
 }
 

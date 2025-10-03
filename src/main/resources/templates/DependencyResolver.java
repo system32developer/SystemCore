@@ -23,13 +23,9 @@ public class DependencyResolver implements PluginLoader {
 
         resolver.addRepository(new RemoteRepository.Builder("maven-central", "default", "https://maven-central.storage-download.googleapis.com/maven2").build());
 
-        resolver.addRepository(new RemoteRepository.Builder("triumph-central", "default", "https://repo.triumphteam.dev/snapshots/").build());
-
         resolver.addDependency(new Dependency(new DefaultArtifact("org.jetbrains.kotlin:kotlin-stdlib:2.2.0"), null));
 
         resolver.addDependency(new Dependency(new DefaultArtifact("org.jetbrains.kotlin:kotlin-reflect:2.2.0"), null));
-
-        resolver.addDependency(new Dependency(new DefaultArtifact("dev.triumphteam:triumph-gui:3.1.13-SNAPSHOT"), null));
 
         resolver.addDependency(new Dependency(new DefaultArtifact("com.system32:SystemCore:"+systemCoreVersion()), null));
         {{dependencies}}
