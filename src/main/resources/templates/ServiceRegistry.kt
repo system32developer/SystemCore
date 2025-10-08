@@ -1,6 +1,6 @@
-package com.system32.generated
+package com.system32dev.generated
 
-import com.system32.systemCore.managers.processor.PluginService
+import com.system32dev.systemCore.managers.processor.PluginService
 
 object ServiceRegistry {
     val services: List<PluginService> = listOf(

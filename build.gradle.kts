@@ -3,17 +3,16 @@ import java.io.ByteArrayOutputStream
 
 plugins {
     kotlin("jvm") version "2.2.0"
-    java
     id("com.gradleup.shadow") version "8.3.2"
-    `maven-publish`
     `java-library`
     id("org.jetbrains.dokka") version "2.0.0"
     id("com.google.devtools.ksp") version "2.2.0-2.0.2"
     id("com.system32dev.autoversion") version "1.0.0"
+    id("com.vanniktech.maven.publish") version "0.34.0"
 }
 
 
-group = "com.system32"
+group = "com.system32dev"
 
 autoversion {
     owner = "system32developer"
@@ -49,13 +48,7 @@ kotlin {
 }
 
 tasks {
-    jar {
-        enabled = false
-    }
-
     shadowJar {
-        archiveBaseName.set("SystemCore")
-        archiveClassifier.set("")
         archiveVersion.set(project.version.toString())
     }
 
@@ -73,30 +66,6 @@ tasks.register<Jar>("sourcesJar") {
     from(sourceSets.main.get().allSource)
 }
 
-publishing {
-    publications {
-        create<MavenPublication>("maven") {
-            from(components["java"])
-            groupId = groupId
-            artifactId = artifactId
-            version = version
-
-            artifact(tasks.getByName("sourcesJar"))
-        }
-    }
-
-    repositories {
-        maven {
-            url = uri("http://207.180.248.101:8081/repository/maven-releases/")
-            isAllowInsecureProtocol = true
-            credentials {
-                username = "admin"
-                password = "NICKPR06"
-            }
-        }
-    }
-}
-
 tasks.javadoc {
     options.encoding = "UTF-8"
     (options as StandardJavadocDocletOptions).apply {
@@ -105,4 +74,33 @@ tasks.javadoc {
     }
 }
 
-
+afterEvaluate {
+    mavenPublishing {
+        coordinates(group.toString(), name, project.version.toString())
+        pom {
+            name.set("SystemCore")
+            description.set("A library to help you develop Paper plugins faster and easier.")
+            inceptionYear.set("2025")
+            url.set("https://github.com/system32developer/SystemCore")
+            licenses {
+                license {
+                    name.set("The Apache License, Version 2.0")
+                    url.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
+                    distribution.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
+                }
+            }
+            developers {
+                developer {
+                    id.set("system32developer")
+                    name.set("System32")
+                    url.set("https://github.com/system32developer")
+                }
+            }
+            scm {
+                url.set("https://github.com/system32developer/SystemCore")
+                connection.set("scm:git:git://github.com/system32developer/SystemCore.git")
+                developerConnection.set("scm:git:ssh://git@github.com/system32developer/SystemCore.git")
+            }
+        }
+    }
+}
