@@ -22,9 +22,10 @@ data class ItemBuilder(
     var lore: List<String> = listOf(),
     var flags: List<String> = listOf(),
     //format is base:texture, texture:texture or owner:playername
-    val skullTexture: String = "",
-    val glow: Boolean = false,
-    val customModelData: Int = 0,
+    var skullTexture: String = "",
+    var glow: Boolean = false,
+    var customModelData: Int = 0,
+    val actions: MutableList<String> = mutableListOf()
 ) {
     fun build(tags: TagResolver? = null): ItemStack? {
         val item = ItemStack(Material.getMaterial(material) ?: return null, amount)
@@ -83,6 +84,7 @@ data class ItemBuilder(
             val skullTexture = node.node("skullTexture").getString("") ?: ""
             val glow = node.node("glow").getBoolean(false)
             val customModelData = node.node("customModelData").getInt(0)
+            val actions = node.getList(String::class.java, mutableListOf())
             return ItemBuilder(
                 amount = amount,
                 material = material,
@@ -91,7 +93,8 @@ data class ItemBuilder(
                 flags = flags,
                 skullTexture = skullTexture,
                 glow = glow,
-                customModelData = customModelData
+                customModelData = customModelData,
+                actions = actions
             )
         }
 
@@ -108,6 +111,7 @@ data class ItemBuilder(
             if (obj.skullTexture.isEmpty()) node.node("skullTexture").set(null)
             if (!obj.glow) node.node("glow").set(null)
             if (obj.customModelData != 0) node.node("customModelData").set(obj.customModelData)
+            if (obj.actions.isNotEmpty()) node.node("actions").setList(String::class.java, obj.actions)
         }
     }
 }
