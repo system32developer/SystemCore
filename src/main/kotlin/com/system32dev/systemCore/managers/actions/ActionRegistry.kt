@@ -57,6 +57,11 @@ object ActionRegistry {
             true
         }
 
+        register("CLOSE") { player, data, _ ->
+            player.closeInventory()
+            true
+        }
+
         register("PLAY_SOUND") { player, data, _ ->
             val parts = data.split(" ")
             val sound = Sound.valueOf(parts[0].uppercase())

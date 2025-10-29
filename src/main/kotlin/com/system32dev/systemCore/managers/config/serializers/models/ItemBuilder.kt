@@ -84,7 +84,7 @@ data class ItemBuilder(
             val skullTexture = node.node("skullTexture").getString("") ?: ""
             val glow = node.node("glow").getBoolean(false)
             val customModelData = node.node("customModelData").getInt(0)
-            val actions = node.getList(String::class.java, mutableListOf())
+            val actions = node.node("actions").getList(String::class.java)?.toMutableList() ?: mutableListOf()
             return ItemBuilder(
                 amount = amount,
                 material = material,
