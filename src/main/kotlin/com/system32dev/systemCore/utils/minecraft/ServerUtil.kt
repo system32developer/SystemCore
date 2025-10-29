@@ -11,13 +11,6 @@ import org.bukkit.scheduler.BukkitTask
 import java.util.UUID
 
 object ServerUtil {
-    fun player(uuid: UUID): Player? {
-        return Bukkit.getPlayer(uuid)
-    }
-
-    fun player(name: String) : Player?{
-        return Bukkit.getPlayer(name)
-    }
 
     fun addItems(
         inventory: Inventory,
@@ -35,22 +28,6 @@ object ServerUtil {
         vararg items: ItemStack,
         onFail: (List<ItemStack>) -> Unit = {}
     ): List<ItemStack> = addItems(inventory, items.toList(), onFail)
-
-    fun offlinePlayer(name: String) : Player?{
-        return Bukkit.getOfflinePlayer(name).player
-    }
-
-    fun offlinePlayer(uuid: UUID) : Player?{
-        return Bukkit.getOfflinePlayer(uuid).player
-    }
-
-    fun players() : List<Player>{
-        return Bukkit.getOnlinePlayers().toList()
-    }
-
-    fun broadcast(message: String) {
-        Bukkit.broadcast(color(message))
-    }
 
     fun task(block: (BukkitTask) -> Unit): BukkitTask {
         var task: BukkitTask? = null
