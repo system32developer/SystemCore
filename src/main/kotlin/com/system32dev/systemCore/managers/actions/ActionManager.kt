@@ -48,13 +48,15 @@ class ActionManager(private val actions: Iterable<String>) {
     }
 
     private fun extractType(input: String): String? {
-        val matcher = Pattern.compile("^\\[(\\w+)]\\s+.*", Pattern.CASE_INSENSITIVE).matcher(input)
+        val matcher = Pattern.compile("^\\[([^]]+)]").matcher(input)
         return if (matcher.find()) matcher.group(1) else null
     }
 
     private fun extractData(input: String): String {
-        val matcher = Pattern.compile("^\\[\\w+]\\s+(.*)", Pattern.CASE_INSENSITIVE).matcher(input)
-        return if (matcher.find()) matcher.group(1).trim() else ""
+        val matcher = Pattern.compile("^\\[[^]]+]\\s*(.*)", Pattern.CASE_INSENSITIVE).matcher(input)
+        if (!matcher.find()) return ""
+        val data = matcher.group(1)
+        return if (data.isNotEmpty() && !input.matches("^\\[[^]]+]\\s+.*".toRegex())) "" else data.trim()
     }
 
     private fun applyPlaceholders(message: String, player: Player): String {
