@@ -25,7 +25,10 @@ data class ItemBuilder(
     var skullTexture: String = "",
     var glow: Boolean = false,
     var customModelData: Int = 0,
-    val actions: MutableList<String> = mutableListOf()
+
+    //gui stuff
+    val actions: MutableList<String> = mutableListOf(),
+    val slot: Int = -1000
 ) {
     fun build(tags: TagResolver? = null): ItemStack? {
         val item = ItemStack(Material.getMaterial(material) ?: return null, amount)
@@ -85,6 +88,7 @@ data class ItemBuilder(
             val glow = node.node("glow").getBoolean(false)
             val customModelData = node.node("customModelData").getInt(0)
             val actions = node.node("actions").getList(String::class.java)?.toMutableList() ?: mutableListOf()
+            val slot = node.node("slot").getInt(-1000)
             return ItemBuilder(
                 amount = amount,
                 material = material,
@@ -94,7 +98,8 @@ data class ItemBuilder(
                 skullTexture = skullTexture,
                 glow = glow,
                 customModelData = customModelData,
-                actions = actions
+                actions = actions,
+                slot = slot
             )
         }
 
@@ -112,6 +117,7 @@ data class ItemBuilder(
             if (!obj.glow) node.node("glow").set(null)
             if (obj.customModelData != 0) node.node("customModelData").set(obj.customModelData)
             if (obj.actions.isNotEmpty()) node.node("actions").setList(String::class.java, obj.actions)
+            if (obj.slot != -1000) node.node("slot").set(obj.slot)
         }
     }
 }
