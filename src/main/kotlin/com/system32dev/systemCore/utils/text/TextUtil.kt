@@ -31,12 +31,12 @@ object TextUtil {
      */
     fun color(input: String, tag: TagResolver? = null): Component {
         var message = input
+        if (message.isEmpty()) return Component.empty()
         val mini = MiniMessage.miniMessage()
         if(input.contains("&")) {
             if(input.contains("§")) message = input.replace("§", "&")
             message = mini.serialize(LegacyComponentSerializer.legacyAmpersand().deserialize(message)).replace("\\", "")
         }
-        if (message.isEmpty()) return Component.empty()
         val component = if(tag != null) mini.deserialize(message, tag) else mini.deserialize(message)
         return component.decorationIfAbsent(TextDecoration.ITALIC, TextDecoration.State.FALSE)
     }

@@ -108,16 +108,16 @@ data class ItemBuilder(
                 node.set(null)
                 return
             }
-            if (obj.amount != 1) node.node("amount").set(obj.amount)
-            if (obj.material != "STONE") node.node("material").set(obj.material)
-            if (obj.name.isNotEmpty()) node.node("name").set(obj.name)
-            if (obj.lore.isNotEmpty()) node.node("lore").setList(String::class.java, obj.lore)
-            if (obj.flags.isNotEmpty()) node.node("flags").setList(String::class.java, obj.flags)
-            if (obj.skullTexture.isEmpty()) node.node("skullTexture").set(null)
-            if (!obj.glow) node.node("glow").set(null)
-            if (obj.customModelData != 0) node.node("customModelData").set(obj.customModelData)
-            if (obj.actions.isNotEmpty()) node.node("actions").setList(String::class.java, obj.actions)
-            if (obj.slot != -1000) node.node("slot").set(obj.slot)
+            if (obj.amount != 1) node.node("amount").set(obj.amount) else node.node("amount").set(null)
+            if (obj.material != "STONE") node.node("material").set(obj.material) else node.node("material").set(null)
+            if (obj.name.isNotEmpty()) node.node("name").set(obj.name) else node.node("name").set(null)
+            if (obj.lore.isNotEmpty()) node.node("lore").setList(String::class.java, obj.lore) else node.node("lore").set(null)
+            if (obj.flags.isNotEmpty()) node.node("flags").setList(String::class.java, obj.flags) else node.node("flags").set(null)
+            if (obj.skullTexture.isEmpty()) node.node("skullTexture").set(null) else node.node("skullTexture").set(obj.skullTexture)
+            if (!obj.glow) node.node("glow").set(null) else node.node("glow").set(obj.glow)
+            if (obj.customModelData != 0) node.node("customModelData").set(obj.customModelData) else node.node("customModelData").set(null)
+            if (obj.actions.isNotEmpty()) node.node("actions").setList(String::class.java, obj.actions) else node.node("actions").set(null)
+            if (obj.slot != -1000) node.node("slot").set(obj.slot) else node.node("slot").set(null)
         }
     }
 }

@@ -1,5 +1,7 @@
 package com.system32dev.systemCore.managers.cooldown
 
+import java.util.concurrent.TimeUnit
+
 /**
  * Manages cooldowns for different actions performed by players.
  * This class allows tracking, starting, checking, retrieving, and removing cooldowns per action and player.
@@ -12,10 +14,11 @@ object CooldownManager {
      *
      * @param action The action associated with the cooldown.
      * @param player The player's identifier.
-     * @param duration The duration of the cooldown in seconds.
+     * @param duration The duration of the cooldown.
+     * @param unit The time unit for the duration (default is seconds).
      */
-    fun startCooldown(action: String, player: String, duration: Double) {
-        playerCooldowns.computeIfAbsent(action) { mutableMapOf() }[player] = Cooldown((System.currentTimeMillis() + (duration * 1000)).toLong())
+    fun startCooldown(action: String, player: String, duration: Int, unit: TimeUnit = TimeUnit.SECONDS) {
+        playerCooldowns.computeIfAbsent(action) { mutableMapOf() }[player] = Cooldown((System.currentTimeMillis() + (unit.toMillis(duration.toLong()))))
     }
 
     /**
