@@ -49,23 +49,66 @@ class Feedback(val message: List<String>) {
 
     val inlineText : String = message.joinToString("\n")
 
-    fun log(tag: TagResolver? = null) =  Bukkit.getConsoleSender().sendMessage(color(inlineText, tag))
-
-    fun send(tag: TagResolver? = null, vararg audience: Audience) = audience.forEach { target -> target.sendMessage(color(inlineText, tag))}
-
-    fun send(audience: Iterable<Audience>, tag: TagResolver? = null) = audience.forEach { target -> target.sendMessage(color(inlineText, tag))}
-
-    fun send(audience: Audience, tag: TagResolver? = null) = audience.sendMessage(color(inlineText, tag))
-
-    fun send(player: Player, tag: TagResolver? = null, radius: Int = 0) {
-        if(radius > 0) {
-            send(Audience.audience(player.location.getNearbyPlayers(radius.toDouble()).toList()), tag)
-            return
-        }
-        player.sendMessage(color(inlineText, tag))
+    fun log(
+        tag: TagResolver? = null,
+        componentModifier: (Component) -> Component = { it }
+    ) {
+        val component = componentModifier(color(inlineText, tag))
+        Bukkit.getConsoleSender().sendMessage(component)
     }
 
-    fun broadcast(tag: TagResolver? = null) = Bukkit.getOnlinePlayers().forEach { target -> target.sendMessage(color(inlineText, tag)) }
+    fun send(
+        tag: TagResolver? = null,
+        componentModifier: (Component) -> Component = { it },
+        vararg audience: Audience
+    ) {
+        val component = componentModifier(color(inlineText, tag))
+        audience.forEach { it.sendMessage(component) }
+    }
+
+    fun send(
+        audience: Iterable<Audience>,
+        tag: TagResolver? = null,
+        componentModifier: (Component) -> Component = { it }
+    ) {
+        val component = componentModifier(color(inlineText, tag))
+        audience.forEach { it.sendMessage(component) }
+    }
+
+    fun send(
+        audience: Audience,
+        tag: TagResolver? = null,
+        componentModifier: (Component) -> Component = { it }
+    ) {
+        val component = componentModifier(color(inlineText, tag))
+        audience.sendMessage(component)
+    }
+
+    fun send(
+        player: Player,
+        tag: TagResolver? = null,
+        radius: Int = 0,
+        componentModifier: (Component) -> Component = { it }
+    ) {
+        val component = componentModifier(color(inlineText, tag))
+
+        if (radius > 0) {
+            Audience.audience(player.location.getNearbyPlayers(radius.toDouble()).toList())
+                .sendMessage(component)
+            return
+        }
+
+        player.sendMessage(component)
+    }
+
+    fun broadcast(
+        tag: TagResolver? = null,
+        componentModifier: (Component) -> Component = { it }
+    ) {
+        val component = componentModifier(color(inlineText, tag))
+        Bukkit.getOnlinePlayers().forEach { it.sendMessage(component) }
+    }
+
 
     class Serializer  : TypeSerializer<Feedback> {
 
