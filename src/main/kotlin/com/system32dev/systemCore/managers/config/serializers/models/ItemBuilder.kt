@@ -73,6 +73,8 @@ data class ItemBuilder(
 
     fun clone() = ItemBuilder(amount, material, name, lore.toList(), flags.toList(), skullTexture, glow, customModelData)
 
+    fun toGuiItemBuilder(tags: TagResolver? = null) = dev.triumphteam.gui.builder.item.ItemBuilder.from(build(tags)!!)
+
     class Serializer : TypeSerializer<ItemBuilder> {
         override fun deserialize(
             type: Type,
