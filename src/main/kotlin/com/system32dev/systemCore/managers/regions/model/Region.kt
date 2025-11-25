@@ -89,7 +89,7 @@ data class Region(
         val edges = getEdges(min, max)
 
         var elapsed = 0
-        taskTimer(0, 1) {
+        taskTimer(1) {
             if (elapsed >= duration) {
                 it.cancel()
                 return@taskTimer
