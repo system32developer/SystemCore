@@ -165,7 +165,6 @@ class ConfigManager(
         configs.keys.forEach { reload(it) }
     }
 
-
     private class ConfigHolder<T : Any>(
         val name: String,
         val clazz: Class<T>,
