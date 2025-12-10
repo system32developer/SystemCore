@@ -1,4 +1,4 @@
-package com.system32dev.generated;
+package com.system32dev.systemCore.generated;
 
 import io.papermc.paper.plugin.loader.PluginClasspathBuilder;
 import io.papermc.paper.plugin.loader.PluginLoader;
@@ -17,13 +17,11 @@ public class DependencyResolver implements PluginLoader {
     public void classloader(PluginClasspathBuilder classpathBuilder) {
         MavenLibraryResolver resolver = new MavenLibraryResolver();
 
-        {{repositories}}
         resolver.addRepository(new RemoteRepository.Builder("maven-central", "default", "https://maven-central.storage-download.googleapis.com/maven2").build());
+        {{repositories}}
 
         resolver.addDependency(new Dependency(new DefaultArtifact("org.jetbrains.kotlin:kotlin-stdlib:2.2.0"), null));
-
         resolver.addDependency(new Dependency(new DefaultArtifact("org.jetbrains.kotlin:kotlin-reflect:2.2.0"), null));
-
         resolver.addDependency(new Dependency(new DefaultArtifact("com.system32dev:SystemCore:"+systemCoreVersion()), null));
         {{dependencies}}
         classpathBuilder.addLibrary(resolver);

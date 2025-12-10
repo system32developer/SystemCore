@@ -1,7 +1,7 @@
 package com.system32dev.systemCore.managers.chat
 
 import com.system32dev.systemCore.SystemCore
-import com.system32dev.systemCore.utils.text.TextUtil.asText
+import com.system32dev.systemCore.utils.asText
 import io.papermc.paper.event.player.AsyncChatEvent
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
@@ -14,7 +14,7 @@ object ChatAwaiterManager : Listener {
         SystemCore.event(this)
     }
 
-    private val awaiters: MutableMap<String, Consumer<ChatInput>> = HashMap<String, Consumer<ChatInput>>()
+    private val awaiters: MutableMap<String, Consumer<ChatInput>> = HashMap()
 
     /**
      * Adds a chat awaiter for a specific player.
@@ -23,7 +23,7 @@ object ChatAwaiterManager : Listener {
      * @param callback The function to execute when the player sends a message.
      */
     fun addAwaiter(player: String, callback: Consumer<ChatInput>) {
-        awaiters.put(player, callback)
+        awaiters[player] = callback
     }
 
     /**
@@ -68,7 +68,7 @@ object ChatAwaiterManager : Listener {
         if (awaiters.containsKey(player.name)) {
             val callback = awaiters.remove(player.name)
             if (callback != null) {
-                callback.accept(ChatInput(player, asText(event.message())))
+                callback.accept(ChatInput(player, event.message().asText()))
                 event.isCancelled = true
             }
         }

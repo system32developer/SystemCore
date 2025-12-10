@@ -1,7 +1,7 @@
 package com.system32dev.systemCore.managers.actions
 
-import com.system32dev.systemCore.utils.minecraft.ServerUtil.taskLater
-import com.system32dev.systemCore.utils.text.TextUtil.color
+import com.system32dev.systemCore.utils.color
+import com.system32dev.systemCore.utils.tasks.taskLater
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.title.Title
 import org.bukkit.Bukkit

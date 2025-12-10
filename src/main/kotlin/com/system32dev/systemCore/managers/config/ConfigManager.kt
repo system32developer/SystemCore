@@ -1,16 +1,12 @@
 package com.system32dev.systemCore.managers.config
 
-import com.google.common.reflect.TypeToken
 import com.system32dev.systemCore.SystemCore
+import com.system32dev.systemCore.managers.config.serializers.ConfigItem
+import com.system32dev.systemCore.managers.config.serializers.Feedback
 import com.system32dev.systemCore.managers.config.serializers.LocationSerializer
-import com.system32dev.systemCore.managers.config.serializers.models.Feedback
-import com.system32dev.systemCore.managers.config.serializers.models.ItemBuilder
-import net.kyori.adventure.text.Component
+import com.system32dev.systemCore.managers.config.serializers.RemoteConnectionData
 import org.bukkit.Location
 import org.spongepowered.configurate.ConfigurationNode
-import org.spongepowered.configurate.objectmapping.ConfigSerializable
-import org.spongepowered.configurate.objectmapping.ObjectMapper
-import org.spongepowered.configurate.objectmapping.meta.NodeResolver
 import org.spongepowered.configurate.serialize.TypeSerializer
 import org.spongepowered.configurate.serialize.TypeSerializerCollection
 import org.spongepowered.configurate.yaml.NodeStyle
@@ -30,18 +26,17 @@ class ConfigManager(
     }
 
     private fun registerDefaultSerializers() {
-
-        serializer(Location::class.java, LocationSerializer())
-        serializer(Feedback::class.java, Feedback.Serializer())
-        serializer(ItemBuilder::class.java, ItemBuilder.Serializer())
+        serializer(Location::class.java to LocationSerializer())
+        serializer(Feedback::class.java to Feedback.Serializer())
+        serializer(RemoteConnectionData::class.java to RemoteConnectionData.Serializer())
+        serializer(ConfigItem::class.java to ConfigItem.Serializer())
     }
 
     fun <T : Any> config(
         name: String,
-        clazz: Class<T>,
-        defaultInstance: T
+        clazz: Pair<Class<T>, T>
     ): ConfigManager {
-        configs[name] = ConfigHolder(name, clazz, defaultInstance)
+        configs[name] = ConfigHolder(name, clazz.first, clazz.second)
         return this
     }
 
@@ -69,8 +64,8 @@ class ConfigManager(
      * ```
      */
 
-    fun <T : Any> serializer(type: Class<T>, serializer: TypeSerializer<T>): ConfigManager {
-        serializers.register(type, serializer)
+    fun <T : Any> serializer(serializer: Pair<Class<T>, TypeSerializer<T>>): ConfigManager {
+        serializers.register(serializer.first, serializer.second)
         return this
     }
 

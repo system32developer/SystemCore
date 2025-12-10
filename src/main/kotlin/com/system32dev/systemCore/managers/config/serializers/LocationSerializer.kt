@@ -1,6 +1,5 @@
 package com.system32dev.systemCore.managers.config.serializers
 
-import com.system32dev.systemCore.database.model.Driver
 import org.bukkit.Bukkit
 import org.bukkit.Location
 import org.spongepowered.configurate.ConfigurationNode

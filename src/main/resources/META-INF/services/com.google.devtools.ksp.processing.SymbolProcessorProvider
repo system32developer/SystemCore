@@ -1,4 +1,4 @@
-com.system32dev.systemCore.managers.processor.processors.ServiceProcessorProvider
-com.system32dev.systemCore.managers.processor.processors.EventProcessorProvider
-com.system32dev.systemCore.managers.processor.processors.DependencyProcessorProvider
-com.system32dev.systemCore.managers.processor.processors.DatabaseProcessorProvider
+com.system32dev.systemCore.processor.processors.SystemRegistriesProcessorProvider
+com.system32dev.systemCore.processor.processors.ServiceProcessorProvider
+com.system32dev.systemCore.processor.processors.TablesProcessorProvider
+com.system32dev.systemCore.processor.processors.DependencyProcessorProvider

@@ -1,6 +1,4 @@
 import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
-import java.io.ByteArrayOutputStream
-
 plugins {
     kotlin("jvm") version "2.2.0"
     id("com.gradleup.shadow") version "8.3.2"
@@ -11,8 +9,8 @@ plugins {
     id("com.vanniktech.maven.publish") version "0.34.0"
 }
 
-
 group = "com.system32dev"
+version = "2.0.0"
 
 autoversion {
     owner = "system32developer"
@@ -39,7 +37,10 @@ dependencies {
     api("org.spongepowered:configurate-core:4.2.0")
     api("org.jetbrains.exposed:exposed-core:1.0.0-beta-5")
     api("org.jetbrains.exposed:exposed-jdbc:1.0.0-beta-5")
+    api("org.mariadb.jdbc:mariadb-java-client:3.5.6")
+    api("com.zaxxer:HikariCP:7.0.2")
     implementation("com.google.devtools.ksp:symbol-processing-api:1.5.30-1.0.0")
+
 }
 
 val targetJavaVersion = 21

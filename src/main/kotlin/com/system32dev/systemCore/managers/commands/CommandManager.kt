@@ -1,11 +1,14 @@
 package com.system32dev.systemCore.managers.commands
 
 import com.system32dev.systemCore.SystemCore
-import com.system32dev.systemCore.managers.commands.parameterTypes.OnlinePlayer
+import com.system32dev.systemCore.managers.commands.parameters.OnlinePlayerParameter
+import org.bukkit.Bukkit
+import org.bukkit.entity.Player
 import revxrsal.commands.Lamp
 import revxrsal.commands.bukkit.BukkitLamp
 import revxrsal.commands.bukkit.actor.BukkitCommandActor
 import revxrsal.commands.parameter.ParameterType
+import kotlin.text.startsWith
 
 /**
  * CommandManager is responsible for managing commands in the Bukkit environment.
@@ -47,7 +50,7 @@ class CommandManager {
         }
 
     init {
-        parameters[OnlinePlayer::class.java] = OnlinePlayer.Parameter()
+        parameters[Player::class.java] = OnlinePlayerParameter()
     }
 
 
@@ -104,7 +107,6 @@ class CommandManager {
 
     fun command(vararg commands: Any) {
         for (command in commands) {
-            //no longer using paper lamp
             lamp.register(command)
         }
     }
