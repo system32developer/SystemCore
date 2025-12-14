@@ -71,7 +71,7 @@ object ActionRegistry {
         }
 
         register("DELAY") { _, data, next ->
-            val delayTicks = (data.toIntOrNull() ?: 1) * 20L
+            val delayTicks = data.toIntOrNull() ?: 1
             taskLater(delayTicks) { next() }
             false
         }
