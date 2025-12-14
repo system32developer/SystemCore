@@ -9,6 +9,7 @@ import org.bukkit.Sound
 import org.bukkit.SoundCategory
 import java.time.Duration
 import java.util.concurrent.ConcurrentHashMap
+import java.util.concurrent.TimeUnit
 
 object ActionRegistry {
 
@@ -72,7 +73,7 @@ object ActionRegistry {
 
         register("DELAY") { _, data, next ->
             val delayTicks = data.toIntOrNull() ?: 1
-            taskLater(delayTicks) { next() }
+            taskLater(delayTicks, TimeUnit.SECONDS) { next() }
             false
         }
 
