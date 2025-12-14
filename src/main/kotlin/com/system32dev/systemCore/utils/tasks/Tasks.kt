@@ -5,12 +5,12 @@ import org.bukkit.Bukkit
 import org.bukkit.scheduler.BukkitTask
 import java.util.concurrent.TimeUnit
 
-private fun convertToTicks(time: Long, unit: TimeUnit): Long {
-    val ms = unit.toMillis(time)
+private fun convertToTicks(time: Int, unit: TimeUnit): Long {
+    val ms = unit.toMillis(time.toLong())
     return ms / 50L
 }
 
-fun task(delay: Long = 0, unit: TimeUnit = TimeUnit.SECONDS, block: (BukkitTask) -> Unit): BukkitTask {
+fun task(delay: Int = 0, unit: TimeUnit = TimeUnit.SECONDS, block: (BukkitTask) -> Unit): BukkitTask {
     val ticks = convertToTicks(delay, unit)
     var task: BukkitTask? = null
     task = Bukkit.getScheduler().runTaskLater(SystemCore.plugin, Runnable {
@@ -19,7 +19,7 @@ fun task(delay: Long = 0, unit: TimeUnit = TimeUnit.SECONDS, block: (BukkitTask)
     return task
 }
 
-fun taskAsync(delay: Long = 0, unit: TimeUnit = TimeUnit.SECONDS, block: (BukkitTask) -> Unit): BukkitTask {
+fun taskAsync(delay: Int = 0, unit: TimeUnit = TimeUnit.SECONDS, block: (BukkitTask) -> Unit): BukkitTask {
     val ticks = convertToTicks(delay, unit)
     var task: BukkitTask? = null
     task = Bukkit.getScheduler().runTaskLaterAsynchronously(SystemCore.plugin, Runnable {
@@ -28,12 +28,12 @@ fun taskAsync(delay: Long = 0, unit: TimeUnit = TimeUnit.SECONDS, block: (Bukkit
     return task
 }
 
-fun taskLater(time: Long, unit: TimeUnit = TimeUnit.SECONDS, block: (BukkitTask) -> Unit): BukkitTask = task(time, unit, block)
+fun taskLater(time: Int, unit: TimeUnit = TimeUnit.SECONDS, block: (BukkitTask) -> Unit): BukkitTask = task(time, unit, block)
 
-fun taskLaterAsync(time: Long, unit: TimeUnit = TimeUnit.SECONDS, block: (BukkitTask) -> Unit): BukkitTask = taskAsync(time, unit, block)
+fun taskLaterAsync(time: Int, unit: TimeUnit = TimeUnit.SECONDS, block: (BukkitTask) -> Unit): BukkitTask = taskAsync(time, unit, block)
 
 fun taskTimer(
-    period: Long,
+    period: Int,
     unit: TimeUnit = TimeUnit.SECONDS,
     block: (BukkitTask) -> Unit
 ): BukkitTask {
@@ -46,7 +46,7 @@ fun taskTimer(
 }
 
 fun taskTimerAsync(
-    period: Long,
+    period: Int,
     unit: TimeUnit = TimeUnit.SECONDS,
     block: (BukkitTask) -> Unit
 ): BukkitTask {

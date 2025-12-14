@@ -30,7 +30,7 @@ data class ConfigItem(
 
     //gui stuff
     val actions: MutableList<String> = mutableListOf(),
-    val slot: Int = -1000
+    val slot: List<Int> = listOf()
 ) {
     fun build(tags: TagResolver? = null): ItemStack? {
         val item = ItemStack(Material.getMaterial(material) ?: return null, amount)
@@ -94,7 +94,7 @@ data class ConfigItem(
             val glow = node.node("glow").getBoolean(false)
             val customModelData = node.node("customModelData").getInt(0)
             val actions = node.node("actions").getList(String::class.java)?.toMutableList() ?: mutableListOf()
-            val slot = node.node("slot").getInt(-1000)
+            val slot = node.node("slot").getList(Int::class.java)?.toList() ?: listOf()
             return ConfigItem(
                 amount = amount,
                 material = material,
@@ -123,7 +123,7 @@ data class ConfigItem(
             if (!obj.glow) node.node("glow").set(null) else node.node("glow").set(obj.glow)
             if (obj.customModelData != 0) node.node("customModelData").set(obj.customModelData) else node.node("customModelData").set(null)
             if (obj.actions.isNotEmpty()) node.node("actions").setList(String::class.java, obj.actions) else node.node("actions").set(null)
-            if (obj.slot != -1000) node.node("slot").set(obj.slot) else node.node("slot").set(null)
+            if(obj.slot.isNotEmpty()) node.node("slot").setList(Int::class.java,obj.slot) else node.node("slot").set(null)
         }
     }
 }
