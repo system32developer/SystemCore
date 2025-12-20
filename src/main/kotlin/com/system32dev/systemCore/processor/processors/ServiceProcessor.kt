@@ -18,9 +18,9 @@ class ServiceProcessor(
             .filterIsInstance<KSClassDeclaration>()
             .toList()
 
-        if (services.isEmpty()) return emptyList()
-
         val invalid = services.filter { it.classKind != ClassKind.OBJECT }
+
+        if (services.isEmpty()) return emptyList()
 
         if (invalid.isNotEmpty()) {
             invalid.forEach { symbol ->

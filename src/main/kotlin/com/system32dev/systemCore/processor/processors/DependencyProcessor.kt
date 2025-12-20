@@ -47,8 +47,6 @@ class DependencyProcessor (
             }
         }
 
-        if (dependencies.isEmpty()) return emptyList()
-
         val centralDeps = dependencies.filter { it.second == null }.map { it.first }
         val customDeps = dependencies.filter { it.second != null }
 

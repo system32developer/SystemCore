@@ -1,4 +1,4 @@
-com.system32dev.systemCore.processor.processors.SystemRegistriesProcessorProvider
 com.system32dev.systemCore.processor.processors.ServiceProcessorProvider
 com.system32dev.systemCore.processor.processors.TablesProcessorProvider
 com.system32dev.systemCore.processor.processors.DependencyProcessorProvider
+com.system32dev.systemCore.processor.processors.SystemRegistriesProcessorProvider
