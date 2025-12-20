@@ -1,61 +1,48 @@
 package com.system32dev.systemCore.processor.processors
 
-import com.google.devtools.ksp.processing.*
-import com.google.devtools.ksp.symbol.*
-import com.system32dev.systemCore.processor.TemplateEngine
+import com.google.devtools.ksp.processing.CodeGenerator
+import com.google.devtools.ksp.processing.KSPLogger
+import com.google.devtools.ksp.processing.SymbolProcessor
+import com.google.devtools.ksp.processing.SymbolProcessorEnvironment
+import com.google.devtools.ksp.processing.SymbolProcessorProvider
+import com.google.devtools.ksp.symbol.ClassKind
+import com.google.devtools.ksp.symbol.KSClassDeclaration
 import com.system32dev.systemCore.processor.annotations.Service
-import java.io.OutputStreamWriter
+import com.system32dev.systemCore.processor.model.BaseTemplateProcessor
+import com.system32dev.systemCore.processor.model.ProcessorSpec
 
 class ServiceProcessor(
-    private val codeGenerator: CodeGenerator,
-    private val logger: KSPLogger
-) : SymbolProcessor {
-
-    override fun process(resolver: Resolver): List<KSAnnotated> {
-
-        val services = resolver
-            .getSymbolsWithAnnotation(Service::class.qualifiedName!!)
-            .filterIsInstance<KSClassDeclaration>()
-            .toList()
-
-        val invalid = services.filter { it.classKind != ClassKind.OBJECT }
-
-        if (services.isEmpty()) return emptyList()
-
-        if (invalid.isNotEmpty()) {
-            invalid.forEach { symbol ->
-                logger.error("@Service can only be applied to object declarations. (${symbol.qualifiedName!!.asString()})", symbol)
-            }
-            return invalid
-        }
-
-        val servicesCode = services.joinToString(",\n") { it.qualifiedName!!.asString() }
-
-        val template = TemplateEngine.loadTemplate("ServiceRegistry.kt")
-        val code = TemplateEngine.render(
-            template,
-            mapOf("services" to servicesCode)
-        )
-
-        val dependencies = Dependencies(
-            aggregating = true,
-            *services.mapNotNull { it.containingFile }.toTypedArray()
-        )
-
-        codeGenerator.createNewFile(
-            dependencies = dependencies,
-            packageName = "com.system32dev.systemCore.generated",
-            fileName = "ServiceRegistry"
-        ).use { out ->
-            OutputStreamWriter(out, Charsets.UTF_8).use { it.write(code) }
-        }
-
-        return emptyList()
-    }
-}
+    codeGenerator: CodeGenerator,
+    logger: KSPLogger
+) : BaseTemplateProcessor(codeGenerator, logger, ServiceSpec)
 
 class ServiceProcessorProvider : SymbolProcessorProvider {
     override fun create(environment: SymbolProcessorEnvironment): SymbolProcessor {
-        return ServiceProcessor(environment.codeGenerator, environment.logger)
+        return ServiceProcessor(
+            environment.codeGenerator,
+            environment.logger
+        )
     }
+}
+
+object ServiceSpec : ProcessorSpec(
+    annotation = Service::class,
+    template = "ServiceRegistry.kt",
+    generateWhenEmpty = true
+) {
+
+    override fun validate(symbol: KSClassDeclaration, logger: KSPLogger): Boolean {
+        if (symbol.classKind != ClassKind.OBJECT) {
+            logger.error("@Service can only be applied to object declarations", symbol)
+            return false
+        }
+        return true
+    }
+
+    override fun collect(symbols: List<KSClassDeclaration>): Map<String, String> =
+        mapOf(
+            "services" to symbols.joinToString(",\n") {
+                it.qualifiedName!!.asString()
+            }
+        )
 }
