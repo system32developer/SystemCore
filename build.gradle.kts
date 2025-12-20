@@ -5,17 +5,17 @@ plugins {
     `java-library`
     id("org.jetbrains.dokka") version "2.0.0"
     id("com.google.devtools.ksp") version "2.2.0-2.0.2"
-    //id("com.system32dev.autoversion") version "1.0.0"
+    id("com.system32dev.autoversion") version "1.0.0"
     id("com.vanniktech.maven.publish") version "0.34.0"
 }
 
 group = "com.system32dev"
-version = "2.0.4-beta"
+//version = "2.0.4-beta"
 
-/*autoversion {
+autoversion {
     owner = "system32developer"
     repo = "SystemCore"
-}*/
+}
 
 repositories {
     mavenCentral()
