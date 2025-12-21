@@ -16,22 +16,21 @@ abstract class BaseTemplateProcessor(
     private val spec: ProcessorSpec
 ) : SymbolProcessor {
 
-    companion object {
-        private val generated = mutableSetOf<String>()
-    }
+    private var generated = false
 
     override fun process(resolver: Resolver): List<KSAnnotated> {
 
+        if (generated) return emptyList()
+
         val outputFileName = spec.template.split(".").first()
         val extension = spec.template.split(".").last()
-
-        val key = "${spec.packageName}.$outputFileName"
-        if (!generated.add(key)) return emptyList()
 
         val symbols = resolver
             .getSymbolsWithAnnotation(spec.annotation.qualifiedName!!)
             .filterIsInstance<KSClassDeclaration>()
             .toList()
+
+        println(symbols)
 
         val invalid = symbols.filterNot { spec.validate(it, logger) }
         if (invalid.isNotEmpty()) return invalid
@@ -39,6 +38,8 @@ abstract class BaseTemplateProcessor(
         if (symbols.isEmpty() && !spec.generateWhenEmpty) return emptyList()
 
         val values = spec.collect(symbols)
+        if (values.isEmpty()) return emptyList()
+
         val template = TemplateEngine.loadTemplate(spec.template)
         val code = TemplateEngine.render(template, values)
 
@@ -58,6 +59,10 @@ abstract class BaseTemplateProcessor(
         ).use {
             OutputStreamWriter(it, Charsets.UTF_8).use { w -> w.write(code) }
         }
+
+        generated = true
+
+        println("Generated ${spec.template} with ${symbols.size} ${spec.annotation.simpleName} annotations.")
 
         return emptyList()
     }

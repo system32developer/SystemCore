@@ -2,20 +2,21 @@ import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 plugins {
     kotlin("jvm") version "2.2.0"
     id("com.gradleup.shadow") version "8.3.2"
-    `java-library`
     id("org.jetbrains.dokka") version "2.0.0"
     id("com.google.devtools.ksp") version "2.2.0-2.0.2"
-    id("com.system32dev.autoversion") version "1.0.0"
+    //id("com.system32dev.autoversion") version "1.0.0"
     id("com.vanniktech.maven.publish") version "0.34.0"
+
+    `java-library`
 }
 
 group = "com.system32dev"
-//version = "2.0.4-beta"
+version = "2.0.5-beta"
 
-autoversion {
+/*autoversion {
     owner = "system32developer"
     repo = "SystemCore"
-}
+}*/
 
 repositories {
     mavenCentral()
@@ -40,7 +41,6 @@ dependencies {
     api("org.mariadb.jdbc:mariadb-java-client:3.5.6")
     api("com.zaxxer:HikariCP:7.0.2")
     implementation("com.google.devtools.ksp:symbol-processing-api:1.5.30-1.0.0")
-
 }
 
 val targetJavaVersion = 21

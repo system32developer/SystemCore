@@ -39,10 +39,12 @@ object SystemRegistriesSpec : ProcessorSpec(
         return true
     }
 
-    override fun collect(symbols: List<KSClassDeclaration>): Map<String, String> =
-        mapOf(
+    override fun collect(symbols: List<KSClassDeclaration>): Map<String, String> {
+        if (symbols.isEmpty()) return emptyMap()
+        return mapOf(
             "registries" to symbols.joinToString(",\n") {
-                it.simpleName.asString()
+                it.qualifiedName!!.asString()
             }
         )
+    }
 }
