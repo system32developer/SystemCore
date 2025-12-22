@@ -4,19 +4,17 @@ plugins {
     id("com.gradleup.shadow") version "8.3.2"
     id("org.jetbrains.dokka") version "2.0.0"
     id("com.google.devtools.ksp") version "2.2.0-2.0.2"
-    //id("com.system32dev.autoversion") version "1.0.0"
+    id("com.system32dev.autoversion") version "1.0.0"
     id("com.vanniktech.maven.publish") version "0.34.0"
-
     `java-library`
 }
 
 group = "com.system32dev"
-version = "2.0.5-beta"
 
-/*autoversion {
+autoversion {
     owner = "system32developer"
     repo = "SystemCore"
-}*/
+}
 
 repositories {
     mavenCentral()
