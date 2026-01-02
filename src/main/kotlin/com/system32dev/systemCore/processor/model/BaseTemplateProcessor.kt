@@ -30,8 +30,6 @@ abstract class BaseTemplateProcessor(
             .filterIsInstance<KSClassDeclaration>()
             .toList()
 
-        println(symbols)
-
         val invalid = symbols.filterNot { spec.validate(it, logger) }
         if (invalid.isNotEmpty()) return invalid
 
@@ -61,8 +59,6 @@ abstract class BaseTemplateProcessor(
         }
 
         generated = true
-
-        println("Generated ${spec.template} with ${symbols.size} ${spec.annotation.simpleName} annotations.")
 
         return emptyList()
     }

@@ -94,7 +94,7 @@ data class ConfigItem(
             val glow = node.node("glow").getBoolean(false)
             val customModelData = node.node("customModelData").getInt(0)
             val actions = node.node("actions").getList(String::class.java)?.toMutableList() ?: mutableListOf()
-            val slot = node.node("slot").getList(Int::class.java)?.toList() ?: listOf()
+            val slot = node.node("slot").getList(Int::class.javaObjectType)?.toList() ?: listOf()
             return ConfigItem(
                 amount = amount,
                 material = material,

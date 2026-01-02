@@ -62,15 +62,9 @@ fun tag(vararg tags: Pair<String, Any>): TagResolver {
 
 fun color(input: String, tag: TagResolver? = null): Component {
     if (input.isEmpty()) return Component.empty()
-    var message = input
-    if(input.contains("§")) message = input.replace("§", "&")
-    if(input.contains("&")) {
-        message = mini.serialize(LegacyComponentSerializer.legacyAmpersand().deserialize(message)).replace("\\", "")
-    }
-    if(input.startsWith("<center>")) {
-        val centered = centerMessage(message.replace("<center>", ""))
-        message = centered
-    }
+    var message = input.replace("§", "&")
+    if(message.contains("&")) message = mini.serialize(LegacyComponentSerializer.legacyAmpersand().deserialize(message)).replace("\\", "")
+    if(message.startsWith("<center>")) message = centerMessage(message.replace("<center>", ""))
     val component = if(tag != null) mini.deserialize(message, tag) else mini.deserialize(message)
     return component.decorationIfAbsent(TextDecoration.ITALIC, TextDecoration.State.FALSE)
 }
