@@ -56,9 +56,6 @@ tasks {
     }
 }
 
-tasks.named<ShadowJar>("shadowJar") {
-    minimize()
-}
 
 tasks.register<Jar>("sourcesJar") {
     archiveClassifier.set("sources")

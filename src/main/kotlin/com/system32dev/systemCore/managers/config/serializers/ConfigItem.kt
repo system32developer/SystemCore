@@ -123,7 +123,7 @@ data class ConfigItem(
             if (!obj.glow) node.node("glow").set(null) else node.node("glow").set(obj.glow)
             if (obj.customModelData != 0) node.node("customModelData").set(obj.customModelData) else node.node("customModelData").set(null)
             if (obj.actions.isNotEmpty()) node.node("actions").setList(String::class.java, obj.actions) else node.node("actions").set(null)
-            if(obj.slot.isNotEmpty()) node.node("slot").setList(Int::class.java,obj.slot) else node.node("slot").set(null)
+            if(obj.slot.isNotEmpty()) node.node("slot").setList(Int::class.javaObjectType,obj.slot) else node.node("slot").set(null)
         }
     }
 }
