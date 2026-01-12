@@ -3,12 +3,14 @@ package com.system32dev.systemCore.managers
 import com.system32dev.systemCore.SystemCore
 import com.system32dev.systemCore.processor.annotations.Service
 import com.system32dev.systemCore.processor.model.PluginService
+import com.system32dev.systemCore.utils.tasks.taskLater
 import org.bukkit.Location
 import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.player.PlayerMoveEvent
 import java.util.UUID
+import java.util.concurrent.TimeUnit
 
 
 object MovementManager: Listener {
@@ -23,6 +25,11 @@ object MovementManager: Listener {
         if (!cache.contains(player.uniqueId)) {
             cache.add(player.uniqueId)
         }
+    }
+
+    fun disallowFor(player: Player, duration: Int, unit: TimeUnit) {
+        disallow(player)
+        taskLater(duration, unit) { allow(player) }
     }
 
     fun allow(player: Player) {
