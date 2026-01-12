@@ -3,6 +3,7 @@ package com.system32dev.systemCore.utils
 import com.system32dev.systemCore.Metrics
 import com.system32dev.systemCore.SystemCore
 import com.system32dev.systemCore.utils.tasks.taskAsync
+import org.bukkit.NamespacedKey
 import org.bukkit.plugin.Plugin
 import org.bukkit.plugin.java.JavaPlugin
 import java.io.IOException
@@ -35,4 +36,8 @@ fun version(resourceId: Int, onLatest: () -> Unit = {}, onOutdated: (latestVersi
 
 fun metrics(id: Int, plugin: JavaPlugin) : Metrics {
     return Metrics(plugin, id)
+}
+
+fun key(key: String): NamespacedKey {
+    return NamespacedKey(SystemCore.plugin, key)
 }

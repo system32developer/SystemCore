@@ -58,6 +58,13 @@ object ActionRegistry {
             true
         }
 
+        register("MESSAGE-TO") { _, data, _ ->
+            val target = Bukkit.getPlayerExact(data.split(" ")[0]) ?: return@register true
+            val message = data.substringAfter(" ")
+            target.sendMessage(color(message))
+            true
+        }
+
         register("CLOSE") { player, data, _ ->
             player.closeInventory()
             true
