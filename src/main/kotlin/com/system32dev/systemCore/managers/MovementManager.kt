@@ -3,6 +3,7 @@ package com.system32dev.systemCore.managers
 import com.system32dev.systemCore.SystemCore
 import com.system32dev.systemCore.processor.annotations.Service
 import com.system32dev.systemCore.processor.model.PluginService
+import com.system32dev.systemCore.utils.tasks.TaskUnit
 import com.system32dev.systemCore.utils.tasks.taskLater
 import org.bukkit.Location
 import org.bukkit.entity.Player
@@ -27,7 +28,7 @@ object MovementManager: Listener {
         }
     }
 
-    fun disallowFor(player: Player, duration: Int, unit: TimeUnit) {
+    fun disallowFor(player: Player, duration: Int, unit: TaskUnit) {
         disallow(player)
         taskLater(duration, unit) { allow(player) }
     }

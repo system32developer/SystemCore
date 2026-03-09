@@ -1,6 +1,7 @@
 package com.system32dev.systemCore.managers.actions
 
 import com.system32dev.systemCore.utils.color
+import com.system32dev.systemCore.utils.tasks.TaskUnit
 import com.system32dev.systemCore.utils.tasks.taskLater
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.title.Title
@@ -80,7 +81,7 @@ object ActionRegistry {
 
         register("DELAY") { _, data, next ->
             val delayTicks = data.toIntOrNull() ?: 1
-            taskLater(delayTicks, TimeUnit.SECONDS) { next() }
+            taskLater(delayTicks, TaskUnit.SECONDS) { next() }
             false
         }
 

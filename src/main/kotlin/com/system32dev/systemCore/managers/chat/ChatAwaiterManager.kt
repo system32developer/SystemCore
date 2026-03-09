@@ -1,8 +1,13 @@
 package com.system32dev.systemCore.managers.chat
 
 import com.system32dev.systemCore.SystemCore
+import com.system32dev.systemCore.managers.enchantments.CustomEnchant
 import com.system32dev.systemCore.utils.asText
+import com.system32dev.systemCore.utils.color
 import io.papermc.paper.event.player.AsyncChatEvent
+import io.papermc.paper.registry.RegistryKey
+import io.papermc.paper.registry.keys.ItemTypeKeys
+import io.papermc.paper.registry.set.RegistrySet
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import java.util.function.Consumer

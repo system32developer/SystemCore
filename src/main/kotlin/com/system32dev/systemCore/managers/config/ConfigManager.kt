@@ -16,8 +16,7 @@ import java.io.File
 class ConfigManager(
     private val baseFolder: File = SystemCore.plugin.dataFolder
 ) {
-
-    private val plugin = SystemCore.plugin
+    
     private val configs = mutableMapOf<String, ConfigHolder<out Any>>()
     private val serializers = TypeSerializerCollection.builder()
 
@@ -77,7 +76,7 @@ class ConfigManager(
                 try {
                     file.createNewFile()
                 } catch (e: Exception) {
-                    plugin.logger.severe("Error creating config file '${holder.name}': ${e.message}")
+                    println("Error creating config file '${holder.name}': ${e.message}")
                     e.printStackTrace()
                 }
             }
@@ -94,7 +93,7 @@ class ConfigManager(
             val node = try {
                 loader.load()
             } catch (e: Exception) {
-                plugin.logger.severe("Error loading config '${holder.name}': ${e.message}")
+                println("Error loading config '${holder.name}': ${e.message}")
                 e.printStackTrace()
                 loader.createNode()
             }
@@ -102,7 +101,7 @@ class ConfigManager(
             val loaded = try {
                 node.get(holder.clazz) ?: holder.default
             } catch (e: Exception) {
-                plugin.logger.severe("Error parsing config '${holder.name}': ${e.message}")
+                println("Error parsing config '${holder.name}': ${e.message}")
                 e.printStackTrace()
                 holder.default
             }
@@ -120,13 +119,22 @@ class ConfigManager(
         }
     }
 
-
     @Suppress("UNCHECKED_CAST")
     fun <T : Any> get(name: String): T? {
         return configs[name]?.instance as? T
     }
 
     fun remove(name: String) {
+        val holder = configs[name] ?: return
+
+        try {
+            holder.node?.set(holder.clazz, holder.instance)
+            holder.loader?.save(holder.node)
+        } catch (e: Exception) {
+            println("Error saving config '$name' during unload: ${e.message}")
+            e.printStackTrace()
+        }
+
         configs.remove(name)
     }
 
@@ -136,7 +144,7 @@ class ConfigManager(
             holder.node?.set(holder.clazz, holder.instance)
             holder.loader?.save(holder.node)
         } catch (e: Exception) {
-            plugin.logger.severe("Error saving config '$name': ${e.message}")
+            println("Error saving config '$name': ${e.message}")
             e.printStackTrace()
         }
     }
@@ -152,7 +160,7 @@ class ConfigManager(
             typedHolder.instance = loaded
 
         } catch (e: Exception) {
-            plugin.logger.severe("Error reloading config '$name': ${e.message}")
+            println("Error reloading config '$name': ${e.message}")
             e.printStackTrace()
         }
     }
