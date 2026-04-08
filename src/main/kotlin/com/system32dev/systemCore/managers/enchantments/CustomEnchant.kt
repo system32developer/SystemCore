@@ -48,7 +48,7 @@ import java.util.function.Consumer
  */
 abstract class CustomEnchant(
     val id: String,
-    val name: Component,
+    val name: Component = Component.empty(),
     val maxLevel: Int,
     val supportedItems: Set<TypedKey<ItemType>>,
     val exclusiveWith: Set<String> = emptySet()
@@ -81,8 +81,6 @@ abstract class CustomEnchant(
             .anvilCost(EnchantBalance.anvilCost(maxLevel))
             .minimumCost(EnchantBalance.minCost(maxLevel))
             .maximumCost(EnchantBalance.maxCost(maxLevel))
-            .minimumCost(EnchantmentRegistryEntry.EnchantmentCost.of(1, 1))
-            .maximumCost(EnchantmentRegistryEntry.EnchantmentCost.of(3, 1))
             .activeSlots(EquipmentSlotGroup.ANY)
             .supportedItems(RegistrySet.keySet(RegistryKey.ITEM, supportedItems))
 

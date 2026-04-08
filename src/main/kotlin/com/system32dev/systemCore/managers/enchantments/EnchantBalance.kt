@@ -19,12 +19,12 @@ object EnchantBalance {
         2 -> CostData(
             minBase = 5,
             step = 20,
-            maxOffset = 40
+            maxOffset = 32
         )
         3 -> CostData(
             minBase = 5,
             step = 10,
-            maxOffset = 35
+            maxOffset = 15
         )
         4 -> CostData(
             minBase = 1,
@@ -34,7 +34,7 @@ object EnchantBalance {
         else -> CostData(
             minBase = 1,
             step = 10,
-            maxOffset = 35
+            maxOffset = 20
         )
     }
 
@@ -55,16 +55,16 @@ object EnchantBalance {
     }
 
     fun weight(maxLevel: Int): Int = when (maxLevel) {
-        1 -> 2
-        2 -> 5
+        1 -> 1
+        2 -> 2
         3 -> 2
-        4 -> 8
-        else -> 10
+        4 -> 10
+        else -> 12
     }
 
     fun anvilCost(maxLevel: Int): Int = when (maxLevel) {
-        1 -> 4
-        2 -> 2
+        1 -> 8
+        2 -> 10
         3 -> 4
         else -> 1
     }

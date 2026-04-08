@@ -4,6 +4,7 @@ import com.system32dev.systemCore.SystemCore
 import com.system32dev.systemCore.managers.config.serializers.ConfigItem
 import com.system32dev.systemCore.managers.config.serializers.Feedback
 import com.system32dev.systemCore.managers.config.serializers.LocationSerializer
+import com.system32dev.systemCore.managers.config.serializers.Range
 import com.system32dev.systemCore.managers.config.serializers.RemoteConnectionData
 import org.bukkit.Location
 import org.spongepowered.configurate.ConfigurationNode
@@ -29,6 +30,7 @@ class ConfigManager(
         serializer(Feedback::class.java to Feedback.Serializer())
         serializer(RemoteConnectionData::class.java to RemoteConnectionData.Serializer())
         serializer(ConfigItem::class.java to ConfigItem.Serializer())
+        serializer(Range::class.java to Range.Serializer())
     }
 
     fun <T : Any> config(
