@@ -3,8 +3,9 @@ package com.system32dev.systemCore.utils
 import com.system32dev.systemCore.Metrics
 import com.system32dev.systemCore.SystemCore
 import com.system32dev.systemCore.utils.tasks.taskAsync
+import org.bukkit.Bukkit
+import org.bukkit.Location
 import org.bukkit.NamespacedKey
-import org.bukkit.plugin.Plugin
 import org.bukkit.plugin.java.JavaPlugin
 import java.io.IOException
 import java.net.URL
@@ -40,4 +41,12 @@ fun metrics(id: Int, plugin: JavaPlugin) : Metrics {
 
 fun key(key: String): NamespacedKey {
     return NamespacedKey(SystemCore.plugin, key)
+}
+
+fun locationOf(x: Int, y: Int, z: Int): Location {
+    return locationOf(x.toDouble(), y.toDouble(), z.toDouble())
+}
+
+fun locationOf(x: Double, y: Double, z: Double): Location {
+    return Location(Bukkit.getWorlds().first(), x, y, z)
 }

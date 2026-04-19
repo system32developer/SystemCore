@@ -1,6 +1,8 @@
 package com.system32dev.systemCore.utils
 
 import com.system32dev.systemCore.SystemCore
+import net.kyori.adventure.text.Component
+import org.bukkit.Bukkit
 import java.io.File
 import java.io.FileWriter
 import java.io.PrintWriter
@@ -66,7 +68,7 @@ class Debug(
     private fun write(level: Level, message: String) {
         if (level.ordinal < minLevel.ordinal) return
         val line = "[${LocalDateTime.now().format(timeFormatter)}] [${level.name.padEnd(5)}] $message"
-        if (printToConsole) println(line)
+        if (printToConsole) Bukkit.broadcast(Component.text(line))
         writer.println(line)
         writer.flush()
         if (++linesWritten >= maxLinesPerFile) rotate()

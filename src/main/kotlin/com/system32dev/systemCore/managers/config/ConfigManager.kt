@@ -15,8 +15,17 @@ import org.spongepowered.configurate.yaml.YamlConfigurationLoader
 import java.io.File
 
 class ConfigManager(
-    private val baseFolder: File = SystemCore.plugin.dataFolder
+    private var baseFolder: File = SystemCore.plugin.dataFolder
 ) {
+
+    /**
+     * This creates a folder inside baseFolder and uses it as a new base
+     */
+    fun subFolderOf(name: String){
+        val subFolder = File(baseFolder, name)
+        subFolder.mkdirs()
+        baseFolder = subFolder
+    }
     
     private val configs = mutableMapOf<String, ConfigHolder<out Any>>()
     private val serializers = TypeSerializerCollection.builder()
@@ -31,6 +40,15 @@ class ConfigManager(
         serializer(RemoteConnectionData::class.java to RemoteConnectionData.Serializer())
         serializer(ConfigItem::class.java to ConfigItem.Serializer())
         serializer(Range::class.java to Range.Serializer())
+    }
+
+    fun <T: Any>  configAllExisting(clazz: Pair<Class<T>, T>){
+        baseFolder.listFiles { file -> file.isFile && file.extension == "yml" }?.forEach { file ->
+            val name = file.nameWithoutExtension
+            if (!configs.containsKey(name)) {
+                config(name, clazz)
+            }
+        }
     }
 
     fun <T : Any> config(
@@ -55,10 +73,10 @@ class ConfigManager(
      * Serializer Example:
      * ```kotlin
      * class CustomTypeSerializer : TypeSerializer<CustomType> {
-     *     override fun deserialize(type: Type?, node: ConfigurationNode?): CustomType? {
+     *     override fun deserialize(type: Type, node: ConfigurationNode): CustomType? {
      *         // Implement deserialization logic
      *     }
-     *     override fun serialize(type: Type?, obj: CustomType?, node: ConfigurationNode?) {
+     *     override fun serialize(type: Type, obj: CustomType?, node: ConfigurationNode) {
      *     // Implement serialization logic
      *     }
      * }
