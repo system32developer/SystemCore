@@ -55,7 +55,16 @@ private val mini = MiniMessage.miniMessage()
 fun tag(vararg tags: Pair<String, Any>): TagResolver {
     return TagResolver.resolver(
         tags.map { (placeholder, value) ->
-            TagResolver.resolver(placeholder, Tag.selfClosingInserting(color(value.toString())))
+
+            val component = when (value) {
+                is Component -> value
+                else -> color(value.toString())
+            }
+
+            TagResolver.resolver(
+                placeholder,
+                Tag.selfClosingInserting(component)
+            )
         }
     )
 }
