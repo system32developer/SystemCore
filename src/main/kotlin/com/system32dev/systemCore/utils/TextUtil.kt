@@ -69,6 +69,14 @@ fun tag(vararg tags: Pair<String, Any>): TagResolver {
     )
 }
 
+fun List<String>.replace(vararg variables: Pair<String, Any>): List<String> {
+    var result = this
+    for ((key, value) in variables) {
+        result = result.map { it.replace("<$key>", value.toString()) }
+    }
+    return result
+}
+
 fun color(input: String, tag: TagResolver? = null): Component {
     if (input.isEmpty()) return Component.empty()
     var message = input.replace("§", "&")
