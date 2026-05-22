@@ -61,11 +61,11 @@ class ActionManager(private val actions: Iterable<String>) {
 
     private fun applyPlaceholders(message: String, player: Player): String {
         val placeholders = mapOf(
-            "%player%" to player.name,
-            "%world%" to player.world.name,
-            "%x%" to player.location.blockX.toString(),
-            "%y%" to player.location.blockY.toString(),
-            "%z%" to player.location.blockZ.toString()
+            "<player>" to player.name,
+            "<world>" to player.world.name,
+            "<x>" to player.location.blockX.toString(),
+            "<y>" to player.location.blockY.toString(),
+            "<z>" to player.location.blockZ.toString()
         )
 
         var result = message
@@ -74,4 +74,8 @@ class ActionManager(private val actions: Iterable<String>) {
         }
         return result
     }
+}
+
+fun List<String>.toActionManager(player: Player) {
+    ActionManager(this).handle(player)
 }
