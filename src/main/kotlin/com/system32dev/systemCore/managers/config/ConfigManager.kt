@@ -15,23 +15,29 @@ import org.spongepowered.configurate.yaml.YamlConfigurationLoader
 import java.io.File
 
 class ConfigManager(
-    private var baseFolder: File = SystemCore.plugin.dataFolder
+    @PublishedApi
+    internal var baseFolder: File = SystemCore.plugin.dataFolder,
+    builder: (ConfigManager.() -> Unit)? = null
 ) {
 
     /**
      * This creates a folder inside baseFolder and uses it as a new base
      */
-    fun subFolderOf(name: String){
+    fun subFolderOf(name: String) {
         val subFolder = File(baseFolder, name)
         subFolder.mkdirs()
         baseFolder = subFolder
     }
-    
-    private val configs = mutableMapOf<String, ConfigHolder<out Any>>()
-    private val serializers = TypeSerializerCollection.builder()
+
+    @PublishedApi
+    internal val configs = mutableMapOf<String, ConfigHolder<*>>()
+    @PublishedApi
+    internal val serializers = TypeSerializerCollection.builder()
 
     init {
         registerDefaultSerializers()
+        builder?.invoke(this)
+        build()
     }
 
     private fun registerDefaultSerializers() {
@@ -42,61 +48,98 @@ class ConfigManager(
         serializer(Range::class.java to Range.Serializer())
     }
 
-    fun <T: Any>  configAllExisting(clazz: Pair<Class<T>, T>){
-        baseFolder.listFiles { file -> file.isFile && file.extension == "yml" }?.forEach { file ->
+    inline fun <reified T : Any> config(
+        name: String,
+        default: T
+    ): ConfigManager {
+        configs[name] = ConfigHolder(
+            name,
+            T::class.java,
+            default
+        )
+
+        return this
+    }
+
+    inline fun <reified T : Any> config(
+        name: String
+    ): ConfigManager {
+        val instance = T::class.java
+            .getDeclaredConstructor()
+            .newInstance()
+
+        configs[name] = ConfigHolder(
+            name,
+            T::class.java,
+            instance
+        )
+
+        return this
+    }
+
+    fun <T : Any> configAllExisting(clazz: Pair<Class<T>, T>) {
+        baseFolder.listFiles { file ->
+            file.isFile && file.extension == "yml"
+        }?.forEach { file ->
+
             val name = file.nameWithoutExtension
+
             if (!configs.containsKey(name)) {
-                config(name, clazz)
+                configs[name] = ConfigHolder(
+                    name,
+                    clazz.first,
+                    clazz.second
+                )
             }
         }
     }
 
-    fun <T : Any> config(
-        name: String,
-        clazz: Pair<Class<T>, T>
-    ): ConfigManager {
-        configs[name] = ConfigHolder(name, clazz.first, clazz.second)
-        return this
+    inline fun <reified T : Any> configAllExisting() {
+        val default = T::class.java
+            .getDeclaredConstructor()
+            .newInstance()
+
+        baseFolder.listFiles { file ->
+            file.isFile && file.extension == "yml"
+        }?.forEach { file ->
+
+            val name = file.nameWithoutExtension
+
+            if (!configs.containsKey(name)) {
+                configs[name] = ConfigHolder(
+                    name,
+                    T::class.java,
+                    default
+                )
+            }
+        }
     }
 
-    /**
-     * Registers a custom serializer for a specific type.
-     * @param type The class type to register the serializer for.
-     * @param serializer The serializer instance to handle the specified type.
-     * @return The current instance of ConfigManager for method chaining.
-     *
-     * Example:
-     * ```kotlin
-     * configManager.serializer(CustomType::class.java, CustomTypeSerializer())
-     * ```
-     *
-     * Serializer Example:
-     * ```kotlin
-     * class CustomTypeSerializer : TypeSerializer<CustomType> {
-     *     override fun deserialize(type: Type, node: ConfigurationNode): CustomType? {
-     *         // Implement deserialization logic
-     *     }
-     *     override fun serialize(type: Type, obj: CustomType?, node: ConfigurationNode) {
-     *     // Implement serialization logic
-     *     }
-     * }
-     * ```
-     */
+    fun <T : Any> serializer(
+        serializer: Pair<Class<T>, TypeSerializer<T>>
+    ): ConfigManager {
 
-    fun <T : Any> serializer(serializer: Pair<Class<T>, TypeSerializer<T>>): ConfigManager {
         serializers.register(serializer.first, serializer.second)
         return this
     }
 
-    fun build() {
+    private fun build() {
         configs.forEach { (_, holder) ->
-            val file = File(baseFolder, "${holder.name}.yml")
-            if (!baseFolder.exists()) baseFolder.mkdirs()
-            if(!file.exists()) {
+
+            @Suppress("UNCHECKED_CAST")
+            val typedHolder = holder as ConfigHolder<Any>
+
+            val file = File(baseFolder, "${typedHolder.name}.yml")
+
+            if (!baseFolder.exists()) {
+                baseFolder.mkdirs()
+            }
+
+            if (!file.exists()) {
                 try {
                     file.createNewFile()
                 } catch (e: Exception) {
-                    println("Error creating config file '${holder.name}': ${e.message}")
+                    println("Error creating config file '${typedHolder.name}': ${e.message}")
                     e.printStackTrace()
                 }
             }
@@ -104,52 +147,57 @@ class ConfigManager(
             val loader = YamlConfigurationLoader.builder()
                 .file(file)
                 .defaultOptions { opts ->
-                    opts.serializers { it.registerAll(serializers.build()) }.implicitInitialization(true)
+                    opts.serializers {
+                        it.registerAll(serializers.build())
+                    }.implicitInitialization(true)
                 }
                 .nodeStyle(NodeStyle.BLOCK)
                 .build()
 
-
             val node = try {
                 loader.load()
             } catch (e: Exception) {
-                println("Error loading config '${holder.name}': ${e.message}")
+                println("Error loading config '${typedHolder.name}': ${e.message}")
                 e.printStackTrace()
                 loader.createNode()
             }
 
             val loaded = try {
-                node.get(holder.clazz) ?: holder.default
+                node.get(typedHolder.clazz) ?: typedHolder.default
             } catch (e: Exception) {
-                println("Error parsing config '${holder.name}': ${e.message}")
+                println("Error parsing config '${typedHolder.name}': ${e.message}")
                 e.printStackTrace()
-                holder.default
+                typedHolder.default
             }
 
-            node.set(holder.clazz, loaded)
+            node.set(typedHolder.clazz, loaded)
             loader.save(node)
 
-            @Suppress("UNCHECKED_CAST")
-            val typedHolder = holder as ConfigHolder<Any>
-            typedHolder.apply {
-                this.loader = loader
-                this.node = node
-                this.instance = loaded
-            }
+            typedHolder.loader = loader
+            typedHolder.node = node
+            typedHolder.instance = loaded
         }
     }
 
     @Suppress("UNCHECKED_CAST")
-    fun <T : Any> get(name: String): T? {
+    inline fun <reified T : Any> get(name: String): T? {
         return configs[name]?.instance as? T
     }
 
     fun remove(name: String) {
         val holder = configs[name] ?: return
 
+        @Suppress("UNCHECKED_CAST")
+        val typedHolder = holder as ConfigHolder<Any>
+
         try {
-            holder.node?.set(holder.clazz, holder.instance)
-            holder.loader?.save(holder.node)
+            typedHolder.node?.set(
+                typedHolder.clazz,
+                typedHolder.instance
+            )
+
+            typedHolder.loader?.save(typedHolder.node)
+
         } catch (e: Exception) {
             println("Error saving config '$name' during unload: ${e.message}")
             e.printStackTrace()
@@ -160,9 +208,18 @@ class ConfigManager(
 
     fun save(name: String) {
         val holder = configs[name] ?: return
+
+        @Suppress("UNCHECKED_CAST")
+        val typedHolder = holder as ConfigHolder<Any>
+
         try {
-            holder.node?.set(holder.clazz, holder.instance)
-            holder.loader?.save(holder.node)
+            typedHolder.node?.set(
+                typedHolder.clazz,
+                typedHolder.instance
+            )
+
+            typedHolder.loader?.save(typedHolder.node)
+
         } catch (e: Exception) {
             println("Error saving config '$name': ${e.message}")
             e.printStackTrace()
@@ -171,11 +228,17 @@ class ConfigManager(
 
     fun reload(name: String) {
         val holder = configs[name] ?: return
+
+        @Suppress("UNCHECKED_CAST")
+        val typedHolder = holder as ConfigHolder<Any>
+
         try {
-            @Suppress("UNCHECKED_CAST")
-            val typedHolder = holder as ConfigHolder<Any>
             val node = typedHolder.loader?.load() ?: return
-            val loaded = node.get(typedHolder.clazz) ?: typedHolder.default
+
+            val loaded = node.get(
+                typedHolder.clazz
+            ) ?: typedHolder.default
+
             typedHolder.node = node
             typedHolder.instance = loaded
 
@@ -186,14 +249,15 @@ class ConfigManager(
     }
 
     fun saveAll() {
-        configs.keys.forEach { save(it) }
+        configs.keys.forEach(::save)
     }
 
     fun reloadAll() {
-        configs.keys.forEach { reload(it) }
+        configs.keys.forEach(::reload)
     }
 
-    private class ConfigHolder<T : Any>(
+    @PublishedApi
+    internal class ConfigHolder<T : Any>(
         val name: String,
         val clazz: Class<T>,
         val default: T,
