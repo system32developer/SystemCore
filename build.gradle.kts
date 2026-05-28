@@ -24,12 +24,13 @@ repositories {
     maven("https://oss.sonatype.org/content/groups/public/") {
         name = "sonatype"
     }
+    maven("https://repo.triumphteam.dev/snapshots")
 }
 
 dependencies {
     compileOnly("io.papermc.paper:paper-api:1.21.4-R0.1-SNAPSHOT")
     compileOnly("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-    api("dev.triumphteam:triumph-gui:3.1.13")
+    api("dev.triumphteam:triumph-gui:3.1.14-SNAPSHOT")
     api("io.github.revxrsal:lamp.common:4.0.0-rc.12")
     api("io.github.revxrsal:lamp.bukkit:4.0.0-rc.12")
     api("org.spongepowered:configurate-yaml:4.2.0")
